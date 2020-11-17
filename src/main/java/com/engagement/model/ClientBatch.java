@@ -24,7 +24,6 @@ public class ClientBatch {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int clientBatchId;
 	
-	
 	private int batchId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
