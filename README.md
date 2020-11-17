@@ -1,1 +1,3 @@
-# client-engagement-portal-back
+![Logo](https://cdn.discordapp.com/attachments/760248108495274024/778004613910888458/RevatureWithText.png)
+# Revature Client Engagement Portal Back End
+Head on over to the [Wiki](https://github.com/revaturelabs/client-engagement-portal-back/wiki) to get started!
