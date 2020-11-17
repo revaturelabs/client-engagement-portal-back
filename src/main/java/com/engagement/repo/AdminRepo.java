@@ -11,9 +11,5 @@ public interface AdminRepo extends JpaRepository<Admin,Integer>{
 	public Admin findByAdminId(Integer i);
 	
 	public Admin findByUsername(String username);
-	
-	public void delete(Admin a);
-	
-	public Admin update(Admin a);
 
 }
