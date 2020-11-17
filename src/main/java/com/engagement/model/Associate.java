@@ -2,8 +2,6 @@ package com.engagement.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -14,22 +12,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Admin {
+public class Associate {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int adminId;
+	private String salesForceId;
 
 	@Column(nullable = false, unique = true)
-	private String username;
+	private String email;
 
 	@Column(nullable = false)
-	private String password;
-
 	private String firstName;
 
+	@Column(nullable = false)
 	private String lastName;
-
-	private String email;
 
 }
