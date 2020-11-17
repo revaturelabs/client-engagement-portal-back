@@ -38,6 +38,9 @@ public class Client {
 	
 	private String phoneNumber;
 	
+	@OneToMany(mappedBy = "client")
+	private List<ClientBatch> clientBatches;
+	
 	
 	
 

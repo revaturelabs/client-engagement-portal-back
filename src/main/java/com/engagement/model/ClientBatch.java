@@ -2,6 +2,7 @@ package com.engagement.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +27,8 @@ public class ClientBatch {
 	
 	private int batchId;
 	
-	@ManyToOne
-	@JoinColumn
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "clientId")
 	private Client client;
 
 }
