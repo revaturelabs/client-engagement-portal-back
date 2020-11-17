@@ -38,6 +38,8 @@ public class Client {
 	
 	private String phoneNumber;
 	
+	
+	
 
 	
 //	@OneToMany(fetch = FetchType.LAZY)
