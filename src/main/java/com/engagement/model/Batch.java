@@ -1,5 +1,7 @@
 package com.engagement.model;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,6 @@ public class Batch {
     private int goodGrade;
     private int passingGrade;
     private int currentWeek;
-    private Object employeeAssignments[];
-    private Object associateAssignments[];
+    private List<EmployeeAssignment> employeeAssignments;
+    private List<AssociateAssignment> associateAssignments;
 }
