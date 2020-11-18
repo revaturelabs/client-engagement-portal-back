@@ -56,7 +56,14 @@ pipeline {
         }
         stage ('Remove Docker Container') {
             steps {
-                sh 'docker rm -f cep'
+                script {
+                    try {
+                        sh 'docker rm -f cep'
+                    } catch (all) {
+                        echo 'Docker Container does not exist'
+                    }
+                }
+                
             }
         }
         stage ('Docker Run') {
