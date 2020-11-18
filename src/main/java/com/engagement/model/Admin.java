@@ -21,16 +21,12 @@ public class Admin {
 	private int adminId;
 	
 	@Column(nullable = false, unique = true)
-	private String username;
-	
-	@Column(nullable = false)
-	private String password;
+	private String email;
 	
 	private String firstName;
 	
 	private String lastName;
 	
-	private String email;
 	
 
 }

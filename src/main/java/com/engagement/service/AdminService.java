@@ -17,8 +17,8 @@ public class AdminService {
 		
 	}
 	
-	public Admin findByUsername(String username) {
-		return adminRepository.findByUsername(username);
+	public Admin findByUsername(String email) {
+		return adminRepository.findByEmail(email);
 	}
 	
 	public boolean register(Admin admin) {
@@ -48,9 +48,9 @@ public class AdminService {
 	
 	
 	//TODO:  need further authentication implemented
-	public boolean login(String user, String pass) {
+	public boolean login(String email) {
 		boolean ret=false;
-		if (adminRepository.findByUsernameAndPassword (user,pass) != null )
+		if (adminRepository.findByEmail(email) != null )
 			ret=true;
 		else
 			ret=false;
