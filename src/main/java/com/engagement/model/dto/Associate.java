@@ -1,6 +1,4 @@
-package com.engagement.model;
-
-import javax.persistence.Entity;
+package com.engagement.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,12 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 public class Associate {
-
-	private String salesForceId;
+	
 	private String email;
+	private String salesfoceId;
 	private String firstName;
 	private String lastName;
+	private Grade[] grades;
 
 }
