@@ -30,11 +30,11 @@ public class AdminController {
 	
 	
 	@PostMapping("/login")
-	public ResponseEntity<?> login(@RequestParam String username, @RequestParam String password) {
-		if (as.login(username,password))
+	public ResponseEntity<?> login(@RequestParam String email) {
+		if (as.login(email))
 			 return new ResponseEntity<>("User logged succesfully!",HttpStatus.OK);
 		else
-			return new ResponseEntity<String>("Wrong username or password !!", HttpStatus.CONFLICT);
+			return new ResponseEntity<String>("Email not found", HttpStatus.CONFLICT);
 		
 	}
 	
