@@ -20,6 +20,6 @@ public class Batch {
     private int goodGrade;
     private int passingGrade;
     private int currentWeek;
-    private List<EmployeeAssignment> employeeAssignments;
-    private List<AssociateAssignment> associateAssignments;
+    private EmployeeAssignment employeeAssignments[];
+    private AssociateAssignment associateAssignments[];
 }
