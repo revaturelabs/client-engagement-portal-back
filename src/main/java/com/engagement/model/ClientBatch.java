@@ -21,7 +21,7 @@ public class ClientBatch {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int clientBatchId;
+	private String clientBatchId;
 	
 	private String batchId;
 	
