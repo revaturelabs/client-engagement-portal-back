@@ -31,6 +31,12 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
+		stage ('Check Console') {
+			steps {
+				sh 'ls'
+			}
+		}
+
         stage ('Run Spring App') {
             steps {
                 
