@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.engagement.model.Batch;
+import com.engagement.model.DTO.Batch;
 
 @FeignClient(value = "batch", url = "https://caliber2-mock.revaturelabs.com/mock/training/")
 public interface BatchClient {

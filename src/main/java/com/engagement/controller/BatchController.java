@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.client.BatchClient;
-import com.engagement.model.Batch;
+import com.engagement.model.DTO.Batch;
 
 @RestController
 @RequestMapping("/batch")
