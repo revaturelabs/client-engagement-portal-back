@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.engagement.model.Client;
 import com.engagement.service.ClientService;
 
+/**
+ * Controller that handles requests pertaining to clients
+ * @author Tucker Fritz
+ */
 @RestController
 @RequestMapping("/client")
 public class ClientController {
@@ -22,18 +26,32 @@ public class ClientController {
 	@Autowired
 	private ClientService cs;
 	
+	/**
+	 * Returns a list of all clients in the database
+	 * @return List of all clients
+	 */
 	@GetMapping
 	@ResponseBody
 	public List<Client> findAll() {
 		return cs.findAll();
 	}
 	
+	/**
+	 * Saves a client to the database
+	 * @param c A client to be saved to the database
+	 * @return Client that was saved
+	 */
 	@PostMapping
 	@ResponseBody
 	public Client save(@RequestBody Client c) {
 		return cs.save(c);
 	}
 	
+	/**
+	 * Find a client by clientId
+	 * @param id A clientId in the database
+	 * @return The client associated with id, null if nonexistant.
+	 */
 	@GetMapping("/id")
 	@ResponseBody
 	public Client findById(@RequestParam int id) {
@@ -44,6 +62,11 @@ public class ClientController {
 		return null;
 	}
 	
+	/**
+	 * Find a client by email
+	 * @param email An email pertaining to a client in the database
+	 * @return Client associated with id w/ default values if client is non-existant
+	 */
 	@GetMapping("/email")
 	@ResponseBody
 	public Client findByEmail(@RequestParam String email) {
