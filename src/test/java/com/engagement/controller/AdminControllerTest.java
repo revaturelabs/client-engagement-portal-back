@@ -37,12 +37,12 @@ class AdminControllerTest {
 
 	private AdminController ac;
 
-	private String mockAdminJson = "{'admin':[{'adminId':1 ,'email':'a@a.net','firstName':'admin',lastName':'adminson'}]}";
+	private String mockAdminJson = "{'adminId':0 ,'email':'a@a.net','firstName':'admin','lastName':'adminson'}";
 
 	@Test
 	void testCreateNewAdmin() throws Exception {
 		
-		this.mvc.perform(post("/new").content(mockAdminJson).accept(MediaType.APPLICATION_JSON))
+		this.mvc.perform(post("/admin/new").content(mockAdminJson).accept(MediaType.APPLICATION_JSON))
 		.andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("User succesfully created!")));
 		
 //		mvc.perform( MockMvcRequestBuilders.post("admin/new")
