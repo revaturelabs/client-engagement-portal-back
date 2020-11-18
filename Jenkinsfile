@@ -67,9 +67,14 @@ pipeline {
                 }
             }
         stage ('Docker Run') {
-            steps {
-                sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
+                     steps {
+                         sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
+                     }
+                 }
+          stage ('Docker Check Containers') {
+                steps {
+                    sh 'docker ps -a'
+                }
             }
-        }
      }
 }
