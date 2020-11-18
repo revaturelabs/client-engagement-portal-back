@@ -21,10 +21,10 @@ public class ClientService {
 		/**
 		 * Find a client by clientId
 		 * @param id A clientId in the database
-		 * @return an Optional<Client> object which may or may not contain a client
+		 * @return a Client associated with id
 		 */
-		public Optional<Client> findById(int id) {
-			return cr.findById(id);
+		public Client findByClientId(int id) {
+			return cr.findByClientId(id);
 		}
 		
 		/**

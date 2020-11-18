@@ -50,16 +50,12 @@ public class ClientController {
 	/**
 	 * Find a client by clientId
 	 * @param id A clientId in the database
-	 * @return The client associated with id, null if nonexistant.
+	 * @return The client associated with id
 	 */
 	@GetMapping("/id")
 	@ResponseBody
 	public Client findById(@RequestParam int id) {
-		Optional<Client> optClient = cs.findById(id);
-		if(optClient.isPresent()) {
-			return optClient.get();
-		}
-		return null;
+		return cs.findByClientId(id);
 	}
 	
 	/**

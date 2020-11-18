@@ -1,13 +1,16 @@
 package com.engagement.repo;
 
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.engagement.model.Client;
 
 /**
- * Repository for updating and retrieving info for clients
- * @author Tucker Fritz
+ * This is the repo interface for the Clients. 
+ *  Methods like findAll, save, delete, etc are all provided by the JpaRepository hierarchy
+ * @author enoch cho
+ * 
  *
  */
 @Repository
@@ -18,5 +21,14 @@ public interface ClientRepo extends JpaRepository<Client, Integer> {
 	 * @param email A client email in the database
 	 * @return Client associated with email param
 	 */
-	public Client findByEmail(String email);
+	Client findByEmail(String email);
+	
+	/**
+	 * Returns the specific client with the matching id
+	 * @param id
+	 * The int id of the client 
+	 * @return Returns a Client
+	 * 
+	 */
+	Client findByClientId(int id);
 }

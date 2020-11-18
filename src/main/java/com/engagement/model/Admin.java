@@ -15,21 +15,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Admin {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int adminId;
-
+	
 	@Column(nullable = false, unique = true)
-	private String username;
-
-	@Column(nullable = false)
-	private String password;
-
-	private String firstName;
-
-	private String lastName;
-
 	private String email;
+	
+	private String firstName;
+	
+	private String lastName;
+	
+	
 
 }
