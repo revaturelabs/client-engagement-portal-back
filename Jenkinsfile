@@ -51,7 +51,7 @@ pipeline {
         }
         stage ('Delete Docker Image') {
             steps {
-                sh 'docker rmi $(docker images -qa -f \'dangling=true\')'
+                sh 'docker rmi \$(docker images -qa -f \'dangling=true\')'
             }
         }
         stage ('Remove Docker Container') {
