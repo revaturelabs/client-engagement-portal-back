@@ -23,7 +23,7 @@ public class ClientBatch {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int clientBatchId;
 	
-	private int batchId;
+	private String batchId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "clientId")
