@@ -3,7 +3,7 @@ pipeline {
     
     environment{
          JENKINS_NODE_COOKIE = 'dontkillmeplease'
-        PORT=8081
+        PORT=9011
     } 
      stages {
       
@@ -31,12 +31,6 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
-		stage ('Check Console') {
-			steps {
-				sh 'ls /target'
-			}
-		}
-
         stage ('Run Spring App') {
             steps {
                 
