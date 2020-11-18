@@ -10,16 +10,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Batch {
-    private String batchId;
-    private String name;
-    private String startDate;
-    private String endDate;
-    private String skill;
-    private String location;
-    private String type;
-    private int goodGrade;
-    private int passingGrade;
-    private int currentWeek;
-    private List<EmployeeAssignment> employeeAssignments;
-    private List<AssociateAssignment> associateAssignments;
+     String batchId;
+     String name;
+     String startDate;
+     String endDate;
+     String skill;
+     String location;
+     String type;
+     int goodGrade;
+     int passingGrade;
+     int currentWeek;
+     List<EmployeeAssignment> employeeAssignments;
+     List<AssociateAssignment> associateAssignments;
 }
