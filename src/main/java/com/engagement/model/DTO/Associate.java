@@ -13,6 +13,6 @@ public class Associate {
 	private String salesfoceId;
 	private String firstName;
 	private String lastName;
-	private Grade grades;
+	private Grade[] grades;
 
 }
