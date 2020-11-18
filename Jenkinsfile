@@ -33,14 +33,14 @@ pipeline {
         }
 		stage ('Check Console') {
 			steps {
-				sh 'ls'
+				sh 'ls /target'
 			}
 		}
 
         stage ('Run Spring App') {
             steps {
                 
-            	sh 'nohup java -jar target/Client-Engagement-Portal-Back-0.0.1-SNAPSHOT.jar &'
+            	sh 'nohup java -jar target/Client-Engagement.jar &'
                //sh 'disown java -jar /home/ec2-user/.jenkins/workspace/Revature_Client_Engagement_Portal/target/cep-engagement-service-0.0.1-SNAPSHOT.jar &'
                 //Better user this one if we're unsure of the first one
                  
