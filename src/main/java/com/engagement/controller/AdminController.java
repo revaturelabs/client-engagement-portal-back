@@ -14,7 +14,7 @@ import com.engagement.service.AdminService;
 
 /**
  * AdminController --- backend endpoints for admin/*.
- * @author    Brooke Wursten
+ * @author    Brooke Wursten & Daniel Consantinescu
  */
 @RestController
 @RequestMapping("/admin")
