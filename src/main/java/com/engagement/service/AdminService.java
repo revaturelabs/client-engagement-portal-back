@@ -39,18 +39,13 @@ public class AdminService {
 		return adminRepository.save(admin);
 	}
 	
-	public boolean delete(Integer id) {
-	  
-	try {
-		
-	 adminRepository.deleteById(id);
-	}
-	catch (Exception e) {
-		e.fillInStackTrace();
-	}
-	 return true;
+	public void delete(Integer id) {
+	
+	 adminRepository.deleteById(id);			 
+
 	
 	}
+	
 	
 	//TODO:  need further authentication implemented
 	public boolean login(String user, String pass) {
@@ -64,16 +59,7 @@ public class AdminService {
 	}
 
 
-public boolean delete(String username) {
-	boolean ret=false;
-	if (adminRepository.deleteByUsername(username))
-		ret=true;
-		else
-			ret=false;
-			
-	return ret;
-		
-}
+
 }
 	
 

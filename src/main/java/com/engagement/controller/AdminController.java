@@ -38,6 +38,7 @@ public class AdminController {
 		
 	}
 	
+	//need to be send with id otherwise insert another object
 	@PostMapping("/update")
 	public ResponseEntity<?> update(@RequestBody Admin a) {
 		if (as.update(a) != null)
@@ -46,13 +47,15 @@ public class AdminController {
 			return new ResponseEntity<String>("Update failed", HttpStatus.CONFLICT);
 	}
 	
+	//delete doesn't return anything
 	@PostMapping("/delete")
-	public ResponseEntity<?> delete(String username) {
-		
-		if (as.delete(username))
-			return new ResponseEntity<String>("User deleted  succesfully!",HttpStatus.OK) ;
-		else
-			return new ResponseEntity<String>("Delete failed", HttpStatus.CONFLICT);
+	public ResponseEntity<?> delete(@RequestParam Integer id) {
+		if (as.findByAdminId(id) == null)
+			return new ResponseEntity<String>("User not found!",HttpStatus.CONFLICT) ;
+		else {
+			as.delete(id);
+			return new ResponseEntity<>(HttpStatus.OK) ;
+		}
 	}
 	}
 
