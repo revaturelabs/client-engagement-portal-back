@@ -1,8 +1,11 @@
 package com.engagement.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +26,12 @@ public class AdminController {
 	@Autowired
 	AdminService as;
 	
+	@GetMapping("/")
+	public List<Admin> findAll(){
+		return as.findAll();
+	}
+	
+	
 	/**
 	  * Creates a new Admin object and persists to the DB 
 	  * @param admin- the request body should contain a json 
@@ -30,8 +39,8 @@ public class AdminController {
 	  * @return ResponseEntity containing status code and message.
 	  */ 
 	@PostMapping("/new")
-	public ResponseEntity<String> create(@RequestBody Admin admin) {
-		if (as.register(admin)) 
+	public ResponseEntity<String> save(@RequestBody Admin admin) {
+		if (as.save(admin)) 
 			return new ResponseEntity<String>("User succesfully created!", HttpStatus.CREATED);
 		else 
 			return new ResponseEntity<String>("User creation failed!", HttpStatus.CONFLICT);
