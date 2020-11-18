@@ -63,7 +63,7 @@ pipeline {
         }
         stage ('Delete Docker Image') {
                 steps {
-                    sh 'docker rmi \$(docker images -qa -f \'dangling=true\')'
+                    sh 'docker image prune -a -f'
                 }
             }
         stage ('Docker Run') {
