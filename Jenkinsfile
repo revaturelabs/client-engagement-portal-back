@@ -49,11 +49,6 @@ pipeline {
                 sh 'docker build -t tyronev/ce-portal:v1 .'
             }
         }
-        stage ('Delete Docker Image') {
-            steps {
-                sh 'docker rmi \$(docker images -qa -f \'dangling=true\')'
-            }
-        }
         stage ('Remove Docker Container') {
             steps {
                 script {
@@ -66,6 +61,11 @@ pipeline {
                 
             }
         }
+        stage ('Delete Docker Image') {
+                steps {
+                    sh 'docker rmi \$(docker images -qa -f \'dangling=true\')'
+                }
+            }
         stage ('Docker Run') {
             steps {
                 sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
