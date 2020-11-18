@@ -1,6 +1,6 @@
-package com.engagement.model.DTO;
+package com.engagement.model.dto;
 
-import java.util.List;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +20,6 @@ public class Batch {
     private int goodGrade;
     private int passingGrade;
     private int currentWeek;
-    private List<EmployeeAssignment> employeeAssignments;
-    private List<AssociateAssignment> associateAssignments;
+    private EmployeeAssignment[] employeeAssignments;
+    private AssociateAssignment[] associateAssignments;
 }

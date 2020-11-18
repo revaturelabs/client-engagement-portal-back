@@ -1,4 +1,6 @@
-package com.engagement.model.DTO;
+package com.engagement.model.dto;
+
+import com.engagement.model.dto.Grade;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +15,6 @@ public class Associate {
 	private String salesfoceId;
 	private String firstName;
 	private String lastName;
-	private Grade grades;
+	private Grade[] grades;
 
 }
