@@ -7,12 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Associate {
-	
-	private String email;
-	private String salesfoceId;
-	private String firstName;
-	private String lastName;
-	private Grade grades;
+public class Grade {
 
+	private String assessmentType;
+	private double score;
+	private String traineeId;
+	private int week;
+	private int weight;
 }
