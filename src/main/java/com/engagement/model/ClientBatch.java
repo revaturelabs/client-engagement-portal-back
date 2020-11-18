@@ -1,6 +1,5 @@
 package com.engagement.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,7 +21,7 @@ public class ClientBatch {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int clientBatchId;
+	private String clientBatchId;
 	
 	private String batchId;
 	
