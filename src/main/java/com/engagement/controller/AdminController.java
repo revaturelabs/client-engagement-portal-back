@@ -21,6 +21,7 @@ public class AdminController {
 	
 	@PostMapping("/new")
 	public ResponseEntity<?> create(@RequestBody Admin a) {
+		System.out.println(a);
 		if (as.register(a)) 
 			return new ResponseEntity<String>("User succesfully created!", HttpStatus.OK);
 		else 

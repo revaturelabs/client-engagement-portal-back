@@ -23,7 +23,7 @@ public class AdminService {
 	
 	public boolean register(Admin admin) {
 	  boolean ret=false;
-		if ( adminRepository.save(admin) != null)
+	if ( adminRepository.save(admin) != null)
 		  ret= true;
 	  else
 		  ret=false;
