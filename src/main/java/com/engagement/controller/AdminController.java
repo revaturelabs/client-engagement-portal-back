@@ -49,13 +49,12 @@ public class AdminController {
 	 */
 	@PostMapping("/new")
 	public ResponseEntity<String> save(@RequestBody AdminDto admin) {
-		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(),
-				admin.getLastName());
+		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(), admin.getLastName());
 
 		if (as.save(persistentAdmin)) {
-			return new ResponseEntity<>("User succesfully created!", HttpStatus.CREATED);
+			return new ResponseEntity<>("User succesfully created", HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>("User creation failed!", HttpStatus.CONFLICT);
+			return new ResponseEntity<>("User creation failed", HttpStatus.CONFLICT);
 		}
 	}
 
@@ -69,16 +68,16 @@ public class AdminController {
 	@PutMapping("/update")
 	public ResponseEntity<String> update(@RequestBody AdminDto admin) {
 		Admin adminInDB = as.findByEmail(admin.getEmail());
-
-		if (adminInDB == null) {
-			return new ResponseEntity<>("Update failed", HttpStatus.CONFLICT);
+		
+		if (adminInDB == null) { // admin does not exist
+			return new ResponseEntity<>("User not found", HttpStatus.CONFLICT);
 		}
 		
 		int adminId = adminInDB.getAdminId();
 		Admin persistentAdmin = new Admin(adminId, admin.getEmail(), admin.getFirstName(), admin.getLastName());
 		
-		if (as.update(persistentAdmin) != null) {
-			return new ResponseEntity<>("User updated succesfully!", HttpStatus.ACCEPTED);
+		if (as.update(persistentAdmin) != null) { // admin successfully updated
+			return new ResponseEntity<>("User updated succesfully", HttpStatus.ACCEPTED);
 		} else {
 			return new ResponseEntity<>("Update failed", HttpStatus.CONFLICT);
 		}
@@ -93,8 +92,8 @@ public class AdminController {
 	 */
 	@DeleteMapping("/delete")
 	public ResponseEntity<String> delete(@RequestParam Integer id) {
-		if (as.findByAdminId(id) == null || id == null) {
-			return new ResponseEntity<>("User not found!", HttpStatus.CONFLICT);
+		if (as.findByAdminId(id) == null) { // admin does not exist
+			return new ResponseEntity<>("User not found", HttpStatus.CONFLICT);
 		} else {
 			as.delete(id);
 			return new ResponseEntity<>("User deleted", HttpStatus.OK);

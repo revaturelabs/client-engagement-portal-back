@@ -57,6 +57,7 @@ public class AdminService {
 	 * @return
 	 */
 	public boolean save(Admin admin) {		
+		// admin cannot be null
 		if (admin == null) {
 			return false;
 		}
@@ -75,6 +76,7 @@ public class AdminService {
 	 * @return
 	 */
 	public Admin update(Admin admin) {
+		// admin cannot be null
 		if (admin == null) {
 			return null;
 		}
@@ -93,6 +95,7 @@ public class AdminService {
 	 * @param id
 	 */
 	public void delete(Integer id) {
+		// id cannot be null
 		if (id == null) {
 			return;
 		}
