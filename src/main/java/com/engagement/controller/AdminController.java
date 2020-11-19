@@ -20,7 +20,7 @@ import com.engagement.service.AdminService;
  * @author    Brooke Wursten & Daniel Consantinescu
  */
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class AdminController {
 	
 	@Autowired

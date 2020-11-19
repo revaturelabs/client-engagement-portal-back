@@ -20,7 +20,7 @@ import com.engagement.service.ClientService;
  * @author Tucker Fritz
  */
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/api/client")
 public class ClientController {
 
 	@Autowired
