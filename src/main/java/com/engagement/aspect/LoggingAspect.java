@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * Aspect for logging execution of service and repository Spring components.
+ * Aspect for logging our application
  *
  */
 @Aspect
