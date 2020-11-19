@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
  * An associate is a trainee. 
  * This is used in the AssociatAssignment where more information about the trainee will be given.
  * 
- * @author Kelsy Iafrate
+ * @author Kelsey Iafrate
  */
 
 @Data

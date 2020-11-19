@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
  * An AssociateAssignment has a trainee and more information about their position in the organization.
  * This is used in the batch model as a collection of a batch's trainees. 
  *
- * @author Kelsy Iafrate
+ * @author Kelsey Iafrate
  */
 
 @Data
