@@ -1,5 +1,7 @@
 package com.engagement.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +23,9 @@ public class AdminService {
 		return adminRepository.findByEmail(email);
 	}
 	
-	public boolean register(Admin admin) {
+	public boolean save(Admin admin) {
 	  boolean ret=false;
-		if ( adminRepository.save(admin) != null)
+	if ( adminRepository.save(admin) != null)
 		  ret= true;
 	  else
 		  ret=false;
@@ -56,6 +58,10 @@ public class AdminService {
 			ret=false;
 		
 		return ret;
+	}
+
+	public List<Admin> findAll() {
+		return adminRepository.findAll();
 	}
 
 

@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 MAINTAINER experto.com
 VOLUME /tmp
-ADD target/cryptotracker.jar app.jar
+ADD target/Client-Engagement.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
-EXPOSE 8080
+EXPOSE 9011
