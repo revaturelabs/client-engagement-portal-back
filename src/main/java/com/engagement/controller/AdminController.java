@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Admin;
 import com.engagement.model.AdminDto;
+import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
 /**
@@ -99,4 +100,14 @@ public class AdminController {
 			return new ResponseEntity<>("User deleted", HttpStatus.OK);
 		}
 	}
+	
+	/**
+	 * Returns a list of all batches from Caliber API
+	 * @return List of all batch IDs and names
+	 */
+	@GetMapping("/batch/allNames")
+	public List<BatchName> getBatches() {
+		return as.getAllBatches();
+	}
+	
 }

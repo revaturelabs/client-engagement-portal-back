@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.engagement.model.Admin;
+import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
+import com.engagement.repo.caliber.TrainingClient;
 
 /**
  * 
@@ -18,11 +20,14 @@ import com.engagement.repo.AdminRepo;
 public class AdminService {
 
 	private AdminRepo ar;
+	
+	@Autowired
+	private TrainingClient bc;
 
 	@Autowired
 	public AdminService(AdminRepo ar) {
 		super();
-		this.ar = ar;
+		this.ar = ar;	
 	}
 	
 	/**
@@ -103,15 +108,13 @@ public class AdminService {
 		ar.deleteById(id);
 	}
 
-	// TODO: need further authentication implemented
-	public boolean login(String email) {
-		boolean ret = false;
-		if (ar.findByEmail(email) != null)
-			ret = true;
-		else
-			ret = false;
-
-		return ret;
+	/*
+	 * Returns a list of all batches from Caliber API
+	 * @return List of all batch IDs and names
+	 */
+	public List<BatchName> getAllBatches() {
+		List<BatchName> batches = bc.getBatches();
+		return batches;
 	}
 
 }

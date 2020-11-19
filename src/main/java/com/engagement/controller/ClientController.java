@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Client;
+import com.engagement.model.dto.Batch;
 import com.engagement.service.ClientService;
 
 /**
@@ -46,6 +47,7 @@ public class ClientController {
 		return cs.save(c);
 	}
 	
+
 	/**
 	 * Find a client by clientId
 	 * @param id A clientId in the database
@@ -67,4 +69,16 @@ public class ClientController {
 	public Client findByEmail(@RequestParam String email) {
 		return cs.findByEmail(email);
 	}
+	
+	/**
+	 * Find all information about a branch by the batch id
+	 * @param batchId: The identifier in Caliber to identify a batch
+	 * @return Returns the Batch associated with the batchId
+	 */
+
+	@GetMapping("/batch/{batchId}")
+	public Batch getBatchById(String batchId) {
+		return cs.getBatchByBatchId(batchId);
+	}
+	
 }
