@@ -1,6 +1,5 @@
 package com.engagement.repo;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -31,4 +30,7 @@ public interface ClientRepo extends JpaRepository<Client, Integer> {
 	 * 
 	 */
 	Client findByClientId(int id);
+
+	public boolean deleteByEmail(String email);
+
 }

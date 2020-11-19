@@ -1,5 +1,7 @@
 package com.engagement.model.dto;
 
+import com.engagement.model.dto.Grade;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
