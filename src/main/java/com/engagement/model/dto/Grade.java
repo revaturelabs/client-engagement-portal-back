@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
  * A grade is a score a trainee received during training.
  * This will be used in a Trainee object as a list of the grades they have received during training.
  *
- * @author Kelsy Iafrate
+ * @author Kelsey Iafrate
  */
 
 @Data
