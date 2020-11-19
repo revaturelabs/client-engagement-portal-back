@@ -48,11 +48,12 @@ public class ClientController {
 		return cs.save(c);
 	}
 	
-//	/**
-//	 * Find a client by clientId
-//	 * @param id A clientId in the database
-//	 * @return The client associated with id
-//	 */
+
+	/**
+	 * Find a client by clientId
+	 * @param id A clientId in the database
+	 * @return The client associated with id
+	 */
 //	@GetMapping("/id")
 //	@ResponseBody
 //	public Client findById(@RequestParam int id) {

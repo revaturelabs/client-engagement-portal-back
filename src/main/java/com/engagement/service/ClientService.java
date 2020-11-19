@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.engagement.model.Client;
 import com.engagement.repo.ClientRepo;
+import org.springframework.stereotype.Service;
 
 /**
  * Service for handling business logic of client requests
@@ -37,13 +38,14 @@ public class ClientService {
 		@Autowired
 		private GradeClient gc;
 		
-//		/**
-//		 * Find a client by clientId
-//		 * @param id A clientId in the database
-//		 * @return a Client associated with id
-//		 */
+
+		/**
+		 * Find a client by clientId
+		 * @param id A clientId in the database
+		 * @return a Client associated with id
+		 */
 //		public Client findByClientId(int id) {
-//			return cr.findById(id);
+//			return cr.findByClientId(id);
 //		}
 		
 		/**

@@ -21,7 +21,7 @@ jobs:
           -Dsonar.projectKey=revaturelabs_client-engagement-portal-back
           -Dsonar.organization=revaturelabs-screenforce
           -Dsonar.host.url=https://sonarcloud.io
-          -Dsonar.login=$SONAR_TOKEN
+          -Dsonar.login=$CLIENTTEST
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.CLIENTTEST }}
