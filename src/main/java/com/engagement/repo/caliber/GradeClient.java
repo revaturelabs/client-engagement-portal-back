@@ -3,12 +3,10 @@ package com.engagement.repo.caliber;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.Grade;
 
 /**
@@ -19,19 +17,13 @@ import com.engagement.model.dto.Grade;
 
 @FeignClient(value = "grades", url = "https://caliber2-mock.revaturelabs.com/mock/evaluation/grades/")
 public interface GradeClient {
-	
-	
 
 	/**
 	 * This method gets all the grades of every trainee in a batch by batch id.
 	 * @param id: batch id, who would have guessed based off the Caliber API? Nobody.
 	 * @return List<Grade> is the list of all grades for the associates in the specified batch.
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/batch/{id}")
-	List<Grade> getGradesByBatchId(@SpringQueryMap String id);
-	
-//	@RequestMapping(method = RequestMethod.GET, value = "/batch/{batchId}")
-//	List<Batch> getBatchById(@PathVariable("batchId") String batchId);
+	@RequestMapping(method = RequestMethod.GET, value = "/batch/{batchId}", consumes = "application/json")
+	List<Grade> getGradesByBatchId(@PathVariable("batchId") String batchId);
 
 }
-

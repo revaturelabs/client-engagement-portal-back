@@ -92,7 +92,7 @@ public class ClientService {
 			
 			Params params = new Params();
 			params.setId(batchId);
-			List<Grade> grades = gc.getGradesByBatchId(params); //gets all of the grades associated with the batch.
+			List<Grade> grades = gc.getGradesByBatchId(batchId); //gets all of the grades associated with the batch.
 			System.out.println(grades);
 			/**
 			 * For every grade, check if its traineeId equals any salesForceId of an associate of the batch.
