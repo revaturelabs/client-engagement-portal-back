@@ -1,0 +1,43 @@
+2020-11-19 17:32:25,402 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on enochcho-pc with PID 17724 (C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back\target\classes started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
+2020-11-19 17:32:25,406 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-19 17:32:25,407 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-19 17:32:25,533 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-19 17:32:25,533 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-19 17:32:26,580 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-19 17:32:26,665 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 71 ms. Found 3 JPA repository interfaces.
+2020-11-19 17:32:27,007 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=acd27a05-3c07-3c5c-b021-4a43eebac85b
+2020-11-19 17:32:27,938 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-19 17:32:27,952 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-19 17:32:27,954 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-19 17:32:27,954 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-19 17:32:28,137 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-19 17:32:28,138 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2603 ms
+2020-11-19 17:32:28,208 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2020-11-19 17:32:29,082 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2020-11-19 17:32:29,092 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-19 17:32:29,275 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-19 17:32:29,369 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-19 17:32:29,504 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2020-11-19 17:32:29,730 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-19 17:32:30,055 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-11-19 17:32:30,291 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-11-19 17:32:30,420 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-19 17:32:30,737 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9011"]
+2020-11-19 17:32:30,784 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9011 (http) with context path ''
+2020-11-19 17:32:30,973 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-19 17:32:32,410 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-19 17:32:32,421 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-19 17:32:32,756 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-19 17:32:32,769 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 8.178 seconds (JVM running for 10.004)
+2020-11-19 17:32:41,225 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9011-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-19 17:32:41,226 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9011-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-11-19 17:32:41,228 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9011-exec-1] Completed initialization in 1 ms
+2020-11-19 17:32:41,259 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Enter: com.engagement.controller.AdminController.findAll() with argument[s] = []
+2020-11-19 17:32:41,275 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Enter: com.engagement.service.AdminService.findAll() with argument[s] = []
+2020-11-19 17:32:41,603 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Exit: com.engagement.service.AdminService.findAll() with result = [Admin(adminId=1, email=kelsey@kelsey, firstName=Kelsey, lastName=Iafrate), Admin(adminId=6, email=john@john, firstName=johnny, lastName=doe)]
+2020-11-19 17:32:41,605 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Exit: com.engagement.controller.AdminController.findAll() with result = [Admin(adminId=1, email=kelsey@kelsey, firstName=Kelsey, lastName=Iafrate), Admin(adminId=6, email=john@john, firstName=johnny, lastName=doe)]
+2020-11-19 17:33:06,174 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(9)-127.0.0.1] Application shutdown requested.
+2020-11-19 17:33:06,248 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [RMI TCP Connection(9)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-19 17:33:06,251 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [RMI TCP Connection(9)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-19 17:33:06,256 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(9)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2020-11-19 17:33:06,267 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(9)-127.0.0.1] HikariPool-1 - Shutdown completed.
