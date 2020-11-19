@@ -7,24 +7,25 @@ import com.engagement.model.Admin;
 
 /**
  * AdminRepo --- accesses the DB, extends JpaRepository.
- * @author    Brooke Wursten
+ * 
+ * @author Brooke Wursten
  */
 @Repository
-public interface AdminRepo extends JpaRepository<Admin,Integer>{
-	
+public interface AdminRepo extends JpaRepository<Admin, Integer> {
+
 	/**
 	 * @param i admin id
 	 * @return Admin object
 	 */
 	public Admin findByAdminId(Integer i);
-	
+
 	/**
 	 * 
 	 * @param email
 	 * @return Admin object
 	 */
 	public Admin findByEmail(String email);
-	
+
 	/**
 	 * 
 	 * @param email
