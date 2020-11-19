@@ -18,10 +18,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<jacoco.version>0.8.5</jacoco.version>
 		<spring-cloud.version>2020.0.0-SNAPSHOT</spring-cloud.version>
-		<sonar.projectKey>revaturelabs_client-engagement-portal-back</sonar.projectKey>
-		<sonar.organization>revaturelabs-screenforce</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 	<dependencies>
@@ -104,6 +102,27 @@
 					<finalName>Client-Engagement</finalName>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -121,8 +140,6 @@
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
 		</repository>
-	
-
 	</repositories>
 
 </project>
