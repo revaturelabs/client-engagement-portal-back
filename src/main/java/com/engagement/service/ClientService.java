@@ -7,7 +7,7 @@ import com.engagement.model.dto.Associate;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.Grade;
-import com.engagement.repo.caliber.BatchClient;
+import com.engagement.repo.caliber.TrainingClient;
 import com.engagement.repo.caliber.GradeClient;
 
 import lombok.AllArgsConstructor;
@@ -34,7 +34,7 @@ public class ClientService {
 		@Autowired
 		ClientRepo cr;
 		@Autowired
-		private BatchClient bc;	
+		private TrainingClient bc;	
 		@Autowired
 		private GradeClient gc;
 		

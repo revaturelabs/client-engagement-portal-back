@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.engagement.model.dto.Batch;
 
 @FeignClient(value = "batch", url = "https://caliber2-mock.revaturelabs.com/mock/training/")
-@Repository
-public interface BatchClient {
+public interface TrainingClient {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/batch")
 	List<Batch> getBatches();
