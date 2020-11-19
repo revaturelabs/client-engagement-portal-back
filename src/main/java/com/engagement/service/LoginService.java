@@ -13,7 +13,6 @@ import com.engagement.repo.ClientRepo;
  * Login Service --- intermediary layer between LoginController and Repo.
  * @author Matt Hartmann
  */
-
 @Service
 public class LoginService {
 	private ClientRepo cr;

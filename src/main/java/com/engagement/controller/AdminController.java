@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Admin;
+import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
 /**
@@ -31,7 +32,6 @@ public class AdminController {
 		return as.findAll();
 	}
 	
-	
 	/**
 	  * Creates a new Admin object and persists to the DB 
 	  * @param admin- the request body should contain a json 
@@ -45,7 +45,6 @@ public class AdminController {
 		else 
 			return new ResponseEntity<String>("User creation failed!", HttpStatus.CONFLICT);
 		}
-		
 	
 	/**
 	  * Updates Admin object in the DB 
@@ -76,6 +75,15 @@ public class AdminController {
 			return new ResponseEntity<>(HttpStatus.OK) ;
 		}
 	}
+	
+	/**
+	 * Returns a list of all batches from Caliber API
+	 * @return List of all batch IDs and names
+	 */
+	@GetMapping("/batch/allNames")
+	public List<BatchName> getBatches() {
+		return as.getAllBatches();
+	}
+	
 }
-
 

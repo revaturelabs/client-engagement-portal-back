@@ -6,13 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.engagement.model.Admin;
+import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
+import com.engagement.repo.caliber.TrainingClient;
 
 @Service
 public class AdminService {
 	
 	@Autowired
-	private AdminRepo   adminRepository;
+	private AdminRepo adminRepository;
+	@Autowired
+	private TrainingClient bc;
 	
 	public Admin findByAdminId(Integer id) {
 		return adminRepository.findByAdminId(id);
@@ -48,7 +52,6 @@ public class AdminService {
 	
 	}
 	
-	
 	//TODO:  need further authentication implemented
 	public boolean login(String email) {
 		boolean ret=false;
@@ -64,7 +67,14 @@ public class AdminService {
 		return adminRepository.findAll();
 	}
 
-
+	/**
+	 * Returns a list of all batches from Caliber API
+	 * @return List of all batch IDs and names
+	 */
+	public List<BatchName> getAllBatches() {
+		List<BatchName> batches = bc.getBatches();
+		return batches;
+	}
 
 }
 	

@@ -1,10 +1,21 @@
 package com.engagement.model.dto;
 
+import java.util.List;
+
 import com.engagement.model.dto.Grade;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+
+/**
+ * 
+ * An associate is a trainee. 
+ * This is used in the AssociatAssignment where more information about the trainee will be given.
+ * 
+ * @author Kelsey Iafrate
+ */
 
 @Data
 @NoArgsConstructor
@@ -12,9 +23,9 @@ import lombok.NoArgsConstructor;
 public class Associate {
 	
 	private String email;
-	private String salesfoceId;
+	private String salesforceId;//also called traineeId in other places
 	private String firstName;
 	private String lastName;
-	private Grade[] grades;
+	private List<Grade> grades;
 
 }
