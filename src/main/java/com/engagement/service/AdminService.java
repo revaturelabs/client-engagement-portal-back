@@ -36,7 +36,6 @@ public class AdminService {
 	}
 	
 	public Admin update(Admin admin) {
-		boolean ret=false;
 	
 		return adminRepository.save(admin);
 	}
