@@ -1,9 +1,6 @@
 package com.engagement.controller;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 4d602659b38f8b99b54a4730a13f83c1bded15f0
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

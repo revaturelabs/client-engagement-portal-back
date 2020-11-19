@@ -1,9 +1,6 @@
 package com.engagement.repo;
 
 
-import java.util.List;
-
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -25,15 +22,6 @@ public interface ClientRepo extends JpaRepository<Client, Integer> {
 	 * @return Client associated with email param
 	 */
 	Client findByEmail(String email);
-	
-	/**
-	 * Returns the specific client with the matching id
-	 * @param id
-	 * The int id of the client 
-	 * @return Returns a Client
-	 * 
-	 */
-	Client findByClientId(int id);
 
 	public boolean deleteByEmail(String email);
 
