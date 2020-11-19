@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
  * For instance, every batch has a trainer employee
  * This is used in the EmployeeAssignment model where more information about the employee will be given.
  *
+ * @author  Kelsy Iafrate
  */
 
 @Data

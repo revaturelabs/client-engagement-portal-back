@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
  * An EmployeeAssignment has an employee and declares what role that employee has, e.g. Trainer.
  * This will be used in a Batch object as a list of employees and their roles
  * 
+ * @author  Kelsy Iafrate
  */
 
 @Data

@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
  * A batch contains all of the information needed about a batch.
  * This will be used to show the client more information about a batch they are mapped to.
  *
+ * @author  Kelsy Iafrate
  */
 
 @Data
