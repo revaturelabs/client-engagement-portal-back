@@ -36,6 +36,10 @@ public class AdminController {
 		this.as = as;
 	}
 
+	/**
+	 * Returns a list of all admins
+	 * @return list of all admins
+	 */
 	@GetMapping("/")
 	public List<Admin> findAll() {
 		return as.findAll();
@@ -44,8 +48,7 @@ public class AdminController {
 	/**
 	 * Creates a new Admin object and persists to the DB
 	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin
-	 *               object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@PostMapping("/new")
@@ -62,8 +65,7 @@ public class AdminController {
 	/**
 	 * Updates Admin object in the DB
 	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin
-	 *               object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@PutMapping("/update")
@@ -87,8 +89,7 @@ public class AdminController {
 	/**
 	 * Deletes Admin object from the DB
 	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin
-	 *               object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@DeleteMapping("/delete")
