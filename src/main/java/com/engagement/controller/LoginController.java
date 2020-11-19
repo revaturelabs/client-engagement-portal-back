@@ -15,7 +15,7 @@ import com.engagement.service.LoginService;
 @RequestMapping("/login")
 public class LoginController {
 
-	public LoginService ls;
+	private LoginService ls;
 	
 	@Autowired
 	public LoginController(LoginService ls) {
