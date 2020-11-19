@@ -56,21 +56,17 @@ public class AdminService {
 	 * @param admin
 	 * @return
 	 */
-	public boolean save(Admin admin) {
-		boolean successfulSave = false;
-		
+	public boolean save(Admin admin) {		
 		if (admin == null) {
-			return successfulSave;
+			return false;
 		}
 		
 		try {
 			ar.save(admin);
-			successfulSave = true;
+			return true;
 		} catch (Exception e) {
-			return successfulSave;
+			return false;
 		}
-		
-		return successfulSave;
 	}
 
 	/**

@@ -49,7 +49,7 @@ public class AdminController {
 	 */
 	@PostMapping("/new")
 	public ResponseEntity<String> save(@RequestBody AdminDto admin) {
-		Admin persistentAdmin = new Admin(admin.getAdminId(), admin.getEmail(), admin.getFirstName(),
+		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(),
 				admin.getLastName());
 
 		if (as.save(persistentAdmin)) {
