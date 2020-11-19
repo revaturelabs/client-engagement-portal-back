@@ -73,9 +73,6 @@ public class AdminService {
 	 */
 	public List<BatchName> getAllBatches() {
 		List<BatchName> batches = bc.getBatches();
-		for(BatchName b : batches) {
-			System.out.println(b);
-		}
 		return batches;
 	}
 

@@ -3,9 +3,8 @@ package com.engagement.repo.caliber;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchName;
@@ -24,7 +23,7 @@ public interface TrainingClient {
 	 * 
 	 * @return List<Batch> Returns the list of all batches
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/batch")
+	@GetMapping(value = "/batch")
 	List<BatchName> getBatches();
 	
 	/**
@@ -32,7 +31,7 @@ public interface TrainingClient {
 	 * @param batchId The id for a batch. For example TR-1142
 	 * @return List<Batch> Returns a list of one or zero Batches based on the batchId
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/batch/{batchId}")
+	@GetMapping(value = "/batch/{batchId}")
 	List<Batch> getBatchById(@PathVariable("batchId") String batchId);
 
 }

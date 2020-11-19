@@ -7,7 +7,6 @@ import com.engagement.model.Admin;
 import com.engagement.model.Client;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientRepo;
-import org.springframework.stereotype.Service;
 
 
 /**

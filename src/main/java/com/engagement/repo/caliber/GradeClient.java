@@ -3,6 +3,7 @@ package com.engagement.repo.caliber;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +24,7 @@ public interface GradeClient {
 	 * @param id: batch id, who would have guessed based off the Caliber API? Nobody.
 	 * @return List<Grade> is the list of all grades for the associates in the specified batch.
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/batch/{batchId}", consumes = "application/json")
+	@GetMapping(value = "/batch/{batchId}", consumes = "application/json")
 	List<Grade> getGradesByBatchId(@PathVariable("batchId") String batchId);
 
 }

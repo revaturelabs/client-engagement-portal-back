@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.engagement.model.Client;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
-import com.engagement.model.dto.BatchName;
 import com.engagement.model.dto.Grade;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
@@ -81,7 +80,7 @@ public class ClientService {
 			Params params = new Params();
 			params.setId(batchId);
 			List<Grade> grades = gc.getGradesByBatchId(batchId); //gets all of the grades associated with the batch.
-			System.out.println(grades);
+			
 			/**
 			 * For every grade, check if its traineeId equals any salesForceId of an associate of the batch.
 			 * Once a match is found, add that grade to the list of grades of that associate, then move on to the next grade.
