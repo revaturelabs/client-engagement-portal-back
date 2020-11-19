@@ -27,6 +27,7 @@ import com.engagement.repo.ClientRepo;
  * @author Tucker Fritz
  *
  */
+@Service
 public class ClientService {
 
 		@Autowired
