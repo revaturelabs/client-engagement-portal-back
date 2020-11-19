@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.Grade;
 
 @FeignClient(value = "/grades", url = "https://caliber2-mock.revaturelabs.com/mock/evaluation/grades")
 public interface GradeClient {
@@ -18,6 +19,6 @@ public interface GradeClient {
 	 * @return Batch: the Batch DTO
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "batch/{id}")
-	Batch getBatchById(@PathVariable("id") String id);
+	Grade[] getGradesByBatchId(@PathVariable("id") String batchId);
 
 }

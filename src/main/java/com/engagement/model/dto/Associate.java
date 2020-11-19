@@ -1,5 +1,7 @@
 package com.engagement.model.dto;
 
+import java.util.List;
+
 import com.engagement.model.dto.Grade;
 
 import lombok.AllArgsConstructor;
@@ -15,6 +17,6 @@ public class Associate {
 	private String salesfoceId;
 	private String firstName;
 	private String lastName;
-	private Grade[] grades;
+	private List<Grade> grades;
 
 }
