@@ -10,7 +10,14 @@ import com.engagement.model.dto.Grade;
 import com.engagement.repo.caliber.BatchClient;
 import com.engagement.repo.caliber.GradeClient;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Service
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ClientService {
 
 	@Autowired
