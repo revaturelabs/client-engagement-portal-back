@@ -29,7 +29,6 @@ public class ClientService {
 		@Autowired
 		private GradeClient gc;
 		
-
 		/**
 		 * Find a client by clientId
 		 * @param id A clientId in the database
