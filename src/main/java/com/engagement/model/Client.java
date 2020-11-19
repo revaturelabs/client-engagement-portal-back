@@ -13,6 +13,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+*
+* 
+* @author Matt Hartman
+*
+*/
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

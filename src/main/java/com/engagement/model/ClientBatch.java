@@ -12,6 +12,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+* ClientBatch is a go-between class to record the relationship 
+* between a client and one of their batches.
+* 
+* @author Matt Hartman
+*
+*/
 
 @Data
 @NoArgsConstructor

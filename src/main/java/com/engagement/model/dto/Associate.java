@@ -12,8 +12,9 @@ import lombok.NoArgsConstructor;
 /**
  * 
  * An associate is a trainee. 
- * This is used in the Batch model to show the client information about the trainees of a batch
- *
+ * This is used in the AssociatAssignment where more information about the trainee will be given.
+ * 
+ * @author Kelsey Iafrate
  */
 
 @Data
