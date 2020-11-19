@@ -31,18 +31,51 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
-        stage ('Run Spring App') {
-            steps {
+        // stage ('Run Spring App') {
+        //     steps {
                 
-            	sh 'nohup java -jar target/Client-Engagement.jar &'
-               //sh 'disown java -jar /home/ec2-user/.jenkins/workspace/Revature_Client_Engagement_Portal/target/cep-engagement-service-0.0.1-SNAPSHOT.jar &'
-                //Better user this one if we're unsure of the first one
+        //     	sh 'nohup java -jar target/Client-Engagement.jar &'
+        //        //sh 'disown java -jar /home/ec2-user/.jenkins/workspace/Revature_Client_Engagement_Portal/target/cep-engagement-service-0.0.1-SNAPSHOT.jar &'
+        //         //Better user this one if we're unsure of the first one
                  
-                // sh 'mvn spring-boot:run'  // This one works but cannot be accessed with postman but won't stop running
-                // sh 'nohup mvn spring-boot:run &' 
-                 //sh 'JENKINS_NODE_COOKIE=dontkillme nohup mvn spring-boot:run > logsfile.txt &'
-                 // it would run if nohup is not included. Not tested though not sure if porrt 8081 is open or what
+        //         // sh 'mvn spring-boot:run'  // This one works but cannot be accessed with postman but won't stop running
+        //         // sh 'nohup mvn spring-boot:run &' 
+        //          //sh 'JENKINS_NODE_COOKIE=dontkillme nohup mvn spring-boot:run > logsfile.txt &'
+        //          // it would run if nohup is not included. Not tested though not sure if porrt 8081 is open or what
+        //     }
+        // }
+    stage ('Remove Docker Container') {
+        steps {
+            script {
+                try {
+                    sh 'docker rm -f cep'
+                } catch (all) {
+                    echo 'Docker Container does not exist'
+                }
+            }
+
+        }
+    }
+    stage ('Delete Docker Image') {
+            steps {
+                sh 'docker image prune -a -f'
             }
         }
+        stage ('Docker Build') {
+            steps {
+                sh 'docker build -t tyronev/ce-portal:v1 .'
+            }
+        }
+
+        stage ('Docker Run') {
+                     steps {
+                         sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
+                     }
+                 }
+          stage ('Docker Check Containers') {
+                steps {
+                    sh 'docker ps -a'
+                }
+            }
      }
 }
