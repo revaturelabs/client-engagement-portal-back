@@ -17,9 +17,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Grade {
 
-	private String assessmentType;
+	private int gradeId;
+	private String dateReceived;
 	private double score;
 	private String traineeId;
-	private int week;
-	private int weight;
 }

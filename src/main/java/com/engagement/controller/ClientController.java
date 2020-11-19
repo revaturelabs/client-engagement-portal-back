@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Client;
 import com.engagement.model.dto.Batch;
-import com.engagement.model.dto.BatchName;
 import com.engagement.service.ClientService;
 
 /**
@@ -72,13 +71,10 @@ public class ClientController {
 	}
 	
 	/**
-	 * Returns a list of all batches from Caliber API
-	 * @return List of all batch IDs and names
+	 * Find all information about a branch by the batch id
+	 * @param batchId: The identifier in Caliber to identify a batch
+	 * @return Returns the Batch associated with the batchId
 	 */
-	@GetMapping("/batch/all")
-	public List<BatchName> getBatches() {
-		return cs.getAllBatches();
-	}
 
 	@GetMapping("/batch/{batchId}")
 	public Batch getBatchById(String batchId) {

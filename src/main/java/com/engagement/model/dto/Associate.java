@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class Associate {
 	
 	private String email;
-	private String salesfoceId;//also called traineeId in other places
+	private String salesforceId;//also called traineeId in other places
 	private String firstName;
 	private String lastName;
 	private List<Grade> grades;

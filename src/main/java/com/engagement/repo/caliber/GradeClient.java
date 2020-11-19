@@ -23,7 +23,7 @@ public interface GradeClient {
 	 * @param id: batch id, who would have guessed based off the Caliber API? Nobody.
 	 * @return List<Grade> is the list of all grades for the associates in the specified batch.
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/batch/{id}")
-	List<Grade> getGradesByBatchId(@PathVariable("id") String batchId);
+	@RequestMapping(method = RequestMethod.GET, value = "/batch/{batchId}", consumes = "application/json")
+	List<Grade> getGradesByBatchId(@PathVariable("batchId") String batchId);
 
 }
