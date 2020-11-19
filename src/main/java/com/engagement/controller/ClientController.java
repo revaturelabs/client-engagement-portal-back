@@ -52,11 +52,11 @@ public class ClientController {
 	 * @param id A clientId in the database
 	 * @return The client associated with id
 	 */
-	@GetMapping("/id")
-	@ResponseBody
-	public Client findById(@RequestParam int id) {
-		return cs.findByClientId(id);
-	}
+//	@GetMapping("/id")
+//	@ResponseBody
+//	public Client findById(@RequestParam int id) {
+//		return cs.findByClientId(id);
+//	}
 	
 	/**
 	 * Find a client by email

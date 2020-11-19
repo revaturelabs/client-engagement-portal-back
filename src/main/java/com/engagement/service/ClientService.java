@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.engagement.model.Client;
 import com.engagement.repo.ClientRepo;
+import org.springframework.stereotype.Service;
 
 /**
  * Service for handling business logic of client requests
@@ -24,9 +25,9 @@ public class ClientService {
 		 * @param id A clientId in the database
 		 * @return a Client associated with id
 		 */
-		public Client findByClientId(int id) {
-			return cr.findByClientId(id);
-		}
+//		public Client findByClientId(int id) {
+//			return cr.findByClientId(id);
+//		}
 		
 		/**
 		 * Returns a list of all clients in the database
