@@ -44,8 +44,8 @@ public class ClientController {
 	
 	/**
 	 * Saves a client to the database
-	 * @param c A client to be saved to the database
-	 * @return Client that was saved. May be null if client is yet to be persisted to database.
+	 * @param client A client to be saved to the database
+	 * @return ResponseEntity containing status code and message.
 	 */
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody ClientDto client) {
@@ -57,12 +57,11 @@ public class ClientController {
 			return new ResponseEntity<>("Client creation failed", HttpStatus.CONFLICT);
 		}
 	}
-	
 
 	/**
 	 * Find a client by email
 	 * @param email An email pertaining to a client in the database
-	 * @return Client associated with id w/ default values if client is non-existant
+	 * @return Client associated with email w/ default values if client is non-existant
 	 */
 	@GetMapping("/email/{email}")
 	public Client findByEmail(@PathVariable String email) {
@@ -71,10 +70,9 @@ public class ClientController {
 	
 	/**
 	 * Find all information about a branch by the batch id
-	 * @param batchId: The identifier in Caliber to identify a batch
-	 * @return Returns the Batch associated with the batchId
+	 * @param batchId The identifier in Caliber to identify a batch
+	 * @return the Batch associated with the batchId
 	 */
-
 	@GetMapping("/batch/{batchId}")
 	public Batch getBatchById(String batchId) {
 		return cs.getBatchByBatchId(batchId);

@@ -1,916 +1,192 @@
-2020-11-19 12:16:32.983  INFO 16796 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on enochcho-pc with PID 16796 (C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back\target\classes started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
-2020-11-19 12:16:32.984 DEBUG 16796 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 12:16:32.985  INFO 16796 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 12:16:33.305  INFO 16796 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 12:16:33.331  INFO 16796 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 3 JPA repository interfaces.
-2020-11-19 12:16:33.415  INFO 16796 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=acd27a05-3c07-3c5c-b021-4a43eebac85b
-2020-11-19 12:16:33.529  INFO 16796 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 12:16:33.530  INFO 16796 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 12:16:33.531  INFO 16796 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 12:16:33.564  INFO 16796 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 12:16:33.565  INFO 16796 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 575 ms
-2020-11-19 12:16:33.595  INFO 16796 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2020-11-19 12:16:34.051  INFO 16796 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2020-11-19 12:16:34.052  INFO 16796 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 12:16:34.088  INFO 16796 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:16:34.193  WARN 16796 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 12:16:34.367  INFO 16796 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 12:16:34.563  INFO 16796 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 12:16:34.729  INFO 16796 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 12:16:34.958  INFO 16796 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:16:35.032  INFO 16796 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 12:16:35.037  INFO 16796 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 2.288 seconds (JVM running for 163.11)
-2020-11-19 12:16:35.039  INFO 16796 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 12:17:04.198  INFO 16796 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:17:04.199  INFO 16796 --- [Thread-19] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:17:04.200  INFO 16796 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
-2020-11-19 12:17:04.205  INFO 16796 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
-2020-11-19 12:17:04 [restartedMain] INFO  c.e.ClientEngagementPortalBackApplication - Starting ClientEngagementPortalBackApplication using Java 14.0.2 on enochcho-pc with PID 16796 (C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back\target\classes started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
-2020-11-19 12:17:04 [restartedMain] DEBUG c.e.ClientEngagementPortalBackApplication - Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 12:17:04 [restartedMain] INFO  c.e.ClientEngagementPortalBackApplication - No active profile set, falling back to default profiles: default
-2020-11-19 12:17:04 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 12:17:04 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 3 JPA repository interfaces.
-2020-11-19 12:17:04 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=acd27a05-3c07-3c5c-b021-4a43eebac85b
-2020-11-19 12:17:05 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9011 (http)
-2020-11-19 12:17:05 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-11-19 12:17:05 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 12:17:05 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-11-19 12:17:05 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 536 ms
-2020-11-19 12:17:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
-2020-11-19 12:17:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
-2020-11-19 12:17:05 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 12:17:05 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:17:05 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 12:17:05 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2020-11-19 12:17:06 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 12:17:06 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
-2020-11-19 12:17:06 [task-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:17:06 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
-2020-11-19 12:17:06 [restartedMain] INFO  c.e.ClientEngagementPortalBackApplication - Started ClientEngagementPortalBackApplication in 2.296 seconds (JVM running for 194.684)
-2020-11-19 12:17:06 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2020-11-19 12:17:14 [http-nio-9011-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-19 12:17:14 [http-nio-9011-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2020-11-19 12:17:14 [http-nio-9011-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2020-11-19 12:17:14 [http-nio-9011-exec-1] DEBUG com.engagement.aspect.LoggingAspect - Enter: com.engagement.controller.AdminController.findAll() with argument[s] = []
-2020-11-19 12:17:14 [http-nio-9011-exec-1] DEBUG com.engagement.aspect.LoggingAspect - Enter: com.engagement.service.AdminService.findAll() with argument[s] = []
-2020-11-19 12:17:14 [http-nio-9011-exec-1] DEBUG com.engagement.aspect.LoggingAspect - Exit: com.engagement.service.AdminService.findAll() with result = [Admin(adminId=1, email=kelsey@kelsey, firstName=Kelsey, lastName=Iafrate)]
-2020-11-19 12:17:14 [http-nio-9011-exec-1] DEBUG com.engagement.aspect.LoggingAspect - Exit: com.engagement.controller.AdminController.findAll() with result = [Admin(adminId=1, email=kelsey@kelsey, firstName=Kelsey, lastName=Iafrate)]
-2020-11-19 12:20:33 [Thread-27] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:20:33 [Thread-27] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:20:33 [Thread-27] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
-2020-11-19 12:20:33 [Thread-27] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
-2020-11-19 12:20:34 [restartedMain] INFO  c.e.ClientEngagementPortalBackApplication - Starting ClientEngagementPortalBackApplication using Java 14.0.2 on enochcho-pc with PID 16796 (C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back\target\classes started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
-2020-11-19 12:20:34 [restartedMain] DEBUG c.e.ClientEngagementPortalBackApplication - Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 12:20:34 [restartedMain] INFO  c.e.ClientEngagementPortalBackApplication - No active profile set, falling back to default profiles: default
-2020-11-19 12:20:34 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 12:20:34 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 3 JPA repository interfaces.
-2020-11-19 12:20:34 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=acd27a05-3c07-3c5c-b021-4a43eebac85b
-2020-11-19 12:20:34 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9011 (http)
-2020-11-19 12:20:34 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-11-19 12:20:34 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 12:20:34 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-11-19 12:20:34 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 577 ms
-2020-11-19 12:20:34 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
-2020-11-19 12:20:35 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
-2020-11-19 12:20:35 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 12:20:35 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:20:35 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 12:20:35 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2020-11-19 12:20:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 12:20:35 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
-2020-11-19 12:20:36 [task-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:20:36 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
-2020-11-19 12:20:36 [restartedMain] INFO  c.e.ClientEngagementPortalBackApplication - Started ClientEngagementPortalBackApplication in 2.373 seconds (JVM running for 404.351)
-2020-11-19 12:20:36 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2020-11-19 12:21:18 [Thread-35] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:21:18 [Thread-35] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:21:18 [Thread-35] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
-2020-11-19 12:21:18 [Thread-35] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
-2020-11-19 12:21:18 [restartedMain] INFO  c.e.ClientEngagementPortalBackApplication - Starting ClientEngagementPortalBackApplication using Java 14.0.2 on enochcho-pc with PID 16796 (C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back\target\classes started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
-2020-11-19 12:21:18 [restartedMain] DEBUG c.e.ClientEngagementPortalBackApplication - Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 12:21:18 [restartedMain] INFO  c.e.ClientEngagementPortalBackApplication - No active profile set, falling back to default profiles: default
-2020-11-19 12:21:19 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 12:21:19 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 3 JPA repository interfaces.
-2020-11-19 12:21:19 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=acd27a05-3c07-3c5c-b021-4a43eebac85b
-2020-11-19 12:21:19 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9011 (http)
-2020-11-19 12:21:19 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-11-19 12:21:19 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 12:21:19 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-11-19 12:21:19 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 457 ms
-2020-11-19 12:21:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
-2020-11-19 12:21:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
-2020-11-19 12:21:19 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 12:21:19 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:21:19 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 12:21:19 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2020-11-19 12:21:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 12:21:20 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
-2020-11-19 12:21:20 [task-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:21:20 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
-2020-11-19 12:21:20 [restartedMain] INFO  c.e.ClientEngagementPortalBackApplication - Started ClientEngagementPortalBackApplication in 2.056 seconds (JVM running for 448.741)
-2020-11-19 12:21:20 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2020-11-19 12:21:28 [RMI TCP Connection(28)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
-2020-11-19 12:21:28 [RMI TCP Connection(28)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:21:28 [RMI TCP Connection(28)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:21:28 [RMI TCP Connection(28)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
-2020-11-19 12:21:28 [RMI TCP Connection(28)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
-2020-11-19 12:21:36.347  INFO 17604 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on enochcho-pc with PID 17604 (C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back\target\classes started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
-2020-11-19 12:21:36.352 DEBUG 17604 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 12:21:36.353  INFO 17604 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 12:21:36.445  INFO 17604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-19 12:21:36.445  INFO 17604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-19 12:21:37.538  INFO 17604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 12:21:37.632  INFO 17604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83 ms. Found 3 JPA repository interfaces.
-2020-11-19 12:21:37.921  INFO 17604 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=acd27a05-3c07-3c5c-b021-4a43eebac85b
-2020-11-19 12:21:38.727  INFO 17604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 12:21:38.740  INFO 17604 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 12:21:38.741  INFO 17604 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 12:21:38.919  INFO 17604 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 12:21:38.920  INFO 17604 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2473 ms
-2020-11-19 12:21:39.020  INFO 17604 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-11-19 12:21:39.947  INFO 17604 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-11-19 12:21:39.958  INFO 17604 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 12:21:40.131  INFO 17604 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:21:40.427  WARN 17604 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 12:21:41.022  INFO 17604 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 12:21:41.414  INFO 17604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 12:21:41.606  INFO 17604 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 12:21:42.474  INFO 17604 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:21:42.822  INFO 17604 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 12:21:42.837  INFO 17604 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 7.197 seconds (JVM running for 8.556)
-2020-11-19 12:21:56.022  INFO 17604 --- [http-nio-9011-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-19 12:21:56.022  INFO 17604 --- [http-nio-9011-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-19 12:21:56.024  INFO 17604 --- [http-nio-9011-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2020-11-19 12:21:56.057 DEBUG 17604 --- [http-nio-9011-exec-1] com.engagement.aspect.LoggingAspect      : Enter: com.engagement.controller.AdminController.findAll() with argument[s] = []
-2020-11-19 12:21:56.073 DEBUG 17604 --- [http-nio-9011-exec-1] com.engagement.aspect.LoggingAspect      : Enter: com.engagement.service.AdminService.findAll() with argument[s] = []
-2020-11-19 12:21:56.373 DEBUG 17604 --- [http-nio-9011-exec-1] com.engagement.aspect.LoggingAspect      : Exit: com.engagement.service.AdminService.findAll() with result = [Admin(adminId=1, email=kelsey@kelsey, firstName=Kelsey, lastName=Iafrate)]
-2020-11-19 12:21:56.373 DEBUG 17604 --- [http-nio-9011-exec-1] com.engagement.aspect.LoggingAspect      : Exit: com.engagement.controller.AdminController.findAll() with result = [Admin(adminId=1, email=kelsey@kelsey, firstName=Kelsey, lastName=Iafrate)]
-2020-11-19 12:22:00.673  INFO 17604 --- [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2020-11-19 12:22:00.762  INFO 17604 --- [RMI TCP Connection(7)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 12:22:00.766  INFO 17604 --- [RMI TCP Connection(7)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 12:22:00.770  INFO 17604 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-11-19 12:22:00.786  INFO 17604 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-11-19 14:39:40.413  INFO 27372 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 27372 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 14:39:40.414 DEBUG 27372 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 14:39:40.414  INFO 27372 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 14:39:40.588  INFO 27372 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 14:39:40.604  INFO 27372 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
-2020-11-19 14:39:40.631  INFO 27372 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 14:39:40.635  INFO 27372 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:39:40.636  INFO 27372 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:39:40.746  INFO 27372 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 14:39:40.746  INFO 27372 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 14:39:40.747  INFO 27372 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 14:39:40.769  INFO 27372 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 14:39:40.769  INFO 27372 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 353 ms
-2020-11-19 14:39:40.781  INFO 27372 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
-2020-11-19 14:39:41.890  INFO 27372 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
-2020-11-19 14:39:41.890  INFO 27372 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 14:39:41.911  INFO 27372 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:39:41.966  WARN 27372 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 14:39:41.979  INFO 27372 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 14:39:41.979  INFO 27372 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:39:43.703  INFO 27372 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:39:43.739  WARN 27372 --- [restartedMain] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientRepo': FactoryBean threw exception on object creation; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on tokens, delete these tokens
-	Syntax error on tokens, delete these tokens
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Duplicate method findByEmail(String) in type ClientRepo
-	Syntax error on tokens, delete these tokens
-	Duplicate method findByEmail(String) in type ClientRepo
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Syntax error, insert "}" to complete InterfaceBody
+2020-11-19 15:36:48.520  INFO 26932 --- [Thread-219] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-19 15:36:48.520  INFO 26932 --- [Thread-219] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-19 15:36:48.520  INFO 26932 --- [Thread-219] com.zaxxer.hikari.HikariDataSource       : HikariPool-28 - Shutdown initiated...
+2020-11-19 15:36:48.522  INFO 26932 --- [Thread-219] com.zaxxer.hikari.HikariDataSource       : HikariPool-28 - Shutdown completed.
+2020-11-19 15:36:48.640  INFO 26932 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 26932 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
+2020-11-19 15:36:48.640 DEBUG 26932 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-19 15:36:48.640  INFO 26932 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
+2020-11-19 15:36:48.785  INFO 26932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-19 15:36:48.799  INFO 26932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
+2020-11-19 15:36:48.822  INFO 26932 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
+2020-11-19 15:36:48.826  INFO 26932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-19 15:36:48.826  INFO 26932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-19 15:36:48.865  INFO 26932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
+2020-11-19 15:36:48.866  INFO 26932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-19 15:36:48.866  INFO 26932 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-19 15:36:48.885  INFO 26932 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-19 15:36:48.885  INFO 26932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 243 ms
+2020-11-19 15:36:48.895  INFO 26932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-29 - Starting...
+2020-11-19 15:36:50.003  INFO 26932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-29 - Start completed.
+2020-11-19 15:36:50.004  INFO 26932 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-19 15:36:50.019  INFO 26932 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-19 15:36:50.048  WARN 26932 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-19 15:36:50.062  INFO 26932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-19 15:36:50.063  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-11-19 15:36:51.748  INFO 26932 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-19 15:36:51.779  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-11-19 15:36:51.792  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-11-19 15:36:51.792  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-11-19 15:36:51.930  INFO 26932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
+2020-11-19 15:36:51.985  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-11-19 15:36:51.985  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-11-19 15:36:51.989  INFO 26932 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.424 seconds (JVM running for 1279.962)
+2020-11-19 15:36:51.990  INFO 26932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-11-19 15:37:06.882  INFO 26932 --- [http-nio-9011-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-19 15:37:06.882  INFO 26932 --- [http-nio-9011-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-19 15:37:06.883  INFO 26932 --- [http-nio-9011-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2020-11-19 15:37:34.889 DEBUG 26932 --- [http-nio-9011-exec-3] com.engagement.aspect.LoggingAspect      : Enter: com.engagement.controller.ClientController.getBatchById() with argument[s] = [null]
+2020-11-19 15:37:34.891 DEBUG 26932 --- [http-nio-9011-exec-3] com.engagement.aspect.LoggingAspect      : Enter: com.engagement.service.ClientService.getBatchByBatchId() with argument[s] = [null]
+2020-11-19 15:37:36.085 ERROR 26932 --- [http-nio-9011-exec-3] com.engagement.aspect.LoggingAspect      : Exception in com.engagement.service.ClientService.getBatchByBatchId() with cause = NULL
+2020-11-19 15:37:36.086 ERROR 26932 --- [http-nio-9011-exec-3] com.engagement.aspect.LoggingAspect      : Exception in com.engagement.controller.ClientController.getBatchById() with cause = NULL
+2020-11-19 15:37:36.089 ERROR 26932 --- [http-nio-9011-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is feign.FeignException$BadRequest: [400] during [GET] to [https://caliber2-mock.revaturelabs.com/mock/evaluation/grades/batch/] [GradeClient#getGradesByBatchId(String)]: []] with root cause
 
-2020-11-19 14:39:43.740  WARN 27372 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes\com\engagement\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService': Unsatisfied dependency expressed through field 'bc'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientRepo': FactoryBean threw exception on object creation; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on tokens, delete these tokens
-	Syntax error on tokens, delete these tokens
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Duplicate method findByEmail(String) in type ClientRepo
-	Syntax error on tokens, delete these tokens
-	Duplicate method findByEmail(String) in type ClientRepo
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Syntax error, insert "}" to complete InterfaceBody
-
-2020-11-19 14:39:43.740  INFO 27372 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:39:43.741  INFO 27372 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:39:43.741  INFO 27372 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
-2020-11-19 14:39:43.745  INFO 27372 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
-2020-11-19 14:39:43.746  INFO 27372 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2020-11-19 14:39:43.752  INFO 27372 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2020-11-19 14:39:43.774 ERROR 27372 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes\com\engagement\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService': Unsatisfied dependency expressed through field 'bc'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientRepo': FactoryBean threw exception on object creation; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on tokens, delete these tokens
-	Syntax error on tokens, delete these tokens
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Duplicate method findByEmail(String) in type ClientRepo
-	Syntax error on tokens, delete these tokens
-	Duplicate method findByEmail(String) in type ClientRepo
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Syntax error, insert "}" to complete InterfaceBody
-
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:228) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:925) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.0.jar:2.4.0]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.0.jar:2.4.0]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.0.jar:2.4.0]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.0.jar:2.4.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.0.jar:2.4.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309) ~[spring-boot-2.4.0.jar:2.4.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298) ~[spring-boot-2.4.0.jar:2.4.0]
-	at com.engagement.ClientEngagementPortalBackApplication.main(ClientEngagementPortalBackApplication.java:12) ~[classes/:na]
+feign.FeignException$BadRequest: [400] during [GET] to [https://caliber2-mock.revaturelabs.com/mock/evaluation/grades/batch/] [GradeClient#getGradesByBatchId(String)]: []
+	at feign.FeignException.clientErrorStatus(FeignException.java:195) ~[feign-core-10.10.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:177) ~[feign-core-10.10.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:169) ~[feign-core-10.10.1.jar:na]
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:92) ~[feign-core-10.10.1.jar:na]
+	at feign.AsyncResponseHandler.handleResponse(AsyncResponseHandler.java:96) ~[feign-core-10.10.1.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:138) ~[feign-core-10.10.1.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:89) ~[feign-core-10.10.1.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:100) ~[feign-core-10.10.1.jar:na]
+	at com.sun.proxy.$Proxy401.getGradesByBatchId(Unknown Source) ~[na:na]
+	at com.engagement.service.ClientService.getBatchByBatchId(ClientService.java:93) ~[classes/:na]
+	at com.engagement.service.ClientService$$FastClassBySpringCGLIB$$ae7c432f.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89) ~[spring-aop-5.3.1.jar:5.3.1]
+	at com.engagement.aspect.LoggingAspect.logAround(LoggingAspect.java:73) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.0.jar:2.4.0]
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService': Unsatisfied dependency expressed through field 'bc'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientRepo': FactoryBean threw exception on object creation; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on tokens, delete these tokens
-	Syntax error on tokens, delete these tokens
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Duplicate method findByEmail(String) in type ClientRepo
-	Syntax error on tokens, delete these tokens
-	Duplicate method findByEmail(String) in type ClientRepo
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Syntax error, insert "}" to complete InterfaceBody
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691) ~[spring-aop-5.3.1.jar:5.3.1]
+	at com.engagement.service.ClientService$$EnhancerBySpringCGLIB$$cc398862.getBatchByBatchId(<generated>) ~[classes/:na]
+	at com.engagement.controller.ClientController.getBatchById(ClientController.java:78) ~[classes/:na]
+	at com.engagement.controller.ClientController$$FastClassBySpringCGLIB$$fcd035d7.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89) ~[spring-aop-5.3.1.jar:5.3.1]
+	at com.engagement.aspect.LoggingAspect.logAround(LoggingAspect.java:73) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.3.1.jar:5.3.1]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691) ~[spring-aop-5.3.1.jar:5.3.1]
+	at com.engagement.controller.ClientController$$EnhancerBySpringCGLIB$$a84e495a.getBatchById(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.1.jar:5.3.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.1.jar:5.3.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.1.jar:5.3.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893) ~[spring-webmvc-5.3.1.jar:5.3.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807) ~[spring-webmvc-5.3.1.jar:5.3.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.1.jar:5.3.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061) ~[spring-webmvc-5.3.1.jar:5.3.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961) ~[spring-webmvc-5.3.1.jar:5.3.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.1.jar:5.3.1]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.1.jar:5.3.1]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.39.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.1.jar:5.3.1]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.39.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.1.jar:5.3.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.1.jar:5.3.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.1.jar:5.3.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.1.jar:5.3.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.1.jar:5.3.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.1.jar:5.3.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
 
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1367) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-5.3.1.jar:5.3.1]
-	... 25 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientRepo': FactoryBean threw exception on object creation; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on tokens, delete these tokens
-	Syntax error on tokens, delete these tokens
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Duplicate method findByEmail(String) in type ClientRepo
-	Syntax error on tokens, delete these tokens
-	Duplicate method findByEmail(String) in type ClientRepo
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Syntax error, insert "}" to complete InterfaceBody
-
-	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:176) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:101) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1879) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getObjectForBeanInstance(AbstractAutowireCapableBeanFactory.java:1268) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:267) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1592) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1549) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1330) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.1.jar:5.3.1]
-	... 39 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientRepo': FactoryBean threw exception on object creation; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on tokens, delete these tokens
-	Syntax error on tokens, delete these tokens
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Duplicate method findByEmail(String) in type ClientRepo
-	Syntax error on tokens, delete these tokens
-	Duplicate method findByEmail(String) in type ClientRepo
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Syntax error, insert "}" to complete InterfaceBody
-
-	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:176) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:101) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1879) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getObjectForBeanInstance(AbstractAutowireCapableBeanFactory.java:1268) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:345) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:671) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:659) ~[spring-beans-5.3.1.jar:5.3.1]
-	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:53) ~[spring-data-commons-2.4.1.jar:2.4.1]
-	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:35) ~[spring-data-commons-2.4.1.jar:2.4.1]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:203) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:196) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:161) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:426) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:432) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:383) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:945) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.1.jar:5.3.1]
-	at org.springframework.cloud.context.named.NamedContextFactory.createContext(NamedContextFactory.java:133) ~[spring-cloud-context-3.0.0-SNAPSHOT.jar:3.0.0-SNAPSHOT]
-	at org.springframework.cloud.context.named.NamedContextFactory.getContext(NamedContextFactory.java:101) ~[spring-cloud-context-3.0.0-SNAPSHOT.jar:3.0.0-SNAPSHOT]
-	at org.springframework.cloud.context.named.NamedContextFactory.getInstance(NamedContextFactory.java:142) ~[spring-cloud-context-3.0.0-SNAPSHOT.jar:3.0.0-SNAPSHOT]
-	at org.springframework.cloud.openfeign.FeignClientFactoryBean.get(FeignClientFactoryBean.java:272) ~[spring-cloud-openfeign-core-3.0.0-SNAPSHOT.jar:3.0.0-SNAPSHOT]
-	at org.springframework.cloud.openfeign.FeignClientFactoryBean.feign(FeignClientFactoryBean.java:99) ~[spring-cloud-openfeign-core-3.0.0-SNAPSHOT.jar:3.0.0-SNAPSHOT]
-	at org.springframework.cloud.openfeign.FeignClientFactoryBean.getTarget(FeignClientFactoryBean.java:325) ~[spring-cloud-openfeign-core-3.0.0-SNAPSHOT.jar:3.0.0-SNAPSHOT]
-	at org.springframework.cloud.openfeign.FeignClientFactoryBean.getObject(FeignClientFactoryBean.java:315) ~[spring-cloud-openfeign-core-3.0.0-SNAPSHOT.jar:3.0.0-SNAPSHOT]
-	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:169) ~[spring-beans-5.3.1.jar:5.3.1]
-	... 50 common frames omitted
-Caused by: java.lang.Error: Unresolved compilation problems: 
-	Syntax error on tokens, delete these tokens
-	Syntax error on tokens, delete these tokens
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Duplicate method findByEmail(String) in type ClientRepo
-	Syntax error on tokens, delete these tokens
-	Duplicate method findByEmail(String) in type ClientRepo
-	Duplicate method deleteByEmail(String) in type ClientRepo
-	Syntax error, insert "}" to complete InterfaceBody
-
-	at com.engagement.repo.ClientRepo.<clinit>(ClientRepo.java:4) ~[classes/:na]
-	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
-	at java.base/java.lang.Class.forName(Class.java:340) ~[na:na]
-	at com.sun.proxy.$Proxy206.<clinit>(Unknown Source) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.newProxyInstance(Proxy.java:1031) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.newProxyInstance(Proxy.java:1017) ~[na:na]
-	at org.springframework.aop.framework.JdkDynamicAopProxy.getProxy(JdkDynamicAopProxy.java:126) ~[spring-aop-5.3.1.jar:5.3.1]
-	at org.springframework.aop.framework.ProxyFactory.getProxy(ProxyFactory.java:110) ~[spring-aop-5.3.1.jar:5.3.1]
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:309) ~[spring-data-commons-2.4.1.jar:2.4.1]
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$6(RepositoryFactoryBeanSupport.java:326) ~[spring-data-commons-2.4.1.jar:2.4.1]
-	at org.springframework.data.util.Lazy.getNullable(Lazy.java:230) ~[spring-data-commons-2.4.1.jar:2.4.1]
-	at org.springframework.data.util.Lazy.get(Lazy.java:114) ~[spring-data-commons-2.4.1.jar:2.4.1]
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.getObject(RepositoryFactoryBeanSupport.java:271) ~[spring-data-commons-2.4.1.jar:2.4.1]
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.getObject(RepositoryFactoryBeanSupport.java:58) ~[spring-data-commons-2.4.1.jar:2.4.1]
-	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:169) ~[spring-beans-5.3.1.jar:5.3.1]
-	... 75 common frames omitted
-
-2020-11-19 14:56:59.954  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 14:56:59.956 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 14:56:59.957  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 14:56:59.995  INFO 25900 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-11-19 14:56:59.995  INFO 25900 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-11-19 14:57:00.559  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 14:57:00.607  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 3 JPA repository interfaces.
-2020-11-19 14:57:00.741  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 14:57:00.781  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:57:00.782  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:57:01.189  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 14:57:01.197  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 14:57:01.197  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 14:57:01.284  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 14:57:01.284  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1288 ms
-2020-11-19 14:57:01.315  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-11-19 14:57:02.659  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-11-19 14:57:02.664  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 14:57:02.752  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:57:02.872  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 14:57:02.918  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 14:57:02.919  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:57:05.141  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:57:05.325  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:57:05.389  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:57:05.389  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:57:05.774  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 14:57:05.840  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:57:05.841  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:57:05.847  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 6.247 seconds (JVM running for 6.877)
-2020-11-19 14:57:16.914  INFO 25900 --- [http-nio-9011-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-19 14:57:16.915  INFO 25900 --- [http-nio-9011-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-11-19 14:57:16.916  INFO 25900 --- [http-nio-9011-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2020-11-19 14:57:16.934 DEBUG 25900 --- [http-nio-9011-exec-2] com.engagement.aspect.LoggingAspect      : Enter: com.engagement.controller.ClientController.findAll() with argument[s] = []
-2020-11-19 14:57:16.941 DEBUG 25900 --- [http-nio-9011-exec-2] com.engagement.aspect.LoggingAspect      : Enter: com.engagement.service.ClientService.findAll() with argument[s] = []
-2020-11-19 14:57:17.322 DEBUG 25900 --- [http-nio-9011-exec-2] com.engagement.aspect.LoggingAspect      : Exit: com.engagement.service.ClientService.findAll() with result = []
-2020-11-19 14:57:17.323 DEBUG 25900 --- [http-nio-9011-exec-2] com.engagement.aspect.LoggingAspect      : Exit: com.engagement.controller.ClientController.findAll() with result = []
-2020-11-19 14:58:02.613  INFO 25900 --- [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:58:02.615  INFO 25900 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:58:02.616  INFO 25900 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-11-19 14:58:02.621  INFO 25900 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-11-19 14:58:02.916  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 14:58:02.916 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 14:58:02.916  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 14:58:03.118  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 14:58:03.135  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
-2020-11-19 14:58:03.170  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 14:58:03.175  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:58:03.176  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:58:03.234  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 14:58:03.235  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 14:58:03.235  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 14:58:03.258  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 14:58:03.259  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 340 ms
-2020-11-19 14:58:03.274  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2020-11-19 14:58:04.392  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2020-11-19 14:58:04.392  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 14:58:04.409  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:58:04.446  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 14:58:04.462  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 14:58:04.463  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:58:06.135  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:58:06.179  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:58:06.205  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:58:06.205  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:58:06.372  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 14:58:06.436  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:58:06.436  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:58:06.441  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.636 seconds (JVM running for 67.471)
-2020-11-19 14:58:06.442  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 14:58:45.093  INFO 25900 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:58:45.093  INFO 25900 --- [Thread-11] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:58:45.094  INFO 25900 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2020-11-19 14:58:45.098  INFO 25900 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2020-11-19 14:58:45.239  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 14:58:45.240 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 14:58:45.240  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 14:58:45.404  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 14:58:45.420  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
-2020-11-19 14:58:45.451  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 14:58:45.456  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:58:45.457  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:58:45.511  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 14:58:45.511  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 14:58:45.511  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 14:58:45.535  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 14:58:45.535  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 293 ms
-2020-11-19 14:58:45.548  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2020-11-19 14:58:46.677  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2020-11-19 14:58:46.677  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 14:58:46.692  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:58:46.726  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 14:58:46.739  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 14:58:46.740  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:58:48.490  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:58:48.534  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:58:48.555  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:58:48.555  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:58:48.710  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 14:58:48.774  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:58:48.774  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:58:48.777  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.64 seconds (JVM running for 109.807)
-2020-11-19 14:58:48.778  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 14:59:37.529  INFO 25900 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:59:37.529  INFO 25900 --- [Thread-19] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:59:37.530  INFO 25900 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
-2020-11-19 14:59:37.534  INFO 25900 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
-2020-11-19 14:59:37.662  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 14:59:37.662 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 14:59:37.662  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 14:59:37.826  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 14:59:37.842  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
-2020-11-19 14:59:37.868  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 14:59:37.871  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:59:37.872  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:59:37.920  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 14:59:37.921  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 14:59:37.921  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 14:59:37.948  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 14:59:37.948  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 284 ms
-2020-11-19 14:59:37.961  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
-2020-11-19 14:59:39.067  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
-2020-11-19 14:59:39.067  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 14:59:39.082  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:59:39.113  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 14:59:39.126  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 14:59:39.127  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:59:40.804  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:59:40.849  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:59:40.868  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:59:40.869  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:59:41.027  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 14:59:41.093  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:59:41.093  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:59:41.097  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.525 seconds (JVM running for 162.127)
-2020-11-19 14:59:41.098  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 14:59:45.456  INFO 25900 --- [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:59:45.456  INFO 25900 --- [Thread-27] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:59:45.457  INFO 25900 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
-2020-11-19 14:59:46.026  INFO 25900 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
-2020-11-19 14:59:46.159  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 14:59:46.159 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 14:59:46.159  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 14:59:46.319  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 14:59:46.337  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
-2020-11-19 14:59:46.366  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 14:59:46.370  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:59:46.370  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:59:46.418  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 14:59:46.418  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 14:59:46.419  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 14:59:46.442  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 14:59:46.442  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 281 ms
-2020-11-19 14:59:46.453  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
-2020-11-19 14:59:47.467  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
-2020-11-19 14:59:47.467  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 14:59:47.482  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:59:47.513  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 14:59:47.525  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 14:59:47.526  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:59:49.235  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:59:49.279  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:59:49.300  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:59:49.300  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:59:49.457  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 14:59:49.518  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 14:59:49.518  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 14:59:49.522  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.451 seconds (JVM running for 170.552)
-2020-11-19 14:59:49.523  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 14:59:57.924  INFO 25900 --- [Thread-35] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 14:59:57.924  INFO 25900 --- [Thread-35] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:59:57.924  INFO 25900 --- [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
-2020-11-19 14:59:57.927  INFO 25900 --- [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
-2020-11-19 14:59:58.053  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 14:59:58.054 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 14:59:58.054  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 14:59:58.227  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 14:59:58.241  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
-2020-11-19 14:59:58.267  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 14:59:58.271  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:59:58.272  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 14:59:58.321  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 14:59:58.322  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 14:59:58.322  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 14:59:58.347  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 14:59:58.347  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 291 ms
-2020-11-19 14:59:58.360  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
-2020-11-19 14:59:59.627  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
-2020-11-19 14:59:59.627  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 14:59:59.643  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 14:59:59.678  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 14:59:59.691  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 14:59:59.693  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:01.616  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:01.662  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:01.682  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:01.682  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:01.876  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:00:01.936  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:01.936  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:01.940  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.977 seconds (JVM running for 182.969)
-2020-11-19 15:00:01.941  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:00:15.384  INFO 25900 --- [Thread-43] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:15.385  INFO 25900 --- [Thread-43] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:15.385  INFO 25900 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
-2020-11-19 15:00:15.388  INFO 25900 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
-2020-11-19 15:00:15.510  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:00:15.511 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:00:15.511  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:00:15.676  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:00:15.690  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:00:15.718  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:00:15.722  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:15.723  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:15.770  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:00:15.770  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:00:15.770  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:00:15.795  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:00:15.795  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 282 ms
-2020-11-19 15:00:15.809  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
-2020-11-19 15:00:16.921  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
-2020-11-19 15:00:16.921  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:00:16.936  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:16.967  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:00:16.978  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:00:16.979  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:18.694  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:18.736  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:18.755  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:18.756  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:18.909  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:00:18.971  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:18.972  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:18.975  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.547 seconds (JVM running for 200.005)
-2020-11-19 15:00:18.976  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:00:25.353  INFO 25900 --- [Thread-51] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:25.353  INFO 25900 --- [Thread-51] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:25.353  INFO 25900 --- [Thread-51] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
-2020-11-19 15:00:25.356  INFO 25900 --- [Thread-51] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
-2020-11-19 15:00:25.476  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:00:25.477 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:00:25.477  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:00:25.638  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:00:25.653  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:00:25.683  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:00:25.686  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:25.688  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:25.733  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:00:25.733  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:00:25.733  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:00:25.755  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:00:25.755  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 276 ms
-2020-11-19 15:00:25.767  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
-2020-11-19 15:00:26.796  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
-2020-11-19 15:00:26.796  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:00:26.811  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:26.845  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:00:26.859  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:00:26.860  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:28.568  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:28.611  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:28.632  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:28.632  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:28.787  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:00:28.851  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:28.851  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:28.854  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.461 seconds (JVM running for 209.884)
-2020-11-19 15:00:28.855  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:00:30.185  INFO 25900 --- [Thread-59] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:30.186  INFO 25900 --- [Thread-59] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:30.186  INFO 25900 --- [Thread-59] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
-2020-11-19 15:00:30.210  INFO 25900 --- [Thread-59] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
-2020-11-19 15:00:30.328  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:00:30.328 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:00:30.328  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:00:30.528  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:00:30.548  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:00:30.587  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:00:30.593  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:30.594  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:30.649  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:00:30.649  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:00:30.649  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:00:30.673  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:00:30.673  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 343 ms
-2020-11-19 15:00:30.688  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
-2020-11-19 15:00:31.738  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
-2020-11-19 15:00:31.738  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:00:31.756  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:31.790  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:00:31.804  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:00:31.805  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:33.453  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:33.495  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:33.512  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:33.513  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:33.679  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:00:33.755  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:33.755  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:33.761  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.515 seconds (JVM running for 214.791)
-2020-11-19 15:00:33.764  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:00:35.078  INFO 25900 --- [Thread-67] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:35.078  INFO 25900 --- [Thread-67] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:35.079  INFO 25900 --- [Thread-67] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
-2020-11-19 15:00:35.218  INFO 25900 --- [Thread-67] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
-2020-11-19 15:00:35.342  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:00:35.342 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:00:35.342  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:00:35.497  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:00:35.511  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:00:35.538  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:00:35.542  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:35.542  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:35.584  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:00:35.585  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:00:35.585  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:00:35.607  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:00:35.607  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 263 ms
-2020-11-19 15:00:35.619  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
-2020-11-19 15:00:36.758  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
-2020-11-19 15:00:36.758  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:00:36.772  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:36.803  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:00:36.815  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:00:36.815  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:38.798  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:38.836  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:38.856  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:38.856  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:39.004  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:00:39.066  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:39.066  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:39.070  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.812 seconds (JVM running for 220.101)
-2020-11-19 15:00:39.072  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:00:45.446  INFO 25900 --- [Thread-75] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:45.446  INFO 25900 --- [Thread-75] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:45.446  INFO 25900 --- [Thread-75] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
-2020-11-19 15:00:45.448  INFO 25900 --- [Thread-75] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
-2020-11-19 15:00:45.567  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:00:45.567 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:00:45.567  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:00:45.730  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:00:45.746  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:00:45.776  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:00:45.782  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:45.782  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:00:45.827  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:00:45.827  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:00:45.827  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:00:45.847  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:00:45.847  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 278 ms
-2020-11-19 15:00:45.859  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
-2020-11-19 15:00:46.894  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
-2020-11-19 15:00:46.894  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:00:46.908  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:00:46.937  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:00:46.949  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:00:46.949  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:48.691  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:00:48.727  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:48.747  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:48.747  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:48.899  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:00:48.959  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:00:48.959  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:00:48.962  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.477 seconds (JVM running for 229.993)
-2020-11-19 15:00:48.964  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:01:50.845  INFO 25900 --- [Thread-83] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:01:50.845  INFO 25900 --- [Thread-83] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:01:50.845  INFO 25900 --- [Thread-83] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
-2020-11-19 15:01:50.847  INFO 25900 --- [Thread-83] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
-2020-11-19 15:01:50.968  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:01:50.968 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:01:50.969  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:01:51.130  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:01:51.145  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:01:51.176  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:01:51.180  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:01:51.180  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:01:51.222  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:01:51.223  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:01:51.223  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:01:51.245  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:01:51.245  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 274 ms
-2020-11-19 15:01:51.257  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
-2020-11-19 15:01:52.405  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
-2020-11-19 15:01:52.406  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:01:52.421  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:01:52.453  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:01:52.465  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:01:52.466  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:01:54.155  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:01:54.194  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:01:54.213  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:01:54.213  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:01:54.374  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:01:54.439  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:01:54.439  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:01:54.443  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.558 seconds (JVM running for 295.473)
-2020-11-19 15:01:54.444  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:02:02.839  INFO 25900 --- [Thread-91] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:02:02.840  INFO 25900 --- [Thread-91] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:02:02.840  INFO 25900 --- [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
-2020-11-19 15:02:02.843  INFO 25900 --- [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
-2020-11-19 15:02:02.965  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:02:02.965 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:02:02.965  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:02:03.127  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:02:03.142  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:02:03.171  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:02:03.174  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:02:03.175  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:02:03.218  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:02:03.219  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:02:03.219  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:02:03.240  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:02:03.240  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 273 ms
-2020-11-19 15:02:03.252  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
-2020-11-19 15:02:04.329  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
-2020-11-19 15:02:04.329  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:02:04.342  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:02:04.373  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:02:04.387  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:02:04.388  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:02:06.095  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:02:06.134  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:02:06.154  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:02:06.154  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:02:06.315  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:02:06.381  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:02:06.381  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:02:06.384  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.506 seconds (JVM running for 307.414)
-2020-11-19 15:02:06.385  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:03:46.613  INFO 25900 --- [Thread-99] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:03:46.613  INFO 25900 --- [Thread-99] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:03:46.613  INFO 25900 --- [Thread-99] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
-2020-11-19 15:03:46.616  INFO 25900 --- [Thread-99] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
-2020-11-19 15:03:46.738  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:03:46.738 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:03:46.738  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:03:46.902  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:03:46.916  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:03:46.944  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:03:46.948  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:03:46.949  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:03:46.989  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:03:46.989  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:03:46.989  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:03:47.011  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:03:47.011  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 270 ms
-2020-11-19 15:03:47.023  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Starting...
-2020-11-19 15:03:48.146  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Start completed.
-2020-11-19 15:03:48.147  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:03:48.160  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:03:48.188  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:03:48.199  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:03:48.200  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:03:49.896  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:03:49.933  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:03:49.952  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:03:49.952  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:03:50.104  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:03:50.166  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:03:50.166  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:03:50.169  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.515 seconds (JVM running for 411.199)
-2020-11-19 15:03:50.170  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:03:53.524  INFO 25900 --- [Thread-107] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:03:53.525  INFO 25900 --- [Thread-107] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:03:53.525  INFO 25900 --- [Thread-107] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown initiated...
-2020-11-19 15:03:53.591  INFO 25900 --- [Thread-107] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown completed.
-2020-11-19 15:03:53.721  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:03:53.722 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:03:53.722  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:03:53.884  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:03:53.900  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:03:53.923  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:03:53.926  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:03:53.927  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:03:53.967  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:03:53.968  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:03:53.968  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:03:53.990  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:03:53.991  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 268 ms
-2020-11-19 15:03:54.003  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Starting...
-2020-11-19 15:03:55.013  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Start completed.
-2020-11-19 15:03:55.013  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:03:55.028  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:03:55.065  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:03:55.084  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:03:55.085  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:03:56.751  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:03:56.788  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:03:56.807  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:03:56.807  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:03:56.960  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:03:57.022  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:03:57.022  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:03:57.025  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.388 seconds (JVM running for 418.055)
-2020-11-19 15:03:57.026  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:04:45.833  INFO 25900 --- [Thread-115] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:04:45.834  INFO 25900 --- [Thread-115] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:04:45.834  INFO 25900 --- [Thread-115] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Shutdown initiated...
-2020-11-19 15:04:45.837  INFO 25900 --- [Thread-115] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Shutdown completed.
-2020-11-19 15:04:45.947  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:04:45.947 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:04:45.947  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:04:46.090  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:04:46.105  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:04:46.128  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:04:46.133  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:04:46.133  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:04:46.179  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:04:46.179  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:04:46.179  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:04:46.200  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:04:46.200  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 251 ms
-2020-11-19 15:04:46.213  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Starting...
-2020-11-19 15:04:47.319  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Start completed.
-2020-11-19 15:04:47.320  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:04:47.343  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:04:47.377  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:04:47.390  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:04:47.391  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:04:49.115  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:04:49.148  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:04:49.163  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:04:49.163  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:04:49.317  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
-2020-11-19 15:04:49.373  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:04:49.373  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:04:49.376  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.505 seconds (JVM running for 470.406)
-2020-11-19 15:04:49.377  INFO 25900 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-11-19 15:04:55.760  INFO 25900 --- [Thread-123] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:04:55.760  INFO 25900 --- [Thread-123] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:04:55.760  INFO 25900 --- [Thread-123] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown initiated...
-2020-11-19 15:04:55.762  INFO 25900 --- [Thread-123] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown completed.
-2020-11-19 15:04:55.885  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 25900 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
-2020-11-19 15:04:55.885 DEBUG 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
-2020-11-19 15:04:55.885  INFO 25900 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
-2020-11-19 15:04:56.024  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 15:04:56.037  INFO 25900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 3 JPA repository interfaces.
-2020-11-19 15:04:56.063  INFO 25900 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
-2020-11-19 15:04:56.067  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:04:56.068  INFO 25900 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 15:04:56.108  INFO 25900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
-2020-11-19 15:04:56.108  INFO 25900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-11-19 15:04:56.108  INFO 25900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-19 15:04:56.129  INFO 25900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-11-19 15:04:56.129  INFO 25900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 242 ms
-2020-11-19 15:04:56.141  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Starting...
-2020-11-19 15:04:57.165  INFO 25900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Start completed.
-2020-11-19 15:04:57.165  INFO 25900 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
-2020-11-19 15:04:57.181  INFO 25900 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 15:04:57.211  WARN 25900 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 15:04:57.224  INFO 25900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-11-19 15:04:57.224  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-11-19 15:04:58.900  INFO 25900 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 15:04:58.937  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 15:04:58.958  INFO 25900 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-11-19 15:39:12.586  INFO 26932 --- [Thread-227] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-19 15:39:12.586  INFO 26932 --- [Thread-227] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-19 15:39:12.586  INFO 26932 --- [Thread-227] com.zaxxer.hikari.HikariDataSource       : HikariPool-29 - Shutdown initiated...
+2020-11-19 15:39:12.589  INFO 26932 --- [Thread-227] com.zaxxer.hikari.HikariDataSource       : HikariPool-29 - Shutdown completed.
+2020-11-19 15:39:12.704  INFO 26932 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Starting ClientEngagementPortalBackApplication using Java 14.0.2 on MatthewLee with PID 26932 (C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back\target\classes started by matth in C:\Users\matth\Desktop\gitrepos\Projects\CEP\client-engagement-portal-back)
+2020-11-19 15:39:12.705 DEBUG 26932 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-19 15:39:12.705  INFO 26932 --- [restartedMain] .e.ClientEngagementPortalBackApplication : No active profile set, falling back to default profiles: default
+2020-11-19 15:39:12.843  INFO 26932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-19 15:39:12.855  INFO 26932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 3 JPA repository interfaces.
+2020-11-19 15:39:12.878  INFO 26932 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
+2020-11-19 15:39:12.881  INFO 26932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-19 15:39:12.881  INFO 26932 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-19 15:39:12.920  INFO 26932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9011 (http)
+2020-11-19 15:39:12.920  INFO 26932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-19 15:39:12.920  INFO 26932 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-19 15:39:12.939  INFO 26932 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-19 15:39:12.939  INFO 26932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 232 ms
+2020-11-19 15:39:12.949  INFO 26932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-30 - Starting...
+2020-11-19 15:39:14.056  INFO 26932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-30 - Start completed.
+2020-11-19 15:39:14.057  INFO 26932 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-19 15:39:14.073  INFO 26932 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-19 15:39:14.100  WARN 26932 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-19 15:39:14.110  INFO 26932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-19 15:39:14.111  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-11-19 15:39:15.808  INFO 26932 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-19 15:39:15.839  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-11-19 15:39:15.855  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-11-19 15:39:15.855  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-11-19 15:39:15.991  INFO 26932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9011 (http) with context path ''
+2020-11-19 15:39:16.049  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-11-19 15:39:16.049  INFO 26932 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-11-19 15:39:16.052  INFO 26932 --- [restartedMain] .e.ClientEngagementPortalBackApplication : Started ClientEngagementPortalBackApplication in 3.422 seconds (JVM running for 1424.025)
+2020-11-19 15:39:16.053  INFO 26932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-11-19 15:39:18.825  INFO 26932 --- [http-nio-9011-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-19 15:39:18.825  INFO 26932 --- [http-nio-9011-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-19 15:39:18.826  INFO 26932 --- [http-nio-9011-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2020-11-19 15:39:18.828 DEBUG 26932 --- [http-nio-9011-exec-2] com.engagement.aspect.LoggingAspect      : Enter: com.engagement.controller.ClientController.getBatchById() with argument[s] = [null]
+2020-11-19 15:39:18.830 DEBUG 26932 --- [http-nio-9011-exec-2] com.engagement.aspect.LoggingAspect      : Enter: com.engagement.service.ClientService.getBatchByBatchId() with argument[s] = [null]
+2020-11-19 15:39:19.579 DEBUG 26932 --- [http-nio-9011-exec-2] com.engagement.aspect.LoggingAspect      : Exit: com.engagement.service.ClientService.getBatchByBatchId() with result = Batch(batchId=TR-1430, name=Mock Batch 296, startDate=2018-07-30, endDate=2018-10-08, skill=PEGA, location=Arlington, type=Revature, goodGrade=70, passingGrade=80, employeeAssignments=[EmployeeAssignment(role=ROLE_LEAD_TRAINER, employee=Employee(email=mock1011.employeece2f8b79-da1c-44bc-8156-a65fd716987a@mock.com, firstName=Mock 1011, lastName=Employee 1011))], associateAssignments=[AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock4.associate769eee78-619c-4e9f-b0fd-d5f3fa9a2903@mock.com, salesforceId=SF-6295, firstName=Mock 4, lastName=Associate 4, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock9.associate73465834-1d9d-41fd-8630-cb05ef06c73c@mock.com, salesforceId=SF-6300, firstName=Mock 9, lastName=Associate 9, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock8.associate568fe37a-cb56-4646-bfe0-ced680baed9f@mock.com, salesforceId=SF-6299, firstName=Mock 8, lastName=Associate 8, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock12.associate3b6f31cf-f3d3-4995-ba7f-ad6d1ab37597@mock.com, salesforceId=SF-6303, firstName=Mock 12, lastName=Associate 12, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock2.associate418f3a5f-6bd7-4815-bb6d-f81fe5dae0bd@mock.com, salesforceId=SF-6293, firstName=Mock 2, lastName=Associate 2, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock13.associate4dab9ee2-3bd4-4096-99b6-2acbcaef5c95@mock.com, salesforceId=SF-6304, firstName=Mock 13, lastName=Associate 13, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock11.associate629d3517-5d74-4987-a35f-109399945510@mock.com, salesforceId=SF-6302, firstName=Mock 11, lastName=Associate 11, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock10.associate72c7cae7-abf4-4267-aeaa-34808cd179ff@mock.com, salesforceId=SF-6301, firstName=Mock 10, lastName=Associate 10, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock0.associateac5d980d-44ef-4f78-a8e2-b99824c97195@mock.com, salesforceId=SF-6291, firstName=Mock 0, lastName=Associate 0, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock3.associateb89c4012-1fba-4281-a406-f1e32fca0c81@mock.com, salesforceId=SF-6294, firstName=Mock 3, lastName=Associate 3, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock6.associate6057581e-cb72-41ee-b387-897e3d139896@mock.com, salesforceId=SF-6297, firstName=Mock 6, lastName=Associate 6, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock5.associate03261792-2b14-49a3-bfab-8ad729863d7c@mock.com, salesforceId=SF-6296, firstName=Mock 5, lastName=Associate 5, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock1.associate52a881f1-1eb1-4b05-a9ed-c35a2587d5f5@mock.com, salesforceId=SF-6292, firstName=Mock 1, lastName=Associate 1, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true), AssociateAssignment(trainingStatus=Training, associate=Associate(email=mock7.associatec3418421-035e-4e60-9aeb-0e8f3aa904d3@mock.com, salesforceId=SF-6298, firstName=Mock 7, lastName=Associate 7, grades=null), startDate=2018-10-08, endDate=2018-07-30, active=true)], currentWeek=11)

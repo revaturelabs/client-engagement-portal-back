@@ -80,34 +80,33 @@ public class ClientService {
 	 * @return Returns the batch associated to the id.
 	 */
 	public Batch getBatchByBatchId(String batchId) {
-
-		List<Batch> batches = bc.getBatchById(batchId);// gets a list of zero or one batch this is associated with the
-														// id.
+		// gets a list of zero or one batch this is associated with the id
+		List<Batch> batches = bc.getBatchById(batchId);
 
 		if (!batches.isEmpty()) {
+			// gets the first batch in the list, which is the batch associated with the batchId
+			Batch batch = batches.get(0);
 
-			Batch b = batches.get(0);// gets the first batch in the list, which is the batch associated with the
-										// batchId.
-
-			Params params = new Params();
-			params.setId(batchId);
-			List<Grade> grades = gc.getGradesByBatchId(batchId); // gets all of the grades associated with the batch.
-
-			/**
-			 * For every grade, check if its traineeId equals any salesForceId of an
-			 * associate of the batch. Once a match is found, add that grade to the list of
-			 * grades of that associate, then move on to the next grade.
-			 */
-			for (Grade grade : grades) {
-				for (AssociateAssignment a : b.getAssociateAssignments()) {
-					if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
-						a.getAssociate().getGrades().add(grade);
-						break;
-					}
-				}
-			}
-			return b; // Returns the batch with all associates and their grades.
-
+//			Params params = new Params();
+//			params.setId(batchId);
+//			// gets all of the grades associated with the batch.
+//			List<Grade> grades = gc.getGradesByBatchId(batchId);
+//
+//			/**
+//			 * For every grade, check if its traineeId equals any salesForceId of an
+//			 * associate of the batch. Once a match is found, add that grade to the list of
+//			 * grades of that associate, then move on to the next grade.
+//			 */
+//			for (Grade grade : grades) {
+//				for (AssociateAssignment a : batch.getAssociateAssignments()) {
+//					if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
+//						a.getAssociate().getGrades().add(grade);
+//						break;
+//					}
+//				}
+//			}
+			
+			return batch; // Returns the batch with all associates and their grades.
 		}
 
 		return null; // If no batch with that batchId was found, return null
