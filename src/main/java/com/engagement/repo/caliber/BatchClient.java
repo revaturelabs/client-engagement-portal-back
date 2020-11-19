@@ -19,6 +19,6 @@ public interface BatchClient {
 	List<Batch> getBatches();
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/batch/{batchId}")
-	Batch getBatchById(@PathVariable("batchId") String batchId);
+	List<Batch> getBatchById(@PathVariable("batchId") String batchId);
 
 }

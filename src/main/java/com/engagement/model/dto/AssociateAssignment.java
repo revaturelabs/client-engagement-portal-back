@@ -4,6 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 
+ * An AssociateAssignment has a trainee and more information 
+ *
+ */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

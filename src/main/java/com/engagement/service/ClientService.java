@@ -77,8 +77,9 @@ public class ClientService {
 
 		public Batch getBatchByBatchId(String batchId) {
 
-			Batch b = bc.getBatchById(batchId);
-			Grade[] grades = gc.getGradesByBatchId(batchId);
+			List<Batch> batches = bc.getBatchById(batchId);
+			Batch b = batches.get(0);
+			List<Grade> grades = gc.getGradesByBatchId(batchId);
 			for (Grade grade: grades) {
 				for (AssociateAssignment a : b.getAssociateAssignments()) {
 					if(grade.getTraineeId() == a.getAssociate().getSalesfoceId()) {
