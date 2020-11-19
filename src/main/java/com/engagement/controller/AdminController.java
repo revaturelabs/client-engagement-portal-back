@@ -31,7 +31,6 @@ public class AdminController {
 		return as.findAll();
 	}
 	
-	
 	/**
 	  * Creates a new Admin object and persists to the DB 
 	  * @param admin- the request body should contain a json 
@@ -45,7 +44,6 @@ public class AdminController {
 		else 
 			return new ResponseEntity<String>("User creation failed!", HttpStatus.CONFLICT);
 		}
-		
 	
 	/**
 	  * Updates Admin object in the DB 

@@ -1,27 +1,18 @@
 package com.engagement.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.engagement.model.dto.Associate;
-import com.engagement.model.dto.AssociateAssignment;
-import com.engagement.model.dto.Batch;
-import com.engagement.model.dto.Grade;
-import com.engagement.repo.caliber.BatchClient;
-import com.engagement.repo.caliber.GradeClient;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.engagement.model.Client;
+import com.engagement.model.dto.AssociateAssignment;
+import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.BatchName;
+import com.engagement.model.dto.Grade;
 import com.engagement.repo.ClientRepo;
-import org.springframework.stereotype.Service;
+import com.engagement.repo.caliber.GradeClient;
+import com.engagement.repo.caliber.TrainingClient;
 
 /**
  * Service for handling business logic of client requests
@@ -34,7 +25,7 @@ public class ClientService {
 		@Autowired
 		ClientRepo cr;
 		@Autowired
-		private BatchClient bc;	
+		private TrainingClient bc;	
 		@Autowired
 		private GradeClient gc;
 		
@@ -73,10 +64,20 @@ public class ClientService {
 		public Client findByEmail(String email) {
 			return cr.findByEmail(email);
 		}
-
+		
+		/**
+		 * Returns a list of all batches from Caliber API
+		 * @return List of all batch IDs and names
+		 */
+		public List<BatchName> getAllBatches() {
+			List<BatchName> batches = bc.getBatches();
+			for(BatchName b : batches) {
+				System.out.println(b);
+			}
+			return batches;
+		}
 
 		public Batch getBatchByBatchId(String batchId) {
-
 			List<Batch> batches = bc.getBatchById(batchId);
 			Batch b = batches.get(0);
 			List<Grade> grades = gc.getGradesByBatchId(batchId);

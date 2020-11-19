@@ -1,7 +1,6 @@
 package com.engagement.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Client;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.BatchName;
 import com.engagement.service.ClientService;
 
 /**
@@ -70,9 +70,19 @@ public class ClientController {
 	public Client findByEmail(@RequestParam String email) {
 		return cs.findByEmail(email);
 	}
+	
+	/**
+	 * Returns a list of all batches from Caliber API
+	 * @return List of all batch IDs and names
+	 */
+	@GetMapping("/batch/all")
+	public List<BatchName> getBatches() {
+		return cs.getAllBatches();
+	}
 
 	@GetMapping("/batch/{batchId}")
 	public Batch getBatchById(String batchId) {
 		return cs.getBatchByBatchId(batchId);
 	}
+	
 }
