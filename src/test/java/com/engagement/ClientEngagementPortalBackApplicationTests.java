@@ -13,7 +13,7 @@ class ClientEngagementPortalBackApplicationTests {
 
 	@Test
 	void contextLoads() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 }

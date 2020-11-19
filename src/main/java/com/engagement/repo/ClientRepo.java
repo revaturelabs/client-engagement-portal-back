@@ -14,4 +14,6 @@ public interface ClientRepo extends JpaRepository<Client, Integer> {
 	public boolean deleteByEmail(String email);
 	
 	public Client findByEmail(String email);
+
 }
+
