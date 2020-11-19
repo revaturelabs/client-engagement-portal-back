@@ -1,9 +1,14 @@
 package com.engagement.controller;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -19,6 +24,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Admin;
+import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
 @RunWith(SpringRunner.class)
@@ -38,6 +44,7 @@ class AdminControllerTest {
 	private String mockAdminJson2 = "{\"adminId\":1 ,\"email\":\"a2@a.net\",\"firstName\":\"admin\",\"lastName\":\"adminson\"}";
 	Admin admin0 = new Admin(0, "a@a.net", "admin", "adminson");
 	Admin admin2 = new Admin(1, "a2@a.net", "admin", "adminson");
+	BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");
 
 	@Before
 	public void setUp() {
@@ -90,6 +97,28 @@ class AdminControllerTest {
 		this.mockMvc
 			.perform(post("/admin/delete").accept(MediaType.ALL).param("id", "1"))
 			.andExpect(status().isConflict()).andExpect(content().string(containsString("User not found!")));
+
+	}
+	
+	/**
+	 * Test that determines whether the names of batches are being correctly imported from caliber
+	 * @throws Exception
+	 */
+	@Test
+	void testGetBatchNames() throws Exception {
+		List<BatchName> batchesByName = new ArrayList<>();
+		batchesByName.add(namedBatch);
+		Mockito.when(as.getAllBatches()).thenReturn(batchesByName);
+		
+		// Makes sure that caliber is up and running
+		this.mockMvc
+				.perform(get("/admin/batch/allNames").accept(MediaType.ALL))
+				.andExpect(status().isOk());
+
+		// Is not really doing anything meaningful
+		this.mockMvc
+			.perform(get("/admin/batch/allNames").accept(MediaType.ALL))
+			.andReturn();
 
 	}
 
