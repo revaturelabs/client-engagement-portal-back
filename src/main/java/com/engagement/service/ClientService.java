@@ -88,7 +88,7 @@ public class ClientService {
 			 */
 			for (Grade grade: grades) {
 				for (AssociateAssignment a : b.getAssociateAssignments()) {
-					if(grade.getTraineeId() == a.getAssociate().getSalesforceId()) {
+					if(grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
 						a.getAssociate().getGrades().add(grade);
 						break;
 					}
