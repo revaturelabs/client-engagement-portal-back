@@ -12,7 +12,7 @@ import com.engagement.repo.AdminRepo;
 import com.engagement.repo.caliber.TrainingClient;
 
 /**
- * 
+ * Service for handling business logic of admin requests
  * @author
  *
  */
@@ -21,18 +21,17 @@ import com.engagement.repo.caliber.TrainingClient;
 public class AdminService {
 
 	private AdminRepo ar;
-	
-	@Autowired
 	private TrainingClient bc;
 
 	@Autowired
-	public AdminService(AdminRepo ar) {
+	public AdminService(AdminRepo ar, TrainingClient bc) {
 		super();
-		this.ar = ar;	
+		this.ar = ar;
+		this.bc = bc;
 	}
 	
 	/**
-	 * 
+	 * Return a list of all admins
 	 * @return
 	 */
 	public List<Admin> findAll() {
@@ -40,27 +39,27 @@ public class AdminService {
 	}
 
 	/**
-	 * 
-	 * @param id
-	 * @return
+	 * Find an admin by id
+	 * @param id the admin's id
+	 * @return the admin that matches the id
 	 */
 	public Admin findByAdminId(Integer id) {
 		return ar.findByAdminId(id);
 	}
 
 	/**
-	 * 
-	 * @param email
-	 * @return
+	 * Find an admin by email
+	 * @param email the admin's email
+	 * @return the admin that matches the email
 	 */
 	public Admin findByEmail(String email) {
 		return ar.findByEmail(email);
 	}
 
 	/**
-	 * 
-	 * @param admin
-	 * @return
+	 * Saves an admin to the database
+	 * @param admin admin to save
+	 * @return true if success, false if fail
 	 */
 	public boolean save(Admin admin) {		
 		// admin cannot be null
@@ -77,9 +76,9 @@ public class AdminService {
 	}
 
 	/**
-	 * 
-	 * @param admin
-	 * @return
+	 * Update an admin's information
+	 * @param admin the admin to update
+	 * @return the updated admin or null if failed update
 	 */
 	public Admin update(Admin admin) {
 		// admin cannot be null
@@ -97,8 +96,8 @@ public class AdminService {
 	}
 
 	/**
-	 * 
-	 * @param id
+	 * Delete an admin by their id
+	 * @param id the admin's id
 	 */
 	public void delete(Integer id) {
 		// id cannot be null
@@ -109,10 +108,11 @@ public class AdminService {
 		ar.deleteById(id);
 	}
 
-	/*
+	/**
 	 * Returns a list of all batches from Caliber API
 	 * @return List of all batch IDs and names
 	 */
+
 	public List<Batch> getAllBatches() {
 		List<Batch> batches = bc.getBatches();
 		return batches;

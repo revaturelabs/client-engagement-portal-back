@@ -25,22 +25,17 @@ import com.engagement.repo.caliber.TrainingClient;
 @Service
 public class ClientService {
 
-	@Autowired
 	ClientRepo cr;
-	@Autowired
 	private TrainingClient bc;
-	@Autowired
 	private GradeClient gc;
 
-	/**
-	 * Find a client by clientId
-	 * 
-	 * @param id A clientId in the database
-	 * @return a Client associated with id
-	 */
-//		public Client findByClientId(int id) {
-//			return cr.findByClientId(id);
-//		}
+	@Autowired
+	public ClientService(ClientRepo cr, TrainingClient bc, GradeClient gc) {
+		super();
+		this.cr = cr;
+		this.bc = bc;
+		this.gc = gc;
+	}
 
 	/**
 	 * Returns a list of all clients in the database
@@ -54,11 +49,20 @@ public class ClientService {
 	/**
 	 * Saves a client to the database
 	 * 
-	 * @param c A client to be saved to the database
-	 * @return Client that was saved
+	 * @param client A client to be saved to the database
+	 * @return true if success, false if fail
 	 */
-	public Client save(Client c) {
-		return cr.save(c);
+	public boolean save(Client client) {
+		if (client == null) {
+			return false;
+		}
+		
+		try {
+			cr.save(client);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**
@@ -79,7 +83,6 @@ public class ClientService {
 	 * @return Returns the batch associated to the id.
 	 * @author Kelsey Iafrate
 	 */
-
 	public Batch getBatchByBatchId(String batchId) {
 
 		Batch b = bc.getBatchById(batchId);// gets a list of zero or one batch this is associated with the id.
@@ -108,6 +111,5 @@ public class ClientService {
 		}
 
 		return null; // If a batch with that batchId was found, return null.
-
 	}
 }
