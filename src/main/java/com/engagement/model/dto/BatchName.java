@@ -15,8 +15,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BatchName {
-	
     private String batchId;
     private String name;
-    
 }

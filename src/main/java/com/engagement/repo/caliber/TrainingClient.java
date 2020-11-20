@@ -13,6 +13,7 @@ import com.engagement.model.dto.BatchName;
  * 
  * The TrainingClient accesses the Training endpoints of the caliber 2 API.
  * The endpoints you can access include batch and associate 
+ * @author Kelsey Iafrate
  *
  */
 
@@ -20,18 +21,24 @@ import com.engagement.model.dto.BatchName;
 public interface TrainingClient {
 	
 	/**
-	 * 
+	 * Return every batch in the Caliber 2 API
 	 * @return List<Batch> Returns the list of all batches
+	 * @author Kelsey Iafrate
 	 */
-	@GetMapping(value = "/batch/current")
+
+	@GetMapping("/batch")
 	List<BatchName> getBatches();
+
 	
 	/**
-	 * 
-	 * @param batchId The id for a batch. For example TR-1142
+	 * Get a batch by batchId. For example TR-1142
+	 * @param batchId The id for a batch.
 	 * @return List<Batch> Returns a list of one or zero Batches based on the batchId
+	 * @author Kelsey Iafrate
 	 */
-	@GetMapping(value = "/batch/{batchId}")
+
+	@GetMapping("/batch/{batchId}")
 	Batch getBatchById(@PathVariable("batchId") String batchId);
+
 
 }

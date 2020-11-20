@@ -111,8 +111,10 @@ public class AdminService {
 	 * Returns a list of all batches from Caliber API
 	 * @return List of all batch IDs and names
 	 */
+
 	public List<BatchName> getAllBatches() {
 		return bc.getBatches();
+		
 	}
 
 }
