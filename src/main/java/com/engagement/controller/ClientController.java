@@ -92,4 +92,5 @@ public class ClientController {
 	public List<ClientName> findClientNames() {
 		return cs.getClientNames();
 	}
+	
 }
