@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Client;
+import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
 
 /**
  * Controller that handles requests pertaining to clients
- * @author Tucker Fritz
+ * @author Tucker Fritz, Matt Hartmann
  */
 @RestController
 @RequestMapping("/client")
@@ -55,5 +56,17 @@ public class ClientController {
 	@ResponseBody
 	public Client findByEmail(@PathVariable String email) {
 		return cs.findByEmail(email);
+	}
+	
+	
+	/**
+	 * returns clients with just id and name
+	 * @param none
+	 * @return List of clients with id and name
+	 */
+	@GetMapping("/clientnames")
+	@ResponseBody
+	public List<ClientName> findClientNames() {
+		return cs.ClientNames();
 	}
 }
