@@ -3,9 +3,8 @@ package com.engagement.repo.caliber;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.engagement.model.dto.Grade;
 
@@ -26,6 +25,6 @@ public interface GradeClient {
 	 * @author Kelsey Iafrate
 	 */
 
-	@RequestMapping(method = RequestMethod.GET, value = "/batch/{batchId}")
+	@GetMapping("/batch/{batchId}")
 	List<Grade> getGradesByBatchId(@PathVariable("batchId") String batchId);
 }

@@ -101,6 +101,6 @@ public class ClientService {
 			}
 			return b; // Returns the batch with all associates and their grades.
 		}
-		return null; // If a batch with that batchId was found, return null;
+		return null; // If a batch with that batchId was found, return null.
 	}
 }
