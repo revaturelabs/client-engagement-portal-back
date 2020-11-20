@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Admin;
 import com.engagement.model.AdminDto;
+import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
@@ -106,7 +107,7 @@ public class AdminController {
 	 * @return List of all batch IDs and names
 	 */
 	@GetMapping("/batch/allNames")
-	public List<BatchName> getBatches() {
+	public List<Batch> getBatches() {
 		return as.getAllBatches();
 	}
 	

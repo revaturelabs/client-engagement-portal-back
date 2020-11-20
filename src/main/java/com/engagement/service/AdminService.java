@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.engagement.model.Admin;
+import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.caliber.TrainingClient;
@@ -37,12 +38,6 @@ public class AdminService {
 	public List<Admin> findAll() {
 		return ar.findAll();
 	}
-<<<<<<< HEAD
-	
-	public Admin update(Admin admin) {
-	
-		return adminRepository.save(admin);
-=======
 
 	/**
 	 * 
@@ -51,7 +46,6 @@ public class AdminService {
 	 */
 	public Admin findByAdminId(Integer id) {
 		return ar.findByAdminId(id);
->>>>>>> ca32056a7877ed4adad1796d104a9c54306bdd53
 	}
 
 	/**
@@ -119,8 +113,8 @@ public class AdminService {
 	 * Returns a list of all batches from Caliber API
 	 * @return List of all batch IDs and names
 	 */
-	public List<BatchName> getAllBatches() {
-		List<BatchName> batches = bc.getBatches();
+	public List<Batch> getAllBatches() {
+		List<Batch> batches = bc.getBatches();
 		return batches;
 	}
 
