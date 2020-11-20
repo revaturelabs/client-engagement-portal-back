@@ -2,7 +2,6 @@ package com.engagement.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +11,13 @@ import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+/**
+*
+* 
+* @author Matt Hartman
+*
+*/
 
 @Data
 @NoArgsConstructor
@@ -31,7 +37,5 @@ public class Client {
 
 	@OneToMany(mappedBy = "client")
 	private List<ClientBatch> clientBatches;
-
-
 
 }
