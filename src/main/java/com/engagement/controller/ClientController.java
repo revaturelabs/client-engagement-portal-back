@@ -23,17 +23,18 @@ import com.engagement.model.dto.Batch;
 
 import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
-
 import io.swagger.annotations.ApiOperation;
+
+
 
 /**
  * Controller that handles requests pertaining to clients
  * 
  * @author Tucker Fritz, Matt Hartmann
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/client")
-@CrossOrigin
 public class ClientController {
 
 	private ClientService cs;
@@ -105,7 +106,6 @@ public class ClientController {
 	/**
 	 * returns clients with just id and name
 	 * 
-	 * @param none
 	 * @return List of clients with id and name
 	 */
 	@ApiOperation(value="Returns a list of all clients with only atributes \"id\" and \"name\".")
