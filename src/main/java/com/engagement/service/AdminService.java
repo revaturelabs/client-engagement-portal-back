@@ -7,8 +7,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.engagement.model.ClientBatch;
 import com.engagement.model.Admin;
+import com.engagement.model.ClientBatch;
 import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientBatchRepo;
@@ -115,6 +115,7 @@ public class AdminService {
 	 * Returns a list of all batches from Caliber API
 	 * @return List of all batch IDs and names
 	 */
+
 	public List<BatchName> getAllBatches() {
 		return tc.getBatches();
 	}

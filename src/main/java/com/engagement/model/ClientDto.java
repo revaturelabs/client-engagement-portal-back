@@ -1,8 +1,6 @@
-package com.engagement.model.dto;
+package com.engagement.model;
 
 import java.util.List;
-
-import com.engagement.model.ClientBatch;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -20,8 +20,6 @@ import com.engagement.model.Admin;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
-import io.swagger.annotations.ApiOperation;
-
 /**
  * AdminController --- backend endpoints for admin/*.
  * 
@@ -46,7 +44,6 @@ public class AdminController {
 	 * 
 	 * @return List of all admin objects.
 	 */
-	@ApiOperation(value = "Finds all Admins in the database.")
 	@GetMapping("/")
 	public List<Admin> findAll() {
 		return as.findAll();
@@ -58,8 +55,6 @@ public class AdminController {
 	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
-	@ApiOperation(value = "Creates a new Admin object and persists to the DB.", 
-			notes = "The request body should contain a json in  the shape of an Admin object.")
 	@PostMapping("/new")
 	public ResponseEntity<String> save(@RequestBody Admin admin) {
 		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(), admin.getLastName());
@@ -77,8 +72,6 @@ public class AdminController {
 	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
-	@ApiOperation(value = "Updates a Admin object in the DB.",
-			notes = "The request body should contain a json in the shape of an Admin object.")
 	@PutMapping("/update")
 	public ResponseEntity<String> update(@RequestBody Admin admin) {
 		Admin adminInDB = as.findByEmail(admin.getEmail());
@@ -103,9 +96,6 @@ public class AdminController {
 	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
-	@ApiOperation(value = "Deletes an Admin object from the DB.", 
-			notes = "The request body should contain a json in  the shape of an Admin object. Returns a Status code and a message.")
-		
 	@DeleteMapping("/delete")
 	public ResponseEntity<String> delete(@RequestParam Integer id) {
 		if (as.findByAdminId(id) == null) { // admin does not exist
@@ -120,7 +110,6 @@ public class AdminController {
 	 * Returns a list of all batches from Caliber API
 	 * @return List of all batch IDs and names
 	 */
-	@ApiOperation(value ="Returns a list of all of the batch IDs and names from the Caliber API.")
 	@GetMapping("/batch/allNames")
 	public List<BatchName> getBatches() {
 		return as.getAllBatches();
