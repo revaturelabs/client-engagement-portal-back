@@ -1,5 +1,6 @@
 package com.engagement.service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,23 +14,28 @@ import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.Grade;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
-import com.engagement.repo.caliber.Params;
 import com.engagement.repo.caliber.TrainingClient;
 
 /**
  * Service for handling business logic of client requests
+ * 
  * @author Tucker Fritz, Matt Hartmann
  *
  */
 @Service
 public class ClientService {
 
-	@Autowired
 	ClientRepo cr;
-	@Autowired
 	private TrainingClient bc;
-	@Autowired
 	private GradeClient gc;
+
+	@Autowired
+	public ClientService(ClientRepo cr, TrainingClient bc, GradeClient gc) {
+		super();
+		this.cr = cr;
+		this.bc = bc;
+		this.gc = gc;
+	}
 
 	/**
 	 * Returns a list of all clients in the database
@@ -43,11 +49,20 @@ public class ClientService {
 	/**
 	 * Saves a client to the database
 	 * 
-	 * @param c A client to be saved to the database
-	 * @return Client that was saved
+	 * @param client A client to be saved to the database
+	 * @return true if success, false if fail
 	 */
-	public Client save(Client c) {
-		return cr.save(c);
+	public boolean save(Client client) {
+		if (client == null) {
+			return false;
+		}
+
+		try {
+			cr.save(client);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**
@@ -64,55 +79,57 @@ public class ClientService {
 	 * Find a batch by it's identifier in Caliber.
 	 * 
 	 * @param batchId: The batch's identifier in Caliber.
-	 * @return Returns the batch associated to the id.
+	 * @return Returns the batch associated to the id or null.
 	 */
 	public Batch getBatchByBatchId(String batchId) {
+		Batch batch = new Batch();
 
-		List<Batch> batches = bc.getBatchById(batchId);// gets a list of zero or one batch this is associated with the
-														// id.
+		try {
+			// gets batch that is associated with the id
+			batch = bc.getBatchById(batchId);
+		} catch (Exception e) {
+			// batch not found
+			return null;
+		}
 
-		if (!batches.isEmpty()) {
+		// gets all of the grades associated with the batch.
+		List<Grade> grades = gc.getGradesByBatchId(batchId);
 
-			Batch b = batches.get(0);// gets the first batch in the list, which is the batch associated with the
-										// batchId.
-
-			Params params = new Params();
-			params.setId(batchId);
-			List<Grade> grades = gc.getGradesByBatchId(batchId); // gets all of the grades associated with the batch.
-
-			/**
-			 * For every grade, check if its traineeId equals any salesForceId of an
-			 * associate of the batch. Once a match is found, add that grade to the list of
-			 * grades of that associate, then move on to the next grade.
-			 */
-			for (Grade grade : grades) {
-				for (AssociateAssignment a : b.getAssociateAssignments()) {
-					if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
-						a.getAssociate().getGrades().add(grade);
-						break;
+		/**
+		 * For every grade, check if its traineeId equals any salesForceId of an
+		 * associate of the batch. Once a match is found, add that grade to the list of
+		 * grades of that associate, then move on to the next grade.
+		 */
+		for (Grade grade : grades) {
+			for (AssociateAssignment a : batch.getAssociateAssignments()) {
+				if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
+					if (a.getAssociate().getGrades() == null) {
+						a.getAssociate().setGrades(new ArrayList<>());
 					}
+					a.getAssociate().getGrades().add(grade);
+					break;
 				}
 			}
-			return b; // Returns the batch with all associates and their grades.
 		}
-		return null; // If no batch with that batchId was found, return null;
+
+		return batch;
 	}
-		
-		/**
-		 * Find all client names
-		 * 
-		 * @param none
-		 * @return All clients with only number and name
-		 */
-		public List<ClientName> ClientNames()
-		{
-			List<Client> clients = cr.findAll();
-			List<ClientName> clientsdto = new LinkedList<ClientName>();
-			for(int i = 0; i < clients.size(); i++)
-				clientsdto.add(new ClientName(clients.get(i).getCompanyName(), String.valueOf(clients.get(i).getClientId())));
-			
-			return clientsdto;
+
+	/**
+	 * Find all client names
+	 * 
+	 * @param none
+	 * @return All clients with only number and name
+	 */
+	public List<ClientName> getClientNames() {
+		List<Client> clients = cr.findAll();
+		List<ClientName> clientNames = new LinkedList<>();
+
+		for (Client client : clients) {
+			clientNames.add(new ClientName(client.getClientId(), client.getCompanyName()));
 		}
-		
-		
+
+		return clientNames;
+	}
+
 }

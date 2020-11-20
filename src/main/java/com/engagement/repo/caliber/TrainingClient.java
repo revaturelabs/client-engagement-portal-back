@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchName;
@@ -34,6 +32,6 @@ public interface TrainingClient {
 	 * @return List<Batch> Returns a list of one or zero Batches based on the batchId
 	 */
 	@GetMapping(value = "/batch/{batchId}")
-	List<Batch> getBatchById(@PathVariable("batchId") String batchId);
+	Batch getBatchById(@PathVariable("batchId") String batchId);
 
 }
