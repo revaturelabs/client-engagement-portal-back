@@ -1,5 +1,6 @@
 package com.engagement.service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import com.engagement.model.Client;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.Grade;
+
+import com.engagement.model.dto.ClientName;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
 
@@ -18,8 +21,12 @@ import com.engagement.repo.caliber.TrainingClient;
 
 /**
  * Service for handling business logic of client requests
+<<<<<<< HEAD
  * 
  * @author Tucker Fritz
+=======
+ * @author Tucker Fritz, Matt Hartmann
+>>>>>>> b4a44dc8a1e0a37a3a4e0e0b4b5ca4c98d46c3cd
  *
  */
 @Service
@@ -110,6 +117,25 @@ public class ClientService {
 			return b; // Returns the batch with all associates and their grades.
 		}
 
+
 		return null; // If a batch with that batchId was found, return null.
 	}
+
+		
+		/**
+		 * Find all client names
+		 * @param none
+		 * @return All clients with only number and name
+		 */
+		public List<ClientName> ClientNames()
+		{
+			List<Client> clients = cr.findAll();
+			List<ClientName> clientsdto = new LinkedList<ClientName>();
+			for(int i = 0; i < clients.size(); i++)
+				clientsdto.add(new ClientName(String.valueOf(clients.get(i).getClientId()), clients.get(i).getCompanyName()));
+			
+			return clientsdto;
+		}
+		
+		
 }
