@@ -52,7 +52,7 @@ public class ClientController {
 	 */
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody ClientDto client) {
-		Client persistentClient = new Client(0, client.getEmail(), client.getCompanyName(), client.getPhoneNumber(), null);
+		Client persistentClient = new Client(0, client.getEmail(), client.getCompanyName(), client.getPhoneNumber());
 		
 		if (cs.save(persistentClient)) {
 			return new ResponseEntity<>("Client succesfully created", HttpStatus.CREATED);

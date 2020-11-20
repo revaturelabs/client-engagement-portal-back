@@ -1,13 +1,17 @@
 package com.engagement.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.engagement.model.ClientBatch;
 import com.engagement.model.Admin;
 import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
+import com.engagement.repo.ClientBatchRepo;
 import com.engagement.repo.caliber.TrainingClient;
 
 /**
@@ -18,16 +22,16 @@ import com.engagement.repo.caliber.TrainingClient;
 
 @Service
 public class AdminService {
-
-	private AdminRepo ar;
-	private TrainingClient bc;
-
+	
 	@Autowired
-	public AdminService(AdminRepo ar, TrainingClient bc) {
-		super();
-		this.ar = ar;
-		this.bc = bc;
-	}
+	private AdminRepo ar;
+	
+	@Autowired
+	private TrainingClient tc;
+	
+	@Autowired
+	private ClientBatchRepo cbr;
+	
 	
 	/**
 	 * Return a list of all admins
@@ -112,7 +116,27 @@ public class AdminService {
 	 * @return List of all batch IDs and names
 	 */
 	public List<BatchName> getAllBatches() {
-		return bc.getBatches();
+		return tc.getBatches();
+	}
+	
+	/**
+	 * @author Brooke Wursten
+	 * Returns a list of all client-batch mappings
+	 * @return list of Client-batch objects showing mappings
+	 */
+	public Map<String,Integer> findAllMappings() {
+		Map<String,Integer> mappings = new HashMap<>();
+		List<ClientBatch> clientBatchList =  cbr.findAll();
+		clientBatchList.forEach(clientBatch->{
+			String k=clientBatch.getBatchId();
+			int v=clientBatch.getClient().getClientId();
+			mappings.put(k, v);
+		});
+		return mappings;
 	}
 
+	
+	
+	
+	
 }

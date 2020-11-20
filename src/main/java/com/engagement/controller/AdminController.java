@@ -1,10 +1,12 @@
 package com.engagement.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Admin;
-import com.engagement.model.dto.AdminDto;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
@@ -27,6 +28,7 @@ import io.swagger.annotations.ApiOperation;
  * @author Brooke Wursten & Daniel Consantinescu
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/admin")
 public class AdminController {
 
@@ -37,11 +39,12 @@ public class AdminController {
 		super();
 		this.as = as;
 	}
+	
 
 	/**
-	 * Finds all Admin objects in the DB 
+	 * Finds all admin objects - mainly for testing
 	 * 
-	 * @return A list of all Admins
+	 * @return List of all admin objects.
 	 */
 	@ApiOperation(value = "Finds all Admins in the database.")
 	@GetMapping("/")
@@ -58,7 +61,7 @@ public class AdminController {
 	@ApiOperation(value = "Creates a new Admin object and persists to the DB.", 
 			notes = "The request body should contain a json in  the shape of an Admin object.")
 	@PostMapping("/new")
-	public ResponseEntity<String> save(@RequestBody AdminDto admin) {
+	public ResponseEntity<String> save(@RequestBody Admin admin) {
 		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(), admin.getLastName());
 
 		if (as.save(persistentAdmin)) {
@@ -77,7 +80,7 @@ public class AdminController {
 	@ApiOperation(value = "Updates a Admin object in the DB.",
 			notes = "The request body should contain a json in the shape of an Admin object.")
 	@PutMapping("/update")
-	public ResponseEntity<String> update(@RequestBody AdminDto admin) {
+	public ResponseEntity<String> update(@RequestBody Admin admin) {
 		Admin adminInDB = as.findByEmail(admin.getEmail());
 		
 		if (adminInDB == null) { // admin does not exist
@@ -122,5 +125,22 @@ public class AdminController {
 	public List<BatchName> getBatches() {
 		return as.getAllBatches();
 	}
+	
+	
+	
+	/**
+	 * @author Brooke Wursten
+	 * Returns a Map showing which batches
+	 * are mapped to which clients
+	 * @return simple map of <bachid,clientid>
+	 */
+	@GetMapping("/mappedBatchesClients")
+	public Map<String,Integer> mappedBatchesClients() {
+			return as.findAllMappings();
+	}
+	
+	
+	
+	
 	
 }
