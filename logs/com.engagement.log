@@ -34,3 +34,15 @@
 2020-11-20 12:46:00,447 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-2] Enter: com.engagement.service.ClientService.ClientNames() with argument[s] = []
 2020-11-20 12:46:00,553 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-2] Exit: com.engagement.service.ClientService.ClientNames() with result = [ClientName(companyName=comany1, clientId=1)]
 2020-11-20 12:46:00,553 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-2] Exit: com.engagement.controller.ClientController.findClientNames() with result = [ClientName(companyName=comany1, clientId=1)]
+2020-11-20 13:06:34,586 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 2220 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 13:06:34,587 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 13:06:34,587 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 13:06:36,284 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 1.832 seconds (JVM running for 1354.626)
+2020-11-20 13:06:38,183 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 2220 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 13:06:38,184 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 13:06:38,184 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 13:06:39,700 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 1.603 seconds (JVM running for 1358.042)
+2020-11-20 13:11:34,185 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 2220 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 13:11:34,186 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 13:11:34,186 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 13:11:35,651 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 1.582 seconds (JVM running for 1653.993)
