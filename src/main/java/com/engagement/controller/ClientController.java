@@ -18,6 +18,8 @@ import com.engagement.model.dto.ClientDto;
 import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
 
+import io.swagger.annotations.ApiOperation;
+
 /**
  * Controller that handles requests pertaining to clients
  * 
@@ -40,6 +42,7 @@ public class ClientController {
 	 * 
 	 * @return List of all clients
 	 */
+	@ApiOperation(value = "Returns a list of all clients in the DB")
 	@GetMapping("/")
 	public List<Client> findAll() {
 		return cs.findAll();
@@ -50,6 +53,7 @@ public class ClientController {
 	 * @param client A client to be saved to the database
 	 * @return ResponseEntity containing status code and message.
 	 */
+	@ApiOperation(value = "Saves a client to the database.", notes= "Returns the client was saved. May return null if client is yet to be persisted to DB.")
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody ClientDto client) {
 		Client persistentClient = new Client(0, client.getEmail(), client.getCompanyName(), client.getPhoneNumber(), null);
@@ -67,6 +71,7 @@ public class ClientController {
 	 * @param email An email pertaining to a client in the database
 	 * @return Client associated with email w/ default values if client is non-existant
 	 */
+	@ApiOperation(value = "Returns a Client with email \"email\".")
 	@GetMapping("/email/{email}")
 	public Client findByEmail(@PathVariable String email) {
 		return cs.findByEmail(email);
@@ -77,6 +82,7 @@ public class ClientController {
 	 * @param batchId The identifier in Caliber to identify a batch
 	 * @return the Batch associated with the batchId
 	 */
+	@ApiOperation(value = "Returns All inforation about a bramch by given id.")
 	@GetMapping("/batch/{batchId}")
 	public Batch getBatchById(@PathVariable("batchId") String batchId) {
 		return cs.getBatchByBatchId(batchId);
@@ -88,6 +94,7 @@ public class ClientController {
 	 * @param none
 	 * @return List of clients with id and name
 	 */
+	@ApiOperation(value="Returns a list of all clients with only atributes \"id\" and \"name\".")
 	@GetMapping("/clientnames")
 	public List<ClientName> findClientNames() {
 		return cs.getClientNames();
