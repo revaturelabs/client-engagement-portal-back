@@ -20,6 +20,11 @@
 		<java.version>1.8</java.version>
 		<jacoco.version>0.8.5</jacoco.version>
 		<spring-cloud.version>2020.0.0-SNAPSHOT</spring-cloud.version>
+		<sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
+		<sonar.projectKey>revaturelabs_client-engagement-portal-back</sonar.projectKey>
+		<sonar.organization>revaturelabs-screenforce</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.coverage.jacoco.xmlReportPaths>**/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 
 	<dependencies>
@@ -98,6 +103,24 @@
 		</dependency>
 
 
+
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 
 
 	</dependencies>
