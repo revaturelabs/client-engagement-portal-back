@@ -89,7 +89,7 @@ public class ClientController {
      * @param email An email pertaining to a client in the database
      * @return Client associated with id w/ default values if client is non-existant
      */
-    @GetMapping("/email/{email}")
+    @GetMapping("/email/{email:.+}")
     @ResponseBody
     public Client findByEmail(@PathVariable String email) {
         return cs.findByEmail(email);
