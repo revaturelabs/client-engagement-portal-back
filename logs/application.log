@@ -4118,3 +4118,724 @@ Caused by: java.lang.ClassNotFoundException: Could not load requested class : co
 2020-11-20 16:59:52,684 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
 2020-11-20 16:59:52,684 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
 2020-11-20 16:59:52,699 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:05:53,847 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-19] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:05:53,847 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-19] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:05:53,847 INFO com.zaxxer.hikari.HikariDataSource [Thread-19] HikariPool-3 - Shutdown initiated...
+2020-11-20 17:05:53,850 INFO com.zaxxer.hikari.HikariDataSource [Thread-19] HikariPool-3 - Shutdown completed.
+2020-11-20 17:05:54,022 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 16584 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 17:05:54,022 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 17:05:54,022 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 17:05:54,259 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-20 17:05:54,270 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 10 ms. Found 3 JPA repository interfaces.
+2020-11-20 17:05:54,295 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=ca6437f8-7391-30ee-a6bd-5e03b0c5853d
+2020-11-20 17:05:54,299 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:05:54,300 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:05:54,347 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-20 17:05:54,347 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:05:54,347 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-20 17:05:54,347 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-20 17:05:54,370 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-20 17:05:54,370 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 346 ms
+2020-11-20 17:05:54,381 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Starting...
+2020-11-20 17:05:54,734 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Start completed.
+2020-11-20 17:05:54,734 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-20 17:05:54,750 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:05:54,781 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-20 17:05:54,792 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-20 17:05:54,793 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:05:55,375 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:05:55,407 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:05:55,412 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\AdminService.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+2020-11-20 17:05:55,412 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:05:55,412 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:05:55,413 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Shutdown initiated...
+2020-11-20 17:05:55,644 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Shutdown completed.
+2020-11-20 17:05:55,645 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2020-11-20 17:05:55,650 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-20 17:05:55,665 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\AdminService.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:228)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:925)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
+	at com.engagement.ClientEngagementPortalBackApplication.main(ClientEngagementPortalBackApplication.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\AdminService.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:228)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1367)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:176)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:101)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1879)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getObjectForBeanInstance(AbstractAutowireCapableBeanFactory.java:1268)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:267)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1592)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1549)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1330)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
+	... 39 common frames omitted
+Caused by: java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at feign.Util.checkState(Util.java:129)
+	at feign.Contract$BaseContract.parseAndValidateMetadata(Contract.java:100)
+	at org.springframework.cloud.openfeign.support.SpringMvcContract.parseAndValidateMetadata(SpringMvcContract.java:182)
+	at feign.Contract$BaseContract.parseAndValidateMetadata(Contract.java:62)
+	at feign.ReflectiveFeign$ParseHandlersByName.apply(ReflectiveFeign.java:151)
+	at feign.ReflectiveFeign.newInstance(ReflectiveFeign.java:49)
+	at feign.Feign$Builder.target(Feign.java:269)
+	at org.springframework.cloud.openfeign.DefaultTargeter.target(DefaultTargeter.java:30)
+	at org.springframework.cloud.openfeign.FeignClientFactoryBean.getTarget(FeignClientFactoryBean.java:351)
+	at org.springframework.cloud.openfeign.FeignClientFactoryBean.getObject(FeignClientFactoryBean.java:315)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:169)
+	... 51 common frames omitted
+2020-11-20 17:14:57,944 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 16584 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 17:14:57,944 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 17:14:57,944 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 17:14:58,183 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-20 17:14:58,195 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 11 ms. Found 3 JPA repository interfaces.
+2020-11-20 17:14:58,224 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=ca6437f8-7391-30ee-a6bd-5e03b0c5853d
+2020-11-20 17:14:58,228 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:14:58,229 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:14:58,279 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-20 17:14:58,280 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:14:58,280 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-20 17:14:58,280 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-20 17:14:58,301 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-20 17:14:58,301 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 354 ms
+2020-11-20 17:14:58,313 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-5 - Starting...
+2020-11-20 17:14:58,709 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-5 - Start completed.
+2020-11-20 17:14:58,709 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-20 17:14:58,726 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:14:58,754 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-20 17:14:58,765 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-20 17:14:58,766 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:14:59,294 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:14:59,329 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:14:59,334 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\AdminService.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+2020-11-20 17:14:59,335 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:14:59,335 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:14:59,335 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-5 - Shutdown initiated...
+2020-11-20 17:14:59,357 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-5 - Shutdown completed.
+2020-11-20 17:14:59,358 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2020-11-20 17:14:59,361 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-20 17:14:59,363 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\AdminService.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:228)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:925)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
+	at com.engagement.ClientEngagementPortalBackApplication.main(ClientEngagementPortalBackApplication.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\AdminService.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:228)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1367)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.engagement.repo.caliber.TrainingClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:176)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:101)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1879)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getObjectForBeanInstance(AbstractAutowireCapableBeanFactory.java:1268)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:267)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1592)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1549)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1330)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
+	... 39 common frames omitted
+Caused by: java.lang.IllegalStateException: Method TrainingClient#getBatchById(String) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at feign.Util.checkState(Util.java:129)
+	at feign.Contract$BaseContract.parseAndValidateMetadata(Contract.java:100)
+	at org.springframework.cloud.openfeign.support.SpringMvcContract.parseAndValidateMetadata(SpringMvcContract.java:182)
+	at feign.Contract$BaseContract.parseAndValidateMetadata(Contract.java:62)
+	at feign.ReflectiveFeign$ParseHandlersByName.apply(ReflectiveFeign.java:151)
+	at feign.ReflectiveFeign.newInstance(ReflectiveFeign.java:49)
+	at feign.Feign$Builder.target(Feign.java:269)
+	at org.springframework.cloud.openfeign.DefaultTargeter.target(DefaultTargeter.java:30)
+	at org.springframework.cloud.openfeign.FeignClientFactoryBean.getTarget(FeignClientFactoryBean.java:351)
+	at org.springframework.cloud.openfeign.FeignClientFactoryBean.getObject(FeignClientFactoryBean.java:315)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:169)
+	... 51 common frames omitted
+2020-11-20 17:18:25,008 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 16584 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 17:18:25,008 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 17:18:25,009 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 17:18:25,241 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-20 17:18:25,252 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 10 ms. Found 3 JPA repository interfaces.
+2020-11-20 17:18:25,277 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=ca6437f8-7391-30ee-a6bd-5e03b0c5853d
+2020-11-20 17:18:25,281 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:18:25,282 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:18:25,328 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-20 17:18:25,329 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:18:25,329 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-20 17:18:25,329 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-20 17:18:25,350 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-20 17:18:25,350 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 340 ms
+2020-11-20 17:18:25,362 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-6 - Starting...
+2020-11-20 17:18:25,721 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-6 - Start completed.
+2020-11-20 17:18:25,721 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-20 17:18:25,738 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:18:25,773 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-20 17:18:25,785 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-20 17:18:25,785 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:18:26,333 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:18:26,366 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:18:26,384 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:18:26,384 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:18:26,386 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'clientController' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\controller\ClientController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\ClientService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.engagement.service.ClientService]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+2020-11-20 17:18:26,387 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:18:26,387 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:18:26,387 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-6 - Shutdown initiated...
+2020-11-20 17:18:26,634 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-6 - Shutdown completed.
+2020-11-20 17:18:26,635 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2020-11-20 17:18:26,639 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-20 17:18:26,641 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'clientController' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\controller\ClientController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\ClientService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.engagement.service.ClientService]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:228)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:925)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
+	at com.engagement.ClientEngagementPortalBackApplication.main(ClientEngagementPortalBackApplication.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\ClientService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.engagement.service.ClientService]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:314)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:295)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1367)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.engagement.service.ClientService]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:225)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310)
+	... 39 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+	at com.engagement.service.ClientService.<init>(ClientService.java:80)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:212)
+	... 41 common frames omitted
+2020-11-20 17:18:44,508 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 16584 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 17:18:44,508 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 17:18:44,508 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 17:18:44,736 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-20 17:18:44,748 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 11 ms. Found 3 JPA repository interfaces.
+2020-11-20 17:18:44,773 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=ca6437f8-7391-30ee-a6bd-5e03b0c5853d
+2020-11-20 17:18:44,777 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:18:44,778 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:18:44,825 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-20 17:18:44,825 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:18:44,826 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-20 17:18:44,826 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-20 17:18:44,846 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-20 17:18:44,846 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 336 ms
+2020-11-20 17:18:44,858 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-7 - Starting...
+2020-11-20 17:18:45,190 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-7 - Start completed.
+2020-11-20 17:18:45,191 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-20 17:18:45,206 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:18:45,233 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-20 17:18:45,245 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-20 17:18:45,245 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:18:45,954 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:18:45,987 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:18:46,005 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:18:46,006 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:18:46,008 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'clientController' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\controller\ClientController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\ClientService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.engagement.service.ClientService]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+2020-11-20 17:18:46,008 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:18:46,009 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:18:46,009 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-7 - Shutdown initiated...
+2020-11-20 17:18:46,156 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-7 - Shutdown completed.
+2020-11-20 17:18:46,156 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2020-11-20 17:18:46,160 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-11-20 17:18:46,163 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'clientController' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\controller\ClientController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\ClientService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.engagement.service.ClientService]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:228)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:925)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
+	at com.engagement.ClientEngagementPortalBackApplication.main(ClientEngagementPortalBackApplication.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientService' defined in file [C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes\com\engagement\service\ClientService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.engagement.service.ClientService]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:314)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:295)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1367)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.engagement.service.ClientService]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:225)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310)
+	... 39 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The method findByEmail(String) is undefined for the type ClientRepo
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on token "break", delete this token
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "}" to complete Block
+	Syntax error, insert "else Statement" to complete IfStatement
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method getBatchByBatchId(String) in type ClientService
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	b cannot be resolved to a variable
+	The constructor ClientName(String, String) is undefined
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "}", delete this token
+	The constructor ClientName(int, String) is undefined
+	Syntax error, insert "}" to complete ClassBody
+
+	at com.engagement.service.ClientService.<init>(ClientService.java:80)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:212)
+	... 41 common frames omitted
+2020-11-20 17:24:04,572 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 16584 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 17:24:04,572 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 17:24:04,572 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 17:24:04,809 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-20 17:24:04,823 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
+2020-11-20 17:24:04,849 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=ca6437f8-7391-30ee-a6bd-5e03b0c5853d
+2020-11-20 17:24:04,853 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:24:04,855 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:24:04,899 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-20 17:24:04,900 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:24:04,900 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-20 17:24:04,900 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-20 17:24:04,919 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-20 17:24:04,919 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 345 ms
+2020-11-20 17:24:04,930 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-8 - Starting...
+2020-11-20 17:24:05,348 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-8 - Start completed.
+2020-11-20 17:24:05,348 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-20 17:24:05,365 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:24:05,398 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-20 17:24:05,421 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-20 17:24:05,424 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:24:05,963 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:24:05,997 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:24:06,014 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:24:06,014 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:24:06,204 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:24:06,206 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9011 (http) with context path ''
+2020-11-20 17:24:06,300 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:24:06,300 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:24:06,303 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 1.858 seconds (JVM running for 1979.135)
+2020-11-20 17:24:06,304 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-20 17:29:04,125 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-27] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:29:04,126 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-27] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:29:04,126 INFO com.zaxxer.hikari.HikariDataSource [Thread-27] HikariPool-8 - Shutdown initiated...
+2020-11-20 17:29:04,128 INFO com.zaxxer.hikari.HikariDataSource [Thread-27] HikariPool-8 - Shutdown completed.
+2020-11-20 17:29:04,296 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 16584 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 17:29:04,296 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 17:29:04,297 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 17:29:04,525 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-20 17:29:04,535 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 10 ms. Found 3 JPA repository interfaces.
+2020-11-20 17:29:04,560 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=ca6437f8-7391-30ee-a6bd-5e03b0c5853d
+2020-11-20 17:29:04,564 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:29:04,564 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:29:04,609 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-20 17:29:04,610 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:29:04,610 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-20 17:29:04,610 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-20 17:29:04,629 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-20 17:29:04,629 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 330 ms
+2020-11-20 17:29:04,640 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-9 - Starting...
+2020-11-20 17:29:05,023 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-9 - Start completed.
+2020-11-20 17:29:05,024 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-20 17:29:05,039 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:29:05,065 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-20 17:29:05,079 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-20 17:29:05,080 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:29:05,628 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:29:05,662 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:29:05,680 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:29:05,680 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:29:05,856 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:29:05,858 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9011 (http) with context path ''
+2020-11-20 17:29:05,945 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:29:05,945 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:29:05,949 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 1.772 seconds (JVM running for 2278.781)
+2020-11-20 17:29:05,950 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-20 17:30:20,697 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-55] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:30:20,698 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-55] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:30:20,698 INFO com.zaxxer.hikari.HikariDataSource [Thread-55] HikariPool-9 - Shutdown initiated...
+2020-11-20 17:30:20,701 INFO com.zaxxer.hikari.HikariDataSource [Thread-55] HikariPool-9 - Shutdown completed.
+2020-11-20 17:30:20,871 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 16584 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 17:30:20,871 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 17:30:20,871 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 17:30:21,094 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-20 17:30:21,104 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 10 ms. Found 3 JPA repository interfaces.
+2020-11-20 17:30:21,129 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=ca6437f8-7391-30ee-a6bd-5e03b0c5853d
+2020-11-20 17:30:21,133 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:30:21,133 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 17:30:21,177 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-20 17:30:21,178 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:30:21,178 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-20 17:30:21,178 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-20 17:30:21,197 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-20 17:30:21,197 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 325 ms
+2020-11-20 17:30:21,209 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-10 - Starting...
+2020-11-20 17:30:21,666 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-10 - Start completed.
+2020-11-20 17:30:21,667 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-20 17:30:21,684 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-20 17:30:21,712 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-20 17:30:21,723 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-20 17:30:21,724 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:30:22,294 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 17:30:22,330 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:30:22,349 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:30:22,349 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:30:22,529 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9011"]
+2020-11-20 17:30:22,532 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9011 (http) with context path ''
+2020-11-20 17:30:22,620 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 17:30:22,621 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 17:30:22,624 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 1.874 seconds (JVM running for 2355.456)
+2020-11-20 17:30:22,625 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
