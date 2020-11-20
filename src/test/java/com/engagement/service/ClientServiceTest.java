@@ -25,7 +25,7 @@ import com.engagement.repo.caliber.TrainingClient;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-public class ClientServiceTest {
+class ClientServiceTest {
 	
 	@MockBean
 	private GradeClient gc;
@@ -37,15 +37,11 @@ public class ClientServiceTest {
 	
 	@InjectMocks
 	private ClientService cs;
-	
-	@Before
-	public void setUp() {
-		
-	}
 
 	@Test 
 	void getBatchByBatchIdTest() {
-		final Associate associate = new Associate("test@test", "testId", "testFName", "testLName", new ArrayList<Grade>());
+		final Associate associate = new Associate("test@test", "testId", "testFName", "testLName", null);
+		associate.setGrades(associate.getGrades());
 		final AssociateAssignment aa = new AssociateAssignment("active", associate, "start Date", "end date", true);
 		final List<AssociateAssignment> aAssigns = new ArrayList<>();
 		aAssigns.add(aa);
@@ -60,6 +56,10 @@ public class ClientServiceTest {
 		Batch newBatch = cs.getBatchByBatchId(batch.getBatchId());
 		
 		assertEquals(grades, newBatch.getAssociateAssignments().get(0).getAssociate().getGrades());
+		assertEquals("testId", newBatch.getAssociateAssignments().get(0).getAssociate().getSalesforceId());
+		assertEquals("test@test", newBatch.getAssociateAssignments().get(0).getAssociate().getEmail());
+		assertEquals("testFName", newBatch.getAssociateAssignments().get(0).getAssociate().getFirstName());
+		assertEquals("testLName", newBatch.getAssociateAssignments().get(0).getAssociate().getLastName());
 		
 		Mockito.when(tc.getBatchById("bad batch id")).thenReturn(null);
 		

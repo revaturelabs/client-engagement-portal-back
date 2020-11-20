@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
  */
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class Associate {
 
@@ -34,7 +33,7 @@ public class Associate {
 	 */
 	public List<Grade> getGrades(){
 		if(this.grades == null) {
-			return new ArrayList<Grade>();
+			return new ArrayList<>();
 		}
 		return grades;
 	}

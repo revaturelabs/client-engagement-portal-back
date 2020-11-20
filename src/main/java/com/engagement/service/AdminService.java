@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.engagement.model.Admin;
-import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.caliber.TrainingClient;
@@ -114,8 +113,8 @@ public class AdminService {
 	 */
 
 	public List<BatchName> getAllBatches() {
-		List<BatchName> batches = bc.getBatches();
-		return batches;
+		return bc.getBatches();
+		
 	}
 
 }
