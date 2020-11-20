@@ -3,7 +3,6 @@ package com.engagement.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +13,6 @@ import com.engagement.model.Request;
 import com.engagement.service.RequestService;
 
 @RestController
-@CrossOrigin
 public class RequestController {
 
 	@Autowired
@@ -26,7 +24,6 @@ public class RequestController {
 	}
 
 	@GetMapping("/interventions")
-//	is this neceessary?
 //	@ResponseBody
 	public Request getInterventionById(@RequestParam int id) {
 		return rs.findByRequestId(id);
