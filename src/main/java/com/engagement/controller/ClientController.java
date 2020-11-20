@@ -24,6 +24,8 @@ import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
 
+import io.swagger.annotations.ApiOperation;
+
 /**
  * Controller that handles requests pertaining to clients
  * 
@@ -46,6 +48,7 @@ public class ClientController {
 	 * 
 	 * @return List of all clients
 	 */
+	@ApiOperation(value = "Returns a list of all clients in the DB")
 	@GetMapping("/")
 	public List<Client> findAll() {
 		return cs.findAll();
@@ -58,8 +61,9 @@ public class ClientController {
 	 * 
 	 * @param c A client to be saved to the database
 	 * @return Client that was saved. May be null if client is yet to be persisted to database.
+	*/
 
-	 */
+	@ApiOperation(value = "Saves a client to the database.", notes= "Returns the client was saved. May return null if client is yet to be persisted to DB.")
 
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody ClientDto client) {
@@ -71,18 +75,6 @@ public class ClientController {
 			return new ResponseEntity<>("Client creation failed", HttpStatus.CONFLICT);
 		}
 	}
-
-
-	/**
-	 * Find a client by clientId
-	 * @param id A clientId in the database
-	 * @return The client associated with id
-	 */
-//	@GetMapping("/id")
-//	@ResponseBody
-//	public Client findById(@RequestParam int id) {
-//		return cs.findByClientId(id);
-//	}
 	
 	/**
      * Find a client by email
@@ -90,11 +82,12 @@ public class ClientController {
      * @return Client associated with id w/ default values if client is non-existant
      */
     @GetMapping("/email/{email:.+}")
+	@ApiOperation(value = "Returns a Client with email \"email\".")
     @ResponseBody
     public Client findByEmail(@PathVariable String email) {
         return cs.findByEmail(email);
     }
-	
+
 	/**
 	 * Find all information about a branch by the batch id
 	 * @param batchId: The identifier in Caliber to identify a batch
@@ -102,6 +95,7 @@ public class ClientController {
 	 * @author Kelsey Iafrate
 
 	 */
+	@ApiOperation(value = "Returns All inforation about a bramch by given id.")
 	@GetMapping("/batch/{batchId}")
 	public Batch getBatchById(@PathVariable("batchId") String batchId) {
 		return cs.getBatchByBatchId(batchId);
@@ -113,6 +107,7 @@ public class ClientController {
 	 * @param none
 	 * @return List of clients with id and name
 	 */
+	@ApiOperation(value="Returns a list of all clients with only atributes \"id\" and \"name\".")
 	@GetMapping("/clientnames")
 	@ResponseBody
 	public List<ClientName> findClientNames() {
