@@ -1,12 +1,11 @@
 package com.engagement.service;
 
-import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -55,11 +54,17 @@ class ClientServiceTest {
 		
 		Batch newBatch = cs.getBatchByBatchId(batch.getBatchId());
 		
-		assertEquals(grades, newBatch.getAssociateAssignments().get(0).getAssociate().getGrades());
-		assertEquals("testId", newBatch.getAssociateAssignments().get(0).getAssociate().getSalesforceId());
-		assertEquals("test@test", newBatch.getAssociateAssignments().get(0).getAssociate().getEmail());
-		assertEquals("testFName", newBatch.getAssociateAssignments().get(0).getAssociate().getFirstName());
-		assertEquals("testLName", newBatch.getAssociateAssignments().get(0).getAssociate().getLastName());
+		Associate newAssociate = newBatch.getAssociateAssignments().get(0).getAssociate();
+		
+		assertEquals(grades, newAssociate.getGrades());
+		assertEquals(1, newAssociate.getGrades().get(0).getGradeId());
+		assertEquals("date received", newAssociate.getGrades().get(0).getDateReceived());
+		assertEquals(90.1, newAssociate.getGrades().get(0).getScore());
+		assertEquals("testId", newAssociate.getGrades().get(0).getGradeId());
+		assertEquals("testId", newAssociate.getSalesforceId());
+		assertEquals("test@test", newAssociate.getEmail());
+		assertEquals("testFName", newAssociate.getFirstName());
+		assertEquals("testLName", newAssociate.getLastName());
 		
 		Mockito.when(tc.getBatchById("bad batch id")).thenReturn(null);
 		
