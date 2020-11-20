@@ -5,14 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.engagement.model.Admin;
 import com.engagement.model.AdminDto;
@@ -24,6 +17,7 @@ import com.engagement.service.AdminService;
  * 
  * @author Brooke Wursten & Daniel Consantinescu
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -36,6 +30,10 @@ public class AdminController {
 		this.as = as;
 	}
 
+	/**
+	 * Returns a list of all admins
+	 * @return list of all admins
+	 */
 	@GetMapping("/")
 	public List<Admin> findAll() {
 		return as.findAll();
@@ -44,8 +42,7 @@ public class AdminController {
 	/**
 	 * Creates a new Admin object and persists to the DB
 	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin
-	 *               object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@PostMapping("/new")
@@ -53,17 +50,16 @@ public class AdminController {
 		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(), admin.getLastName());
 
 		if (as.save(persistentAdmin)) {
-			return new ResponseEntity<>("User succesfully created", HttpStatus.CREATED);
+			return new ResponseEntity<>("Admin successfully created", HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>("User creation failed", HttpStatus.CONFLICT);
+			return new ResponseEntity<>("Admin creation failed", HttpStatus.CONFLICT);
 		}
 	}
 
 	/**
 	 * Updates Admin object in the DB
 	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin
-	 *               object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@PutMapping("/update")
@@ -71,14 +67,14 @@ public class AdminController {
 		Admin adminInDB = as.findByEmail(admin.getEmail());
 		
 		if (adminInDB == null) { // admin does not exist
-			return new ResponseEntity<>("User not found", HttpStatus.CONFLICT);
+			return new ResponseEntity<>("Admin not found", HttpStatus.CONFLICT);
 		}
 		
 		int adminId = adminInDB.getAdminId();
 		Admin persistentAdmin = new Admin(adminId, admin.getEmail(), admin.getFirstName(), admin.getLastName());
 		
 		if (as.update(persistentAdmin) != null) { // admin successfully updated
-			return new ResponseEntity<>("User updated succesfully", HttpStatus.ACCEPTED);
+			return new ResponseEntity<>("Admin updated succesfully", HttpStatus.ACCEPTED);
 		} else {
 			return new ResponseEntity<>("Update failed", HttpStatus.CONFLICT);
 		}
@@ -87,17 +83,16 @@ public class AdminController {
 	/**
 	 * Deletes Admin object from the DB
 	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin
-	 *               object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@DeleteMapping("/delete")
 	public ResponseEntity<String> delete(@RequestParam Integer id) {
 		if (as.findByAdminId(id) == null) { // admin does not exist
-			return new ResponseEntity<>("User not found", HttpStatus.CONFLICT);
+			return new ResponseEntity<>("Admin not found", HttpStatus.CONFLICT);
 		} else {
 			as.delete(id);
-			return new ResponseEntity<>("User deleted", HttpStatus.OK);
+			return new ResponseEntity<>("Admin deleted", HttpStatus.OK);
 		}
 	}
 	
