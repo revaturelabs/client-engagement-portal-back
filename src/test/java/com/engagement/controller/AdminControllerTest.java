@@ -1,6 +1,5 @@
 package com.engagement.controller;
 
-
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -43,7 +42,6 @@ class AdminControllerTest {
 	private AdminController ac;
 
 	private String mockAdminJson = "{\"adminId\":0 ,\"email\":\"a@a.net\",\"firstName\":\"admin\",\"lastName\":\"adminson\"}";
-	private String mockAdminJson2 = "{\"adminId\":1 ,\"email\":\"a2@a.net\",\"firstName\":\"admin\",\"lastName\":\"adminson\"}";
 	Admin admin = new Admin(0, "a@a.net", "admin", "adminson");
 	Admin admin2 = new Admin(1, "a2@a.net", "admin", "adminson");
 	BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");
@@ -61,7 +59,7 @@ class AdminControllerTest {
 											.content(mockAdminJson)
 											.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated())
-				.andExpect(content().string(containsString("User succesfully created")));
+				.andExpect(content().string(containsString("Admin successfully created")));
 	}
 	
 	@Test
@@ -72,7 +70,7 @@ class AdminControllerTest {
 											.content(mockAdminJson)
 											.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isConflict())
-				.andExpect(content().string(containsString("User creation failed")));
+				.andExpect(content().string(containsString("Admin creation failed")));
 
 	}
 
@@ -85,7 +83,7 @@ class AdminControllerTest {
 											.content(mockAdminJson)
 											.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isAccepted())
-				.andExpect(content().string(containsString("User updated succesfully")));
+				.andExpect(content().string(containsString("Admin updated succesfully")));
 	}
 	
 	@Test
@@ -96,7 +94,7 @@ class AdminControllerTest {
 											.content(mockAdminJson)
 											.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isConflict())
-				.andExpect(content().string(containsString("User not found")));
+				.andExpect(content().string(containsString("Admin not found")));
 	}
 	
 	@Test
@@ -125,7 +123,7 @@ class AdminControllerTest {
 		this.mockMvc
 			.perform(delete("/admin/delete").accept(MediaType.ALL).param("id", "0"))
 			.andExpect(status().isConflict())
-			.andExpect(content().string(containsString("User not found")));
+			.andExpect(content().string(containsString("Admin not found")));
 	}
 	
 	/**
