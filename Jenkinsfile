@@ -61,21 +61,20 @@ pipeline {
                 sh 'docker image prune -a -f'
             }
         }
-        stage ('Docker Build') {
+    stage ('Docker Build') {
+        steps {
+            sh 'docker build -t tyronev/ce-portal:v1 .'
+        }
+    }
+    stage ('Docker Run') {
+                 steps {
+                     sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
+                 }
+             }
+      stage ('Docker Check Containers') {
             steps {
-                sh 'docker build -t tyronev/ce-portal:v1 .'
+                sh 'docker ps -a'
             }
         }
-
-        stage ('Docker Run') {
-                     steps {
-                         sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
-                     }
-                 }
-          stage ('Docker Check Containers') {
-                steps {
-                    sh 'docker ps -a'
-                }
-            }
-     }
+    }
 }
