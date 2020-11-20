@@ -26,6 +26,7 @@ import com.engagement.service.ClientService;
 
 /**
  * Controller that handles requests pertaining to clients
+ * 
  * @author Tucker Fritz, Matt Hartmann
  */
 @RestController
@@ -42,6 +43,7 @@ public class ClientController {
 
 	/**
 	 * Returns a list of all clients in the database
+	 * 
 	 * @return List of all clients
 	 */
 	@GetMapping("/")
@@ -53,6 +55,9 @@ public class ClientController {
 	 * Saves a client to the database
 	 * @param client A client to be saved to the database
 	 * @return ResponseEntity containing status code and message.
+	 * 
+	 * @param c A client to be saved to the database
+	 * @return Client that was saved. May be null if client is yet to be persisted to database.
 
 	 */
 	@PostMapping("/")
@@ -79,6 +84,7 @@ public class ClientController {
 	
 	/**
 	 * Find a client by email
+	 * 
 	 * @param email An email pertaining to a client in the database
 	 * @return Client associated with email w/ default values if client is non-existant
 	 */
@@ -90,7 +96,6 @@ public class ClientController {
 	
 	/**
 	 * Find all information about a branch by the batch id
-
 	 * @param batchId: The identifier in Caliber to identify a batch
 	 * @return Returns the Batch associated with the batchId
 	 * @author Kelsey Iafrate
@@ -101,10 +106,9 @@ public class ClientController {
 		return cs.getBatchByBatchId(batchId);
 	}
 	
-
-	
 	/**
 	 * returns clients with just id and name
+	 * 
 	 * @param none
 	 * @return List of clients with id and name
 	 */
