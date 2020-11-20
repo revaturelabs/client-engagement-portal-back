@@ -15,14 +15,15 @@ import com.engagement.repo.ClientBatchRepo;
 import com.engagement.repo.caliber.TrainingClient;
 
 /**
- * 
+ * Service for handling business logic of admin requests
  * @author
  *
  */
 
 @Service
 public class AdminService {
-
+	
+	@Autowired
 	private AdminRepo ar;
 	
 	@Autowired
@@ -33,7 +34,7 @@ public class AdminService {
 	
 	
 	/**
-	 * 
+	 * Return a list of all admins
 	 * @return
 	 */
 	public List<Admin> findAll() {
@@ -41,27 +42,27 @@ public class AdminService {
 	}
 
 	/**
-	 * 
-	 * @param id
-	 * @return
+	 * Find an admin by id
+	 * @param id the admin's id
+	 * @return the admin that matches the id
 	 */
 	public Admin findByAdminId(Integer id) {
 		return ar.findByAdminId(id);
 	}
 
 	/**
-	 * 
-	 * @param email
-	 * @return
+	 * Find an admin by email
+	 * @param email the admin's email
+	 * @return the admin that matches the email
 	 */
 	public Admin findByEmail(String email) {
 		return ar.findByEmail(email);
 	}
 
 	/**
-	 * 
-	 * @param admin
-	 * @return
+	 * Saves an admin to the database
+	 * @param admin admin to save
+	 * @return true if success, false if fail
 	 */
 	public boolean save(Admin admin) {		
 		// admin cannot be null
@@ -78,9 +79,9 @@ public class AdminService {
 	}
 
 	/**
-	 * 
-	 * @param admin
-	 * @return
+	 * Update an admin's information
+	 * @param admin the admin to update
+	 * @return the updated admin or null if failed update
 	 */
 	public Admin update(Admin admin) {
 		// admin cannot be null
@@ -98,8 +99,8 @@ public class AdminService {
 	}
 
 	/**
-	 * 
-	 * @param id
+	 * Delete an admin by their id
+	 * @param id the admin's id
 	 */
 	public void delete(Integer id) {
 		// id cannot be null
@@ -110,13 +111,12 @@ public class AdminService {
 		ar.deleteById(id);
 	}
 
-	/*
+	/**
 	 * Returns a list of all batches from Caliber API
 	 * @return List of all batch IDs and names
 	 */
 	public List<BatchName> getAllBatches() {
-		List<BatchName> batches = tc.getBatches();
-		return batches;
+		return tc.getBatches();
 	}
 	
 	/**
@@ -125,7 +125,7 @@ public class AdminService {
 	 * @return list of Client-batch objects showing mappings
 	 */
 	public Map<String,Integer> findAllMappings() {
-		Map<String,Integer> mappings = new HashMap<String,Integer>();
+		Map<String,Integer> mappings = new HashMap<>();
 		List<ClientBatch> clientBatchList =  cbr.findAll();
 		clientBatchList.forEach(clientBatch->{
 			String k=clientBatch.getBatchId();

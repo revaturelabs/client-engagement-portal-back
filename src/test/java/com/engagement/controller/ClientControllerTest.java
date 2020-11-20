@@ -27,7 +27,7 @@ import com.engagement.service.ClientService;
 
 @ExtendWith(MockitoExtension.class)
 @WebMvcTest(ClientController.class)
-public class ClientControllerTest {
+class ClientControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -49,13 +49,25 @@ public class ClientControllerTest {
 	}
 	
 	@Test
-	void saveClient() throws Exception{
-		Mockito.when(cs.save(client0)).thenReturn(client0); //ControllerService returns the client it saves
+	void testCreateNewClientSuccess() throws Exception {
+		Mockito.when(cs.save(client0)).thenReturn(true);
 		this.mockMvc
-		.perform(post("/client/").contentType(MediaType.APPLICATION_JSON).content(mockClientJson)
-		.accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk()); //expect a status of ok		
+			.perform(post("/client/").contentType(MediaType.APPLICATION_JSON)
+									.content(mockClientJson)
+									.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isCreated());
 	}
+	
+	@Test
+	void testCreateNewClientFail() throws Exception {
+		Mockito.when(cs.save(client0)).thenReturn(false);
+		this.mockMvc
+			.perform(post("/client/").contentType(MediaType.APPLICATION_JSON)
+										.content(mockClientJson)
+										.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isConflict());
+	}
+	
 	
 	@Test
 	void findAllClient() throws Exception {
