@@ -23,7 +23,7 @@ public class RequestController {
 		return rs.findAll();
 	}
 
-	@GetMapping("/interventions")
+	@GetMapping("/intervention")
 //	@ResponseBody
 	public Request getInterventionById(@RequestParam int id) {
 		return rs.findByRequestId(id);
