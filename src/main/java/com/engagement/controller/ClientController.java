@@ -60,6 +60,7 @@ public class ClientController {
 	 * @return Client that was saved. May be null if client is yet to be persisted to database.
 
 	 */
+
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody ClientDto client) {
 		Client persistentClient = new Client(0, client.getEmail(), client.getCompanyName(), client.getPhoneNumber(), null);
@@ -70,6 +71,7 @@ public class ClientController {
 			return new ResponseEntity<>("Client creation failed", HttpStatus.CONFLICT);
 		}
 	}
+
 
 	/**
 	 * Find a client by clientId

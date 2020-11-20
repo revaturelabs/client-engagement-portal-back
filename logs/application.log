@@ -3057,3 +3057,7 @@ Caused by: java.lang.ClassNotFoundException: Could not load requested class : co
 2020-11-20 14:18:13,975 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
 2020-11-20 14:18:13,976 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
 2020-11-20 14:18:13,982 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-11-20 14:25:53,899 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-11] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 14:25:53,903 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-11] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 14:25:53,904 INFO com.zaxxer.hikari.HikariDataSource [Thread-11] HikariPool-2 - Shutdown initiated...
+2020-11-20 14:25:53,946 INFO com.zaxxer.hikari.HikariDataSource [Thread-11] HikariPool-2 - Shutdown completed.
