@@ -1,30 +1,24 @@
 package com.engagement.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.engagement.model.Client;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.ClientDto;
 import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
-
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Controller that handles requests pertaining to clients
  * 
  * @author Tucker Fritz, Matt Hartmann
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/client")
 public class ClientController {
@@ -91,7 +85,6 @@ public class ClientController {
 	/**
 	 * returns clients with just id and name
 	 * 
-	 * @param none
 	 * @return List of clients with id and name
 	 */
 	@ApiOperation(value="Returns a list of all clients with only atributes \"id\" and \"name\".")
