@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Client;
+import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
 
 /**
@@ -67,5 +68,11 @@ public class ClientController {
 	@ResponseBody
 	public Client findByEmail(@RequestParam String email) {
 		return cs.findByEmail(email);
+	}
+	
+	@GetMapping("/clientnames")
+	@ResponseBody
+	public List<ClientName> findClientNames() {
+		return cs.ClientNames();
 	}
 }
