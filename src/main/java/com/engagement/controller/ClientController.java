@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.engagement.model.Client;
 import com.engagement.model.ClientDto;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
 
 /**
  * Controller that handles requests pertaining to clients
- * @author Tucker Fritz
+ * 
+ * @author Tucker Fritz, Matt Hartmann
  */
 @RestController
 @RequestMapping("/client")
@@ -35,6 +37,7 @@ public class ClientController {
 
 	/**
 	 * Returns a list of all clients in the database
+	 * 
 	 * @return List of all clients
 	 */
 	@GetMapping("/")
@@ -60,6 +63,7 @@ public class ClientController {
 
 	/**
 	 * Find a client by email
+	 * 
 	 * @param email An email pertaining to a client in the database
 	 * @return Client associated with email w/ default values if client is non-existant
 	 */
@@ -78,4 +82,14 @@ public class ClientController {
 		return cs.getBatchByBatchId(batchId);
 	}
 	
+	/**
+	 * returns clients with just id and name
+	 * 
+	 * @param none
+	 * @return List of clients with id and name
+	 */
+	@GetMapping("/clientnames")
+	public List<ClientName> findClientNames() {
+		return cs.getClientNames();
+	}
 }

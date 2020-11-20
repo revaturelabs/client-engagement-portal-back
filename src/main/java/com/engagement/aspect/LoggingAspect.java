@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Aspect for logging our application
+ * @author Enoch Cho
  *
  */
 @Aspect
