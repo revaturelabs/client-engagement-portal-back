@@ -46,8 +46,10 @@ class ClientServiceTest {
 		aAssigns.add(aa);
 		Batch batch = new Batch("TR-1018", "batchName", "this is a date", "this is an end date", "java", "WVU", "ROCP", 70, 80, new ArrayList<EmployeeAssignment>(), aAssigns, 1);
 		Grade grade = new Grade(1, "date received", 90.1, "testId");
+		Grade grade2 = new Grade(2, "date received", 10, "not an id");
 		List<Grade> grades = new ArrayList<>();
 		grades.add(grade);
+		grades.add(grade2);
 		
 		Mockito.when(tc.getBatchById(batch.getBatchId())).thenReturn(batch);
 		Mockito.when(gc.getGradesByBatchId(batch.getBatchId())).thenReturn(grades);
@@ -56,7 +58,7 @@ class ClientServiceTest {
 		
 		Associate newAssociate = newBatch.getAssociateAssignments().get(0).getAssociate();
 		
-		assertEquals(grades, newAssociate.getGrades());
+		assertEquals(grades.get(0), newAssociate.getGrades().get(0));
 		assertEquals(1, newAssociate.getGrades().get(0).getGradeId());
 		assertEquals("date received", newAssociate.getGrades().get(0).getDateReceived());
 		assertEquals(90.1, newAssociate.getGrades().get(0).getScore());
