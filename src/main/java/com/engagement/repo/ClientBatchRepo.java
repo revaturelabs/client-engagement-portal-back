@@ -7,6 +7,5 @@ import com.engagement.model.Client;
 
 @Repository
 public interface ClientBatchRepo extends JpaRepository<Client, Integer> {
-	
 
 }
