@@ -9,13 +9,24 @@ import org.springframework.security.config.annotation.web.configurers.oauth2.ser
 @Configuration
 @EnableWebSecurity
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
-    @Override
+    private static final String[] AUTH_WHITELIST = {
+    		// --swagger ui
+    		"/swagger-resources/**",
+    		"/swagger-ui.html",
+    		"/v2/api-docs",
+    		"/webjars/**"
+    };
+	
+	@Override
     protected void configure(HttpSecurity http) throws Exception {
     	System.out.println("In the filter");
-        http.cors().and().csrf().disable().authorizeRequests(authorize -> authorize
+    	http.authorizeRequests()
+    	.antMatchers(AUTH_WHITELIST).permitAll();
+    	http.cors().and().csrf().disable().authorizeRequests(authorize -> authorize
                 .anyRequest().authenticated()
                 )
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);;
+                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+        
     }
     
 }
