@@ -18,7 +18,7 @@ import com.engagement.service.ClientService;
 
 /**
  * Controller that handles requests pertaining to clients
- * @author Tucker Fritz, Matt H
+ * @author Tucker Fritz, Matt Hartmann
  */
 @RestController
 @RequestMapping("/client")

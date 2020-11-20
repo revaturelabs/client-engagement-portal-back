@@ -12,7 +12,7 @@ import com.engagement.repo.ClientRepo;
 
 /**
  * Service for handling business logic of client requests
- * @author Tucker Fritz, Matt H
+ * @author Tucker Fritz, Matt Hartmann
  *
  */
 @Service
