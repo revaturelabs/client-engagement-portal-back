@@ -47,8 +47,8 @@ public class ClientController {
 	 */
 	@PostMapping
 	@ResponseBody
-	public Client save(@RequestBody Client c) {
-		return cs.save(c);
+	public Client save(@RequestBody Client client) {
+		return cs.save(client);
 	}
 	
 
