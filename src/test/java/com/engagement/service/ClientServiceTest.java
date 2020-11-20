@@ -1,5 +1,6 @@
 package com.engagement.service;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -68,6 +69,15 @@ public class ClientServiceTest {
 		Batch newBatch = cs.getBatchByBatchId(batch.getBatchId());
 		
 		assertEquals(grades, newBatch.getAssociateAssignments().get(0).getAssociate().getGrades());
+		
+		Mockito.when(tc.getBatchById("bad batch id")).thenReturn(null);
+		
+		assertNull(cs.getBatchByBatchId("bad batch id"));
+		
+		Mockito.when(tc.getBatchById("batch without grades")).thenReturn(batch);
+		Mockito.when(gc.getGradesByBatchId("batch without grades")).thenReturn(new ArrayList<Grade>());
+		
+		assertEquals(batch, cs.getBatchByBatchId("batch without grades"));
 		
 	}
 

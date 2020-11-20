@@ -87,7 +87,7 @@ public class ClientService {
 
 		Batch b = bc.getBatchById(batchId);// gets a list of zero or one batch this is associated with the id.
 
-		if (!b.equals(null)) {
+		if (b != null) {
 
 			List<Grade> grades = gc.getGradesByBatchId(batchId); // gets all of the grades associated with the batch.
 
