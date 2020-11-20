@@ -1,5 +1,6 @@
 package com.engagement.service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,7 +14,6 @@ import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.Grade;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
-import com.engagement.repo.caliber.Params;
 import com.engagement.repo.caliber.TrainingClient;
 
 /**
@@ -79,39 +79,40 @@ public class ClientService {
 	 * Find a batch by it's identifier in Caliber.
 	 * 
 	 * @param batchId: The batch's identifier in Caliber.
-	 * @return Returns the batch associated to the id.
+	 * @return Returns the batch associated to the id or null.
 	 */
 	public Batch getBatchByBatchId(String batchId) {
-		// gets a list of zero or one batch this is associated with the id
-		List<Batch> batches = bc.getBatchById(batchId);
+		Batch batch = new Batch();
 
-		if (!batches.isEmpty()) {
-			// gets the first batch in the list, which is the batch associated with the batchId
-			Batch batch = batches.get(0);
-
-//			Params params = new Params();
-//			params.setId(batchId);
-//			// gets all of the grades associated with the batch.
-//			List<Grade> grades = gc.getGradesByBatchId(batchId);
-//
-//			/**
-//			 * For every grade, check if its traineeId equals any salesForceId of an
-//			 * associate of the batch. Once a match is found, add that grade to the list of
-//			 * grades of that associate, then move on to the next grade.
-//			 */
-//			for (Grade grade : grades) {
-//				for (AssociateAssignment a : batch.getAssociateAssignments()) {
-//					if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
-//						a.getAssociate().getGrades().add(grade);
-//						break;
-//					}
-//				}
-//			}
-			
-			return batch; // Returns the batch with all associates and their grades.
+		try {
+			// gets batch that is associated with the id
+			batch = bc.getBatchById(batchId);
+		} catch (Exception e) {
+			// batch not found
+			return null;
 		}
 
-		return null; // If no batch with that batchId was found, return null
+		// gets all of the grades associated with the batch.
+		List<Grade> grades = gc.getGradesByBatchId(batchId);
+
+		/**
+		 * For every grade, check if its traineeId equals any salesForceId of an
+		 * associate of the batch. Once a match is found, add that grade to the list of
+		 * grades of that associate, then move on to the next grade.
+		 */
+		for (Grade grade : grades) {
+			for (AssociateAssignment a : batch.getAssociateAssignments()) {
+				if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
+					if (a.getAssociate().getGrades() == null) {
+						a.getAssociate().setGrades(new ArrayList<>());
+					}
+					a.getAssociate().getGrades().add(grade);
+					break;
+				}
+			}
+		}
+
+		return batch;
 	}
 
 	/**
@@ -123,7 +124,7 @@ public class ClientService {
 	public List<ClientName> getClientNames() {
 		List<Client> clients = cr.findAll();
 		List<ClientName> clientNames = new LinkedList<>();
-		
+
 		for (Client client : clients) {
 			clientNames.add(new ClientName(client.getClientId(), client.getCompanyName()));
 		}

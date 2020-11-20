@@ -68,7 +68,7 @@ class ClientControllerTest {
 	}
 	
 	
-//	@Test
+	@Test
 	void findAllClient() throws Exception {
 		List<Client> expectedList = new ArrayList<>();
 		expectedList.add(client0);
@@ -85,7 +85,7 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$[*].phoneNumber").value(Matchers.containsInAnyOrder("573-555-3535", "573-343-1334")));
 	}
 	
-//	@Test
+	@Test
 	void findByEmail() throws Exception {
 		Mockito.when(cs.findByEmail("a@a.net")).thenReturn(client0); //Controller service returns client 0 when given a@a.net
 		this.mockMvc

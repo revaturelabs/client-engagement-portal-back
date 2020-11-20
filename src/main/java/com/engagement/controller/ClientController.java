@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.engagement.model.Client;
 import com.engagement.model.ClientDto;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.BatchName;
 import com.engagement.model.dto.ClientName;
+import com.engagement.repo.caliber.TrainingClient;
 import com.engagement.service.ClientService;
 
 /**
@@ -78,7 +80,7 @@ public class ClientController {
 	 * @return the Batch associated with the batchId
 	 */
 	@GetMapping("/batch/{batchId}")
-	public Batch getBatchById(String batchId) {
+	public Batch getBatchById(@PathVariable("batchId") String batchId) {
 		return cs.getBatchByBatchId(batchId);
 	}
 	
@@ -91,6 +93,14 @@ public class ClientController {
 	@GetMapping("/clientnames")
 	public List<ClientName> findClientNames() {
 		return cs.getClientNames();
+	}
+	
+	@Autowired
+	private TrainingClient bc;
+	
+	@GetMapping("/test")
+	public List<BatchName> getBatches() {
+		return bc.getBatches();
 	}
 	
 }

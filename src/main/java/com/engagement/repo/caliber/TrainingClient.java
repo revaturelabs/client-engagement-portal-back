@@ -32,6 +32,6 @@ public interface TrainingClient {
 	 * @return List<Batch> Returns a list of one or zero Batches based on the batchId
 	 */
 	@GetMapping(value = "/batch/{batchId}")
-	List<Batch> getBatchById(@PathVariable("batchId") String batchId);
+	Batch getBatchById(@PathVariable("batchId") String batchId);
 
 }
