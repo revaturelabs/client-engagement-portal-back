@@ -12,16 +12,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -29,8 +29,7 @@ import com.engagement.model.Admin;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
-
-@RunWith(SpringRunner.class)
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(AdminController.class)
 class AdminControllerTest {
 
@@ -49,7 +48,7 @@ class AdminControllerTest {
 	Admin admin2 = new Admin(1, "a2@a.net", "admin", "adminson");
 	BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
 	}

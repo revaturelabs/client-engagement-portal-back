@@ -9,23 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hamcrest.Matchers;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Client;
 import com.engagement.service.ClientService;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(ClientController.class)
 public class ClientControllerTest {
 
@@ -43,7 +43,7 @@ public class ClientControllerTest {
 	Client client0 = new Client(0, "a@a.net", "revature", "573-555-3535", null);
 	Client client1 = new Client(1, "a@a1.net", "myspace", "573-343-1334", null);
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(cc).build();
 	}
