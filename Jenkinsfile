@@ -44,21 +44,20 @@ pipeline {
         //          // it would run if nohup is not included. Not tested though not sure if porrt 8081 is open or what
         //     }
         // }
-    stage ('Remove Docker Container') {
-        steps {
-            script {
-                try {
-                    sh 'docker rm -f cep'
-                } catch (all) {
-                    echo 'Docker Container does not exist'
+        stage ('Remove Docker Container') {
+                steps {
+                    script {
+                        try {
+                            sh 'docker rm -f cep'
+                        } catch (all) {
+                            echo 'Docker Container does not exist'
+                        }
                 }
             }
-
         }
-    }
-    stage ('Delete Docker Image') {
+        stage ('Delete Docker Image') {
             steps {
-                sh 'docker image prune -a -f'
+            sh 'docker image prune -a -f'
             }
         }
         stage ('Docker Build') {
@@ -66,16 +65,15 @@ pipeline {
                 sh 'docker build -t tyronev/ce-portal:v1 .'
             }
         }
-
         stage ('Docker Run') {
-                     steps {
-                         sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
-                     }
-                 }
-          stage ('Docker Check Containers') {
-                steps {
-                    sh 'docker ps -a'
-                }
+            steps {
+            sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
             }
-     }
+        }
+        stage ('Docker Check Containers') {
+            steps {
+                sh 'docker ps -a'
+            }
+        }
+    }
 }

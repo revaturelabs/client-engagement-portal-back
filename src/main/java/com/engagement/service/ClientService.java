@@ -1,5 +1,6 @@
 package com.engagement.service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.engagement.model.Client;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.Grade;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
@@ -16,8 +18,7 @@ import com.engagement.repo.caliber.TrainingClient;
 
 /**
  * Service for handling business logic of client requests
- * 
- * @author Tucker Fritz
+ * @author Tucker Fritz, Matt Hartmann
  *
  */
 @Service
@@ -29,16 +30,6 @@ public class ClientService {
 	private TrainingClient bc;
 	@Autowired
 	private GradeClient gc;
-
-	/**
-	 * Find a client by clientId
-	 * 
-	 * @param id A clientId in the database
-	 * @return a Client associated with id
-	 */
-//		public Client findByClientId(int id) {
-//			return cr.findByClientId(id);
-//		}
 
 	/**
 	 * Returns a list of all clients in the database
@@ -106,4 +97,22 @@ public class ClientService {
 		}
 		return null; // If no batch with that batchId was found, return null;
 	}
+		
+		/**
+		 * Find all client names
+		 * 
+		 * @param none
+		 * @return All clients with only number and name
+		 */
+		public List<ClientName> ClientNames()
+		{
+			List<Client> clients = cr.findAll();
+			List<ClientName> clientsdto = new LinkedList<ClientName>();
+			for(int i = 0; i < clients.size(); i++)
+				clientsdto.add(new ClientName(clients.get(i).getCompanyName(), String.valueOf(clients.get(i).getClientId())));
+			
+			return clientsdto;
+		}
+		
+		
 }
