@@ -37,12 +37,20 @@ public class AdminController {
 		super();
 		this.as = as;
 	}
+<<<<<<< HEAD
 	/**
 	 * Finds all Admin objects in the DB 
 	 * 
 	 * @return A list of all Admins
 	 */
 	@ApiOperation(value = "Finds all Admins in the database.")
+=======
+
+	/**
+	 * Returns a list of all admins
+	 * @return list of all admins
+	 */
+>>>>>>> cfe025942084423bdf3880da2a1f2b14033c026d
 	@GetMapping("/")
 	public List<Admin> findAll() {
 		return as.findAll();
@@ -51,8 +59,7 @@ public class AdminController {
 	/**
 	 * Creates a new Admin object and persists to the DB
 	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin
-	 *               object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@ApiOperation(value = "Creates a new Admin object and persists to the DB.", 
@@ -62,17 +69,16 @@ public class AdminController {
 		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(), admin.getLastName());
 
 		if (as.save(persistentAdmin)) {
-			return new ResponseEntity<>("User succesfully created", HttpStatus.CREATED);
+			return new ResponseEntity<>("Admin successfully created", HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>("User creation failed", HttpStatus.CONFLICT);
+			return new ResponseEntity<>("Admin creation failed", HttpStatus.CONFLICT);
 		}
 	}
 
 	/**
 	 * Updates Admin object in the DB
 	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin
-	 *               object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@ApiOperation(value = "Updates a Admin object in the DB.",
@@ -82,14 +88,14 @@ public class AdminController {
 		Admin adminInDB = as.findByEmail(admin.getEmail());
 		
 		if (adminInDB == null) { // admin does not exist
-			return new ResponseEntity<>("User not found", HttpStatus.CONFLICT);
+			return new ResponseEntity<>("Admin not found", HttpStatus.CONFLICT);
 		}
 		
 		int adminId = adminInDB.getAdminId();
 		Admin persistentAdmin = new Admin(adminId, admin.getEmail(), admin.getFirstName(), admin.getLastName());
 		
 		if (as.update(persistentAdmin) != null) { // admin successfully updated
-			return new ResponseEntity<>("User updated succesfully", HttpStatus.ACCEPTED);
+			return new ResponseEntity<>("Admin updated succesfully", HttpStatus.ACCEPTED);
 		} else {
 			return new ResponseEntity<>("Update failed", HttpStatus.CONFLICT);
 		}
@@ -98,8 +104,7 @@ public class AdminController {
 	/**
 	 * Deletes Admin object from the DB
 	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin
-	 *               object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@ApiOperation(value = "Deletes an Admin object from the DB.", 
@@ -108,10 +113,10 @@ public class AdminController {
 	@DeleteMapping("/delete")
 	public ResponseEntity<String> delete(@RequestParam Integer id) {
 		if (as.findByAdminId(id) == null) { // admin does not exist
-			return new ResponseEntity<>("User not found", HttpStatus.CONFLICT);
+			return new ResponseEntity<>("Admin not found", HttpStatus.CONFLICT);
 		} else {
 			as.delete(id);
-			return new ResponseEntity<>("User deleted", HttpStatus.OK);
+			return new ResponseEntity<>("Admin deleted", HttpStatus.OK);
 		}
 	}
 	

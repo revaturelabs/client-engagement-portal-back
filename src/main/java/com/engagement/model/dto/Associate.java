@@ -1,5 +1,6 @@
 package com.engagement.model.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +17,6 @@ import lombok.NoArgsConstructor;
  */
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class Associate {
 
@@ -25,5 +25,17 @@ public class Associate {
 	private String firstName;
 	private String lastName;
 	private List<Grade> grades;
+	
+	/**
+	 * Needed because otherwise we get null if the list of grades was not initialized
+	 * @return either the list of grades or an empty list
+	 * @author Kelsey Iafrate
+	 */
+	public List<Grade> getGrades(){
+		if(this.grades == null) {
+			return new ArrayList<>();
+		}
+		return grades;
+	}
 
 }
