@@ -18,7 +18,7 @@ import com.engagement.service.ClientService;
 
 /**
  * Controller that handles requests pertaining to clients
- * @author Tucker Fritz
+ * @author Tucker Fritz, Matt H
  */
 @RestController
 @RequestMapping("/client")
@@ -70,6 +70,12 @@ public class ClientController {
 		return cs.findByEmail(email);
 	}
 	
+	
+	/**
+	 * returns clients with just id and name
+	 * @param none
+	 * @return List of clients with id and name
+	 */
 	@GetMapping("/clientnames")
 	@ResponseBody
 	public List<ClientName> findClientNames() {
