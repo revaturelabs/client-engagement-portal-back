@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Client;
@@ -44,7 +43,6 @@ public class ClientController {
 	 * @return List of all clients
 	 */
 	@ApiOperation(value = "Returns a list of all clients in the DB")
-	@ResponseBody
 	@GetMapping("/")
 	public List<Client> findAll() {
 		return cs.findAll();
@@ -56,7 +54,6 @@ public class ClientController {
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@ApiOperation(value = "Saves a client to the database.", notes= "Returns the client was saved. May return null if client is yet to be persisted to DB.")
-	@ResponseBody
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody ClientDto client) {
 		Client persistentClient = new Client(0, client.getEmail(), client.getCompanyName(), client.getPhoneNumber(), null);
