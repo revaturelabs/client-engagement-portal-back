@@ -6,8 +6,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.BatchName;
 
 /**
  * 
@@ -17,7 +17,7 @@ import com.engagement.model.dto.Batch;
  *
  */
 
-@FeignClient(value = "batch", url = "https://caliber2-mock.revaturelabs.com/mock/training/")
+@FeignClient(value = "batch", url = "https://caliber2-mock.revaturelabs.com/mock/training")
 public interface TrainingClient {
 	
 	/**
@@ -25,8 +25,10 @@ public interface TrainingClient {
 	 * @return List<Batch> Returns the list of all batches
 	 * @author Kelsey Iafrate
 	 */
+
 	@GetMapping("/batch")
 	List<Batch> getBatches();
+
 	
 	/**
 	 * Get a batch by batchId. For example TR-1142
@@ -34,7 +36,9 @@ public interface TrainingClient {
 	 * @return List<Batch> Returns a list of one or zero Batches based on the batchId
 	 * @author Kelsey Iafrate
 	 */
+
 	@GetMapping("/batch/{batchId}")
 	Batch getBatchById(@PathVariable("batchId") String batchId);
+
 
 }

@@ -25,13 +25,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class ClientBatch {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int clientBatchId;
 	
 	private String batchId;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "clientId")
 	private Client client;

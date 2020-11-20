@@ -82,4 +82,5 @@ public class ClientController {
 	public Batch getBatchById(@PathVariable("batchId") String batchId) {
 		return cs.getBatchByBatchId(batchId);
 	}
+	
 }

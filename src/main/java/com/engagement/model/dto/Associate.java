@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Associate {
-	
+
 	private String email;
 	private String salesforceId;//also called traineeId in other places
 	private String firstName;

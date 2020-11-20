@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AssociateAssignment {
-	
+
 	private String trainingStatus;
 	private Associate associate;
 	private String startDate;
