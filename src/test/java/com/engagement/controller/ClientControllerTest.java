@@ -23,7 +23,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Client;
+import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.EmployeeAssignment;
 import com.engagement.service.ClientService;
 
 @RunWith(SpringRunner.class)
@@ -102,7 +104,7 @@ class ClientControllerTest {
 	
 	@Test
 	void getBatchById() throws Exception {
-		Batch batch = new Batch("TR-1018", "batchName", "this is a date", "this is an end date", "java", "WVU", "ROCP", 70, 80, null, null, 1);
+		Batch batch = new Batch("TR-1018", "batchName", "this is a date", "this is an end date", "java", "WVU", "ROCP", 70, 80, new ArrayList<EmployeeAssignment>(), new ArrayList<AssociateAssignment>(), 1);
 		Mockito.when(cs.getBatchByBatchId("TR-1018")).thenReturn(batch);
 		this.mockMvc
 		.perform(get("/client/batch/TR-1018"))
