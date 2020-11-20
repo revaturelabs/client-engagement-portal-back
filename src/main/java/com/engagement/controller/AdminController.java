@@ -108,7 +108,7 @@ public class AdminController {
 	 * @return List of all batch IDs and names
 	 */
 	@GetMapping("/batch/allNames")
-	public List<Batch> getBatches() {
+	public List<BatchName> getBatches() {
 		return as.getAllBatches();
 	}
 	

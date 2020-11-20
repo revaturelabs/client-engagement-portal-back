@@ -27,7 +27,7 @@ public interface TrainingClient {
 	 */
 
 	@GetMapping("/batch")
-	List<Batch> getBatches();
+	List<BatchName> getBatches();
 
 	
 	/**
