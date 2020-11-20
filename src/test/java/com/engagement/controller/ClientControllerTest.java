@@ -102,6 +102,10 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$.phoneNumber").value("573-555-3535"));
 	}
 	
+	/**
+	*getBatchByIdTest testes the Client Controller's ability to return a batch untouched when given a valid batch id.
+	*@author Kelsey Iafrate
+	*/
 	@Test
 	void getBatchById() throws Exception {
 		Batch batch = new Batch("TR-1018", "batchName", "this is a date", "this is an end date", "java", "WVU", "ROCP", 70, 80, new ArrayList<EmployeeAssignment>(), new ArrayList<AssociateAssignment>(), 1);
