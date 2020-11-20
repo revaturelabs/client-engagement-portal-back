@@ -6,3 +6,23 @@
 2020-11-19 17:32:41,275 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Enter: com.engagement.service.AdminService.findAll() with argument[s] = []
 2020-11-19 17:32:41,603 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Exit: com.engagement.service.AdminService.findAll() with result = [Admin(adminId=1, email=kelsey@kelsey, firstName=Kelsey, lastName=Iafrate), Admin(adminId=6, email=john@john, firstName=johnny, lastName=doe)]
 2020-11-19 17:32:41,605 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Exit: com.engagement.controller.AdminController.findAll() with result = [Admin(adminId=1, email=kelsey@kelsey, firstName=Kelsey, lastName=Iafrate), Admin(adminId=6, email=john@john, firstName=johnny, lastName=doe)]
+2020-11-20 12:44:43,672 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on DESKTOP-F7AMC9G with PID 22224 (C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back\target\classes started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-20 12:44:43,675 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 12:44:43,675 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 12:44:48,175 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 4.944 seconds (JVM running for 5.56)
+2020-11-20 12:45:10,864 INFO org.springframework.boot.StartupInfoLogger [main] Starting ClientEngagementPortalBackApplicationTests using Java 14.0.2 on DESKTOP-F7AMC9G with PID 12616 (started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-20 12:45:10,865 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 12:45:10,866 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-20 12:45:15,870 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientEngagementPortalBackApplicationTests in 5.425 seconds (JVM running for 6.547)
+2020-11-20 12:45:16,335 INFO org.springframework.boot.StartupInfoLogger [main] Starting ClientControllerTest using Java 14.0.2 on DESKTOP-F7AMC9G with PID 12616 (started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-20 12:45:16,335 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 12:45:16,336 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-20 12:45:16,952 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientControllerTest in 0.737 seconds (JVM running for 7.629)
+2020-11-20 12:45:17,327 INFO org.springframework.boot.StartupInfoLogger [main] Starting AdminControllerTest using Java 14.0.2 on DESKTOP-F7AMC9G with PID 12616 (started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-20 12:45:17,328 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 12:45:17,329 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-20 12:45:17,999 INFO org.springframework.boot.StartupInfoLogger [main] Started AdminControllerTest in 0.787 seconds (JVM running for 8.675)
+2020-11-20 12:45:18,274 INFO org.springframework.boot.StartupInfoLogger [main] Starting ClientServiceTest using Java 14.0.2 on DESKTOP-F7AMC9G with PID 12616 (started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-20 12:45:18,275 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 12:45:18,276 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-20 12:45:20,086 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientServiceTest in 1.961 seconds (JVM running for 10.764)
