@@ -46,7 +46,10 @@ public class ClientEngagementPortalBackApplication {
 				.build()
 				.apiInfo(apiDetails());
 	}
-	
+	/**
+	 * Dictates API Info for swaggerConfiguration() 
+	 * @return new API Info
+	 */
 	private ApiInfo apiDetails() {
 		return new ApiInfo("Client Engagment Portal API", "API for Revature's Client Engagement Portal", "0.1", "All Rights Reserved", new springfox.documentation.service.Contact("Batch2009", "https://github.com/revaturelabs/client-engagement-portal-back", "matthew.thomas@revature.net"), "Revature", "https://revature.com", Collections.emptyList());
 		
