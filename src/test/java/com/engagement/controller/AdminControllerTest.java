@@ -10,27 +10,36 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Admin;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-@RunWith(SpringRunner.class)
+/**
+ * 
+ * @author Brooke Wursten et. al.
+ * 
+ * This class contains all the unit tests for the admin Controller
+ *
+ */
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(AdminController.class)
 class AdminControllerTest {
 
@@ -49,11 +58,21 @@ class AdminControllerTest {
 	Admin admin2 = new Admin(1, "a2@a.net", "admin", "adminson");
 	BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");
 
-	@Before
+	
+	/**
+	 * Creates a mock servlet to use in the controller tests
+	 */
+	@BeforeEach
 	public void setUp() {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
 	}
-
+	
+	
+	/**
+	 * @author Brooke Wursten
+	 * This unit test checks whether the controller logic for successfully creating a new admin object works properly.
+	 * @throws Exception
+	 */
 	@Test
 	void testCreateNewAdminSuccess() throws Exception {
 		Mockito.when(as.save(admin)).thenReturn(true);
@@ -65,6 +84,11 @@ class AdminControllerTest {
 				.andExpect(content().string(containsString("User succesfully created")));
 	}
 	
+	/**
+	 * @author Brooke Wursten
+	 * This unit test checks whether the controller logic for unsuccessfully creating a new admin object works properly.
+	 * @throws Exception
+	 */
 	@Test
 	void testCreateNewAdminFail() throws Exception {
 		Mockito.when(as.save(admin)).thenReturn(false);
@@ -77,6 +101,11 @@ class AdminControllerTest {
 
 	}
 
+	/**
+	 * @author Brooke Wursten
+	 * This unit test checks whether the controller logic for successfully updating a new admin object works properly.
+	 * @throws Exception
+	 */
 	@Test
 	void testUpdateAdminSuccess() throws Exception {
 		Mockito.when(as.findByEmail("a@a.net")).thenReturn(admin);
@@ -89,6 +118,11 @@ class AdminControllerTest {
 				.andExpect(content().string(containsString("User updated succesfully")));
 	}
 	
+	/**
+	 * @author Brooke Wursten
+	 * This tests the controller logic for when an admin update can not be completed because the admin doesn't exist.
+	 * @throws Exception
+	 */
 	@Test
 	void testUpdateAdminFailDoesNotExist() throws Exception {
 		Mockito.when(as.findByEmail("a@a.net")).thenReturn(null);
@@ -100,6 +134,10 @@ class AdminControllerTest {
 				.andExpect(content().string(containsString("User not found")));
 	}
 	
+	/**
+	 * This unit test checks whether the controller logic for when updating fails for some other reason.
+	 * @throws Exception
+	 */
 	@Test
 	void testUpdateAdminFail() throws Exception {
 		Mockito.when(as.findByEmail("a@a.net")).thenReturn(admin);
@@ -112,6 +150,11 @@ class AdminControllerTest {
 				.andExpect(content().string(containsString("Update failed")));
 	}
 	
+	/**
+	 * @author Brooke Wursten
+	 * This unit test checks whether the controller logic for successfully deleting a new admin object works properly.
+	 * @throws Exception
+	 */
 	@Test
 	void testDeleteAdminSuccess() throws Exception {
 		Mockito.when(as.findByAdminId(0)).thenReturn(admin);
@@ -120,6 +163,11 @@ class AdminControllerTest {
 				.andExpect(status().isOk());
 	}
 	
+	/**
+	 * @author Brooke Wursten
+	 * This unit tests the controller logic for when one tries to delete a user that does not exist
+	 * @throws Exception
+	 */
 	@Test
 	void testDeleteAdminFailDoesNotExist() throws Exception {
 		Mockito.when(as.findByAdminId(0)).thenReturn(null);
@@ -150,6 +198,33 @@ class AdminControllerTest {
 			.perform(get("/admin/batch/allNames").accept(MediaType.ALL))
 			.andReturn();
 
+	}
+	
+	/**
+	 * @author Brooke Wursten
+	 * Unit test for getting map of batches and clients
+	 * @throws Exception
+	 */
+	@Test
+	void testMappedBatchesClients() throws Exception {
+		
+		/*
+		 * mock map we are pretending is returned by AdminService
+		 */
+		Map<String,Integer> mockMap = new HashMap<String,Integer>(){{
+			put("TR-101",1);
+			put("TR-102",1);
+			put("TR-103",2);
+			}};
+			Mockito.when(as.findAllMappings())
+			.thenReturn(mockMap);
+			
+		String mockMapJson = new ObjectMapper().writeValueAsString(mockMap);//What we expect to be in the body of the response
+		
+		
+		
+		this.mockMvc.perform(get("/admin/mappedBatchesClients").accept(MediaType.ALL))
+		.andExpect(content().json(mockMapJson));//Makes the request and ensures we receive the proper json
 	}
 
 }

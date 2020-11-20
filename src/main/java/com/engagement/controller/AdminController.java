@@ -1,10 +1,12 @@
 package com.engagement.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +27,7 @@ import com.engagement.service.AdminService;
  * @author Brooke Wursten & Daniel Consantinescu
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/admin")
 public class AdminController {
 
@@ -35,7 +38,13 @@ public class AdminController {
 		super();
 		this.as = as;
 	}
+	
 
+	/**
+	 * Finds all admin objects - mainly for testing
+	 * 
+	 * @return List of all admin objects.
+	 */
 	@GetMapping("/")
 	public List<Admin> findAll() {
 		return as.findAll();
@@ -109,5 +118,22 @@ public class AdminController {
 	public List<BatchName> getBatches() {
 		return as.getAllBatches();
 	}
+	
+	
+	
+	/**
+	 * @author Brooke Wursten
+	 * Returns a Map showing which batches
+	 * are mapped to which clients
+	 * @return simple map of <bachid,clientid>
+	 */
+	@GetMapping("/mappedBatchesClients")
+	public Map<String,Integer> mappedBatchesClients() {
+			return as.findAllMappings();
+	}
+	
+	
+	
+	
 	
 }
