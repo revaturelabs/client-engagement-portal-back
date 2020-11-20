@@ -41,3 +41,104 @@
 2020-11-19 17:33:06,251 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [RMI TCP Connection(9)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
 2020-11-19 17:33:06,256 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(9)-127.0.0.1] HikariPool-1 - Shutdown initiated...
 2020-11-19 17:33:06,267 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(9)-127.0.0.1] HikariPool-1 - Shutdown completed.
+2020-11-20 12:44:02,848 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 2220 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 12:44:02,850 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 12:44:02,851 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 12:44:02,903 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-11-20 12:44:02,903 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-11-20 12:44:03,516 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-20 12:44:03,570 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+2020-11-20 12:44:03,723 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
+2020-11-20 12:44:03,764 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 12:44:03,765 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 12:44:04,267 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-20 12:44:04,277 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-20 12:44:04,277 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-20 12:44:04,277 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-20 12:44:04,372 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-20 12:44:04,372 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1469 ms
+2020-11-20 12:44:04,414 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2020-11-20 12:44:05,058 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2020-11-20 12:44:05,063 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-20 12:44:05,179 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-20 12:44:05,223 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-20 12:44:05,284 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2020-11-20 12:44:05,334 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-20 12:44:05,381 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-20 12:44:05,383 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 12:44:05,425 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-11-20 12:44:05,517 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-11-20 12:44:06,529 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-20 12:44:06,536 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 12:44:06,743 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 12:44:06,807 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 12:44:06,808 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 12:44:07,176 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9011"]
+2020-11-20 12:44:07,194 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9011 (http) with context path ''
+2020-11-20 12:44:07,257 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 12:44:07,257 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 12:44:07,266 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 4.94 seconds (JVM running for 5.608)
+2020-11-20 12:44:32,929 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9011-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-20 12:44:32,930 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9011-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-11-20 12:44:32,931 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9011-exec-1] Completed initialization in 1 ms
+2020-11-20 12:44:32,949 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Enter: com.engagement.controller.AdminController.getBatches() with argument[s] = []
+2020-11-20 12:44:32,957 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Enter: com.engagement.service.AdminService.getAllBatches() with argument[s] = []
+2020-11-20 12:44:33,486 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Exit: com.engagement.service.AdminService.getAllBatches() with result = [BatchName(batchId=TR-1806, name=Mock Batch 552), BatchName(batchId=TR-1793, name=Mock Batch 546), BatchName(batchId=TR-1788, name=Mock Batch 543), BatchName(batchId=TR-1796, name=Mock Batch 547), BatchName(batchId=TR-1803, name=Mock Batch 550), BatchName(batchId=TR-1805, name=Mock Batch 551), BatchName(batchId=TR-1789, name=Mock Batch 544), BatchName(batchId=TR-1787, name=Mock Batch 542), BatchName(batchId=TR-1790, name=Mock Batch 545), BatchName(batchId=TR-1797, name=Mock Batch 548), BatchName(batchId=TR-1801, name=Mock Batch 549)]
+2020-11-20 12:44:33,486 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-1] Exit: com.engagement.controller.AdminController.getBatches() with result = [BatchName(batchId=TR-1806, name=Mock Batch 552), BatchName(batchId=TR-1793, name=Mock Batch 546), BatchName(batchId=TR-1788, name=Mock Batch 543), BatchName(batchId=TR-1796, name=Mock Batch 547), BatchName(batchId=TR-1803, name=Mock Batch 550), BatchName(batchId=TR-1805, name=Mock Batch 551), BatchName(batchId=TR-1789, name=Mock Batch 544), BatchName(batchId=TR-1787, name=Mock Batch 542), BatchName(batchId=TR-1790, name=Mock Batch 545), BatchName(batchId=TR-1797, name=Mock Batch 548), BatchName(batchId=TR-1801, name=Mock Batch 549)]
+2020-11-20 12:44:37,323 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-3] Enter: com.engagement.controller.AdminController.getBatches() with argument[s] = []
+2020-11-20 12:44:37,324 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-3] Enter: com.engagement.service.AdminService.getAllBatches() with argument[s] = []
+2020-11-20 12:44:37,586 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-3] Exit: com.engagement.service.AdminService.getAllBatches() with result = [BatchName(batchId=TR-1806, name=Mock Batch 552), BatchName(batchId=TR-1793, name=Mock Batch 546), BatchName(batchId=TR-1788, name=Mock Batch 543), BatchName(batchId=TR-1796, name=Mock Batch 547), BatchName(batchId=TR-1803, name=Mock Batch 550), BatchName(batchId=TR-1805, name=Mock Batch 551), BatchName(batchId=TR-1789, name=Mock Batch 544), BatchName(batchId=TR-1787, name=Mock Batch 542), BatchName(batchId=TR-1790, name=Mock Batch 545), BatchName(batchId=TR-1797, name=Mock Batch 548), BatchName(batchId=TR-1801, name=Mock Batch 549)]
+2020-11-20 12:44:37,587 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-3] Exit: com.engagement.controller.AdminController.getBatches() with result = [BatchName(batchId=TR-1806, name=Mock Batch 552), BatchName(batchId=TR-1793, name=Mock Batch 546), BatchName(batchId=TR-1788, name=Mock Batch 543), BatchName(batchId=TR-1796, name=Mock Batch 547), BatchName(batchId=TR-1803, name=Mock Batch 550), BatchName(batchId=TR-1805, name=Mock Batch 551), BatchName(batchId=TR-1789, name=Mock Batch 544), BatchName(batchId=TR-1787, name=Mock Batch 542), BatchName(batchId=TR-1790, name=Mock Batch 545), BatchName(batchId=TR-1797, name=Mock Batch 548), BatchName(batchId=TR-1801, name=Mock Batch 549)]
+2020-11-20 12:44:48,206 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-4] Enter: com.engagement.controller.ClientController.findAll() with argument[s] = []
+2020-11-20 12:44:48,209 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-4] Enter: com.engagement.service.ClientService.findAll() with argument[s] = []
+2020-11-20 12:44:48,407 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-4] Exit: com.engagement.service.ClientService.findAll() with result = [Client(clientId=1, email=client1@client1, companyName=comany1, phoneNumber=1112223333, clientBatches=[])]
+2020-11-20 12:44:48,448 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-4] Exit: com.engagement.controller.ClientController.findAll() with result = [Client(clientId=1, email=client1@client1, companyName=comany1, phoneNumber=1112223333, clientBatches=[])]
+2020-11-20 12:45:03,555 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-5] Enter: com.engagement.controller.ClientController.findClientNames() with argument[s] = []
+2020-11-20 12:45:03,557 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-5] Enter: com.engagement.service.ClientService.ClientNames() with argument[s] = []
+2020-11-20 12:45:03,655 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-5] Exit: com.engagement.service.ClientService.ClientNames() with result = [ClientName(companyName=1, clientId=comany1)]
+2020-11-20 12:45:03,656 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-5] Exit: com.engagement.controller.ClientController.findClientNames() with result = [ClientName(companyName=1, clientId=comany1)]
+2020-11-20 12:45:54,307 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-6] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 12:45:54,308 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-6] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-20 12:45:54,309 INFO com.zaxxer.hikari.HikariDataSource [Thread-6] HikariPool-1 - Shutdown initiated...
+2020-11-20 12:45:54,313 INFO com.zaxxer.hikari.HikariDataSource [Thread-6] HikariPool-1 - Shutdown completed.
+2020-11-20 12:45:54,487 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on Carlo-Tower with PID 2220 (C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back\target\classes started by carlo in C:\Users\carlo\my_git_repos\Project 3\Backend\client-engagement-portal-back)
+2020-11-20 12:45:54,487 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 12:45:54,488 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 12:45:54,639 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-20 12:45:54,651 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 12 ms. Found 3 JPA repository interfaces.
+2020-11-20 12:45:54,676 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=1594414f-2e7c-36e0-a87c-4d317dd0e70d
+2020-11-20 12:45:54,682 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 12:45:54,683 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-20 12:45:54,732 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-20 12:45:54,732 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-20 12:45:54,732 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-20 12:45:54,733 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-20 12:45:54,755 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-20 12:45:54,755 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 265 ms
+2020-11-20 12:45:54,768 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2020-11-20 12:45:55,146 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2020-11-20 12:45:55,146 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-20 12:45:55,166 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-20 12:45:55,172 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-20 12:45:55,177 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-11-20 12:45:55,200 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-20 12:45:55,213 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-20 12:45:55,214 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 12:45:55,756 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-20 12:45:55,757 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-20 12:45:55,797 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 12:45:55,824 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 12:45:55,824 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 12:45:55,980 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9011"]
+2020-11-20 12:45:55,983 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9011 (http) with context path ''
+2020-11-20 12:45:56,040 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-20 12:45:56,040 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-11-20 12:45:56,043 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 1.686 seconds (JVM running for 114.385)
+2020-11-20 12:45:56,045 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-20 12:46:00,442 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9011-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-20 12:46:00,442 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9011-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-11-20 12:46:00,443 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9011-exec-2] Completed initialization in 1 ms
+2020-11-20 12:46:00,444 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-2] Enter: com.engagement.controller.ClientController.findClientNames() with argument[s] = []
+2020-11-20 12:46:00,447 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-2] Enter: com.engagement.service.ClientService.ClientNames() with argument[s] = []
+2020-11-20 12:46:00,553 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-2] Exit: com.engagement.service.ClientService.ClientNames() with result = [ClientName(companyName=comany1, clientId=1)]
+2020-11-20 12:46:00,553 DEBUG com.engagement.aspect.LoggingAspect [http-nio-9011-exec-2] Exit: com.engagement.controller.ClientController.findClientNames() with result = [ClientName(companyName=comany1, clientId=1)]

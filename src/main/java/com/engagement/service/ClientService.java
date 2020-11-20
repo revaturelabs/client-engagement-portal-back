@@ -109,7 +109,7 @@ public class ClientService {
 			List<Client> clients = cr.findAll();
 			List<ClientName> clientsdto = new LinkedList<ClientName>();
 			for(int i = 0; i < clients.size(); i++)
-				clientsdto.add(new ClientName(String.valueOf(clients.get(i).getClientId()), clients.get(i).getCompanyName()));
+				clientsdto.add(new ClientName(clients.get(i).getCompanyName(), String.valueOf(clients.get(i).getClientId())));
 			
 			return clientsdto;
 		}
