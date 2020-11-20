@@ -1,8 +1,7 @@
 package com.engagement.model;
 
-import java.util.List;
+import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+
 public class Client {
 
 	@Id
@@ -29,8 +29,8 @@ public class Client {
 
 	private String phoneNumber;
 
-	@OneToMany(mappedBy = "client")
-	private List<ClientBatch> clientBatches;
+	//@OneToMany(mappedBy = "Client")
+	//private Set<ClientBatch> clientBatches;
 
 
 

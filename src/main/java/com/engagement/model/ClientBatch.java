@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,12 +23,14 @@ public class ClientBatch {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String clientBatchId;
+	private Integer clientBatchId;
 	
 	private String batchId;
 	
+	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "clientId")
+	@JoinColumn(name = "client_id")
+	@JsonIgnore
 	private Client client;
 
 }
