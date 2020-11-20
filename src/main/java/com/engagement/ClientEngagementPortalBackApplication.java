@@ -10,6 +10,8 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger.web.UiConfiguration;
+import springfox.documentation.swagger.web.UiConfigurationBuilder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
@@ -21,6 +23,16 @@ public class ClientEngagementPortalBackApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClientEngagementPortalBackApplication.class, args);
 	}
+	/**
+	 * Configures Swagger UI to not allow trying out APIs that would change data
+	 * @return new UI configuration 
+	 */
+	@Bean
+	public UiConfiguration uiConfig() {
+		final String[] methodsWithTryItOutButton = {"get"};
+		return UiConfigurationBuilder.builder().supportedSubmitMethods(methodsWithTryItOutButton).build();
+	}
+	
 	/**
 	 * Configures Swagger UI to make it all pretty-like.
 	 *
