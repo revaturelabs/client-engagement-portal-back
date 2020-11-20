@@ -16,6 +16,8 @@ import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
 
+import io.swagger.annotations.ApiOperation;
+
 /**
  * Controller that handles requests pertaining to clients
  * 
@@ -33,6 +35,7 @@ public class ClientController {
 	 * 
 	 * @return List of all clients
 	 */
+	@ApiOperation(value = "Returns a list of all clients in the DB")
 	@GetMapping
 	@ResponseBody
 	public List<Client> findAll() {
@@ -45,6 +48,7 @@ public class ClientController {
 	 * @param c A client to be saved to the database
 	 * @return Client that was saved. May be null if client is yet to be persisted to database.
 	 */
+	@ApiOperation(value = "Saves a client to the database.", notes= "Returns the client was saved. May return null if client is yet to be persisted to DB.")
 	@PostMapping
 	@ResponseBody
 	public Client save(@RequestBody Client client) {
@@ -58,6 +62,7 @@ public class ClientController {
 	 * @param email An email pertaining to a client in the database
 	 * @return Client associated with id w/ default values if client is non-existant
 	 */
+	@ApiOperation(value = "Returns a Client with email \"email\".")
 	@GetMapping("/email/{email}")
 	@ResponseBody
 	public Client findByEmail(@PathVariable String email) {
@@ -70,7 +75,7 @@ public class ClientController {
 	 * @param batchId: The identifier in Caliber to identify a batch
 	 * @return Returns the Batch associated with the batchId
 	 */
-
+	@ApiOperation(value = "Returns All inforation about a bramch by given id.")
 	@GetMapping("/batch/{batchId}")
 	public Batch getBatchById(String batchId) {
 		return cs.getBatchByBatchId(batchId);
@@ -83,6 +88,7 @@ public class ClientController {
 	 * @param none
 	 * @return List of clients with id and name
 	 */
+	@ApiOperation(value="Returns a list of all clients with only atributes \"id\" and \"name\".")
 	@GetMapping("/clientnames")
 	@ResponseBody
 	public List<ClientName> findClientNames() {

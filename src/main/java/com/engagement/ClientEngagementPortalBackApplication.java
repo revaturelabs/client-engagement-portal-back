@@ -29,7 +29,7 @@ public class ClientEngagementPortalBackApplication {
 	 */
 	@Bean
 	public UiConfiguration uiConfig() {
-		final String[] methodsWithTryItOutButton = {"get"};
+		final String[] methodsWithTryItOutButton = {}; //add get method if security allows
 		return UiConfigurationBuilder.builder().supportedSubmitMethods(methodsWithTryItOutButton).build();
 	}
 	
