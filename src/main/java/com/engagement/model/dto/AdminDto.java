@@ -1,4 +1,4 @@
-package com.engagement.model;
+package com.engagement.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
