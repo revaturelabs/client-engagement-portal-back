@@ -1,0 +1,11 @@
+2020-11-20 14:07:27,250 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.1 on LAPTOP-7O7ULC3J with PID 7404 (C:\Users\bgdyl\Desktop\Project 3\Back End\client-engagement-portal-back\target\classes started by bgdyl in C:\Users\bgdyl\Desktop\Project 3\Back End\client-engagement-portal-back)
+2020-11-20 14:07:27,259 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 14:07:27,260 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 14:07:33,816 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 8.012 seconds (JVM running for 10.397)
+2020-11-20 14:43:37,105 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.1 on LAPTOP-7O7ULC3J with PID 18928 (C:\Users\bgdyl\Desktop\Project 3\Back End\client-engagement-portal-back\target\classes started by bgdyl in C:\Users\bgdyl\Desktop\Project 3\Back End\client-engagement-portal-back)
+2020-11-20 14:43:37,109 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 14:43:37,110 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-20 14:43:43,250 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 6.739 seconds (JVM running for 7.555)
+2020-11-20 14:46:05,489 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.1 on LAPTOP-7O7ULC3J with PID 18928 (C:\Users\bgdyl\Desktop\Project 3\Back End\client-engagement-portal-back\target\classes started by bgdyl in C:\Users\bgdyl\Desktop\Project 3\Back End\client-engagement-portal-back)
+2020-11-20 14:46:05,489 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 14:46:05,490 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
