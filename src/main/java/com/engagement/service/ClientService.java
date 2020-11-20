@@ -79,7 +79,6 @@ public class ClientService {
 		return cr.findByEmail(email);
 	}
 
-
 	/**
 	 * Find a batch by it's identifier in Caliber.
 	 * 

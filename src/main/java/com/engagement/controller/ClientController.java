@@ -85,16 +85,15 @@ public class ClientController {
 //	}
 	
 	/**
-	 * Find a client by email
-	 * 
-	 * @param email An email pertaining to a client in the database
-	 * @return Client associated with email w/ default values if client is non-existant
-	 */
-
-	@GetMapping("/email/{email}")
-	public Client findByEmail(@PathVariable("email") String email) {
-		return cs.findByEmail(email);
-	}
+     * Find a client by email
+     * @param email An email pertaining to a client in the database
+     * @return Client associated with id w/ default values if client is non-existant
+     */
+    @GetMapping("/email/{email}")
+    @ResponseBody
+    public Client findByEmail(@PathVariable String email) {
+        return cs.findByEmail(email);
+    }
 	
 	/**
 	 * Find all information about a branch by the batch id
