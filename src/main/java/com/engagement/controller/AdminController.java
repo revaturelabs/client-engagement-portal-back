@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Admin;
-import com.engagement.model.AdminDto;
+import com.engagement.model.dto.AdminDto;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 

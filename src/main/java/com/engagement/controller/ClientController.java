@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Client;
-import com.engagement.model.ClientDto;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.ClientDto;
 import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
 
