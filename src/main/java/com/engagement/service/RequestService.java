@@ -17,8 +17,8 @@ public class RequestService {
 		return rr.findAll();
 	}
 
-	public void addIntervention(Request intervention) {
-		rr.save(intervention);
+	public Request addIntervention(Request intervention) {
+		return rr.save(intervention);
 	}
 
 	public Request findByRequestId(int requestId) {
