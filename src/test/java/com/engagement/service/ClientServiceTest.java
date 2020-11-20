@@ -60,7 +60,7 @@ class ClientServiceTest {
 		assertEquals(1, newAssociate.getGrades().get(0).getGradeId());
 		assertEquals("date received", newAssociate.getGrades().get(0).getDateReceived());
 		assertEquals(90.1, newAssociate.getGrades().get(0).getScore());
-		assertEquals("testId", newAssociate.getGrades().get(0).getGradeId());
+		assertEquals("testId", newAssociate.getGrades().get(0).getTraineeId());
 		assertEquals("testId", newAssociate.getSalesforceId());
 		assertEquals("test@test", newAssociate.getEmail());
 		assertEquals("testFName", newAssociate.getFirstName());
