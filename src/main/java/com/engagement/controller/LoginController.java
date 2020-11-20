@@ -12,7 +12,7 @@ import com.engagement.service.LoginService;
 
 @Controller
 @CrossOrigin
-@RequestMapping("/api/login")
+@RequestMapping("/login")
 public class LoginController {
 
 	public LoginService ls;

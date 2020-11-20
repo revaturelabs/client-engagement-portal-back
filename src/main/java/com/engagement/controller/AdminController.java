@@ -20,7 +20,7 @@ import com.engagement.service.AdminService;
  * @author    Brooke Wursten & Daniel Consantinescu
  */
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/admin")
 public class AdminController {
 	
 	@Autowired
@@ -54,8 +54,8 @@ public class AdminController {
 	  * @return ResponseEntity containing status code and message.
 	  */ 
 	@PostMapping("/update")
-	public ResponseEntity<?> update(@RequestBody Admin a) {
-		if (as.update(a) != null)
+	public ResponseEntity<?> update(@RequestBody Admin admin) {
+		if (as.update(admin) != null)
 			return new ResponseEntity<String>("User updated succesfully!",HttpStatus.ACCEPTED) ;
 		else
 			return new ResponseEntity<String>("Update failed", HttpStatus.CONFLICT);

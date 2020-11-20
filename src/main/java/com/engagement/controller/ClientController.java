@@ -20,7 +20,7 @@ import com.engagement.service.ClientService;
  * @author Tucker Fritz
  */
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/client")
 public class ClientController {
 
 	@Autowired
@@ -43,8 +43,8 @@ public class ClientController {
 	 */
 	@PostMapping
 	@ResponseBody
-	public Client save(@RequestBody Client c) {
-		return cs.save(c);
+	public Client save(@RequestBody Client client) {
+		return cs.save(client);
 	}
 	
 	/**
