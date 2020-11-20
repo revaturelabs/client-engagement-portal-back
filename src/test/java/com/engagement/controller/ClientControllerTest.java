@@ -42,8 +42,8 @@ class ClientControllerTest {
 	private ClientController cc;
 	
 	private String mockClientJson = "{\"clientId\":0,\"email\":\"a@a.net\", \"companyName\":\"revature\", \"phoneNumber\":\"573-555-3535\", \"clientBatches\" : []}";
-	Client client0 = new Client(0, "a@a.net", "revature", "573-555-3535", null);
-	Client client1 = new Client(1, "a@a1.net", "myspace", "573-343-1334", null);
+	Client client0 = new Client(0, "a@a.net", "revature", "573-555-3535");
+	Client client1 = new Client(1, "a@a1.net", "myspace", "573-343-1334");
 	
 	@BeforeEach
 	public void setUp() {
@@ -88,9 +88,10 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$[*].phoneNumber").value(Matchers.containsInAnyOrder("573-555-3535", "573-343-1334")));
 	}
 	
-//	@Test
+	@Test
 	void findByEmail() throws Exception {
 		Mockito.when(cs.findByEmail("a@a.net")).thenReturn(client0); //Controller service returns client 0 when given a@a.net
+		System.out.println(cs.findByEmail("a@a.net"));
 		this.mockMvc
 		.perform(get("/client/email/a@a.net")
 		.accept(MediaType.APPLICATION_JSON))
