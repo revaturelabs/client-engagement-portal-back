@@ -30,6 +30,7 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int clientId;
 
+	@Column(nullable = false, unique = true)
 	private String email;
 
 	private String companyName;
@@ -38,7 +39,5 @@ public class Client {
 
 	@OneToMany(mappedBy = "client")
 	private List<ClientBatch> clientBatches;
-
-
 
 }

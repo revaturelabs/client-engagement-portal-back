@@ -10,61 +10,101 @@ import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.caliber.TrainingClient;
 
+/**
+ * Service for handling business logic of admin requests
+ * @author
+ *
+ */
+
 @Service
 public class AdminService {
-	
-	@Autowired
-	private AdminRepo adminRepository;
-	@Autowired
+
+	private AdminRepo ar;
 	private TrainingClient bc;
-	
-	public Admin findByAdminId(Integer id) {
-		return adminRepository.findByAdminId(id);
-		
-	}
-	
-	public Admin findByUsername(String email) {
-		return adminRepository.findByEmail(email);
-	}
-	
-	public boolean save(Admin admin) {
-	  boolean ret=false;
-	if ( adminRepository.save(admin) != null)
-		  ret= true;
-	  else
-		  ret=false;
-	  
-	  return ret;
-				  
-	   
-	}
-	
-	public Admin update(Admin admin) {
-		boolean ret=false;
-	
-		return adminRepository.save(admin);
-	}
-	
-	public void delete(Integer id) {
-	
-	 adminRepository.deleteById(id);			 
 
-	
+	@Autowired
+	public AdminService(AdminRepo ar, TrainingClient bc) {
+		super();
+		this.ar = ar;
+		this.bc = bc;
 	}
 	
-	//TODO:  need further authentication implemented
-	public boolean login(String email) {
-		boolean ret=false;
-		if (adminRepository.findByEmail(email) != null )
-			ret=true;
-		else
-			ret=false;
-		
-		return ret;
-	}
-
+	/**
+	 * Return a list of all admins
+	 * @return
+	 */
 	public List<Admin> findAll() {
-		return adminRepository.findAll();
+		return ar.findAll();
+	}
+
+	/**
+	 * Find an admin by id
+	 * @param id the admin's id
+	 * @return the admin that matches the id
+	 */
+	public Admin findByAdminId(Integer id) {
+		return ar.findByAdminId(id);
+	}
+
+	/**
+	 * Find an admin by email
+	 * @param email the admin's email
+	 * @return the admin that matches the email
+	 */
+	public Admin findByEmail(String email) {
+		return ar.findByEmail(email);
+	}
+
+	/**
+	 * Saves an admin to the database
+	 * @param admin admin to save
+	 * @return true if success, false if fail
+	 */
+	public boolean save(Admin admin) {		
+		// admin cannot be null
+		if (admin == null) {
+			return false;
+		}
+		
+		try {
+			ar.save(admin);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * Update an admin's information
+	 * @param admin the admin to update
+	 * @return the updated admin or null if failed update
+	 */
+	public Admin update(Admin admin) {
+		// admin cannot be null
+		if (admin == null) {
+			return null;
+		}
+		
+		try {
+			ar.save(admin);
+		} catch (Exception e) {
+			return null;
+		}
+		
+		return admin;
+	}
+
+	/**
+	 * Delete an admin by their id
+	 * @param id the admin's id
+	 */
+	public void delete(Integer id) {
+		// id cannot be null
+		if (id == null) {
+			return;
+		}
+		
+		ar.deleteById(id);
 	}
 
 	/**
@@ -72,12 +112,7 @@ public class AdminService {
 	 * @return List of all batch IDs and names
 	 */
 	public List<BatchName> getAllBatches() {
-		List<BatchName> batches = bc.getBatches();
-		return batches;
+		return bc.getBatches();
 	}
 
 }
-	
-
-	
-
