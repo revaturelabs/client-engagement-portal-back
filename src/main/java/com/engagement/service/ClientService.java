@@ -95,7 +95,7 @@ public class ClientService {
 			}
 			return b; // Returns the batch with all associates and their grades.
 		}
-		return null; // If no batch with that batchId was found, return null;
+		return null; // If no batch with that batchId was found, return null
 	}
 		
 		/**
@@ -107,7 +107,7 @@ public class ClientService {
 		public List<ClientName> ClientNames()
 		{
 			List<Client> clients = cr.findAll();
-			List<ClientName> clientsdto = new LinkedList<ClientName>();
+			List<ClientName> clientsdto = new LinkedList<>();
 			for(int i = 0; i < clients.size(); i++)
 				clientsdto.add(new ClientName(clients.get(i).getCompanyName(), String.valueOf(clients.get(i).getClientId())));
 			

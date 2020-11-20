@@ -27,7 +27,7 @@ import com.engagement.service.ClientService;
 
 @ExtendWith(MockitoExtension.class)
 @WebMvcTest(ClientController.class)
-public class ClientControllerTest {
+class ClientControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;

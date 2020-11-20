@@ -113,8 +113,7 @@ public class AdminService {
 	 * @return List of all batch IDs and names
 	 */
 	public List<BatchName> getAllBatches() {
-		List<BatchName> batches = bc.getBatches();
-		return batches;
+		return bc.getBatches();
 	}
 
 }
