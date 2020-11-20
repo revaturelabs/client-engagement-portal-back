@@ -26,7 +26,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Admin;
-import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
@@ -45,7 +44,6 @@ class AdminControllerTest {
 	private AdminController ac;
 
 	private String mockAdminJson = "{\"adminId\":0 ,\"email\":\"a@a.net\",\"firstName\":\"admin\",\"lastName\":\"adminson\"}";
-	private String mockAdminJson2 = "{\"adminId\":1 ,\"email\":\"a2@a.net\",\"firstName\":\"admin\",\"lastName\":\"adminson\"}";
 	Admin admin = new Admin(0, "a@a.net", "admin", "adminson");
 	Admin admin2 = new Admin(1, "a2@a.net", "admin", "adminson");
 	BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");

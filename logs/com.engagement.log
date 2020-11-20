@@ -102,3 +102,6 @@
 2020-11-20 13:09:16,407 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
 2020-11-20 13:09:16,408 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
 2020-11-20 13:09:18,763 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientServiceTest in 2.634 seconds (JVM running for 22.889)
+2020-11-20 13:19:59,693 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on DESKTOP-F7AMC9G with PID 17032 (C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back\target\classes started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-20 13:19:59,694 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-20 13:19:59,694 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
