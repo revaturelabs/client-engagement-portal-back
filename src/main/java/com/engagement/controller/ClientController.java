@@ -56,9 +56,6 @@ public class ClientController {
 	 * Saves a client to the database
 	 * @param client A client to be saved to the database
 	 * @return ResponseEntity containing status code and message.
-	 * 
-	 * @param c A client to be saved to the database
-	 * @return Client that was saved. May be null if client is yet to be persisted to database.
 	*/
 
 	@ApiOperation(value = "Saves a client to the database.", notes= "Returns the client was saved. May return null if client is yet to be persisted to DB.")
