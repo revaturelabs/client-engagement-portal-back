@@ -100,7 +100,7 @@ public class AdminController {
 	/**
 	 * Deletes Admin object from the DB
 	 *
-	 * @param admin- the request body should contain a json inthe shape of an Admin object
+	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@ApiOperation(value = "Deletes an Admin object from the DB.", 
