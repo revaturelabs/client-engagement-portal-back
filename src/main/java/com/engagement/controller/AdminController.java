@@ -77,6 +77,8 @@ public class AdminController {
 	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
+	@ApiOperation(value = "Updates a Admin object in the DB.",
+		notes = "The request body should contain a json in the shape of an Admin object.")
 	@PutMapping("/update")
 	public ResponseEntity<String> update(@RequestBody Admin admin) {
 		Admin adminInDB = as.findByEmail(admin.getEmail());
