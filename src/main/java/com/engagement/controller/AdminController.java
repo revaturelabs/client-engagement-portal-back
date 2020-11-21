@@ -58,6 +58,8 @@ public class AdminController {
 	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
+	@ApiOperation(value = "Creates a new Admin object and persists to the DB.", 
+			notes = "The request body should contain a json in  the shape of an Admin object.")
 	@PostMapping("/new")
 	public ResponseEntity<String> save(@RequestBody Admin admin) {
 		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(), admin.getLastName());
