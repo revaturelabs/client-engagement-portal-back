@@ -78,7 +78,7 @@ public class AdminController {
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@ApiOperation(value = "Updates a Admin object in the DB.",
-			notes = "The request body should contain a json in the shape of an Admin object.")
+		notes = "The request body should contain a json in the shape of an Admin object.")
 	@PutMapping("/update")
 	public ResponseEntity<String> update(@RequestBody Admin admin) {
 		Admin adminInDB = as.findByEmail(admin.getEmail());
@@ -99,13 +99,12 @@ public class AdminController {
 
 	/**
 	 * Deletes Admin object from the DB
-	 * 
+	 *
 	 * @param admin- the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@ApiOperation(value = "Deletes an Admin object from the DB.", 
-			notes = "The request body should contain a json in  the shape of an Admin object. Returns a Status code and a message.")
-		
+		notes = "The request body should contain a json in  the shape of an Admin object. Returns a Status code and a message.")
 	@DeleteMapping("/delete")
 	public ResponseEntity<String> delete(@RequestParam Integer id) {
 		if (as.findByAdminId(id) == null) { // admin does not exist
@@ -134,6 +133,7 @@ public class AdminController {
 	 * are mapped to which clients
 	 * @return simple map of <bachid,clientid>
 	 */
+	@ApiOperation(value = "Returns a map showing which batches are mapped to which clients")
 	@GetMapping("/mappedBatchesClients")
 	public Map<String,Integer> mappedBatchesClients() {
 			return as.findAllMappings();

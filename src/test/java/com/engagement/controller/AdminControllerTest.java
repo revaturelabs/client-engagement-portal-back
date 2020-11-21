@@ -8,7 +8,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -51,6 +53,7 @@ class AdminControllerTest {
 
 	private String mockAdminJson = "{\"adminId\":0 ,\"email\":\"a@a.net\",\"firstName\":\"admin\",\"lastName\":\"adminson\"}";
 	Admin admin = new Admin(0, "a@a.net", "admin", "adminson");
+	Admin admin2 = new Admin(1, "a2@a.net", "admin", "adminson");
 	BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");
 
 	
@@ -179,9 +182,9 @@ class AdminControllerTest {
 	 */
 	@Test
 	void testGetBatchNames() throws Exception {
-//		List<BatchName> batchesByName = new ArrayList<>();
-//		batchesByName.add(namedBatch);
-//		Mockito.when(as.getAllBatches()).thenReturn(batchesByName);
+		List<BatchName> batchesByName = new ArrayList<>();
+		batchesByName.add(namedBatch);
+		Mockito.when(as.getAllBatches()).thenReturn(batchesByName);
 		
 		// Makes sure that caliber is up and running
 		this.mockMvc
@@ -192,6 +195,7 @@ class AdminControllerTest {
 		this.mockMvc
 			.perform(get("/admin/batch/allNames").accept(MediaType.ALL))
 			.andReturn();
+
 	}
 	
 	/**
