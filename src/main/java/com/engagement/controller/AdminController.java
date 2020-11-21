@@ -117,6 +117,7 @@ public class AdminController {
 	 * Returns a list of all batches from Caliber API
 	 * @return List of all batch IDs and names
 	 */
+	@ApiOperation(value ="Returns a list of all of the batch IDs and names from the Caliber API.")
 	@GetMapping("/batch/allNames")
 	public List<BatchName> getBatches() {
 		return as.getAllBatches();
@@ -130,6 +131,7 @@ public class AdminController {
 	 * are mapped to which clients
 	 * @return simple map of <bachid,clientid>
 	 */
+	@ApiOperation(value = "Returns a map showing which batches are mapped to which clients")
 	@GetMapping("/mappedBatchesClients")
 	public Map<String,Integer> mappedBatchesClients() {
 			return as.findAllMappings();
