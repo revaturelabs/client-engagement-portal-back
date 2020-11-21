@@ -99,10 +99,12 @@ public class AdminController {
 
 	/**
 	 * Deletes Admin object from the DB
-	 * 
-	 * @param admin- the request body should contain a json in the shape of an Admin object
+	 *
+	 * @param admin- the request body should contain a json inthe shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
+	@ApiOperation(value = "Deletes an Admin object from the DB.", 
+		notes = "The request body should contain a json in  the shape of an Admin object. Returns a Status code and a message.")
 	@DeleteMapping("/delete")
 	public ResponseEntity<String> delete(@RequestParam Integer id) {
 		if (as.findByAdminId(id) == null) { // admin does not exist
