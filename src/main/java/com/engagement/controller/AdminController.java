@@ -46,6 +46,7 @@ public class AdminController {
 	 * 
 	 * @return List of all admin objects.
 	 */
+	@ApiOperation(value = "Finds all Admins in the database.")
 	@GetMapping("/")
 	public List<Admin> findAll() {
 		return as.findAll();
