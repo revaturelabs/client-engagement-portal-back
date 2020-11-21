@@ -1,4 +1,4 @@
-package com.engagement.dto;
+package com.engagement.model.dto;
 
 import java.util.List;
 
