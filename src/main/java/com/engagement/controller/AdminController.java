@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Admin;
+import com.engagement.model.dto.AdminDto;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
@@ -61,7 +62,7 @@ public class AdminController {
 	@ApiOperation(value = "Creates a new Admin object and persists to the DB.", 
 			notes = "The request body should contain a json in  the shape of an Admin object.")
 	@PostMapping("/new")
-	public ResponseEntity<String> save(@RequestBody Admin admin) {
+	public ResponseEntity<String> save(@RequestBody AdminDto admin) {
 		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(), admin.getLastName());
 
 		if (as.save(persistentAdmin)) {
@@ -80,7 +81,7 @@ public class AdminController {
 	@ApiOperation(value = "Updates a Admin object in the DB.",
 		notes = "The request body should contain a json in the shape of an Admin object.")
 	@PutMapping("/update")
-	public ResponseEntity<String> update(@RequestBody Admin admin) {
+	public ResponseEntity<String> update(@RequestBody AdminDto admin) {
 		Admin adminInDB = as.findByEmail(admin.getEmail());
 		
 		if (adminInDB == null) { // admin does not exist
