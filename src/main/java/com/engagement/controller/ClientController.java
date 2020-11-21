@@ -85,7 +85,6 @@ public class ClientController {
      */
     @GetMapping("/email/{email:.+}")
 	@ApiOperation(value = "Returns a Client with email \"email\".")
-    @ResponseBody
     public Client findByEmail(@PathVariable String email) {
         return cs.findByEmail(email);
     }
@@ -110,7 +109,6 @@ public class ClientController {
 	 */
 	@ApiOperation(value="Returns a list of all clients with only atributes \"id\" and \"name\".")
 	@GetMapping("/clientnames")
-	@ResponseBody
 	public List<ClientName> findClientNames() {
 		return cs.ClientNames();
 	}
