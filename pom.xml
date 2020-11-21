@@ -66,18 +66,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
-		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
-<dependency>
-    <groupId>org.mockito</groupId>
-    <artifactId>mockito-junit-jupiter</artifactId>
-    <version>3.6.0</version>
-    <scope>test</scope>
-</dependency>
-		
-	</dependencies>
-=======
->>>>>>> 82686594e1b9d367b0b0a1d962c31ca363ab0420
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
