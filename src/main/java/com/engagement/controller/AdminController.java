@@ -142,6 +142,7 @@ public class AdminController {
 	}
 	
 	/**
+	 * map batch to client
 	 * @author daniel constantinescu
 	 * mapping a client to a batch
 	 * @param batchId
@@ -164,6 +165,7 @@ public class AdminController {
 	
 	
 	/**
+	 * Unmap batch from client
 	 * @author daniel constantinescu
 	 * @param batchId
 	 * @param email

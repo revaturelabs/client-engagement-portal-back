@@ -14,8 +14,8 @@ import com.engagement.model.ClientBatch;
  */ 
 
 @Repository
-public interface ClientBatchRepo extends JpaRepository<ClientBatch, String> {
-	ClientBatch findByBatchId(String id);
-	ClientBatch deleteByBatchId(String id);
+public interface ClientBatchRepo extends JpaRepository<ClientBatch, Integer> {
+	public ClientBatch findByBatchId(String id);
+	public void deleteByBatchId(String id);
 	
 }
