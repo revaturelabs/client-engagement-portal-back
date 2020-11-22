@@ -4,15 +4,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.engagement.model.Admin;
+import com.engagement.model.Client;
 import com.engagement.model.ClientBatch;
 import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientBatchRepo;
+import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.TrainingClient;
+
+
 
 /**
  * Service for handling business logic of admin requests
@@ -31,6 +37,9 @@ public class AdminService {
 	
 	@Autowired
 	private ClientBatchRepo cbr;
+	
+	@Autowired 
+	private ClientRepo cr;
 	
 	
 	/**
@@ -136,6 +145,60 @@ public class AdminService {
 		return mappings;
 	}
 
+	/**
+	 * author daniel constantinescu
+	 * map batch to client
+	 * @param batchId
+	 * @param email
+	 * @return - true for success, 
+	 * false for client not found
+	 */
+	
+	public boolean MapBatchtoClient(String batchId, String email) {
+		
+		boolean ret=false;
+		
+		Client client = cr.findByEmail(email);
+			
+		if (client != null) {
+				
+				ClientBatch cb = new ClientBatch(1000,batchId,client);
+				cbr.save(cb) ;
+				ret=true;
+				
+		}else 
+			    ret= false;
+		
+		return ret;
+	}
+	
+	
+	/**
+	 * @author daniel constantinescu
+	 * unmap batch from client
+	 * @param batchId
+	 * @param email
+	 * @return - true for success, 
+	 * false for batch not found
+	 */
+	
+	@Transactional
+	public boolean UnMapBatchFromClient(String batchId, String email) {
+		
+		boolean ret=true;
+		
+		if (cbr.findByBatchId(batchId) != null) {
+				
+			cbr.deleteByBatchId(batchId);
+			ret=true;
+		
+		}else
+			
+			ret=false;
+			
+		return ret;
+					
+	}
 	
 	
 	
