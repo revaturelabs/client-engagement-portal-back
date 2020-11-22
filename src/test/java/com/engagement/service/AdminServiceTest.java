@@ -1,6 +1,10 @@
 package com.engagement.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doNothing;
 
@@ -17,6 +21,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.engagement.model.Admin;
 import com.engagement.model.Client;
 import com.engagement.model.ClientBatch;
 import com.engagement.repo.AdminRepo;
@@ -69,6 +74,86 @@ class AdminServiceTest {
 		assertEquals((HashMap<String,Integer> )as.findAllMappings(), resultMap);
 		
 	}
+	
+	/**
+	 * @author daniel constantinescu
+	 * This unit test whether the service return succesfully all admins
+	 */
+	@Test
+	void testFindAll() {
+		/**
+		*Set up mock from Admin repo 
+		*/
+		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+		Admin admin2= new Admin(12,"a@b","fstubtest2","lstubtest2");
+		
+		List<Admin> admins = new ArrayList<Admin>();
+		
+		Mockito.when(ar.findAll()).thenReturn(admins);
+		assertEquals(admins,as.findAll());
+	}
+	
+	/**
+	 * @author daniel constantinescu
+	 * This unit test if  finding by email an admin works properly
+	 */
+	@Test
+	void testFindByEmailSucces() {
+		/**
+		*Set up mock from Admin repo 
+		*/
+		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+		
+		Mockito.when(ar.findByEmail(admin1.getEmail())).thenReturn(admin1);
+		assertEquals(admin1,as.findByEmail(admin1.getEmail()));
+		
+	}
+	
+	/**
+	 * @author daniel constantinescu
+	 * This unit test the  case  for admin not found 
+	 */
+	@Test
+	void testFindByEmailFail() {
+		/**
+		*Set up mock from Admin repo 
+		*/
+		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+		
+		Mockito.when(ar.findByEmail(admin1.getEmail())).thenReturn(null);
+		assertNull(as.findByEmail(admin1.getEmail()));
+	}	
+
+
+/**
+ * @author daniel constantinescu
+ * This unit test if  save properly Admin
+ */
+@Test
+void testSaveSuccess() {
+	/**
+	*Set up mock from Admin repo 
+	*/
+	Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+	
+	Mockito.when(ar.save(admin1)).thenReturn(admin1);
+	assertTrue( as.save(admin1));
+}
+
+/**
+ * @author daniel constantinescu
+ * This unit test if  save properly Admin
+ */
+@Test
+void testUpdateSuccess() {
+	/**
+	*Set up mock from Admin repo 
+	*/
+	Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+	
+	Mockito.when(ar.save(admin1)).thenReturn(admin1);
+	assertEquals(admin1, as.update(admin1));
+}
 
 	/**
 	 * @author daniel constantinescu
@@ -111,3 +196,4 @@ class AdminServiceTest {
 		assertTrue(as.UnMapBatchFromClient(BatchId, email));
 	}
 }
+
