@@ -224,5 +224,64 @@ class AdminControllerTest {
 		this.mockMvc.perform(get("/admin/mappedBatchesClients").accept(MediaType.ALL))
 		.andExpect(content().json(mockMapJson));//Makes the request and ensures we receive the proper json
 	}
+	
+	/**
+	 * @author daniel constantinescu
+	 * unit test for mapping batch to client when batchId found
+	 * @throws Exception
+	 */
+	@Test
+	void testmapBatchToClientSucces() throws Exception {
+		String batchId="ABC";
+		String email="a@b";
+		Mockito.when(as.MapBatchtoClient(batchId, email)).thenReturn(true);
+		this.mockMvc
+				.perform(put("/admin/mapBatchToClient?batchId=ABC&email=a@b").accept(MediaType.ALL))
+				.andExpect(status().isOk());
+				
+		
+	}
+	
+	
+	/**
+	 * @author daniel constatinescu
+	 * unit test for mapping batch to client when batchId not found
+	 * @throws Exception
+	 */
+	@Test
+	void testmapBatchToClientFail() throws Exception {
+		String batchId="ABC";
+		String email="a@b";
+		Mockito.when(as.MapBatchtoClient(batchId, email)).thenReturn(false);
+		this.mockMvc
+			.perform(put("/admin/mapBatchToClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isConflict());
+			
+	}
 
+	@Test
+	void testUnmapBatchFromClientSucces() throws Exception {
+		String batchId="ABC";
+		String email="a@b";
+		Mockito.when(as.UnMapBatchFromClient(batchId, email)).thenReturn(true);
+		this.mockMvc
+				.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
+				
+		
+	}
+	@Test
+	void testUnmapBatchFromClientFail() throws Exception {
+		String batchId="ABC";
+		String email="a@b";
+		Mockito.when(as.UnMapBatchFromClient(batchId, email)).thenReturn(false);
+		this.mockMvc
+				.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isConflict());
+				
+		
+	}
+	
 }
+
+

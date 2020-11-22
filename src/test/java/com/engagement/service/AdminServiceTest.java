@@ -1,6 +1,8 @@
 package com.engagement.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.doNothing;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +21,7 @@ import com.engagement.model.Client;
 import com.engagement.model.ClientBatch;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientBatchRepo;
+import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.TrainingClient;
 
 @ExtendWith(MockitoExtension.class)
@@ -33,6 +36,9 @@ class AdminServiceTest {
 	
 	@Mock
 	private ClientBatchRepo cbr;
+	
+	@Mock
+	private ClientRepo cr;
 	
 	@InjectMocks
 	private AdminService as;
@@ -64,4 +70,44 @@ class AdminServiceTest {
 		
 	}
 
+	/**
+	 * @author daniel constantinescu
+	 * test map  batch to a  client
+	 * @param BatchId,email
+	 * @return true
+	 */
+	
+	@Test
+	void testMapBatchToClientSucces() {
+		String BatchId="ABC";
+		String email="a@b";
+		
+		Client c =  new Client (1,"a@b","company", "2488546789");
+		ClientBatch cb=new ClientBatch(1000,"ABC",c);
+		
+		Mockito.when(cr.findByEmail(email)).thenReturn(c);
+		Mockito.when(cbr.save(cb)).thenReturn(cb);
+	
+		assertTrue(as.MapBatchtoClient(BatchId,email));
+	}	
+	
+	/**
+	 * @author daniel constantinescu
+	 * test unmap batch from a client 
+	 * @param batchId,email
+	 * @return true
+	 */
+	
+	@Test
+	void testUnMapBatchFromClientSucces(){
+		String BatchId="ABC";
+		String email="a@b";
+		
+		Client c =  new Client (1,"a@b","company", "2488546789");
+		ClientBatch cb=new ClientBatch(1000,"ABC",c);
+		
+		Mockito.when(cbr.findByBatchId(BatchId)).thenReturn(cb);
+		doNothing().when(cbr).deleteByBatchId(BatchId);
+		assertTrue(as.UnMapBatchFromClient(BatchId, email));
+	}
 }
