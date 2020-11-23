@@ -34,7 +34,8 @@ import io.swagger.annotations.ApiOperation;
 public class AdminController {
 
 	private AdminService as;
-
+	
+	
 	@Autowired
 	public AdminController(AdminService as) {
 		super();
@@ -140,7 +141,49 @@ public class AdminController {
 			return as.findAllMappings();
 	}
 	
+	/**
+	 * map batch to client
+	 * @author daniel constantinescu
+	 * mapping a client to a batch
+	 * @param batchId
+	 * @param email
+	 * @return Response(String, httpStatus)
+	 */
 	
+	@ApiOperation(value = "Map a batch to a client")
+	@PutMapping("/mapBatchToClient")
+	public ResponseEntity<?>  MapBatchToClient(@RequestParam  String batchId, @RequestParam String email) {
+		
+		if(as.MapBatchtoClient(batchId, email))
+				
+			return new ResponseEntity<String>("Map done sucessfuly!", HttpStatus.OK);
+			
+		else
+			
+			return new ResponseEntity<String>("Client not found!",  HttpStatus.CONFLICT);
+	}
+	
+	
+	/**
+	 * Unmap batch from client
+	 * @author daniel constantinescu
+	 * @param batchId
+	 * @param email
+	 * @return Response(string, httpStatus)
+	 */
+	
+	  @ApiOperation(value = "UnMap a batch from a client")
+	  @PutMapping("/unmapBatchFromClient") 
+	  public ResponseEntity<?> UnMapBatchFromClient(@RequestParam String batchId, @RequestParam String email){
+	  
+		  if  (as.UnMapBatchFromClient(batchId, email))
+		  
+			  return new   ResponseEntity<String>("Unmap succesfully!", HttpStatus.OK); 
+	  
+		  else 
+		 
+			  return new ResponseEntity<String>("BatchId not found!",HttpStatus.CONFLICT);
+	  }
 	
 	
 	
