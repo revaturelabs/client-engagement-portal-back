@@ -1,6 +1,5 @@
 package com.engagement.model.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientName {
-	private String companyName;
-	private String clientId;
+public class BatchOverview {
+	private String batchId;
+	private String name;
+	private String skill;
+
 }
