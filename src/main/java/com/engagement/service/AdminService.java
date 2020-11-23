@@ -121,11 +121,12 @@ public class AdminService {
 	}
 
 	/**
+	 * @author Carlo Anselmo
 	 * Returns a list of all batches from Caliber API
 	 * @return List of all batch IDs and names
 	 */
 
-	public List<BatchName> getAllBatches() {
+	public List<BatchName> getAllBatchNames() {
 		return tc.getBatches();
 	}
 	

@@ -1,10 +1,7 @@
 package com.engagement.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doNothing;
 
@@ -24,6 +21,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.engagement.model.Admin;
 import com.engagement.model.Client;
 import com.engagement.model.ClientBatch;
+import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientBatchRepo;
 import com.engagement.repo.ClientRepo;
@@ -155,20 +153,34 @@ void testSaveSuccess() {
 	assertTrue( as.save(admin1));
 }
 
-/**
- * @author daniel constantinescu
- * This unit test if  save properly Admin
- */
-@Test
-void testUpdateSuccess() {
 	/**
-	*Set up mock from Admin repo 
-	*/
-	Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+	 * @author daniel constantinescu
+	 * This unit test if  save properly Admin
+	 */
+	@Test
+	void testUpdateSuccess() {
+		/**
+		*Set up mock from Admin repo 
+		*/
+		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+		
+		Mockito.when(ar.save(admin1)).thenReturn(admin1);
+		assertEquals(admin1, as.update(admin1));
+	}
 	
-	Mockito.when(ar.save(admin1)).thenReturn(admin1);
-	assertEquals(admin1, as.update(admin1));
-}
+	/**
+	 * @author Carlo Anselmo
+	 * Tests if the service properly receives a list of batch names from the repo
+	 */
+	@Test
+	void testAllBatchesByName() {
+		BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");
+		List<BatchName> batchList = new ArrayList<>();
+		batchList.add(namedBatch);
+		Mockito.when(tc.getBatches()).thenReturn(batchList);
+		
+		assertEquals(batchList, tc.getBatches());
+	}
 
 	/**
 	 * @author daniel constantinescu
