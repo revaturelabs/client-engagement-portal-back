@@ -6,21 +6,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.engagement.model.Client;
-import com.engagement.model.dto.Associate;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.Grade;
-
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
-
 import com.engagement.repo.caliber.TrainingClient;
 
 /**
  * Service for handling business logic of client requests
+ * 
  * @author Tucker Fritz, Matt Hartmann
  *
  */
@@ -59,7 +56,7 @@ public class ClientService {
 		if (client == null) {
 			return false;
 		}
-		
+
 		try {
 			cr.save(client);
 			return true;
@@ -99,7 +96,7 @@ public class ClientService {
 			 * grades of that associate, then move on to the next grade.
 			 * 
 			 * @author Kelsey Iafrate
-
+			 * 
 			 */
 			for (Grade grade : grades) {
 				for (AssociateAssignment aa : b.getAssociateAssignments()) {
@@ -116,22 +113,21 @@ public class ClientService {
 
 		return null; // If a batch with that batchId was found, return null.
 	}
-		
-		/**
-		 * Find all client names
-		 * 
-		 * @param none
-		 * @return All clients with only number and name
-		 */
-		public List<ClientName> ClientNames()
-		{
-			List<Client> clients = cr.findAll();
-			List<ClientName> clientsdto = new LinkedList<>();
-			for(int i = 0; i < clients.size(); i++)
-				clientsdto.add(new ClientName(clients.get(i).getCompanyName(), String.valueOf(clients.get(i).getClientId())));
-			
-			return clientsdto;
-		}
-		
-		
+
+	/**
+	 * Find all client names
+	 * 
+	 * @param none
+	 * @return All clients with only number and name
+	 */
+	public List<ClientName> getClientNames() {
+		List<Client> clients = cr.findAll();
+		List<ClientName> clientsdto = new LinkedList<>();
+		for (int i = 0; i < clients.size(); i++)
+			clientsdto
+					.add(new ClientName(clients.get(i).getCompanyName(), String.valueOf(clients.get(i).getClientId())));
+
+		return clientsdto;
+	}
+
 }

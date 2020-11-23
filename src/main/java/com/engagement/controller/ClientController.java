@@ -66,7 +66,6 @@ public class ClientController {
 	*/
 
 	@ApiOperation(value = "Saves a client to the database.", notes= "Returns the client was saved. May return null if client is yet to be persisted to DB.")
-
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody ClientDto client) {
 		Client persistentClient = new Client(0, client.getEmail(), client.getCompanyName(), client.getPhoneNumber());
@@ -112,7 +111,7 @@ public class ClientController {
 	@GetMapping("/clientnames")
 	@ResponseBody
 	public List<ClientName> findClientNames() {
-		return cs.ClientNames();
+		return cs.getClientNames();
 	}
+	
 }
-
