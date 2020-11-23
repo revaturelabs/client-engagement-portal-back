@@ -33,7 +33,7 @@ public class ClientBatch {
 	private String batchId;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "email")
+	@JoinColumn(name = "client_id")
 	private Client client;
 
 }
