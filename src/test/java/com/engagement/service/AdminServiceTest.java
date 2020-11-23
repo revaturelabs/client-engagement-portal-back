@@ -1,5 +1,6 @@
 package com.engagement.service;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -188,10 +189,13 @@ class AdminServiceTest {
 		assertNull(as.update(null));
 		
 		Mockito.when(ar.save(admin2)).thenThrow(IllegalArgumentException.class);
-		assertNull(as.update(admin2));
+		assertNull(as.update(admin2));		
 		
-		
-		
+	}
+	
+	@Test
+	void testDelete() {
+		assertAll(() -> as.delete(null));	
 	}
 
 	/**
@@ -205,7 +209,7 @@ class AdminServiceTest {
 		batchList.add(namedBatch);
 		Mockito.when(tc.getBatches()).thenReturn(batchList);
 		
-		assertEquals(batchList, tc.getBatches());
+		assertEquals(batchList, as.getAllBatchNames());
 	}
 
 	/**
@@ -225,8 +229,10 @@ class AdminServiceTest {
 
 		Mockito.when(cr.findByEmail(email)).thenReturn(c);
 		Mockito.when(cbr.save(cb)).thenReturn(cb);
-
 		assertTrue(as.MapBatchtoClient(BatchId,email));
+		
+		Mockito.when(cr.findByEmail(null)).thenReturn(null);
+		assertFalse(as.MapBatchtoClient(null, null));
 	}	
 
 	/**
@@ -247,6 +253,9 @@ class AdminServiceTest {
 		Mockito.when(cbr.findByBatchId(BatchId)).thenReturn(cb);
 		doNothing().when(cbr).deleteByBatchId(BatchId);
 		assertTrue(as.UnMapBatchFromClient(BatchId, email));
+		
+		Mockito.when(cbr.findByBatchId(null)).thenReturn(null);
+		assertFalse(as.UnMapBatchFromClient(null, null));
 	}
 }
 

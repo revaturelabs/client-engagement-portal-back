@@ -42,7 +42,6 @@ class ClientControllerTest {
 	private ClientController cc;
 	
 	private String mockClientJson = "{\"clientId\":0,\"email\":\"a@a.net\", \"companyName\":\"revature\", \"phoneNumber\":\"573-555-3535\"}";
-	private String mockClientJson2 = "{\"clientId\":1,\"email\":\"a@a1.net\", \"companyName\":\"myspace\", \"phoneNumber\":\"573-343-1334\"}";
 	Client client0 = new Client(0, "a@a.net", "revature", "573-555-3535");
 	Client client1 = new Client(1, "a@a1.net", "myspace", "573-343-1334");
 	

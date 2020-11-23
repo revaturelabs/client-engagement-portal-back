@@ -112,11 +112,6 @@ public class AdminService {
 	 * @param id the admin's id
 	 */
 	public void delete(Integer id) {
-		// id cannot be null
-		if (id == null) {
-			return;
-		}
-		
 		ar.deleteById(id);
 	}
 
