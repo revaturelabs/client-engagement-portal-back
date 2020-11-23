@@ -20,6 +20,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Client;
@@ -139,4 +140,25 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$[*].companyName").value(Matchers.containsInAnyOrder("revature", "myspace")));
 	}
 	
+	
+	/**
+	 * Test that checks if getBatchOverviewbyClient method on controller layer is functioning properly
+	 * 
+	 * @author Matt Hartmann
+	 */
+	@Test
+	void getOverviewbyClient() throws Exception {
+		BatchOverview bao = new BatchOverview("Tr-5000", "batchName", "java");
+		Client client = new Client(1,"a@a", "revature", "5555555");
+		List<BatchOverview> expectedList = new ArrayList<>();
+		expectedList.add(bao);
+		System.out.println(bao);
+		Mockito.when(cs.getBatchInfoByEmail("a@a")).thenReturn(expectedList);
+		this.mockMvc
+		.perform(get("/client/batch/email/a@a").accept("*/*")).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk()) //expect a status of ok
+		.andExpect(jsonPath("$[*].batchId").value(Matchers.containsInAnyOrder("Tr-5000")))
+		.andExpect(jsonPath("$[*].name").value(Matchers.containsInAnyOrder("batchName")))
+		.andExpect(jsonPath("$[*].skill").value(Matchers.containsInAnyOrder("java")));
+		
+	}
 }
