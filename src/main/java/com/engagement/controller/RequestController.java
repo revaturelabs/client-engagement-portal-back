@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Request;
+import com.engagement.model.Request.RequestTypes;
+import com.engagement.model.Request.Status;
+import com.engagement.model.dto.RequestDto;
 import com.engagement.service.RequestService;
 
 import io.swagger.annotations.ApiOperation;
@@ -59,10 +62,23 @@ public class RequestController {
 	 * 
 	 */
 
+//	@ApiOperation(value = "Saves an intervention request to the database.")
+//	@PostMapping("/")
+//	public ResponseEntity<String> save(@RequestBody Request request) {
+//		if (rs.save(request)) {
+//			return new ResponseEntity<>("Request succesfully created", HttpStatus.CREATED);
+//		} else {
+//			return new ResponseEntity<>("Request creation failed", HttpStatus.CONFLICT);
+//		}
+//
+//	}
 	@ApiOperation(value = "Saves an intervention request to the database.")
 	@PostMapping("/")
-	public ResponseEntity<String> save(@RequestBody Request request) {
-		if (rs.save(request)) {
+	public ResponseEntity<String> save(@RequestBody RequestDto requestDTO) {
+		Request persistentRequest = new Request(0, RequestTypes.valueOf(requestDTO.getRequestType()),
+				Status.valueOf(requestDTO.getStatus()), requestDTO.getMessage(), requestDTO.getClientId());
+
+		if (rs.save(persistentRequest)) {
 			return new ResponseEntity<>("Request succesfully created", HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>("Request creation failed", HttpStatus.CONFLICT);

@@ -22,7 +22,7 @@ import com.engagement.repo.RequestRepo;
 
 @ExtendWith(MockitoExtension.class)
 @ContextConfiguration
-public class RequestServiceTest {
+class RequestServiceTest {
 
 	@InjectMocks
 	private static RequestService rs;

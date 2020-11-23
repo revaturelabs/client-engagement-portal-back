@@ -41,10 +41,14 @@ public class RequestControllerTest {
 	@InjectMocks
 	private RequestController rc;
 
-	private String testRequestJson1 = "{\"requestId\":1, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientId\":2}";
+	private String testRequestJson1 = "{\"requestId\":0, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientId\":2}";
 
 	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", 1);
 	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", 2);
+	private Request testRequest2 = new Request(0, RequestTypes.TALENT, Status.DONE, "test comment2", 2);
+
+	// private Request testRequest1 = new Request(1, "TALENT", "DONE", "test
+	// comment2", 2);
 
 	@BeforeEach
 	void setUp() {
@@ -95,7 +99,7 @@ public class RequestControllerTest {
 
 	@Test
 	void saveInterventionSuccessTest() throws Exception {
-		Mockito.when(rs.save(testRequest1)).thenReturn(true);
+		Mockito.when(rs.save(testRequest2)).thenReturn(true);
 		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson1)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isCreated());
 
@@ -110,7 +114,7 @@ public class RequestControllerTest {
 
 	@Test
 	void saveInterventionFailTest() throws Exception {
-		Mockito.when(rs.save(testRequest1)).thenReturn(false);
+		Mockito.when(rs.save(testRequest0)).thenReturn(false);
 		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson1)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isConflict());
 
