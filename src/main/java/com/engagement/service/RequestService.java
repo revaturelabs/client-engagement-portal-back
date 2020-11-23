@@ -44,16 +44,13 @@ public class RequestService {
 	 */
 	public boolean save(Request intervention) {
 		if (intervention == null) {
-			System.out.println("ITS NULL");
 			return false;
 		}
 
 		try {
 			rr.save(intervention);
 			return true;
-		} catch (Exception e) {
-			System.out.println("ITS JUST FAILS");
-			System.out.println(e);
+		} catch (IllegalArgumentException e) {
 
 			return false;
 		}

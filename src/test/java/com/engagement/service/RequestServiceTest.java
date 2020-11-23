@@ -1,5 +1,6 @@
 package com.engagement.service;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -9,10 +10,10 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
 
 import com.engagement.model.Request;
 import com.engagement.model.Request.RequestTypes;
@@ -20,16 +21,15 @@ import com.engagement.model.Request.Status;
 import com.engagement.repo.RequestRepo;
 
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
+@ContextConfiguration
 public class RequestServiceTest {
 
 	@InjectMocks
-	private RequestService rs;
+	private static RequestService rs;
 
-	@MockBean
-	private RequestRepo rr;
+	@Mock
+	private static RequestRepo rr;
 
-	private String testRequestJson2 = "{\"requestId\":1, \"requestType\":\"INTERVENTION\", \"status\":\"PENDING\",\"message\":\"test message\",\"clientId\":1}";
 	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", 1);
 	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", 2);
 
@@ -68,6 +68,10 @@ public class RequestServiceTest {
 	public void saveTest() {
 		Mockito.when(rr.save(testRequest0)).thenReturn(testRequest0);
 		assertTrue(rs.save(testRequest0));
+		assertFalse(rs.save(null));
+		Mockito.when(rs.save(testRequest1)).thenThrow(IllegalArgumentException.class);
+		assertFalse(rs.save(testRequest1));
+
 	}
 
 }
