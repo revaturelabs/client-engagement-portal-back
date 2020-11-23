@@ -47,7 +47,7 @@ public class RequestControllerTest {
 	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", 2);
 
 	@BeforeEach
-	public void setUp() {
+	void setUp() {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(rc).build();
 
 	}
@@ -59,7 +59,7 @@ public class RequestControllerTest {
 	 * @author Robert Porto
 	 */
 	@Test
-	public void getAllInterventionsTest() throws Exception {
+	void getAllInterventionsTest() throws Exception {
 		List<Request> testRequests = new ArrayList<>();
 		testRequests.add(testRequest0);
 		testRequests.add(testRequest1);
@@ -79,7 +79,7 @@ public class RequestControllerTest {
 	 * @author Robert Porto
 	 */
 	@Test
-	public void getInterventionByIdTest() throws Exception {
+	void getInterventionByIdTest() throws Exception {
 		Mockito.when(rs.findByRequestId(0)).thenReturn(testRequest0);
 		this.mockMvc.perform(get("/intervention/0").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andExpect(jsonPath("$.requestId").value(0)).andExpect(jsonPath("$.message").value("test comment"));
@@ -94,7 +94,7 @@ public class RequestControllerTest {
 	 */
 
 	@Test
-	public void saveInterventionSuccessTest() throws Exception {
+	void saveInterventionSuccessTest() throws Exception {
 		Mockito.when(rs.save(testRequest1)).thenReturn(true);
 		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson1)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isCreated());
@@ -109,7 +109,7 @@ public class RequestControllerTest {
 	 */
 
 	@Test
-	public void saveInterventionFailTest() throws Exception {
+	void saveInterventionFailTest() throws Exception {
 		Mockito.when(rs.save(testRequest1)).thenReturn(false);
 		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson1)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isConflict());

@@ -41,7 +41,7 @@ public class RequestServiceTest {
 	 * @author Robert Porto
 	 */
 	@Test
-	public void findAllTest() {
+	void findAllTest() {
 		testRequests.add(testRequest0);
 		testRequests.add(testRequest1);
 		Mockito.when(rr.findAll()).thenReturn(testRequests);
@@ -54,7 +54,7 @@ public class RequestServiceTest {
 	 * @author Robert Porto
 	 */
 	@Test
-	public void findByRequestId() {
+	void findByRequestId() {
 		Mockito.when(rr.findByRequestId(0)).thenReturn(testRequest0);
 		assertNotNull(rs.findByRequestId(0));
 	}
@@ -65,7 +65,7 @@ public class RequestServiceTest {
 	 * @author Robert Porto
 	 */
 	@Test
-	public void saveTest() {
+	void saveTest() {
 		Mockito.when(rr.save(testRequest0)).thenReturn(testRequest0);
 		assertTrue(rs.save(testRequest0));
 		assertFalse(rs.save(null));
