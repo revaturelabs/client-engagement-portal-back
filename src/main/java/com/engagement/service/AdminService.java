@@ -130,12 +130,12 @@ public class AdminService {
 	 * Returns a list of all client-batch mappings
 	 * @return list of Client-batch objects showing mappings
 	 */
-	public Map<String,Integer> findAllMappings() {
-		Map<String,Integer> mappings = new HashMap<>();
+	public Map<String,String> findAllMappings() {
+		Map<String,String> mappings = new HashMap<>();
 		List<ClientBatch> clientBatchList =  cbr.findAll();
 		clientBatchList.forEach(clientBatch->{
 			String k=clientBatch.getBatchId();
-			int v=clientBatch.getClient().getClientId();
+			String v=clientBatch.getClient().getEmail();
 			mappings.put(k, v);
 		});
 		return mappings;

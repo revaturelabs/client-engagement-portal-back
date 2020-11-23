@@ -133,7 +133,7 @@ public class AdminController {
 	 */
 	@ApiOperation(value = "Returns a map showing which batches are mapped to which clients")
 	@GetMapping("/mappedBatchesClients")
-	public Map<String,Integer> mappedBatchesClients() {
+	public Map<String,String> mappedBatchesClients() {
 			return as.findAllMappings();
 	}
 	
