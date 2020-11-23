@@ -11,18 +11,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Client;
-
 import com.engagement.model.ClientDto;
 import com.engagement.model.dto.Batch;
-
+import com.engagement.model.dto.BatchOverview;
 import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
+
 import io.swagger.annotations.ApiOperation;
 
 
@@ -112,7 +110,20 @@ public class ClientController {
 	@GetMapping("/clientnames")
 	@ResponseBody
 	public List<ClientName> findClientNames() {
-		return cs.ClientNames();
+		return cs.findClientNames();
+	}
+	
+	
+	/**
+	 * Returns brief overview of batches mapped to a client
+	 * 
+	 * @param none
+	 * @return List of batch overviews with id, name and skill
+	 */
+	@ApiOperation(value="Returns a list of batch overviews with  \"id\" and \"name\" and \"specialization\".")
+	@GetMapping(value="/batch/email/{email:.+}", produces="application/json")
+	public List<BatchOverview> getBatchOverviewbyClient(@PathVariable String email) {
+		 return cs.getBatchInfoByEmail(email);
 	}
 }
 

@@ -2,21 +2,24 @@ package com.engagement.service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.engagement.model.Client;
+import com.engagement.model.ClientBatch;
+
 import com.engagement.model.dto.Associate;
+
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.BatchOverview;
 import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.Grade;
-
+import com.engagement.repo.ClientBatchRepo;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
-
 import com.engagement.repo.caliber.TrainingClient;
 
 /**
@@ -29,15 +32,17 @@ public class ClientService {
 
 	@Autowired
 	ClientRepo cr;
+	ClientBatchRepo cbr;
 	private TrainingClient bc;
 	private GradeClient gc;
 
 	@Autowired
-	public ClientService(ClientRepo cr, TrainingClient bc, GradeClient gc) {
+	public ClientService(ClientRepo cr, TrainingClient bc, GradeClient gc, ClientBatchRepo cbr) {
 		super();
 		this.cr = cr;
 		this.bc = bc;
 		this.gc = gc;
+		this.cbr = cbr;
 	}
 
 	/**
@@ -123,7 +128,7 @@ public class ClientService {
 		 * @param none
 		 * @return All clients with only number and name
 		 */
-		public List<ClientName> ClientNames()
+		public List<ClientName> findClientNames()
 		{
 			List<Client> clients = cr.findAll();
 			List<ClientName> clientsdto = new LinkedList<>();
@@ -132,6 +137,31 @@ public class ClientService {
 			
 			return clientsdto;
 		}
+		
+		
+		
+		/**
+		 * Find an overview of batch information on batch info by client email
+		 * 
+		 * @param none
+		 * @return List of Batchoverview DTO to show batches mapped to client and brief overview
+		 */
+		public List<BatchOverview> getBatchInfoByEmail(String email) {
+					List<BatchOverview> results = new LinkedList<>();
+					Client client = cr.findByEmail(email);
+					List<ClientBatch> batches = cbr.findByClient(client);
+					Batch batchesapi;
+					
+				
+					
+					for(int i = 0; i < batches.size(); i++)
+					{
+						batchesapi = bc.getBatchById(batches.get(i).getBatchId());
+						results.add(new BatchOverview(batchesapi.getBatchId(), batchesapi.getName(), batchesapi.getSkill()));
+					}
+						
+					return results;
+				}	
 		
 		
 }
