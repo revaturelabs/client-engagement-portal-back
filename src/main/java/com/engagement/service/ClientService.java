@@ -147,12 +147,12 @@ public class ClientService {
 		 * @return List of Batchoverview DTO to show batches mapped to client and brief overview
 		 */
 		public List<BatchOverview> getBatchInfoByEmail(String email) {
-					List<BatchOverview> results = new LinkedList<BatchOverview>();
+					List<BatchOverview> results = new LinkedList<>();
 					Client client = cr.findByEmail(email);
 					List<ClientBatch> batches = cbr.findByClient(client);
 					Batch batchesapi;
 					
-					//System.out.println(batches.get(0).getBatchId());
+				
 					
 					for(int i = 0; i < batches.size(); i++)
 					{
