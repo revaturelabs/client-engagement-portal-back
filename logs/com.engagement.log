@@ -152,3 +152,36 @@
 2020-11-23 14:02:10,216 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on DESKTOP-F7AMC9G with PID 15164 (C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back\target\classes started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
 2020-11-23 14:02:10,216 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
 2020-11-23 14:02:10,217 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-23 12:29:31,797 INFO org.springframework.boot.StartupInfoLogger [main] Starting ClientControllerTest using Java 14.0.2 on enochcho-pc with PID 12468 (started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
+2020-11-23 12:29:31,801 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 12:29:31,817 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-23 12:29:39,559 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientControllerTest in 9.093 seconds (JVM running for 12.533)
+2020-11-23 12:29:42,071 INFO org.springframework.boot.StartupInfoLogger [main] Starting AdminControllerTest using Java 14.0.2 on enochcho-pc with PID 12468 (started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
+2020-11-23 12:29:42,072 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 12:29:42,074 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-23 12:29:45,088 INFO org.springframework.boot.StartupInfoLogger [main] Started AdminControllerTest in 3.566 seconds (JVM running for 18.062)
+2020-11-23 12:29:46,903 DEBUG com.engagement.aspect.LoggingAspect [main] Enter: com.engagement.controller.AdminController.delete() with argument[s] = [1]
+2020-11-23 12:29:46,932 DEBUG com.engagement.aspect.LoggingAspect [main] Exit: com.engagement.controller.AdminController.delete() with result = <409 CONFLICT Conflict,Admin not found,[]>
+2020-11-23 12:29:46,946 DEBUG com.engagement.aspect.LoggingAspect [main] Enter: com.engagement.controller.AdminController.delete() with argument[s] = [1]
+2020-11-23 12:29:46,948 ERROR com.engagement.aspect.LoggingAspect [main] Exception in com.engagement.controller.AdminController.delete() with cause = NULL
+2020-11-23 12:29:46,949 ERROR com.engagement.aspect.LoggingAspect [main] Illegal argument: [1] in com.engagement.controller.AdminController.delete()
+2020-11-23 12:29:46,983 DEBUG com.engagement.aspect.LoggingAspect [main] Enter: com.engagement.controller.AdminController.findAll() with argument[s] = []
+2020-11-23 12:29:46,985 DEBUG com.engagement.aspect.LoggingAspect [main] Exit: com.engagement.controller.AdminController.findAll() with result = []
+2020-11-23 12:29:46,997 DEBUG com.engagement.aspect.LoggingAspect [main] Enter: com.engagement.controller.AdminController.findAll() with argument[s] = []
+2020-11-23 12:29:46,999 DEBUG com.engagement.aspect.LoggingAspect [main] Exit: com.engagement.controller.AdminController.findAll() with result = null
+2020-11-23 12:29:47,503 INFO org.springframework.boot.StartupInfoLogger [main] Starting ClientServiceTest using Java 14.0.2 on enochcho-pc with PID 12468 (started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
+2020-11-23 12:29:47,504 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 12:29:47,506 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-23 12:29:56,821 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientServiceTest in 9.761 seconds (JVM running for 29.795)
+2020-11-23 12:32:30,200 INFO org.springframework.boot.StartupInfoLogger [main] Starting AdminControllerTest using Java 1.8.0_261 on enochcho-pc with PID 11448 (started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
+2020-11-23 12:32:30,243 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 12:32:30,248 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-23 12:32:40,786 INFO org.springframework.boot.StartupInfoLogger [main] Started AdminControllerTest in 12.972 seconds (JVM running for 22.699)
+2020-11-23 12:32:44,102 INFO org.springframework.boot.StartupInfoLogger [main] Starting ClientControllerTest using Java 1.8.0_261 on enochcho-pc with PID 11448 (started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
+2020-11-23 12:32:44,109 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 12:32:44,115 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-23 12:32:48,795 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientControllerTest in 5.618 seconds (JVM running for 30.707)
+2020-11-23 12:32:51,089 INFO org.springframework.boot.StartupInfoLogger [main] Starting ClientServiceTest using Java 1.8.0_261 on enochcho-pc with PID 11448 (started by enocho in C:\Users\enocho\Desktop\Revature Project\Project 3\Back End\client-engagement-portal-back)
+2020-11-23 12:32:51,092 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 12:32:51,102 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-23 12:33:08,684 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientServiceTest in 18.377 seconds (JVM running for 50.596)
