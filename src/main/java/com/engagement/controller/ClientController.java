@@ -83,13 +83,13 @@ public class ClientController {
     }
 
 	/**
-	 * Find all information about a branch by the batch id
+	 * Find all information about a batch by the batch id
 	 * @param batchId: The identifier in Caliber to identify a batch
 	 * @return Returns the Batch associated with the batchId
 	 * @author Kelsey Iafrate
 
 	 */
-	@ApiOperation(value = "Returns All inforation about a bramch by given id.")
+	@ApiOperation(value = "Returns All inforation about a batch by given id.")
 	@GetMapping("/batch/{batchId}")
 	public Batch getBatchById(@PathVariable("batchId") String batchId) {
 		return cs.getBatchByBatchId(batchId);

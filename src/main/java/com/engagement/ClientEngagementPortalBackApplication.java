@@ -34,7 +34,7 @@ public class ClientEngagementPortalBackApplication {
 	}
 	
 	/**
-	 * Configures Swagger UI to make it all pretty-like.
+	 * Configures Swagger UI to make it all pretty-like. 
 	 *
 	 * @return A prepared Docket instance
 	 */
