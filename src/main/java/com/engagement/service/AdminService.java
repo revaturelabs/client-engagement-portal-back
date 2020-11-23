@@ -113,11 +113,7 @@ public class AdminService {
 	 * @param id the admin's id
 	 */
 	public void delete(Integer id) {
-	 try {
 		ar.deleteById(id);
-	 } catch (EmptyResultDataAccessException e) {
-		 return;
-	 }
 	}
 
 	/**

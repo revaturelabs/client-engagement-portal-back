@@ -229,8 +229,10 @@ class AdminServiceTest {
 
 		Mockito.when(cr.findByEmail(email)).thenReturn(c);
 		Mockito.when(cbr.save(cb)).thenReturn(cb);
-
 		assertTrue(as.MapBatchtoClient(BatchId,email));
+		
+		Mockito.when(cr.findByEmail(null)).thenReturn(null);
+		assertFalse(as.MapBatchtoClient(null, null));
 	}	
 
 	/**
@@ -251,6 +253,9 @@ class AdminServiceTest {
 		Mockito.when(cbr.findByBatchId(BatchId)).thenReturn(cb);
 		doNothing().when(cbr).deleteByBatchId(BatchId);
 		assertTrue(as.UnMapBatchFromClient(BatchId, email));
+		
+		Mockito.when(cbr.findByBatchId(null)).thenReturn(null);
+		assertFalse(as.UnMapBatchFromClient(null, null));
 	}
 }
 
