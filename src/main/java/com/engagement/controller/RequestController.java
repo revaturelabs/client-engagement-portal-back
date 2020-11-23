@@ -62,16 +62,6 @@ public class RequestController {
 	 * 
 	 */
 
-//	@ApiOperation(value = "Saves an intervention request to the database.")
-//	@PostMapping("/")
-//	public ResponseEntity<String> save(@RequestBody Request request) {
-//		if (rs.save(request)) {
-//			return new ResponseEntity<>("Request succesfully created", HttpStatus.CREATED);
-//		} else {
-//			return new ResponseEntity<>("Request creation failed", HttpStatus.CONFLICT);
-//		}
-//
-//	}
 	@ApiOperation(value = "Saves an intervention request to the database.")
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody RequestDto requestDTO) {

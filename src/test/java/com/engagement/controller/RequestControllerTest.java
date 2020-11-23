@@ -30,7 +30,7 @@ import com.engagement.service.RequestService;
 @ExtendWith(MockitoExtension.class)
 @WebMvcTest(RequestController.class)
 
-public class RequestControllerTest {
+class RequestControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
