@@ -122,7 +122,7 @@ public class ClientController {
 	 */
 	@GetMapping("/batch/email/{email}")
 	public List<BatchOverview> getBatchOverviewbyClient(@PathVariable String email) {
-		 return cs.getBatchInfoByEmail("client1@client1.net");
+		 return cs.getBatchInfoByEmail(email);
 	}
 }
 
