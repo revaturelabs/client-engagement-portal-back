@@ -120,6 +120,7 @@ public class ClientController {
 	 * @param none
 	 * @return List of batch overviews with id, name and skill
 	 */
+	@ApiOperation(value="Returns a list of batch overviews with  \"id\" and \"name\" and \"specialization\".")
 	@GetMapping(value="/batch/email/{email:.+}", produces="application/json")
 	public List<BatchOverview> getBatchOverviewbyClient(@PathVariable String email) {
 		 return cs.getBatchInfoByEmail(email);
