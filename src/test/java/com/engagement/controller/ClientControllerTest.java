@@ -25,6 +25,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.engagement.model.Client;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.EmployeeAssignment;
 import com.engagement.service.ClientService;
 
@@ -120,5 +121,18 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$.currentWeek").value(1))
 		.andExpect(jsonPath("$.employeeAssignments").isEmpty())
 		.andExpect(jsonPath("$.associateAssignments").isEmpty());
+	}
+	
+	void findClientNames() throws Exception {
+		List<ClientName> expectedList = new ArrayList<>();
+		expectedList.add(new ClientName("revature", "0"));
+		expectedList.add(new ClientName("myspace", "1"));
+		Mockito.when(cs.findClientNames()).thenReturn(expectedList);
+		this.mockMvc
+		.perform(get("/client/clientnames")
+		.accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk()) //expect a status of ok
+		.andExpect(jsonPath("$[*].clientId").value(Matchers.containsInAnyOrder(0, 1)))
+		.andExpect(jsonPath("$[*].companyName").value(Matchers.containsInAnyOrder("revature", "myspace")));
 	}
 }
