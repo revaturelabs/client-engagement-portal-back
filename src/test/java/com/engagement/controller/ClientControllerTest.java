@@ -23,8 +23,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Client;
+import com.engagement.model.ClientBatch;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.BatchOverview;
 import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.EmployeeAssignment;
 import com.engagement.service.ClientService;
@@ -123,6 +125,7 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$.associateAssignments").isEmpty());
 	}
 	
+	@Test
 	void findClientNames() throws Exception {
 		List<ClientName> expectedList = new ArrayList<>();
 		expectedList.add(new ClientName("revature", "0"));
@@ -132,7 +135,8 @@ class ClientControllerTest {
 		.perform(get("/client/clientnames")
 		.accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk()) //expect a status of ok
-		.andExpect(jsonPath("$[*].clientId").value(Matchers.containsInAnyOrder(0, 1)))
+		.andExpect(jsonPath("$[*].clientId").value(Matchers.containsInAnyOrder("0", "1")))
 		.andExpect(jsonPath("$[*].companyName").value(Matchers.containsInAnyOrder("revature", "myspace")));
 	}
+	
 }
