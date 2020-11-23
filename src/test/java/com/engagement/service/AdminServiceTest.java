@@ -157,8 +157,7 @@ class AdminServiceTest {
 		 *Set up mock from Admin repo 
 		 */
 		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
-		Admin admin2= new Admin(2,"a@b","fstubtest1","lstubtest1");
-		Admin admin3= new Admin(3,"a@b","fstubtest1","lstubtest1");
+		Admin admin2= new Admin(3,"a@b","fstubtest1","lstubtest1");
 
 		Mockito.when(ar.save(admin1)).thenReturn(admin1);
 		assertTrue( as.save(admin1));
@@ -166,8 +165,8 @@ class AdminServiceTest {
 	
 		assertFalse(as.save(null));
 		
-		Mockito.when(ar.save(admin3)).thenThrow(IllegalArgumentException.class);
-		assertFalse(as.save(admin3));
+		Mockito.when(ar.save(admin2)).thenThrow(IllegalArgumentException.class);
+		assertFalse(as.save(admin2));
 		
 	}
 
@@ -181,9 +180,18 @@ class AdminServiceTest {
 		*Set up mock from Admin repo 
 		*/
 		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+		Admin admin2= new Admin(3,"a@b","fstubtest1","lstubtest1");
 
 		Mockito.when(ar.save(admin1)).thenReturn(admin1);
 		assertEquals(admin1, as.update(admin1));
+		
+		assertNull(as.update(null));
+		
+		Mockito.when(ar.save(admin2)).thenThrow(IllegalArgumentException.class);
+		assertNull(as.update(admin2));
+		
+		
+		
 	}
 
 	/**
