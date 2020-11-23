@@ -82,7 +82,7 @@ public class AdminService {
 		try {
 			ar.save(admin);
 			return true;
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			return false;
 		}
 	}
@@ -100,7 +100,7 @@ public class AdminService {
 		
 		try {
 			ar.save(admin);
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			return null;
 		}
 		

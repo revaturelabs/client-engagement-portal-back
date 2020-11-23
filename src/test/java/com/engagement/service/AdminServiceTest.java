@@ -1,6 +1,7 @@
 package com.engagement.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doNothing;
@@ -84,6 +85,7 @@ class AdminServiceTest {
 	 * @author Brooke Wursten
 	 * Unit test for findByAdminId
 	 */
+	@Test
 	void testFindByAdminId(){
 		Admin admin1= new Admin(1,"admin@rev.net","admin","adminson");
 
@@ -155,9 +157,17 @@ class AdminServiceTest {
 		 *Set up mock from Admin repo 
 		 */
 		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+		Admin admin2= new Admin(3,"a@b","fstubtest1","lstubtest1");
 
 		Mockito.when(ar.save(admin1)).thenReturn(admin1);
 		assertTrue( as.save(admin1));
+		
+	
+		assertFalse(as.save(null));
+		
+		Mockito.when(ar.save(admin2)).thenThrow(IllegalArgumentException.class);
+		assertFalse(as.save(admin2));
+		
 	}
 
 	/**
@@ -170,9 +180,18 @@ class AdminServiceTest {
 		*Set up mock from Admin repo 
 		*/
 		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
+		Admin admin2= new Admin(3,"a@b","fstubtest1","lstubtest1");
 
 		Mockito.when(ar.save(admin1)).thenReturn(admin1);
 		assertEquals(admin1, as.update(admin1));
+		
+		assertNull(as.update(null));
+		
+		Mockito.when(ar.save(admin2)).thenThrow(IllegalArgumentException.class);
+		assertNull(as.update(admin2));
+		
+		
+		
 	}
 
 	/**
