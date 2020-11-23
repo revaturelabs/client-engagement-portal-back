@@ -29,7 +29,6 @@ public interface TrainingClient {
 	@GetMapping("/batch")
 	List<BatchName> getBatches();
 
-	
 	/**
 	 * Get a batch by batchId. For example TR-1142
 	 * @param batchId The id for a batch.
@@ -39,6 +38,5 @@ public interface TrainingClient {
 
 	@GetMapping("/batch/{batchId}")
 	Batch getBatchById(@PathVariable("batchId") String batchId);
-
 
 }
