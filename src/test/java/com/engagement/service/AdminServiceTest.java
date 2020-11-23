@@ -49,8 +49,10 @@ class AdminServiceTest {
 	private AdminService as;
 	
 	
-	
-
+	/**
+	 * @author Brooke Wursten
+	 * tests the FindAllMappings method to be sure it gets the map we expect
+	 */
 	@Test
 	void testFindAllMappings() {
 		
@@ -74,7 +76,20 @@ class AdminServiceTest {
 		assertEquals((HashMap<String,Integer> )as.findAllMappings(), resultMap);
 		
 	}
-	
+
+	/**
+	 * @author Brooke Wursten
+	 * Unit test for findByAdminId
+	 */
+	void testFindByAdminId(){
+		Admin admin1= new Admin(1,"admin@rev.net","admin","adminson");
+
+		Mockito.when(ar.findByAdminId(1)).thenReturn(admin1);
+		assertEquals(admin1,ar.findByAdminId(1));
+	}
+
+
+
 	/**
 	 * @author daniel constantinescu
 	 * This unit test whether the service return succesfully all admins
