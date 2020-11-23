@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Client;
-import com.engagement.model.ClientDto;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchOverview;
+
+
+import com.engagement.model.dto.ClientDto;
 import com.engagement.model.dto.ClientName;
 import com.engagement.service.ClientService;
 
@@ -58,9 +60,6 @@ public class ClientController {
 	 * Saves a client to the database
 	 * @param client A client to be saved to the database
 	 * @return ResponseEntity containing status code and message.
-	 * 
-	 * @param c A client to be saved to the database
-	 * @return Client that was saved. May be null if client is yet to be persisted to database.
 	*/
 
 	@ApiOperation(value = "Saves a client to the database.", notes= "Returns the client was saved. May return null if client is yet to be persisted to DB.")
@@ -83,7 +82,6 @@ public class ClientController {
      */
     @GetMapping("/email/{email:.+}")
 	@ApiOperation(value = "Returns a Client with email \"email\".")
-    @ResponseBody
     public Client findByEmail(@PathVariable String email) {
         return cs.findByEmail(email);
     }
@@ -108,7 +106,6 @@ public class ClientController {
 	 */
 	@ApiOperation(value="Returns a list of all clients with only atributes \"id\" and \"name\".")
 	@GetMapping("/clientnames")
-	@ResponseBody
 	public List<ClientName> findClientNames() {
 		return cs.findClientNames();
 	}

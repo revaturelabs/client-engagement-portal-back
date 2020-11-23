@@ -45,7 +45,7 @@ class ClientControllerTest {
 	@InjectMocks
 	private ClientController cc;
 	
-	private String mockClientJson = "{\"clientId\":0,\"email\":\"a@a.net\", \"companyName\":\"revature\", \"phoneNumber\":\"573-555-3535\", \"clientBatches\" : []}";
+	private String mockClientJson = "{\"clientId\":0,\"email\":\"a@a.net\", \"companyName\":\"revature\", \"phoneNumber\":\"573-555-3535\"}";
 	Client client0 = new Client(0, "a@a.net", "revature", "573-555-3535");
 	Client client1 = new Client(1, "a@a1.net", "myspace", "573-343-1334");
 	
