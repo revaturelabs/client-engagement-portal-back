@@ -1,5 +1,7 @@
 package com.engagement.service;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -17,6 +19,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.engagement.model.Admin;
@@ -188,10 +191,13 @@ class AdminServiceTest {
 		assertNull(as.update(null));
 		
 		Mockito.when(ar.save(admin2)).thenThrow(IllegalArgumentException.class);
-		assertNull(as.update(admin2));
+		assertNull(as.update(admin2));		
 		
-		
-		
+	}
+	
+	@Test
+	void testDelete() {
+		assertAll(() -> as.delete(null));	
 	}
 
 	/**
@@ -205,7 +211,7 @@ class AdminServiceTest {
 		batchList.add(namedBatch);
 		Mockito.when(tc.getBatches()).thenReturn(batchList);
 		
-		assertEquals(batchList, tc.getBatches());
+		assertEquals(batchList, as.getAllBatchNames());
 	}
 
 	/**

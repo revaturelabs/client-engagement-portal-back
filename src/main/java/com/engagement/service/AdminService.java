@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.engagement.model.Admin;
@@ -112,12 +113,11 @@ public class AdminService {
 	 * @param id the admin's id
 	 */
 	public void delete(Integer id) {
-		// id cannot be null
-		if (id == null) {
-			return;
-		}
-		
+	 try {
 		ar.deleteById(id);
+	 } catch (EmptyResultDataAccessException e) {
+		 return;
+	 }
 	}
 
 	/**
