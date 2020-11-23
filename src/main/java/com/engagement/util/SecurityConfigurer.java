@@ -17,10 +17,16 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     		"/webjars/**",
     		"/swagger-ui/**"
     };
-	
+    
+	/**
+	 * Overriding the default implementation of the filter given to us 
+	 * by Spring Security.  We disable CORS restrictions, and make it to where
+	 * any request that comes into the server is authenticated first before 
+	 * reaching our resources.  The only requests that are not authenticated
+	 * pertain to Swagger-ui and its resouces.
+	 */
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
-    	System.out.println("In the filter");
     	http.authorizeRequests()
     	.antMatchers(AUTH_WHITELIST).permitAll();
     	http.cors().and().csrf().disable().authorizeRequests(authorize -> authorize
