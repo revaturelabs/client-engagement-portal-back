@@ -41,7 +41,6 @@ public class RequestControllerTest {
 	@InjectMocks
 	private RequestController rc;
 
-	private String testRequestJson0 = "{\"requestId\":0, \"requestType\":\"INTERVENTION\", \"status\":\"PENDING\",\"message\":\"test message\",\"clientId\":1}";
 	private String testRequestJson1 = "{\"requestId\":1, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientId\":2}";
 
 	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", 1);
@@ -53,6 +52,12 @@ public class RequestControllerTest {
 
 	}
 
+	/**
+	 * This tests that the getAllInterventions method returns a the correct status
+	 * code and returns a list of interventions.
+	 * 
+	 * @author Robert Porto
+	 */
 	@Test
 	public void getAllInterventionsTest() throws Exception {
 		List<Request> testRequests = new ArrayList<>();
@@ -67,6 +72,12 @@ public class RequestControllerTest {
 						jsonPath("$[*].message").value(Matchers.containsInAnyOrder("test comment", "test comment2")));
 	}
 
+	/**
+	 * This tests that the getInterventionById method returns the correct status
+	 * code and returns an intervention that corresponds to the given id.
+	 * 
+	 * @author Robert Porto
+	 */
 	@Test
 	public void getInterventionByIdTest() throws Exception {
 		Mockito.when(rs.findByRequestId(0)).thenReturn(testRequest0);
@@ -75,6 +86,13 @@ public class RequestControllerTest {
 
 	}
 
+	/**
+	 * This tests that the save method returns the correct status given that the
+	 * request service save method returns true
+	 * 
+	 * @author Robert Porto
+	 */
+
 	@Test
 	public void saveInterventionSuccessTest() throws Exception {
 		Mockito.when(rs.save(testRequest1)).thenReturn(true);
@@ -82,6 +100,13 @@ public class RequestControllerTest {
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isCreated());
 
 	}
+
+	/**
+	 * This tests that the save method returns the correct status given that the
+	 * request service save method returns false
+	 * 
+	 * @author Robert Porto
+	 */
 
 	@Test
 	public void saveInterventionFailTest() throws Exception {

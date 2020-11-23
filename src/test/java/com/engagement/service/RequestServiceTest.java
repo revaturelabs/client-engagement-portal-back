@@ -35,6 +35,11 @@ public class RequestServiceTest {
 
 	private List<Request> testRequests = new ArrayList<>();
 
+	/**
+	 * This tests that the findAll method returns not null.
+	 * 
+	 * @author Robert Porto
+	 */
 	@Test
 	public void findAllTest() {
 		testRequests.add(testRequest0);
@@ -43,12 +48,22 @@ public class RequestServiceTest {
 		assertNotNull(rs.findAll());
 	}
 
+	/**
+	 * This tests that the findByRequestId method returns not null.
+	 * 
+	 * @author Robert Porto
+	 */
 	@Test
 	public void findByRequestId() {
 		Mockito.when(rr.findByRequestId(0)).thenReturn(testRequest0);
 		assertNotNull(rs.findByRequestId(0));
 	}
 
+	/**
+	 * This tests that the save method returns not true.
+	 * 
+	 * @author Robert Porto
+	 */
 	@Test
 	public void saveTest() {
 		Mockito.when(rr.save(testRequest0)).thenReturn(testRequest0);
