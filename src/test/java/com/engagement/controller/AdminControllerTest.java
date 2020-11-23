@@ -209,7 +209,12 @@ class AdminControllerTest {
 		/*
 		 * mock map we are pretending is returned by AdminService
 		 */
-		Map<String,Integer> mockMap = new HashMap<String,Integer>(){{
+		Map<String,Integer> mockMap = new HashMap<String,Integer>(){/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+		{
 			put("TR-101",1);
 			put("TR-102",1);
 			put("TR-103",2);
