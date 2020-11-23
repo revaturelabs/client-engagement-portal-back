@@ -1,14 +1,24 @@
 package com.engagement.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.engagement.model.Admin;
+import com.engagement.model.Client;
+import com.engagement.model.ClientBatch;
 import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
+import com.engagement.repo.ClientBatchRepo;
+import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.TrainingClient;
+
+
 
 /**
  * Service for handling business logic of admin requests
@@ -18,16 +28,19 @@ import com.engagement.repo.caliber.TrainingClient;
 
 @Service
 public class AdminService {
-
-	private AdminRepo ar;
-	private TrainingClient bc;
-
+	
 	@Autowired
-	public AdminService(AdminRepo ar, TrainingClient bc) {
-		super();
-		this.ar = ar;
-		this.bc = bc;
-	}
+	private AdminRepo ar;
+	
+	@Autowired
+	private TrainingClient tc;
+	
+	@Autowired
+	private ClientBatchRepo cbr;
+	
+	@Autowired 
+	private ClientRepo cr;
+	
 	
 	/**
 	 * Return a list of all admins
@@ -69,7 +82,7 @@ public class AdminService {
 		try {
 			ar.save(admin);
 			return true;
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			return false;
 		}
 	}
@@ -87,7 +100,7 @@ public class AdminService {
 		
 		try {
 			ar.save(admin);
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			return null;
 		}
 		
@@ -99,22 +112,91 @@ public class AdminService {
 	 * @param id the admin's id
 	 */
 	public void delete(Integer id) {
-		// id cannot be null
-		if (id == null) {
-			return;
-		}
-		
 		ar.deleteById(id);
 	}
 
 	/**
+	 * @author Carlo Anselmo
 	 * Returns a list of all batches from Caliber API
 	 * @return List of all batch IDs and names
 	 */
 
-	public List<BatchName> getAllBatches() {
-		return bc.getBatches();
-		
+	public List<BatchName> getAllBatchNames() {
+		return tc.getBatches();
+	}
+	
+	/**
+	 * @author Brooke Wursten
+	 * Returns a list of all client-batch mappings
+	 * @return list of Client-batch objects showing mappings
+	 */
+	public Map<String,String> findAllMappings() {
+		Map<String,String> mappings = new HashMap<>();
+		List<ClientBatch> clientBatchList =  cbr.findAll();
+		clientBatchList.forEach(clientBatch->{
+			String k=clientBatch.getBatchId();
+			String v=clientBatch.getClient().getEmail();
+			mappings.put(k, v);
+		});
+		return mappings;
 	}
 
+	/**
+	 * author daniel constantinescu
+	 * map batch to client
+	 * @param batchId
+	 * @param email
+	 * @return - true for success, 
+	 * false for client not found
+	 */
+	
+	public boolean mapBatchtoClient(String batchId, String email) {
+		
+		boolean ret=false;
+		
+		Client client = cr.findByEmail(email);
+			
+		if (client != null) {
+				
+				ClientBatch cb = new ClientBatch(1000,batchId,client);
+				cbr.save(cb) ;
+				ret=true;
+				
+		}else 
+			    ret= false;
+		
+		return ret;
+	}
+	
+	
+	/**
+	 * @author daniel constantinescu
+	 * unmap batch from client
+	 * @param batchId
+	 * @param email
+	 * @return - true for success, 
+	 * false for batch not found
+	 */
+	
+	@Transactional
+	public boolean unmapBatchFromClient(String batchId, String email) {
+		
+		boolean ret=true;
+		
+		if (cbr.findByBatchId(batchId) != null) {
+				
+			cbr.deleteByBatchId(batchId);
+			ret=true;
+		
+		}else
+			
+			ret=false;
+			
+		return ret;
+					
+	}
+	
+	
+	
+	
 }

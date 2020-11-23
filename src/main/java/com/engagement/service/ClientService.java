@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 
 import com.engagement.model.Client;
-import com.engagement.model.dto.Associate;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.ClientName;
