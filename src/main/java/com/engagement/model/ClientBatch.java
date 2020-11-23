@@ -12,21 +12,28 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+* ClientBatch is a go-between class to record the relationship 
+* between a client and one of their batches.
+* 
+* @author Matt Hartman
+*
+*/
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class ClientBatch {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String clientBatchId;
+	private int clientBatchId;
 	
 	private String batchId;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "clientId")
+	@JoinColumn(name = "client_id")
 	private Client client;
 
 }
