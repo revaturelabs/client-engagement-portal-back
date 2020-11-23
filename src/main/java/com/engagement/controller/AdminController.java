@@ -150,7 +150,7 @@ public class AdminController {
 	@PutMapping("/mapBatchToClient")
 	public ResponseEntity<?>  MapBatchToClient(@RequestParam  String batchId, @RequestParam String email) {
 		
-		if(as.MapBatchtoClient(batchId, email))
+		if(as.mapBatchtoClient(batchId, email))
 				
 			return new ResponseEntity<String>("Map done sucessfuly!", HttpStatus.OK);
 			
@@ -171,7 +171,7 @@ public class AdminController {
 	  @PutMapping("/unmapBatchFromClient") 
 	  public ResponseEntity<?> UnMapBatchFromClient(@RequestParam String batchId, @RequestParam String email){
 	  
-		  if  (as.UnMapBatchFromClient(batchId, email))
+		  if  (as.unmapBatchFromClient(batchId, email))
 		  
 			  return new   ResponseEntity<String>("Unmap succesfully!", HttpStatus.OK); 
 	  
