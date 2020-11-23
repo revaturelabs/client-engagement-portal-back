@@ -82,7 +82,7 @@ public class AdminService {
 		try {
 			ar.save(admin);
 			return true;
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			return false;
 		}
 	}
