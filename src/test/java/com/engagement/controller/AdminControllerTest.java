@@ -238,7 +238,7 @@ class AdminControllerTest {
 	void testmapBatchToClientSucces() throws Exception {
 		String batchId="ABC";
 		String email="a@b";
-		Mockito.when(as.MapBatchtoClient(batchId, email)).thenReturn(true);
+		Mockito.when(as.mapBatchtoClient(batchId, email)).thenReturn(true);
 		this.mockMvc
 				.perform(put("/admin/mapBatchToClient?batchId=ABC&email=a@b").accept(MediaType.ALL))
 				.andExpect(status().isOk());
@@ -253,7 +253,7 @@ class AdminControllerTest {
 	void testmapBatchToClientFail() throws Exception {
 		String batchId="ABC";
 		String email="a@b";
-		Mockito.when(as.MapBatchtoClient(batchId, email)).thenReturn(false);
+		Mockito.when(as.mapBatchtoClient(batchId, email)).thenReturn(false);
 		this.mockMvc
 			.perform(put("/admin/mapBatchToClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().isConflict());
@@ -263,7 +263,7 @@ class AdminControllerTest {
 	void testUnmapBatchFromClientSucces() throws Exception {
 		String batchId="ABC";
 		String email="a@b";
-		Mockito.when(as.UnMapBatchFromClient(batchId, email)).thenReturn(true);
+		Mockito.when(as.unmapBatchFromClient(batchId, email)).thenReturn(true);
 		this.mockMvc
 			.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk());
@@ -273,7 +273,7 @@ class AdminControllerTest {
 	void testUnmapBatchFromClientFail() throws Exception {
 		String batchId="ABC";
 		String email="a@b";
-		Mockito.when(as.UnMapBatchFromClient(batchId, email)).thenReturn(false);
+		Mockito.when(as.unmapBatchFromClient(batchId, email)).thenReturn(false);
 		this.mockMvc
 			.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().isConflict());

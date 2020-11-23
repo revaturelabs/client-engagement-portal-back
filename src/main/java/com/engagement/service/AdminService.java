@@ -150,7 +150,7 @@ public class AdminService {
 	 * false for client not found
 	 */
 	
-	public boolean MapBatchtoClient(String batchId, String email) {
+	public boolean mapBatchtoClient(String batchId, String email) {
 		
 		boolean ret=false;
 		
@@ -179,7 +179,7 @@ public class AdminService {
 	 */
 	
 	@Transactional
-	public boolean UnMapBatchFromClient(String batchId, String email) {
+	public boolean unmapBatchFromClient(String batchId, String email) {
 		
 		boolean ret=true;
 		
