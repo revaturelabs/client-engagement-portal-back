@@ -37,19 +37,41 @@ class ClientServiceTest {
 	@InjectMocks
 	private ClientService cs;
 
+	/**
+	 * This tests the getBatchByBatchId method from the client service
+	 * @author Kelsey Iafrate
+	 */
 	@Test 
 	void getBatchByBatchIdTest() {
+		
+
+		/**
+		 * Builds an associate assignment list
+		 * @author Kelsey Iafrate
+		 */
 		final Associate associate = new Associate("test@test", "testId", "testFName", "testLName", null);
 		associate.setGrades(associate.getGrades());
 		final AssociateAssignment aa = new AssociateAssignment("active", associate, "start Date", "end date", true);
 		final List<AssociateAssignment> aAssigns = new ArrayList<>();
 		aAssigns.add(aa);
+
 		Batch batch = new Batch("TR-1018", "batchName", "this is a date", "this is an end date", "java", "WVU", "ROCP", 70, 80, new ArrayList<EmployeeAssignment>(), aAssigns, 1);
+		
+		/**
+		 * Builds a grade list to add to the batch
+		 * @author Kelsey Iafrate
+		 */
 		Grade grade = new Grade(1, "date received", 90.1, "testId");
 		Grade grade2 = new Grade(2, "date received", 10, "not an id");
 		List<Grade> grades = new ArrayList<>();
 		grades.add(grade);
 		grades.add(grade2);
+		
+		/**
+		 * Tests that a batch's associate's grade list gets properly populated
+		 * @author Kelsey Iafrate
+		 * 
+		 */
 		
 		Mockito.when(tc.getBatchById(batch.getBatchId())).thenReturn(batch);
 		Mockito.when(gc.getGradesByBatchId(batch.getBatchId())).thenReturn(grades);
@@ -68,9 +90,19 @@ class ClientServiceTest {
 		assertEquals("testFName", newAssociate.getFirstName());
 		assertEquals("testLName", newAssociate.getLastName());
 		
+		/**
+		 * Tests that if no batch is returned, a null is returned
+		 * @author Kelsey Iafrate
+		 */
+		
 		Mockito.when(tc.getBatchById("bad batch id")).thenReturn(null);
 		
 		assertNull(cs.getBatchByBatchId("bad batch id"));
+		
+		/**
+		 * Tests that if a batch doesn't have any grades, a batch is still returned
+		 * @author Kelsey Iafrate
+		 */
 		
 		Mockito.when(tc.getBatchById("batch without grades")).thenReturn(batch);
 		Mockito.when(gc.getGradesByBatchId("batch without grades")).thenReturn(new ArrayList<Grade>());

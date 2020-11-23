@@ -8,13 +8,12 @@ import org.springframework.stereotype.Service;
 
 
 import com.engagement.model.Client;
-
+import com.engagement.model.dto.Associate;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.Grade;
 
-import com.engagement.model.dto.ClientName;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
 
@@ -79,7 +78,6 @@ public class ClientService {
 		return cr.findByEmail(email);
 	}
 
-
 	/**
 	 * Find a batch by it's identifier in Caliber.
 	 * 
@@ -104,16 +102,17 @@ public class ClientService {
 
 			 */
 			for (Grade grade : grades) {
-				for (AssociateAssignment a : b.getAssociateAssignments()) {
-					if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
-						a.getAssociate().getGrades().add(grade);
+				for (AssociateAssignment aa : b.getAssociateAssignments()) {
+					if (grade.getTraineeId().equals(aa.getAssociate().getSalesforceId())) {
+						List<Grade> g = aa.getAssociate().getGrades();
+						g.add(grade);
+						aa.getAssociate().setGrades(g);
 						break;
 					}
 				}
 			}
 			return b; // Returns the batch with all associates and their grades.
 		}
-
 
 		return null; // If a batch with that batchId was found, return null.
 	}
@@ -127,7 +126,7 @@ public class ClientService {
 		public List<ClientName> ClientNames()
 		{
 			List<Client> clients = cr.findAll();
-			List<ClientName> clientsdto = new LinkedList<ClientName>();
+			List<ClientName> clientsdto = new LinkedList<>();
 			for(int i = 0; i < clients.size(); i++)
 				clientsdto.add(new ClientName(clients.get(i).getCompanyName(), String.valueOf(clients.get(i).getClientId())));
 			
