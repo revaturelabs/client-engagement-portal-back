@@ -148,15 +148,15 @@ public class AdminController {
 	
 	@ApiOperation(value = "Map a batch to a client")
 	@PutMapping("/mapBatchToClient")
-	public ResponseEntity<?>  MapBatchToClient(@RequestParam  String batchId, @RequestParam String email) {
+	public ResponseEntity<String>  mapBatchToClient(@RequestParam  String batchId, @RequestParam String email) {
 		
 		if(as.mapBatchtoClient(batchId, email))
 				
-			return new ResponseEntity<String>("Map done sucessfuly!", HttpStatus.OK);
+			return new ResponseEntity<>("Map done sucessfuly!", HttpStatus.OK);
 			
 		else
 			
-			return new ResponseEntity<String>("Client not found!",  HttpStatus.CONFLICT);
+			return new ResponseEntity<>("Client not found!",  HttpStatus.CONFLICT);
 	}
 	
 	/**
@@ -169,15 +169,15 @@ public class AdminController {
 	
 	  @ApiOperation(value = "UnMap a batch from a client")
 	  @PutMapping("/unmapBatchFromClient") 
-	  public ResponseEntity<?> UnMapBatchFromClient(@RequestParam String batchId, @RequestParam String email){
+	  public ResponseEntity<String> unmapBatchFromClient(@RequestParam String batchId, @RequestParam String email){
 	  
 		  if  (as.unmapBatchFromClient(batchId, email))
 		  
-			  return new   ResponseEntity<String>("Unmap succesfully!", HttpStatus.OK); 
+			  return new   ResponseEntity<>("Unmap succesfully!", HttpStatus.OK); 
 	  
 		  else 
 		 
-			  return new ResponseEntity<String>("BatchId not found!",HttpStatus.CONFLICT);
+			  return new ResponseEntity<>("BatchId not found!",HttpStatus.CONFLICT);
 	  }
 	
 }
