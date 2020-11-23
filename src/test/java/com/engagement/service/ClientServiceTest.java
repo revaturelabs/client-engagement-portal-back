@@ -32,7 +32,6 @@ class ClientServiceTest {
 	private TrainingClient tc;
 	@MockBean
 	private ClientRepo cr;
-
 	
 	@InjectMocks
 	private ClientService cs;

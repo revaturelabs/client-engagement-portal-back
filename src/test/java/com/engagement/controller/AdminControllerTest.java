@@ -176,26 +176,26 @@ class AdminControllerTest {
 	}
 	
 	/**
+	 * @author Carlo Anselmo
 	 * Test that determines whether the names of batches are being correctly imported from caliber
-	 * 
 	 * @throws Exception
 	 */
 	@Test
 	void testGetBatchNames() throws Exception {
 		List<BatchName> batchesByName = new ArrayList<>();
 		batchesByName.add(namedBatch);
-		Mockito.when(as.getAllBatches()).thenReturn(batchesByName);
+		String batchesByNameJson = new ObjectMapper().writeValueAsString(batchesByName);	// Convert list to a json
+		Mockito.when(as.getAllBatchNames()).thenReturn(batchesByName);
 		
 		// Makes sure that caliber is up and running
 		this.mockMvc
 				.perform(get("/admin/batch/allNames").accept(MediaType.ALL))
 				.andExpect(status().isOk());
 
-		// Is not really doing anything meaningful
+		// Uses our mocked list to make sure it's received by the service
 		this.mockMvc
 			.perform(get("/admin/batch/allNames").accept(MediaType.ALL))
-			.andReturn();
-
+			.andExpect(content().json(batchesByNameJson));
 	}
 	
 	/**
@@ -209,7 +209,12 @@ class AdminControllerTest {
 		/*
 		 * mock map we are pretending is returned by AdminService
 		 */
-		Map<String,Integer> mockMap = new HashMap<String,Integer>(){{
+		Map<String,Integer> mockMap = new HashMap<String,Integer>(){/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+		{
 			put("TR-101",1);
 			put("TR-102",1);
 			put("TR-103",2);
@@ -218,7 +223,6 @@ class AdminControllerTest {
 			.thenReturn(mockMap);
 			
 		String mockMapJson = new ObjectMapper().writeValueAsString(mockMap);//What we expect to be in the body of the response
-		
 		
 		
 		this.mockMvc.perform(get("/admin/mappedBatchesClients").accept(MediaType.ALL))
@@ -238,10 +242,7 @@ class AdminControllerTest {
 		this.mockMvc
 				.perform(put("/admin/mapBatchToClient?batchId=ABC&email=a@b").accept(MediaType.ALL))
 				.andExpect(status().isOk());
-				
-		
 	}
-	
 	
 	/**
 	 * @author daniel constatinescu
@@ -256,7 +257,6 @@ class AdminControllerTest {
 		this.mockMvc
 			.perform(put("/admin/mapBatchToClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().isConflict());
-			
 	}
 
 	@Test
@@ -265,21 +265,18 @@ class AdminControllerTest {
 		String email="a@b";
 		Mockito.when(as.UnMapBatchFromClient(batchId, email)).thenReturn(true);
 		this.mockMvc
-				.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk());
-				
-		
+			.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk());
 	}
+	
 	@Test
 	void testUnmapBatchFromClientFail() throws Exception {
 		String batchId="ABC";
 		String email="a@b";
 		Mockito.when(as.UnMapBatchFromClient(batchId, email)).thenReturn(false);
 		this.mockMvc
-				.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isConflict());
-				
-		
+			.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isConflict());
 	}
 	
 }
