@@ -2,15 +2,12 @@ package com.engagement.service;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.engagement.model.Client;
 import com.engagement.model.ClientBatch;
-
-import com.engagement.model.dto.Associate;
 
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;

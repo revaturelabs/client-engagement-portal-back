@@ -2776,3 +2776,146 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 2020-11-23 14:00:08,782 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
 2020-11-23 14:00:08,786 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started ClientEngagementPortalBackApplication in 2.658 seconds (JVM running for 76225.801)
 2020-11-23 14:00:08,787 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-11-23 14:01:08,723 INFO org.springframework.boot.StartupInfoLogger [main] Starting ClientControllerTest using Java 14.0.2 on DESKTOP-F7AMC9G with PID 19708 (started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-23 14:01:08,725 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 14:01:08,727 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-23 14:01:11,475 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-23 14:01:11,822 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:11,823 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:11,826 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 3 ms
+2020-11-23 14:01:12,285 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientControllerTest in 4.12 seconds (JVM running for 5.643)
+2020-11-23 14:01:12,377 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:12,378 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:12,378 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:12,695 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:12,697 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:12,698 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:12,773 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:12,773 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:12,775 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:12,911 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:12,913 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:12,913 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:12,981 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:12,982 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:12,983 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:13,019 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:13,020 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:13,021 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:13,071 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:13,072 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:13,073 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:13,094 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.engagement.controller.AdminControllerTest], using SpringBootContextLoader
+2020-11-23 14:01:13,096 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [com.engagement.controller.AdminControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-11-23 14:01:13,097 INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.engagement.controller.AdminControllerTest]: AdminControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-11-23 14:01:13,102 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.engagement.ClientEngagementPortalBackApplication for test class com.engagement.controller.AdminControllerTest
+2020-11-23 14:01:13,105 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-11-23 14:01:13,106 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7fa85a55, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@cb1c58c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@352e4b6d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@10a064bd, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2de7fe0e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2ff8d39b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@684a802a, org.springframework.test.context.event.EventPublishingTestExecutionListener@7b5c9412, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@69d902f9, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@547052, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3ca3eba2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@23c00420, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@22f046b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@215a329c]
+2020-11-23 14:01:13,229 INFO org.springframework.boot.StartupInfoLogger [main] Starting AdminControllerTest using Java 14.0.2 on DESKTOP-F7AMC9G with PID 19708 (started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-23 14:01:13,230 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 14:01:13,231 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-23 14:01:14,383 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-23 14:01:14,598 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:14,598 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:14,600 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 1 ms
+2020-11-23 14:01:14,721 INFO org.springframework.boot.StartupInfoLogger [main] Started AdminControllerTest in 1.611 seconds (JVM running for 8.079)
+2020-11-23 14:01:14,755 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:14,759 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:14,760 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:14,804 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:14,805 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:14,805 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:14,848 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:14,850 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:14,851 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:14,895 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:14,896 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:14,896 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:14,932 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:14,933 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:14,934 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 1 ms
+2020-11-23 14:01:14,961 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:14,961 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:14,962 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 1 ms
+2020-11-23 14:01:14,987 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:14,988 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:14,988 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:15,012 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:15,013 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:15,013 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:15,040 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:15,040 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:15,041 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 1 ms
+2020-11-23 14:01:15,067 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:15,068 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:15,068 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:15,098 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:15,098 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:15,099 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:15,146 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:15,146 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:15,147 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 1 ms
+2020-11-23 14:01:15,169 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:15,170 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:15,170 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:15,213 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2020-11-23 14:01:15,214 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2020-11-23 14:01:15,214 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 0 ms
+2020-11-23 14:01:15,233 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.engagement.service.ClientServiceTest], using SpringBootContextLoader
+2020-11-23 14:01:15,238 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [com.engagement.service.ClientServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-11-23 14:01:15,238 INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.engagement.service.ClientServiceTest]: ClientServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-11-23 14:01:15,252 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.engagement.ClientEngagementPortalBackApplication for test class com.engagement.service.ClientServiceTest
+2020-11-23 14:01:15,259 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-11-23 14:01:15,259 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@606f0f70, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1a53ac0c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7fdf7359, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4a36a35d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@52ba21e4, org.springframework.test.context.transaction.TransactionalTestExecutionListener@558ed473, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@514f2020, org.springframework.test.context.event.EventPublishingTestExecutionListener@2e1c5d1f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2d2afc39, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@e2498a3, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@26c2f767, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6a7ab205, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@10cb5047, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3a00237d]
+2020-11-23 14:01:15,433 INFO org.springframework.boot.StartupInfoLogger [main] Starting ClientServiceTest using Java 14.0.2 on DESKTOP-F7AMC9G with PID 19708 (started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-23 14:01:15,433 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 14:01:15,434 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-11-23 14:01:16,098 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-23 14:01:16,174 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 69 ms. Found 3 JPA repository interfaces.
+2020-11-23 14:01:16,334 INFO org.springframework.cloud.context.scope.GenericScope [main] BeanFactory id=ee503d97-7f32-3688-ba16-a9b0c024b460
+2020-11-23 14:01:17,135 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-23 14:01:17,203 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-23 14:01:17,277 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2020-11-23 14:01:17,354 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-11-23 14:01:17,632 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-11-23 14:01:18,027 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-23 14:01:18,057 INFO com.zaxxer.hikari.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-11-23 14:01:18,131 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-11-23 14:01:19,067 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-23 14:01:19,091 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-23 14:01:19,646 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-11-23 14:01:20,076 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-11-23 14:01:20,081 INFO org.springframework.boot.StartupInfoLogger [main] Started ClientServiceTest in 4.818 seconds (JVM running for 13.439)
+2020-11-23 14:01:20,205 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-23 14:01:20,205 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-23 14:01:20,212 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-23 14:01:20,216 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-23 14:01:20,217 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-11-23 14:01:20,224 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-11-23 14:02:10,066 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-372] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-23 14:02:10,067 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-372] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-23 14:02:10,067 INFO com.zaxxer.hikari.HikariDataSource [Thread-372] HikariPool-52 - Shutdown initiated...
+2020-11-23 14:02:10,069 INFO com.zaxxer.hikari.HikariDataSource [Thread-372] HikariPool-52 - Shutdown completed.
+2020-11-23 14:02:10,216 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting ClientEngagementPortalBackApplication using Java 14.0.2 on DESKTOP-F7AMC9G with PID 15164 (C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back\target\classes started by kiafr in C:\Users\kiafr\Desktop\revature\ClientEngagement\client-engagement-portal-back)
+2020-11-23 14:02:10,216 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.4.0, Spring v5.3.1
+2020-11-23 14:02:10,217 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-23 14:02:10,505 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-11-23 14:02:10,521 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
+2020-11-23 14:02:10,555 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=ca6437f8-7391-30ee-a6bd-5e03b0c5853d
+2020-11-23 14:02:10,561 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.GradeClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-23 14:02:10,562 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'com.engagement.repo.caliber.TrainingClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-23 14:02:10,618 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9011 (http)
+2020-11-23 14:02:10,619 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9011"]
+2020-11-23 14:02:10,619 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-23 14:02:10,619 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-23 14:02:10,641 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-23 14:02:10,641 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 423 ms
+2020-11-23 14:02:10,656 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-53 - Starting...
+2020-11-23 14:02:11,201 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-53 - Start completed.
+2020-11-23 14:02:11,202 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://training-db1.cwxetsceaaf2.us-east-2.rds.amazonaws.com:5432/engagement'
+2020-11-23 14:02:11,219 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-23 14:02:11,261 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-23 14:02:11,288 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-11-23 14:02:11,289 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-11-23 14:02:12,180 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-23 14:02:12,225 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!

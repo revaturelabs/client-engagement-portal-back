@@ -24,7 +24,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Client;
-import com.engagement.model.ClientBatch;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchOverview;
@@ -149,7 +148,6 @@ class ClientControllerTest {
 	@Test
 	void getOverviewbyClient() throws Exception {
 		BatchOverview bao = new BatchOverview("Tr-5000", "batchName", "java");
-		Client client = new Client(1,"a@a", "revature", "5555555");
 		List<BatchOverview> expectedList = new ArrayList<>();
 		expectedList.add(bao);
 		System.out.println(bao);
