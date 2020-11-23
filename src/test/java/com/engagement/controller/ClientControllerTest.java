@@ -20,11 +20,14 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Client;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.BatchOverview;
+import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.EmployeeAssignment;
 import com.engagement.service.ClientService;
 
@@ -120,5 +123,40 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$.currentWeek").value(1))
 		.andExpect(jsonPath("$.employeeAssignments").isEmpty())
 		.andExpect(jsonPath("$.associateAssignments").isEmpty());
+	}
+	
+	@Test
+	void findClientNames() throws Exception {
+		List<ClientName> expectedList = new ArrayList<>();
+		expectedList.add(new ClientName("revature", "0"));
+		expectedList.add(new ClientName("myspace", "1"));
+		Mockito.when(cs.findClientNames()).thenReturn(expectedList);
+		this.mockMvc
+		.perform(get("/client/clientnames")
+		.accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk()) //expect a status of ok
+		.andExpect(jsonPath("$[*].clientId").value(Matchers.containsInAnyOrder("0", "1")))
+		.andExpect(jsonPath("$[*].companyName").value(Matchers.containsInAnyOrder("revature", "myspace")));
+	}
+	
+	
+	/**
+	 * Test that checks if getBatchOverviewbyClient method on controller layer is functioning properly
+	 * 
+	 * @author Matt Hartmann
+	 */
+	@Test
+	void getOverviewbyClient() throws Exception {
+		BatchOverview bao = new BatchOverview("Tr-5000", "batchName", "java");
+		List<BatchOverview> expectedList = new ArrayList<>();
+		expectedList.add(bao);
+		System.out.println(bao);
+		Mockito.when(cs.getBatchInfoByEmail("a@a")).thenReturn(expectedList);
+		this.mockMvc
+		.perform(get("/client/batch/email/a@a").accept("*/*")).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk()) //expect a status of ok
+		.andExpect(jsonPath("$[*].batchId").value(Matchers.containsInAnyOrder("Tr-5000")))
+		.andExpect(jsonPath("$[*].name").value(Matchers.containsInAnyOrder("batchName")))
+		.andExpect(jsonPath("$[*].skill").value(Matchers.containsInAnyOrder("java")));
+		
 	}
 }
