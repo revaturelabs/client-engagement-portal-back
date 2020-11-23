@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.engagement.model.Client;
 import com.engagement.model.ClientBatch;
+
+import com.engagement.model.dto.Associate;
+
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchOverview;
@@ -104,9 +107,11 @@ public class ClientService {
 
 			 */
 			for (Grade grade : grades) {
-				for (AssociateAssignment a : b.getAssociateAssignments()) {
-					if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
-						a.getAssociate().getGrades().add(grade);
+				for (AssociateAssignment aa : b.getAssociateAssignments()) {
+					if (grade.getTraineeId().equals(aa.getAssociate().getSalesforceId())) {
+						List<Grade> g = aa.getAssociate().getGrades();
+						g.add(grade);
+						aa.getAssociate().setGrades(g);
 						break;
 					}
 				}
