@@ -209,15 +209,16 @@ class AdminControllerTest {
 		/*
 		 * mock map we are pretending is returned by AdminService
 		 */
-		Map<String,Integer> mockMap = new HashMap<String,Integer>(){/**
+		Map<String,String> mockMap = new HashMap<String,String>(){
+			/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
 
 		{
-			put("TR-101",1);
-			put("TR-102",1);
-			put("TR-103",2);
+			put("TR-101","a@a.net");
+			put("TR-102","a@a.net");
+			put("TR-103","a2@a.net");
 			}};
 			Mockito.when(as.findAllMappings())
 			.thenReturn(mockMap);

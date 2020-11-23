@@ -67,18 +67,18 @@ class AdminServiceTest {
 		clientBatchList.add(new ClientBatch(3,"TR-103",client1));
 		Mockito.when(cbr.findAll()).thenReturn(clientBatchList);
 
-		Map<String,Integer> resultMap = new HashMap<String,Integer>(){/**
+		Map<String,String> resultMap = new HashMap<String,String>(){/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
 
 		{
-			put("TR-101",1);
-			put("TR-102",1);
-			put("TR-103",2);
+			put("TR-101","client0@client.net");
+			put("TR-102","client0@client.net");
+			put("TR-103","client1@client.net");
 		}};
 
-		assertEquals((HashMap<String,Integer> )as.findAllMappings(), resultMap);
+		assertEquals((HashMap<String,String> )as.findAllMappings(), resultMap);
 
 	}
 
