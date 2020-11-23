@@ -1,30 +1,33 @@
 package com.engagement.service;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.engagement.model.Client;
+
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.Grade;
+
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
+
 import com.engagement.repo.caliber.TrainingClient;
 
 /**
  * Service for handling business logic of client requests
- * 
  * @author Tucker Fritz, Matt Hartmann
  *
  */
 @Service
 public class ClientService {
 
+	@Autowired
 	ClientRepo cr;
 	private TrainingClient bc;
 	private GradeClient gc;
@@ -56,7 +59,7 @@ public class ClientService {
 		if (client == null) {
 			return false;
 		}
-
+		
 		try {
 			cr.save(client);
 			return true;
@@ -79,57 +82,54 @@ public class ClientService {
 	 * Find a batch by it's identifier in Caliber.
 	 * 
 	 * @param batchId: The batch's identifier in Caliber.
-	 * @return Returns the batch associated to the id or null.
+	 * @return Returns the batch associated to the id.
+	 * @author Kelsey Iafrate
 	 */
 	public Batch getBatchByBatchId(String batchId) {
-		Batch batch = new Batch();
 
-		try {
-			// gets batch that is associated with the id
-			batch = bc.getBatchById(batchId);
-		} catch (Exception e) {
-			// batch not found
-			return null;
-		}
+		Batch b = bc.getBatchById(batchId);// gets a list of zero or one batch this is associated with the id.
 
-		// gets all of the grades associated with the batch.
-		List<Grade> grades = gc.getGradesByBatchId(batchId);
+		if (b != null) {
 
-		/**
-		 * For every grade, check if its traineeId equals any salesForceId of an
-		 * associate of the batch. Once a match is found, add that grade to the list of
-		 * grades of that associate, then move on to the next grade.
-		 */
-		for (Grade grade : grades) {
-			for (AssociateAssignment a : batch.getAssociateAssignments()) {
-				if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
-					if (a.getAssociate().getGrades() == null) {
-						a.getAssociate().setGrades(new ArrayList<>());
+			List<Grade> grades = gc.getGradesByBatchId(batchId); // gets all of the grades associated with the batch.
+
+			/**
+			 * For every grade, check if its traineeId equals any salesForceId of an
+			 * associate of the batch. Once a match is found, add that grade to the list of
+			 * grades of that associate, then move on to the next grade.
+			 * 
+			 * @author Kelsey Iafrate
+
+			 */
+			for (Grade grade : grades) {
+				for (AssociateAssignment a : b.getAssociateAssignments()) {
+					if (grade.getTraineeId().equals(a.getAssociate().getSalesforceId())) {
+						a.getAssociate().getGrades().add(grade);
+						break;
 					}
-					a.getAssociate().getGrades().add(grade);
-					break;
 				}
 			}
+			return b; // Returns the batch with all associates and their grades.
 		}
 
-		return batch;
+		return null; // If a batch with that batchId was found, return null.
 	}
-
-	/**
-	 * Find all client names
-	 * 
-	 * @param none
-	 * @return All clients with only number and name
-	 */
-	public List<ClientName> getClientNames() {
-		List<Client> clients = cr.findAll();
-		List<ClientName> clientNames = new LinkedList<>();
-
-		for (Client client : clients) {
-			clientNames.add(new ClientName(client.getClientId(), client.getCompanyName()));
+		
+		/**
+		 * Find all client names
+		 * 
+		 * @param none
+		 * @return All clients with only number and name
+		 */
+		public List<ClientName> ClientNames()
+		{
+			List<Client> clients = cr.findAll();
+			List<ClientName> clientsdto = new LinkedList<>();
+			for(int i = 0; i < clients.size(); i++)
+				clientsdto.add(new ClientName(clients.get(i).getCompanyName(), String.valueOf(clients.get(i).getClientId())));
+			
+			return clientsdto;
 		}
-
-		return clientNames;
-	}
-
+		
+		
 }

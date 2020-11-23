@@ -9,23 +9,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hamcrest.Matchers;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.engagement.model.Client;
+import com.engagement.model.dto.AssociateAssignment;
+import com.engagement.model.dto.Batch;
+import com.engagement.model.dto.EmployeeAssignment;
 import com.engagement.service.ClientService;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(ClientController.class)
 class ClientControllerTest {
 
@@ -39,10 +42,10 @@ class ClientControllerTest {
 	private ClientController cc;
 	
 	private String mockClientJson = "{\"clientId\":0,\"email\":\"a@a.net\", \"companyName\":\"revature\", \"phoneNumber\":\"573-555-3535\", \"clientBatches\" : []}";
-	Client client0 = new Client(0, "a@a.net", "revature", "573-555-3535", null);
-	Client client1 = new Client(1, "a@a1.net", "myspace", "573-343-1334", null);
+	Client client0 = new Client(0, "a@a.net", "revature", "573-555-3535");
+	Client client1 = new Client(1, "a@a1.net", "myspace", "573-343-1334");
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(cc).build();
 	}
@@ -97,5 +100,25 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$.email").value("a@a.net"))
 		.andExpect(jsonPath("$.companyName").value("revature"))
 		.andExpect(jsonPath("$.phoneNumber").value("573-555-3535"));
+	}
+	
+	@Test
+	void getBatchById() throws Exception {
+		Batch batch = new Batch("TR-1018", "batchName", "this is a date", "this is an end date", "java", "WVU", "ROCP", 70, 80, new ArrayList<EmployeeAssignment>(), new ArrayList<AssociateAssignment>(), 1);
+		Mockito.when(cs.getBatchByBatchId("TR-1018")).thenReturn(batch);
+		this.mockMvc
+		.perform(get("/client/batch/TR-1018"))
+		.andExpect(jsonPath("$.batchId").value("TR-1018"))
+		.andExpect(jsonPath("$.name").value("batchName"))
+		.andExpect(jsonPath("$.startDate").value("this is a date"))
+		.andExpect(jsonPath("$.endDate").value("this is an end date"))
+		.andExpect(jsonPath("$.skill").value("java"))
+		.andExpect(jsonPath("$.location").value("WVU"))
+		.andExpect(jsonPath("$.type").value("ROCP"))
+		.andExpect(jsonPath("$.goodGrade").value(70))
+		.andExpect(jsonPath("$.passingGrade").value(80))
+		.andExpect(jsonPath("$.currentWeek").value(1))
+		.andExpect(jsonPath("$.employeeAssignments").isEmpty())
+		.andExpect(jsonPath("$.associateAssignments").isEmpty());
 	}
 }

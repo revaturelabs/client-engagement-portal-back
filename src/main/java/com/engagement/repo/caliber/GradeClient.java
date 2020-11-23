@@ -11,6 +11,7 @@ import com.engagement.model.dto.Grade;
 /**
  * 
  * The GradeClient accesses the grade-controller of the caliber 2 API.
+ * @author Kelsey Iafrate
  *
  */
 
@@ -21,8 +22,9 @@ public interface GradeClient {
 	 * This method gets all the grades of every trainee in a batch by batch id.
 	 * @param id: batch id, who would have guessed based off the Caliber API? Nobody.
 	 * @return List<Grade> is the list of all grades for the associates in the specified batch.
+	 * @author Kelsey Iafrate
 	 */
-	@GetMapping(value = "/batch/{batchId}", consumes = "application/json")
-	List<Grade> getGradesByBatchId(@PathVariable("batchId") String batchId);
 
+	@GetMapping("/batch/{batchId}")
+	List<Grade> getGradesByBatchId(@PathVariable("batchId") String batchId);
 }

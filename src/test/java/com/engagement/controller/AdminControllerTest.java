@@ -8,16 +8,19 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.Before;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -25,7 +28,7 @@ import com.engagement.model.Admin;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(AdminController.class)
 class AdminControllerTest {
 
@@ -40,9 +43,10 @@ class AdminControllerTest {
 
 	private String mockAdminJson = "{\"adminId\":0 ,\"email\":\"a@a.net\",\"firstName\":\"admin\",\"lastName\":\"adminson\"}";
 	Admin admin = new Admin(0, "a@a.net", "admin", "adminson");
+	Admin admin2 = new Admin(1, "a2@a.net", "admin", "adminson");
 	BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
 	}
@@ -129,9 +133,9 @@ class AdminControllerTest {
 	 */
 	@Test
 	void testGetBatchNames() throws Exception {
-//		List<BatchName> batchesByName = new ArrayList<>();
-//		batchesByName.add(namedBatch);
-//		Mockito.when(as.getAllBatches()).thenReturn(batchesByName);
+		List<BatchName> batchesByName = new ArrayList<>();
+		batchesByName.add(namedBatch);
+		Mockito.when(as.getAllBatches()).thenReturn(batchesByName);
 		
 		// Makes sure that caliber is up and running
 		this.mockMvc
@@ -142,6 +146,7 @@ class AdminControllerTest {
 		this.mockMvc
 			.perform(get("/admin/batch/allNames").accept(MediaType.ALL))
 			.andReturn();
+
 	}
 
 }
