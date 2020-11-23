@@ -35,14 +35,12 @@ public class AdminController {
 
 	private AdminService as;
 	
-	
 	@Autowired
 	public AdminController(AdminService as) {
 		super();
 		this.as = as;
 	}
 	
-
 	/**
 	 * Finds all admin objects - mainly for testing
 	 * 
@@ -124,10 +122,8 @@ public class AdminController {
 	@ApiOperation(value ="Returns a list of all of the batch IDs and names from the Caliber API.")
 	@GetMapping("/batch/allNames")
 	public List<BatchName> getBatches() {
-		return as.getAllBatches();
+		return as.getAllBatchNames();
 	}
-	
-	
 	
 	/**
 	 * @author Brooke Wursten
@@ -163,7 +159,6 @@ public class AdminController {
 			return new ResponseEntity<String>("Client not found!",  HttpStatus.CONFLICT);
 	}
 	
-	
 	/**
 	 * Unmap batch from client
 	 * @author daniel constantinescu
@@ -184,7 +179,5 @@ public class AdminController {
 		 
 			  return new ResponseEntity<String>("BatchId not found!",HttpStatus.CONFLICT);
 	  }
-	
-	
 	
 }

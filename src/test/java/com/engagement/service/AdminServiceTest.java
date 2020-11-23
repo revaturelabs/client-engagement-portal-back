@@ -22,6 +22,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.engagement.model.Admin;
 import com.engagement.model.Client;
 import com.engagement.model.ClientBatch;
+import com.engagement.model.dto.BatchName;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientBatchRepo;
 import com.engagement.repo.ClientRepo;
@@ -65,7 +66,12 @@ class AdminServiceTest {
 		clientBatchList.add(new ClientBatch(3,"TR-103",client1));
 		Mockito.when(cbr.findAll()).thenReturn(clientBatchList);
 
-		Map<String,Integer> resultMap = new HashMap<String,Integer>(){{
+		Map<String,Integer> resultMap = new HashMap<String,Integer>(){/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+		{
 			put("TR-101",1);
 			put("TR-102",1);
 			put("TR-103",2);
@@ -102,6 +108,8 @@ class AdminServiceTest {
 		Admin admin2= new Admin(12,"a@b","fstubtest2","lstubtest2");
 
 		List<Admin> admins = new ArrayList<Admin>();
+		admins.add(admin1);
+		admins.add(admin2);
 
 		Mockito.when(ar.findAll()).thenReturn(admins);
 		assertEquals(admins,as.findAll());
@@ -170,12 +178,26 @@ class AdminServiceTest {
 	@Test
 	void testUpdateSuccess() {
 		/**
-		 *Set up mock from Admin repo 
-		 */
+		*Set up mock from Admin repo 
+		*/
 		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
 
 		Mockito.when(ar.save(admin1)).thenReturn(admin1);
 		assertEquals(admin1, as.update(admin1));
+	}
+
+	/**
+	 * @author Carlo Anselmo
+	 * Tests if the service properly receives a list of batch names from the repo
+	 */
+	@Test
+	void testAllBatchesByName() {
+		BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");
+		List<BatchName> batchList = new ArrayList<>();
+		batchList.add(namedBatch);
+		Mockito.when(tc.getBatches()).thenReturn(batchList);
+		
+		assertEquals(batchList, tc.getBatches());
 	}
 
 	/**
