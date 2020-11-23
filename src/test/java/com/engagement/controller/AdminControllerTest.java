@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -80,6 +82,30 @@ class AdminControllerTest {
 											.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated())
 				.andExpect(content().string(containsString("Admin successfully created")));
+	}
+	
+	/**
+	 * Tests the find all method in the Admin Controller
+	 * @throws Exception 
+	 * @author Kelsey Iafrate
+	 */
+	@Test
+	void testFindAll() throws Exception {
+		Admin admin1 = new Admin(1, "a@a.net", "firstName", "lastName");
+		Admin admin2 = new Admin(2, "b@b.net", "firstName", "lastName");
+		List<Admin> admins = new ArrayList<>();
+		admins.add(admin1);
+		admins.add(admin2);
+		
+		Mockito.when(as.findAll()).thenReturn(admins);
+		
+		this.mockMvc
+			.perform(get("/admin/")
+				.accept(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$[*].adminId").value(Matchers.containsInAnyOrder(1,2)))
+			.andExpect(jsonPath("$[*].email").value(Matchers.containsInAnyOrder("a@a.net", "b@b.net")))
+			.andExpect(jsonPath("$[*].firstName").value(Matchers.containsInAnyOrder("firstName","firstName")))
+			.andExpect(jsonPath("$[*].lastName").value(Matchers.containsInAnyOrder("lastName","lastName")));
 	}
 	
 	/**
