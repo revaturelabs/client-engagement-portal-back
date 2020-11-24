@@ -1,19 +1,9 @@
 package com.engagement.controller;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.engagement.model.Admin;
+import com.engagement.model.dto.BatchName;
+import com.engagement.service.AdminService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,10 +18,14 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.engagement.model.Admin;
-import com.engagement.model.dto.BatchName;
-import com.engagement.service.AdminService;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
 /**
@@ -256,45 +250,45 @@ class AdminControllerTest {
 		this.mockMvc.perform(get("/admin/mappedBatchesClients").accept(MediaType.ALL))
 		.andExpect(content().json(mockMapJson));//Makes the request and ensures we receive the proper json
 	}
-	
+
 	/**
+	 * @throws Exception
 	 * @author daniel constantinescu
 	 * unit test for mapping batch to client when batchId found
-	 * @throws Exception
 	 */
 	@Test
-	void testmapBatchToClientSucces() throws Exception {
-		String batchId="ABC";
-		String email="a@b";
+	void testMapBatchToClientSuccess() throws Exception {
+		String batchId = "ABC";
+		String email = "a@b";
 		Mockito.when(as.mapBatchtoClient(batchId, email)).thenReturn(true);
 		this.mockMvc
 				.perform(put("/admin/mapBatchToClient?batchId=ABC&email=a@b").accept(MediaType.ALL))
 				.andExpect(status().isOk());
 	}
-	
+
 	/**
+	 * @throws Exception
 	 * @author daniel constatinescu
 	 * unit test for mapping batch to client when batchId not found
-	 * @throws Exception
 	 */
 	@Test
-	void testmapBatchToClientFail() throws Exception {
-		String batchId="ABC";
-		String email="a@b";
+	void testMapBatchToClientFail() throws Exception {
+		String batchId = "ABC";
+		String email = "a@b";
 		Mockito.when(as.mapBatchtoClient(batchId, email)).thenReturn(false);
 		this.mockMvc
-			.perform(put("/admin/mapBatchToClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
-			.andExpect(status().isConflict());
+				.perform(put("/admin/mapBatchToClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isConflict());
 	}
 
 	@Test
-	void testUnmapBatchFromClientSucces() throws Exception {
-		String batchId="ABC";
-		String email="a@b";
+	void testUnmapBatchFromClientSuccess() throws Exception {
+		String batchId = "ABC";
+		String email = "a@b";
 		Mockito.when(as.unmapBatchFromClient(batchId, email)).thenReturn(true);
 		this.mockMvc
-			.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
-			.andExpect(status().isOk());
+				.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
 	}
 	
 	@Test

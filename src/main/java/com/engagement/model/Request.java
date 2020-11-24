@@ -23,11 +23,11 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Request {
 
-	public static enum RequestTypes {
+	public enum RequestTypes {
 		INTERVENTION, TALENT
 	}
 
-	public static enum Status {
+	public enum Status {
 		PENDING, DONE
 	}
 
