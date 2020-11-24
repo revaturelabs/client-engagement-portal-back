@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.engagement.model.Client;
 import com.engagement.model.Request;
 import com.engagement.model.Request.RequestTypes;
 import com.engagement.model.Request.Status;
@@ -30,8 +32,12 @@ class RequestServiceTest {
 	@Mock
 	private static RequestRepo rr;
 
-	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", 1);
-	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", 2);
+	Client TestClient = new Client(1, "a@a.com", "revature", "5555555");
+
+	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", TestClient,
+			LocalDateTime.now());
+	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient,
+			LocalDateTime.now());
 
 	private List<Request> testRequests = new ArrayList<>();
 
