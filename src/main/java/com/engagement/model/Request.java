@@ -10,17 +10,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+*
+* 
+* @author Matt Hartman
+*
+*/
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class Request {
 
-	public static enum RequestTypes {
+	public enum RequestTypes {
 		INTERVENTION, TALENT
 	}
 
-	public static enum Status {
+	public enum Status {
 		PENDING, DONE
 	}
 
