@@ -20,6 +20,7 @@ import com.engagement.model.dto.Associate;
 import com.engagement.model.dto.AssociateAssignment;
 import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchOverview;
+import com.engagement.model.dto.ClientName;
 import com.engagement.model.dto.EmployeeAssignment;
 import com.engagement.model.dto.Grade;
 import com.engagement.repo.ClientBatchRepo;
@@ -145,5 +146,121 @@ class ClientServiceTest {
 		assertEquals(bao, results.get(0));
 		
 	}
+	
+	@Test 
+	void findAllClients() {
+	
+		/**
+		 * Builds an client list
+		 * @author Stephen Naugle
+		 */
+		final Client client = new Client(0, "a@a.net", "revature", "573-555-3535");
+		final Client client1 = new Client(1, "b@b.net", "myspace", "123-456-7890");
+		final List<Client> expectedList = new ArrayList<>();
+		expectedList.add(client);
+		expectedList.add(client1);
+		
+		/**
+		 * Tests that a batch's associate's grade list gets properly populated
+		 * @author Stephen Naugle
+		 */
+		
+		//Client Service returns list of client & client1
+		
+		Mockito.when(cs.findAll()).thenReturn(expectedList); 
+		assertEquals(expectedList.get(0).toString(), cs.findAll().get(0).toString());
+		assertEquals(expectedList.get(1).toString(), cs.findAll().get(1).toString());
+		
+		/**
+		 * Tests that if no batch is returned, a null is returned
+		 * @author Stephen Naugle
+		 */
+		
+		Mockito.when(cs.findAll()).thenReturn(expectedList);
+		
+		assertEquals(expectedList, cs.findAll());
+		
+	}
+	
+	@Test 
+	void findByEmail() {
+	
+		/**
+		 * Builds an client
+		 * @author Stephen Naugle
+		 */
+		final Client client = new Client(0, "a@a.net", "revature", "573-555-3535");
+	
+		/**
+		 * Tests that a batch's associate's grade list gets properly populated
+		 * @author Stephen Naugle
+		 */
+		
+		//Client Service returns list of client & client1
+		
+		Mockito.when(cs.findByEmail("a@a.net")).thenReturn(client); 
+		assertEquals(0, client.getClientId());
+		assertEquals("a@a.net", client.getEmail());
+		assertEquals("revature", client.getCompanyName());
+		assertEquals("573-555-3535", client.getPhoneNumber());
+		
+		/**
+		 * Tests that if no batch is returned, a null is returned
+		 * @author Stephen Naugle
+		 */
+		
+		Mockito.when(cs.findByEmail("a@a.net")).thenReturn(client);
+		
+		assertEquals(client, cs.findByEmail("a@a.net"));
+	}
+	
+	@Test 
+	void testAddClient() {
+	
+		/**
+		 * Builds an client
+		 * @author Stephen Naugle
+		 */
+		
+		final Client client = new Client(0, "a@a.net", "revature", "573-555-3535");
+	
+		/**
+		 * Tests that the client was saved
+		 * @author Stephen Naugle
+		 */
 
+		Mockito.when(cr.save(client)).thenReturn(client);
+		assertEquals(client, cr.save(client));	
+		
+	}
+	
+	@Test
+	void testFindClientNames() {
+		
+		/**
+		 * Builds a client list
+		 * Tests that the findCLientNames returns the list of Client Names 
+		 * when given a list of client
+		 * @author Stephen Naugle
+		 */
+		final ClientName client = new ClientName("revature", "a@a.net");
+		final ClientName client1 = new ClientName("myspace", "b@b.net");
+		final Client client2 = new Client();
+		final Client client3 = new Client();
+		client2.setCompanyName("revature");
+		client2.setEmail("a@a.net");
+		client3.setCompanyName("myspace");
+		client3.setEmail("b@b.net");
+		
+		final List<Client> returnedList = new ArrayList<>();
+		final List<ClientName> expectedList = new ArrayList<>();
+		expectedList.add(client);
+		expectedList.add(client1);
+		returnedList.add(client2);
+		returnedList.add(client3);
+		
+		Mockito.when(cr.findAll()).thenReturn(returnedList);
+		assertEquals(expectedList, cs.findClientNames());	
+		
+	}
 }
