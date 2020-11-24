@@ -1,5 +1,6 @@
 package com.engagement.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,13 @@ import io.swagger.annotations.ApiOperation;
 public class RequestController {
 
 	private RequestService rs;
+	private ClientController cc;
 
 	@Autowired
-	public RequestController(RequestService rs) {
+	public RequestController(RequestService rs, ClientController cc) {
 		super();
 		this.rs = rs;
+		this.cc = cc;
 	}
 
 	/**
@@ -66,7 +69,8 @@ public class RequestController {
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody RequestDto requestDTO) {
 		Request persistentRequest = new Request(0, RequestTypes.valueOf(requestDTO.getRequestType()),
-				Status.valueOf(requestDTO.getStatus()), requestDTO.getMessage(), requestDTO.getClientId());
+				Status.valueOf(requestDTO.getStatus()), requestDTO.getMessage(),
+				cc.findByEmail(requestDTO.getClientEmail()), LocalDateTime.now());
 
 		if (rs.save(persistentRequest)) {
 			return new ResponseEntity<>("Request succesfully created", HttpStatus.CREATED);

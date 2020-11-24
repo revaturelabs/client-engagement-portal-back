@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import com.engagement.model.Client;
 import com.engagement.model.Request;
 import com.engagement.model.Request.RequestTypes;
 import com.engagement.model.Request.Status;
@@ -41,11 +43,16 @@ class RequestControllerTest {
 	@InjectMocks
 	private RequestController rc;
 
-	private String testRequestJson1 = "{\"requestId\":0, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientId\":2}";
+	Client TestClient = new Client(1, "a@a.com", "revature", "5555555");
 
-	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", 1);
-	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", 2);
-	private Request testRequest2 = new Request(0, RequestTypes.TALENT, Status.DONE, "test comment2", 2);
+	private String testRequestJson1 = "{\"requestId\":0, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientEmail\":\"a@a.com\"}";
+
+	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", TestClient,
+			LocalDateTime.now());
+	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient,
+			LocalDateTime.now());
+	private Request testRequest2 = new Request(0, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient,
+			LocalDateTime.now());
 
 	// private Request testRequest1 = new Request(1, "TALENT", "DONE", "test
 	// comment2", 2);
