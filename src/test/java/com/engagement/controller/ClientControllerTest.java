@@ -73,7 +73,11 @@ class ClientControllerTest {
 			.andExpect(status().isConflict());
 	}
 	
-	
+	/**
+	 * Ensures that the get mapping for finding all clients works correctly. Expects a HTTP status
+	 * of ok and that the response body contains two different clients.
+	 * @author Tucker Fritz
+	 */
 	@Test
 	void findAllClient() throws Exception {
 		List<Client> expectedList = new ArrayList<>();
@@ -91,6 +95,11 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$[*].phoneNumber").value(Matchers.containsInAnyOrder("573-555-3535", "573-343-1334")));
 	}
 	
+	/**
+	 * Ensures that the get mapping for finding a client by email works correctly. Expects a
+	 * HTTP status of ok and that the response body contains the client specified by an email.
+	 * @author Tucker Fritz
+	 */
 	@Test
 	void findByEmail() throws Exception {
 		Mockito.when(cs.findByEmail("a@a.net")).thenReturn(client0); //Controller service returns client 0 when given a@a.net
