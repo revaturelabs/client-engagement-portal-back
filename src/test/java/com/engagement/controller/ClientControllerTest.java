@@ -73,7 +73,11 @@ class ClientControllerTest {
 			.andExpect(status().isConflict());
 	}
 	
-	
+	/**
+	 * Ensures that the get mapping for finding all clients works correctly. Expects a HTTP status
+	 * of ok and that the response body contains two different clients.
+	 * @author Tucker Fritz
+	 */
 	@Test
 	void findAllClient() throws Exception {
 		List<Client> expectedList = new ArrayList<>();
@@ -91,6 +95,11 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$[*].phoneNumber").value(Matchers.containsInAnyOrder("573-555-3535", "573-343-1334")));
 	}
 	
+	/**
+	 * Ensures that the get mapping for finding a client by email works correctly. Expects a
+	 * HTTP status of ok and that the response body contains the client specified by an email.
+	 * @author Tucker Fritz
+	 */
 	@Test
 	void findByEmail() throws Exception {
 		Mockito.when(cs.findByEmail("a@a.net")).thenReturn(client0); //Controller service returns client 0 when given a@a.net
@@ -105,8 +114,19 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$.phoneNumber").value("573-555-3535"));
 	}
 	
+	/*
+	 * 
+	 * This tests that the get batch by id test returns a batch with all of its employees 
+	 * 		and all of the trainees and their grades
+	 * @author Kelsey Iafrate
+	 * 
+	 */
+	
 	@Test
-	void getBatchById() throws Exception {
+	void getBatchByIdTest() throws Exception {
+		/*
+		 * The batch that should be returned
+		 */
 		Batch batch = new Batch("TR-1018", "batchName", "this is a date", "this is an end date", "java", "WVU", "ROCP", 70, 80, new ArrayList<EmployeeAssignment>(), new ArrayList<AssociateAssignment>(), 1);
 		Mockito.when(cs.getBatchByBatchId("TR-1018")).thenReturn(batch);
 		this.mockMvc
