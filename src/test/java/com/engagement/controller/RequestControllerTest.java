@@ -27,6 +27,7 @@ import com.engagement.model.Client;
 import com.engagement.model.Request;
 import com.engagement.model.Request.RequestTypes;
 import com.engagement.model.Request.Status;
+import com.engagement.model.dto.RequestDto;
 import com.engagement.service.RequestService;
 
 @ExtendWith(MockitoExtension.class)
@@ -45,17 +46,22 @@ class RequestControllerTest {
 
 	Client TestClient = new Client(1, "a@a.com", "revature", "5555555");
 
+	LocalDateTime date = LocalDateTime.now();
+
 	private String testRequestJson1 = "{\"requestId\":0, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientEmail\":\"a@a.com\"}";
 
 	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", TestClient,
-			LocalDateTime.now());
-	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient,
-			LocalDateTime.now());
-	private Request testRequest2 = new Request(0, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient,
-			LocalDateTime.now());
+			date);
 
-	// private Request testRequest1 = new Request(1, "TALENT", "DONE", "test
-	// comment2", 2);
+	private RequestDto testRequest0DTO = new RequestDto(0, "INTERVENTION", "PENDING", "test comment", "a@a.com", date);
+
+	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient, date);
+
+	private RequestDto testRequest1DTO = new RequestDto(1, "TALENT", "DONE", "test comment2", "a@a.com", date);
+
+	private Request testRequest2 = new Request(0, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient, date);
+
+	private RequestDto testRequest2DTO = new RequestDto(0, "TALENT", "DONE", "test comment2", "a@a.com", date);
 
 	@BeforeEach
 	void setUp() {
@@ -106,7 +112,7 @@ class RequestControllerTest {
 
 	@Test
 	void saveInterventionSuccessTest() throws Exception {
-		Mockito.when(rs.save(testRequest2)).thenReturn(true);
+		Mockito.when(rs.save(testRequest2DTO)).thenReturn(true);
 		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson1)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isCreated());
 
@@ -121,7 +127,7 @@ class RequestControllerTest {
 
 	@Test
 	void saveInterventionFailTest() throws Exception {
-		Mockito.when(rs.save(testRequest0)).thenReturn(false);
+		Mockito.when(rs.save(testRequest0DTO)).thenReturn(false);
 		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson1)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isConflict());
 
