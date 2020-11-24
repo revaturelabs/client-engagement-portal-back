@@ -17,7 +17,11 @@ import com.engagement.service.AdminService;
 
 
 
-
+/**
+ * Testing for the LoggingAspect.java
+ * @author Enoch Cho
+ *
+ */
 @ExtendWith(MockitoExtension.class)
 class LoggingAspectTest {
 
@@ -28,7 +32,11 @@ class LoggingAspectTest {
 	private AdminController ac;
 	
 	private LoggingAspect la;
-
+	
+	
+/**
+ * Tests the pointcuts to make sure they are called. 
+ */
 	@Test
 	void testSpringBeanPointcut() {
 		la = new LoggingAspect();
@@ -40,6 +48,9 @@ class LoggingAspectTest {
 		assertNull(proxyAc.findAll());
 	}
 	
+	/**
+	 * Tests that the AfterThrowing is called when an exception is thrown. 
+	 */
 	@Test
 	void testException() {
 		la = new LoggingAspect();
