@@ -20,6 +20,7 @@ import com.engagement.model.Client;
 import com.engagement.model.Request;
 import com.engagement.model.Request.RequestTypes;
 import com.engagement.model.Request.Status;
+import com.engagement.model.dto.RequestDto;
 import com.engagement.repo.RequestRepo;
 
 @ExtendWith(MockitoExtension.class)
@@ -36,7 +37,14 @@ class RequestServiceTest {
 
 	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", TestClient,
 			LocalDateTime.now());
+
+	private RequestDto testRequest0DTO = new RequestDto(0, "INTERVENTION", "PENDING", "test comment", "a@a.com",
+			LocalDateTime.now());
+
 	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient,
+			LocalDateTime.now());
+
+	private RequestDto testRequest1DTO = new RequestDto(0, "TALENT", "DONE", "test comment2", "a@a.com",
 			LocalDateTime.now());
 
 	private List<Request> testRequests = new ArrayList<>();
@@ -73,10 +81,10 @@ class RequestServiceTest {
 	@Test
 	void saveTest() {
 		Mockito.when(rr.save(testRequest0)).thenReturn(testRequest0);
-		assertTrue(rs.save(testRequest0));
+		assertTrue(rs.save(testRequest0DTO));
 		assertFalse(rs.save(null));
-		Mockito.when(rs.save(testRequest1)).thenThrow(IllegalArgumentException.class);
-		assertFalse(rs.save(testRequest1));
+		Mockito.when(rs.save(testRequest1DTO)).thenThrow(IllegalArgumentException.class);
+		assertFalse(rs.save(testRequest1DTO));
 
 	}
 

@@ -1,6 +1,5 @@
 package com.engagement.controller;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engagement.model.Request;
-import com.engagement.model.Request.RequestTypes;
-import com.engagement.model.Request.Status;
 import com.engagement.model.dto.RequestDto;
 import com.engagement.service.RequestService;
 
@@ -35,13 +32,11 @@ import io.swagger.annotations.ApiOperation;
 public class RequestController {
 
 	private RequestService rs;
-	private ClientController cc;
 
 	@Autowired
-	public RequestController(RequestService rs, ClientController cc) {
+	public RequestController(RequestService rs) {
 		super();
 		this.rs = rs;
-		this.cc = cc;
 	}
 
 	/**
@@ -68,11 +63,8 @@ public class RequestController {
 	@ApiOperation(value = "Saves an intervention request to the database.")
 	@PostMapping("/")
 	public ResponseEntity<String> save(@RequestBody RequestDto requestDTO) {
-		Request persistentRequest = new Request(0, RequestTypes.valueOf(requestDTO.getRequestType()),
-				Status.valueOf(requestDTO.getStatus()), requestDTO.getMessage(),
-				cc.findByEmail(requestDTO.getClientEmail()), LocalDateTime.now());
 
-		if (rs.save(persistentRequest)) {
+		if (rs.save(requestDTO)) {
 			return new ResponseEntity<>("Request succesfully created", HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>("Request creation failed", HttpStatus.CONFLICT);

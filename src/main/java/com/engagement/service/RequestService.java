@@ -1,11 +1,15 @@
 package com.engagement.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.engagement.model.Request;
+import com.engagement.model.Request.RequestTypes;
+import com.engagement.model.Request.Status;
+import com.engagement.model.dto.RequestDto;
 import com.engagement.repo.RequestRepo;
 
 /**
@@ -21,9 +25,13 @@ public class RequestService {
 	private RequestRepo rr;
 
 	@Autowired
-	public RequestService(RequestRepo rr) {
+	ClientService cs;
+
+	@Autowired
+	public RequestService(RequestRepo rr, ClientService cs) {
 		super();
 		this.rr = rr;
+		this.cs = cs;
 
 	}
 
@@ -42,13 +50,18 @@ public class RequestService {
 	 * @param intervention An intervention to be saved to the database
 	 * @return true if success, false if fail
 	 */
-	public boolean save(Request intervention) {
-		if (intervention == null) {
+	public boolean save(RequestDto requestDTO) {
+
+		if (requestDTO == null) {
 			return false;
 		}
 
+		Request persistentRequest = new Request(0, RequestTypes.valueOf(requestDTO.getRequestType()),
+				Status.valueOf(requestDTO.getStatus()), requestDTO.getMessage(),
+				cs.findByEmail(requestDTO.getClientEmail()), LocalDateTime.now());
+
 		try {
-			rr.save(intervention);
+			rr.save(persistentRequest);
 			return true;
 		} catch (IllegalArgumentException e) {
 
