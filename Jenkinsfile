@@ -23,12 +23,12 @@ pipeline {
           stage('Install maven dependencies'){
             steps{
                 //clean install maven
-                sh 'mvn install -DskipTests'
+                sh 'mvn install'
             }
         }
         stage ('Clean & Package') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                sh 'mvn clean package'
             }
         }
         /*
