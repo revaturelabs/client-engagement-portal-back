@@ -105,8 +105,19 @@ class ClientControllerTest {
 		.andExpect(jsonPath("$.phoneNumber").value("573-555-3535"));
 	}
 	
+	/*
+	 * 
+	 * This tests that the get batch by id test returns a batch with all of its employees 
+	 * 		and all of the trainees and their grades
+	 * @author Kelsey Iafrate
+	 * 
+	 */
+	
 	@Test
-	void getBatchById() throws Exception {
+	void getBatchByIdTest() throws Exception {
+		/*
+		 * The batch that should be returned
+		 */
 		Batch batch = new Batch("TR-1018", "batchName", "this is a date", "this is an end date", "java", "WVU", "ROCP", 70, 80, new ArrayList<EmployeeAssignment>(), new ArrayList<AssociateAssignment>(), 1);
 		Mockito.when(cs.getBatchByBatchId("TR-1018")).thenReturn(batch);
 		this.mockMvc
