@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -240,47 +239,28 @@ class ClientServiceTest {
 		
 		/**
 		 * Builds a client list
+		 * Tests that the findCLientNames returns the list of Client Names 
+		 * when given a list of client
 		 * @author Stephen Naugle
 		 */
-		final ClientName client = new ClientName("a@a.net", "revature");
-		final ClientName client1 = new ClientName("b@b.net", "myspace");
+		final ClientName client = new ClientName("revature", "a@a.net");
+		final ClientName client1 = new ClientName("myspace", "b@b.net");
+		final Client client2 = new Client();
+		final Client client3 = new Client();
+		client2.setCompanyName("revature");
+		client2.setEmail("a@a.net");
+		client3.setCompanyName("myspace");
+		client3.setEmail("b@b.net");
+		
+		final List<Client> returnedList = new ArrayList<>();
 		final List<ClientName> expectedList = new ArrayList<>();
 		expectedList.add(client);
 		expectedList.add(client1);
+		returnedList.add(client2);
+		returnedList.add(client3);
 		
-		/**
-		 * Tests that a batch's associate's grade list gets properly populated
-		 * @author Stephen Naugle
-		 */
-		
-		//Client Service returns list of client & client1
-		
-//		Mockito.when(cs.ClientNames()).thenReturn(cs.ClientNames()); 
-//		Mockito.when(cs.ClientNames().contains(client.getCompanyName())).thenReturn(true);
-		Mockito.when(cs.findClientNames()).thenReturn(expectedList);
-		assertEquals(expectedList, cs.findClientNames());
-	
-		/**
-		 * Tests that if no batch is returned, a null is returned
-		 * @author Stephen Naugle
-		 */
-		
-//		Mockito.when(cs.findAll()).thenReturn(expectedList);
-//		
-//		assertEquals(expectedList, cs.findAll());
-		
-		
+		Mockito.when(cr.findAll()).thenReturn(returnedList);
+		assertEquals(expectedList, cs.findClientNames());	
 		
 	}
-	
-	public List<ClientName> ClientNames()
-	{
-		List<Client> clients = cr.findAll();
-		List<ClientName> clientsdto = new LinkedList<ClientName>();
-		for(int i = 0; i < clients.size(); i++)
-			clientsdto.add(new ClientName(clients.get(i).getCompanyName(), String.valueOf(clients.get(i).getClientId())));
-		
-		return clientsdto;
-	}
-
 }
