@@ -23,27 +23,17 @@ pipeline {
           stage('Install maven dependencies'){
             steps{
                 //clean install maven
-                sh 'mvn install -DskipTests'
+                sh 'mvn install'
             }
         }
         stage ('Clean & Package') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                sh 'mvn clean package'
             }
         }
-        // stage ('Run Spring App') {
-        //     steps {
-                
-        //     	sh 'nohup java -jar target/Client-Engagement.jar &'
-        //        //sh 'disown java -jar /home/ec2-user/.jenkins/workspace/Revature_Client_Engagement_Portal/target/cep-engagement-service-0.0.1-SNAPSHOT.jar &'
-        //         //Better user this one if we're unsure of the first one
-                 
-        //         // sh 'mvn spring-boot:run'  // This one works but cannot be accessed with postman but won't stop running
-        //         // sh 'nohup mvn spring-boot:run &' 
-        //          //sh 'JENKINS_NODE_COOKIE=dontkillme nohup mvn spring-boot:run > logsfile.txt &'
-        //          // it would run if nohup is not included. Not tested though not sure if porrt 8081 is open or what
-        //     }
-        // }
+        /*
+         * Tries to remove an existing Docker Container named cep
+        */
         stage ('Remove Docker Container') {
                 steps {
                     script {
@@ -55,6 +45,9 @@ pipeline {
                 }
             }
         }
+        /*
+         * Deletes Extra images that has no container
+        */
         stage ('Delete Docker Image') {
             steps {
             sh 'docker image prune -a -f'
