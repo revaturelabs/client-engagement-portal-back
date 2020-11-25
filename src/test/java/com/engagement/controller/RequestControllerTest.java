@@ -57,10 +57,6 @@ class RequestControllerTest {
 
 	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient, date);
 
-	private RequestDto testRequest1DTO = new RequestDto(1, "TALENT", "DONE", "test comment2", "a@a.com", date);
-
-	private Request testRequest2 = new Request(0, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient, date);
-
 	private RequestDto testRequest2DTO = new RequestDto(0, "TALENT", "DONE", "test comment2", "a@a.com", date);
 
 	@BeforeEach
