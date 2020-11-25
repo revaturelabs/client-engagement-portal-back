@@ -5,7 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,18 +46,16 @@ class RequestControllerTest {
 
 	Client TestClient = new Client(1, "a@a.com", "revature", "5555555");
 
-	LocalDateTime date = LocalDateTime.now();
-
-	private String testRequestJson1 = "{\"requestId\":0, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientEmail\":\"a@a.com\"}";
+	LocalDate date = LocalDate.of(2020, 11, 25);
 
 	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", TestClient,
 			date);
 
-	private RequestDto testRequest0DTO = new RequestDto(0, "INTERVENTION", "PENDING", "test comment", "a@a.com", date);
-
 	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient, date);
 
 	private RequestDto testRequest2DTO = new RequestDto(0, "TALENT", "DONE", "test comment2", "a@a.com", date);
+
+	private String testRequestJson = "{\"requestId\":0, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientEmail\":\"a@a.com\", \"dateCreated\": \"2020-11-25\"}";
 
 	@BeforeEach
 	void setUp() {
@@ -109,7 +107,7 @@ class RequestControllerTest {
 	@Test
 	void saveInterventionSuccessTest() throws Exception {
 		Mockito.when(rs.save(testRequest2DTO)).thenReturn(true);
-		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson1)
+		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isCreated());
 
 	}
@@ -123,8 +121,8 @@ class RequestControllerTest {
 
 	@Test
 	void saveInterventionFailTest() throws Exception {
-		Mockito.when(rs.save(testRequest0DTO)).thenReturn(false);
-		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson1)
+		Mockito.when(rs.save(testRequest2DTO)).thenReturn(false);
+		this.mockMvc.perform(post("/intervention/").contentType(MediaType.APPLICATION_JSON).content(testRequestJson)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isConflict());
 
 	}

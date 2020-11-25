@@ -59,8 +59,7 @@ public class RequestService {
 
 		Client c = cr.findByEmail(requestDTO.getClientEmail());
 		Request persistentRequest = new Request(0, RequestTypes.valueOf(requestDTO.getRequestType()),
-				Status.valueOf(requestDTO.getStatus()), requestDTO.getMessage(),
-				c, null);
+				Status.valueOf(requestDTO.getStatus()), requestDTO.getMessage(), c, requestDTO.getDateCreated());
 
 		try {
 			rr.save(persistentRequest);
