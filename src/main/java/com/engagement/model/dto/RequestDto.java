@@ -13,5 +13,5 @@ public class RequestDto {
 	private String requestType;
 	private String status;
 	private String message;
-	private int clientId;
+	private String clientEmail;
 }
