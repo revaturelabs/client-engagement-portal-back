@@ -6,10 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.engagement.model.Client;
 import com.engagement.model.Request;
 import com.engagement.model.Request.RequestTypes;
 import com.engagement.model.Request.Status;
 import com.engagement.model.dto.RequestDto;
+import com.engagement.repo.ClientRepo;
 import com.engagement.repo.RequestRepo;
 
 /**
@@ -25,13 +27,13 @@ public class RequestService {
 	private RequestRepo rr;
 
 	@Autowired
-	ClientService cs;
+	private ClientRepo cr;
 
 	@Autowired
-	public RequestService(RequestRepo rr, ClientService cs) {
+	public RequestService(RequestRepo rr, ClientRepo cr) {
 		super();
 		this.rr = rr;
-		this.cs = cs;
+		this.cr = cr;
 
 	}
 
@@ -56,9 +58,10 @@ public class RequestService {
 			return false;
 		}
 
+		Client c = cr.findByEmail(requestDTO.getClientEmail());
 		Request persistentRequest = new Request(0, RequestTypes.valueOf(requestDTO.getRequestType()),
 				Status.valueOf(requestDTO.getStatus()), requestDTO.getMessage(),
-				cs.findByEmail(requestDTO.getClientEmail()), LocalDateTime.now());
+				c, null);
 
 		try {
 			rr.save(persistentRequest);

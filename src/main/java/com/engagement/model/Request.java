@@ -9,7 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.convert.JodaTimeConverters.LocalDateTimeToDateConverter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,10 +54,11 @@ public class Request {
 
 	private String message;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "client_id")
 	private Client client;
 
+	@CreationTimestamp
 	private LocalDateTime dateCreated;
 
 }
