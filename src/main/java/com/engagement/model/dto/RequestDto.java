@@ -1,7 +1,5 @@
 package com.engagement.model.dto;
 
-import java.time.LocalDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,5 +14,4 @@ public class RequestDto {
 	private String status;
 	private String message;
 	private String clientEmail;
-	private LocalDate dateCreated;
 }

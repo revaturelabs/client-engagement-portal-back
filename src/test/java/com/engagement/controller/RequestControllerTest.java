@@ -5,7 +5,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,16 +45,16 @@ class RequestControllerTest {
 
 	Client TestClient = new Client(1, "a@a.com", "revature", "5555555");
 
-	LocalDate date = LocalDate.of(2020, 11, 25);
+//	LocalDate date = LocalDate.of(2020, 11, 25);
 
 	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", TestClient,
-			date);
+			null);
 
-	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient, date);
+	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient, null);
 
-	private RequestDto testRequest2DTO = new RequestDto(0, "TALENT", "DONE", "test comment2", "a@a.com", date);
+	private RequestDto testRequest2DTO = new RequestDto(0, "TALENT", "DONE", "test comment2", "a@a.com");
 
-	private String testRequestJson = "{\"requestId\":0, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientEmail\":\"a@a.com\", \"dateCreated\": \"2020-11-25\"}";
+	private String testRequestJson = "{\"requestId\":0, \"requestType\":\"TALENT\", \"status\":\"DONE\",\"message\":\"test comment2\",\"clientEmail\":\"a@a.com\"}";
 
 	@BeforeEach
 	void setUp() {
