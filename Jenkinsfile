@@ -63,6 +63,11 @@ pipeline {
         sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
       }
     }
+    stage ('Docker Log') {
+      steps {
+        sh 'docker logs -f cep > /logs/application.log';
+      }
+    }
     stage ('Docker Check Containers') {
       steps {
         sh 'docker ps -a'
