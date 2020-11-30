@@ -244,17 +244,21 @@ class AdminServiceTest {
 
 	@Test
 	void testUnMapBatchFromClientSucces(){
-		String BatchId="ABC";
+		String batchId="ABC";
 		String email="a@b";
 
 		Client c =  new Client (1,"a@b","company", "2488546789");
 		ClientBatch cb=new ClientBatch(1000,"ABC",c);
 
-		Mockito.when(cbr.findByBatchId(BatchId));
-		doNothing().when(cbr).deleteByBatchId(BatchId);
-		assertTrue(as.unmapBatchFromClient(BatchId, email));
+
+		Mockito.when(cr.findByEmail(email)).thenReturn(c);
 		
-		Mockito.when(cbr.findByBatchId(null)).thenReturn(null);
+		Mockito.when(cbr.findByBatchIdAndClient(batchId,c)).thenReturn(cb);
+		doNothing().when(cbr).delete(cb);
+		assertTrue(as.unmapBatchFromClient(batchId, email));
+
+		
+		Mockito.when(cbr.findByBatchIdAndClient(null,null)).thenReturn(null);
 		assertFalse(as.unmapBatchFromClient(null, null));
 	}
 }

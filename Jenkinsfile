@@ -63,6 +63,11 @@ pipeline {
         sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
       }
     }
+    stage ('Docker Log') {
+      steps {
+        sh 'nohup docker logs -f cep > /home/ec2-user/.jenkins/workspace/CEP-Back/logs/application.log &';
+      }
+    }
     stage ('Docker Check Containers') {
       steps {
         sh 'docker ps -a'
