@@ -173,7 +173,7 @@ public class AdminController {
 	  
 		  if  (as.unmapBatchFromClient(batchId, email))
 		  
-			  return new   ResponseEntity<>("Unmap succesful!", HttpStatus.OK); 
+			  return new   ResponseEntity<>("Unmap successful!", HttpStatus.OK); 
 	  
 		  else 
 		 
