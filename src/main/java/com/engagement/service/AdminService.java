@@ -182,10 +182,12 @@ public class AdminService {
 	public boolean unmapBatchFromClient(String batchId, String email) {
 		
 		boolean ret=true;
+		Client c = cr.findByEmail(email);
+		ClientBatch cb = cbr.findByBatchIdAndClient(batchId,c);
 		
-		if (cbr.findByBatchId(batchId) != null) {
+		if (cb != null) {
 				
-			cbr.deleteByBatchId(batchId);
+			cbr.delete(cb);
 			ret=true;
 		
 		}else
