@@ -157,13 +157,12 @@ public class AdminService {
 		Client client = cr.findByEmail(email);
 			
 		if (client != null) {
-				if(!cbr.findByBatchId(batchId).getClient().equals(client))
+				if(cbr.findByBatchId(batchId).size() == 0)
 				{
-				ClientBatch cb = new ClientBatch(1000,batchId,client);
-				cbr.save(cb) ;
-				ret=true;
-				}
-				
+					ClientBatch cb = new ClientBatch(1000,batchId,client);
+					cbr.save(cb) ;
+					ret=true;
+				}	
 		}else 
 			    ret= false;
 		

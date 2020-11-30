@@ -250,7 +250,7 @@ class AdminServiceTest {
 		Client c =  new Client (1,"a@b","company", "2488546789");
 		ClientBatch cb=new ClientBatch(1000,"ABC",c);
 
-		Mockito.when(cbr.findByBatchId(BatchId)).thenReturn(cb);
+		Mockito.when(cbr.findByBatchId(BatchId));
 		doNothing().when(cbr).deleteByBatchId(BatchId);
 		assertTrue(as.unmapBatchFromClient(BatchId, email));
 		
