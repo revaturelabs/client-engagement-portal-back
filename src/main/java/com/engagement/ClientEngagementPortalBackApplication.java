@@ -29,12 +29,12 @@ public class ClientEngagementPortalBackApplication {
 	 */
 	@Bean
 	public UiConfiguration uiConfig() {
-		final String[] methodsWithTryItOutButton = {"get","post","delete","put"}; //add get method if security allows
+		final String[] methodsWithTryItOutButton = {}; //add get method if security allows
 		return UiConfigurationBuilder.builder().supportedSubmitMethods(methodsWithTryItOutButton).build();
 	}
 	
 	/**
-	 * Configures Swagger UI to make it all pretty-like.
+	 * Configures Swagger UI to make it all pretty-like. 
 	 *
 	 * @return A prepared Docket instance
 	 */
