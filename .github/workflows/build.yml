@@ -11,13 +11,14 @@ jobs:
     name: Build
     runs-on: ubuntu-latest #Runner server type
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2 # This action checks-out our repository under $GITHUB_WORKSPACE, so our workflow can access it.
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v1 # This action sets up the JVM
         with:
           java-version: 1.8
+      # Caching dependencies and build outputs to improve workflow execution time.
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
@@ -33,5 +34,5 @@ jobs:
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -X -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Needed to access Sonar
+        run: mvn -X -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar # maven command that uses sonar

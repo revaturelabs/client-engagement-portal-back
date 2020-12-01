@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClientName {
 	private String companyName;
-	private String clientId;
+	private String email;
 }
