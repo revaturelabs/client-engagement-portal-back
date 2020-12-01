@@ -1,6 +1,5 @@
 package com.engagement.controller;
 
-
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -12,11 +11,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -24,7 +24,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -32,9 +31,7 @@ import com.engagement.model.Admin;
 import com.engagement.model.dto.BatchName;
 import com.engagement.service.AdminService;
 
-
-@RunWith(SpringRunner.class)
-@AutoConfigureMockMvc(addFilters = false)
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(AdminController.class)
 class AdminControllerTest {
 
@@ -48,12 +45,11 @@ class AdminControllerTest {
 	private AdminController ac;
 
 	private String mockAdminJson = "{\"adminId\":0 ,\"email\":\"a@a.net\",\"firstName\":\"admin\",\"lastName\":\"adminson\"}";
-	private String mockAdminJson2 = "{\"adminId\":1 ,\"email\":\"a2@a.net\",\"firstName\":\"admin\",\"lastName\":\"adminson\"}";
 	Admin admin = new Admin(0, "a@a.net", "admin", "adminson");
 	Admin admin2 = new Admin(1, "a2@a.net", "admin", "adminson");
 	BatchName namedBatch = new BatchName("TR-1759", "Mock Batch 505");
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(ac).build();
 	}
@@ -66,7 +62,7 @@ class AdminControllerTest {
 											.content(mockAdminJson)
 											.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated())
-				.andExpect(content().string(containsString("User succesfully created")));
+				.andExpect(content().string(containsString("Admin successfully created")));
 	}
 	
 	@Test
@@ -77,7 +73,7 @@ class AdminControllerTest {
 											.content(mockAdminJson)
 											.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isConflict())
-				.andExpect(content().string(containsString("User creation failed")));
+				.andExpect(content().string(containsString("Admin creation failed")));
 
 	}
 
@@ -90,7 +86,7 @@ class AdminControllerTest {
 											.content(mockAdminJson)
 											.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isAccepted())
-				.andExpect(content().string(containsString("User updated succesfully")));
+				.andExpect(content().string(containsString("Admin updated succesfully")));
 	}
 	
 	@Test
@@ -101,7 +97,7 @@ class AdminControllerTest {
 											.content(mockAdminJson)
 											.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isConflict())
-				.andExpect(content().string(containsString("User not found")));
+				.andExpect(content().string(containsString("Admin not found")));
 	}
 	
 	@Test
@@ -130,7 +126,7 @@ class AdminControllerTest {
 		this.mockMvc
 			.perform(delete("/admin/delete").accept(MediaType.ALL).param("id", "0"))
 			.andExpect(status().isConflict())
-			.andExpect(content().string(containsString("User not found")));
+			.andExpect(content().string(containsString("Admin not found")));
 	}
 	
 	/**

@@ -10,11 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>com.engagement</groupId>
 	<artifactId>Client-Engagement-Portal-Back</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Client-Engagement-Portal-Back</name>
-	<description>Demo project for Spring Boot</description>
+	<description>The Backend project for Client Engagement Portal</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -76,34 +76,6 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-resource-server -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-oauth2-resource-server</artifactId>
-			<version>5.4.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-jose -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-oauth2-jose</artifactId>
-			<version>5.4.0</version>
-		</dependency>
-
-
-
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -121,10 +93,7 @@
 			<artifactId>springfox-boot-starter</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-
-
-	</dependencies>
-
+</dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -166,6 +135,12 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<excludes>
+						<exclude>com/engagement/repo/**</exclude>
+						<exclude>com/engagement/model/**</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
