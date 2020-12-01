@@ -34,11 +34,11 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Request {
 
-	public enum RequestTypes {
+	public static enum RequestTypes {
 		INTERVENTION, TALENT
 	}
 
-	public enum Status {
+	public static enum Status {
 		PENDING, DONE
 	}
 
@@ -56,7 +56,7 @@ public class Request {
 
 	private String message;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "client_id")
 	private Client client;
 
