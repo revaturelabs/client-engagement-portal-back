@@ -29,7 +29,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
     	http.authorizeRequests()
     	.antMatchers(AUTH_WHITELIST).permitAll();
-    	http.authorizeRequests(authorize -> authorize
+    	http.cors().and().csrf().disable().authorizeRequests(authorize -> authorize
                 .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
