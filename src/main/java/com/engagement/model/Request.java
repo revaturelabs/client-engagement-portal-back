@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,11 +34,11 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Request {
 
-	public enum RequestTypes {
+	public static enum RequestTypes {
 		INTERVENTION, TALENT
 	}
 
-	public enum Status {
+	public static enum Status {
 		PENDING, DONE
 	}
 
@@ -45,14 +47,16 @@ public class Request {
 	private int requestId;
 
 	@Column(nullable = false)
+	@Enumerated(EnumType.ORDINAL)
 	private RequestTypes requestType;
 
 	@Column(nullable = false)
+	@Enumerated(EnumType.ORDINAL)
 	private Status status;
 
 	private String message;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "client_id")
 	private Client client;
 
