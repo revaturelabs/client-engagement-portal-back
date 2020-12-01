@@ -163,10 +163,7 @@ public class AdminService {
 				cbr.save(cb) ;
 				ret=true;
 			}
-	
-		}else 
-			    ret= false;
-		
+		}
 		return ret;
 	}
 	
