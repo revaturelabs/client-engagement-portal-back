@@ -15,9 +15,12 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.engagement.model.Client;
 import com.engagement.model.Request;
 import com.engagement.model.Request.RequestTypes;
 import com.engagement.model.Request.Status;
+import com.engagement.model.dto.RequestDto;
+import com.engagement.repo.ClientRepo;
 import com.engagement.repo.RequestRepo;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,9 +32,19 @@ class RequestServiceTest {
 
 	@Mock
 	private static RequestRepo rr;
+	@Mock
+	private static ClientRepo cr;
 
-	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", 1);
-	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", 2);
+	Client TestClient = new Client(1, "a@a.com", "revature", "5555555");
+
+	private Request testRequest0 = new Request(0, RequestTypes.INTERVENTION, Status.PENDING, "test comment", TestClient,
+			null);
+
+	private RequestDto testRequest0DTO = new RequestDto(0, "INTERVENTION", "PENDING", "test comment", "a@a.com");
+
+	private Request testRequest1 = new Request(1, RequestTypes.TALENT, Status.DONE, "test comment2", TestClient, null);
+
+	private RequestDto testRequest1DTO = new RequestDto(0, "TALENT", "DONE", "test comment2", "a@a.com");
 
 	private List<Request> testRequests = new ArrayList<>();
 
@@ -66,11 +79,12 @@ class RequestServiceTest {
 	 */
 	@Test
 	void saveTest() {
+		Mockito.when(cr.findByEmail("a@a.com")).thenReturn(TestClient);
 		Mockito.when(rr.save(testRequest0)).thenReturn(testRequest0);
-		assertTrue(rs.save(testRequest0));
+		assertTrue(rs.save(testRequest0DTO));
 		assertFalse(rs.save(null));
-		Mockito.when(rs.save(testRequest1)).thenThrow(IllegalArgumentException.class);
-		assertFalse(rs.save(testRequest1));
+		Mockito.when(rs.save(testRequest1DTO)).thenThrow(IllegalArgumentException.class);
+		assertFalse(rs.save(testRequest1DTO));
 
 	}
 

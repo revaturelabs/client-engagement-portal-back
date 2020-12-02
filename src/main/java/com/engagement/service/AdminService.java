@@ -157,14 +157,13 @@ public class AdminService {
 		Client client = cr.findByEmail(email);
 			
 		if (client != null) {
-				
+			if(cbr.findByBatchIdAndClient(batchId, client) == null)
+			{
 				ClientBatch cb = new ClientBatch(1000,batchId,client);
 				cbr.save(cb) ;
 				ret=true;
-				
-		}else 
-			    ret= false;
-		
+			}
+		}
 		return ret;
 	}
 	
@@ -182,10 +181,12 @@ public class AdminService {
 	public boolean unmapBatchFromClient(String batchId, String email) {
 		
 		boolean ret=true;
+		Client c = cr.findByEmail(email);
+		ClientBatch cb = cbr.findByBatchIdAndClient(batchId,c);
 		
-		if (cbr.findByBatchId(batchId) != null) {
+		if (cb != null) {
 				
-			cbr.deleteByBatchId(batchId);
+			cbr.delete(cb);
 			ret=true;
 		
 		}else
