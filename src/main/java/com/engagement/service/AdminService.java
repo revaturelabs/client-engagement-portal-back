@@ -20,6 +20,7 @@ import com.engagement.repo.caliber.TrainingClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseToken;
+import com.google.firebase.auth.UserRecord;
 
 
 
@@ -76,7 +77,7 @@ public class AdminService {
 	 * @param admin admin to save
 	 * @return true if success, false if fail
 	 */
-	public boolean save(Admin admin, String token) {		
+	public boolean save(Admin admin) {		
 		// admin cannot be null
 		if (admin == null) {
 			return false;
@@ -86,8 +87,8 @@ public class AdminService {
 			ar.save(admin);
 			Map<String, Object> claims = new HashMap<String, Object>();
 			claims.put("role", "admin");
-			FirebaseToken auth = FirebaseAuth.getInstance().verifyIdToken(token);
-			FirebaseAuth.getInstance().setCustomUserClaims(auth.getUid(), claims);
+			UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(admin.getEmail());
+			FirebaseAuth.getInstance().setCustomUserClaims(userRecord.getUid(), claims);
 			return true;
 		} catch (IllegalArgumentException e) {
 			return false;

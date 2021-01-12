@@ -67,10 +67,10 @@ public class ClientController {
 	@ApiOperation(value = "Saves a client to the database.", notes= "Returns the client was saved. May return null if client is yet to be persisted to DB.")
 
 	@PostMapping("/")
-	public ResponseEntity<String> save(@RequestBody ClientDto client, HttpServletRequest req) {
+	public ResponseEntity<String> save(@RequestBody ClientDto client) {
 		Client persistentClient = new Client(0, client.getEmail(), client.getCompanyName(), client.getPhoneNumber());
 		
-		if (cs.save(persistentClient, req.getHeader("tokenId"))) {
+		if (cs.save(persistentClient)) {
 			return new ResponseEntity<>("Client succesfully created", HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>("Client creation failed", HttpStatus.CONFLICT);
