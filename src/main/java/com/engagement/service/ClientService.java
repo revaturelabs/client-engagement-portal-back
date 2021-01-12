@@ -1,7 +1,9 @@
 package com.engagement.service;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,8 @@ import com.engagement.repo.ClientBatchRepo;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.GradeClient;
 import com.engagement.repo.caliber.TrainingClient;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseToken;
 
 /**
  * Service for handling business logic of client requests
@@ -57,13 +61,17 @@ public class ClientService {
 	 * @param client A client to be saved to the database
 	 * @return true if success, false if fail
 	 */
-	public boolean save(Client client) {
+	public boolean save(Client client, String token) {
 		if (client == null) {
 			return false;
 		}
 		
 		try {
 			cr.save(client);
+			Map<String, Object> claims = new HashMap<String, Object>();
+			claims.put("role", "client");
+			FirebaseToken auth = FirebaseAuth.getInstance().verifyIdToken(token);
+			FirebaseAuth.getInstance().setCustomUserClaims(auth.getUid(), claims);
 			return true;
 		} catch (Exception e) {
 			return false;

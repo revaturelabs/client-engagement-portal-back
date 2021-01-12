@@ -3,6 +3,8 @@ package com.engagement.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -61,10 +63,10 @@ public class AdminController {
 	@ApiOperation(value = "Creates a new Admin object and persists to the DB.", 
 			notes = "The request body should contain a json in  the shape of an Admin object.")
 	@PostMapping("/new")
-	public ResponseEntity<String> save(@RequestBody AdminDto admin) {
+	public ResponseEntity<String> save(@RequestBody AdminDto admin, HttpServletRequest req) {
 		Admin persistentAdmin = new Admin(0, admin.getEmail(), admin.getFirstName(), admin.getLastName());
 
-		if (as.save(persistentAdmin)) {
+		if (as.save(persistentAdmin, req.getHeader("tokenId"))) {
 			return new ResponseEntity<>("Admin successfully created", HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>("Admin creation failed", HttpStatus.CONFLICT);

@@ -2,6 +2,8 @@ package com.engagement.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -65,10 +67,10 @@ public class ClientController {
 	@ApiOperation(value = "Saves a client to the database.", notes= "Returns the client was saved. May return null if client is yet to be persisted to DB.")
 
 	@PostMapping("/")
-	public ResponseEntity<String> save(@RequestBody ClientDto client) {
+	public ResponseEntity<String> save(@RequestBody ClientDto client, HttpServletRequest req) {
 		Client persistentClient = new Client(0, client.getEmail(), client.getCompanyName(), client.getPhoneNumber());
 		
-		if (cs.save(persistentClient)) {
+		if (cs.save(persistentClient, req.getHeader("tokenId"))) {
 			return new ResponseEntity<>("Client succesfully created", HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>("Client creation failed", HttpStatus.CONFLICT);
