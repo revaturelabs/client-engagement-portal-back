@@ -3,14 +3,13 @@ package com.engagement.controller;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -52,6 +51,17 @@ public class AdminController {
 	@GetMapping("/")
 	public List<Admin> findAll() {
 		return as.findAll();
+	}
+	
+	/**
+	 * Finds admin objects based on email - for use with front end to get admin details from the database
+	 * 
+	 * @return List of all admin objects.
+	 */
+	@ApiOperation(value = "Finds an Admin in the database based upon email.")
+	@GetMapping("/email/{email:.+}")
+	public Admin findAdminByEmail(@PathVariable String email) {
+		return as.findByEmail(email);
 	}
 
 	/**
