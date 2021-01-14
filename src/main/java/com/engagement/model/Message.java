@@ -16,11 +16,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Message {
 
-  public Message(String message) {
-    super();
-    this.message = message;
-    //this.client_Id = client;
-  }
+//  public Message(String message) {
+//    super();
+//    this.message = message;
+//    //this.client_Id = client;
+//  }
 
   public enum haveBatch{
     NOBATCH,
@@ -46,9 +46,9 @@ public class Message {
   @CreationTimestamp
   private LocalDateTime dateSent;
 
-  private boolean statusRead;
+  private boolean readStatus;
 
-  @Enumerated(EnumType.STRING)
-  private haveBatch haveBatch;
+//  @Enumerated(EnumType.STRING)
+//  private haveBatch haveBatch;
 
 }

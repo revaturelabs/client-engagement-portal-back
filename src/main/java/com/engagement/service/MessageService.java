@@ -3,6 +3,8 @@ package com.engagement.service;
 import com.engagement.model.Admin;
 import com.engagement.model.Client;
 import com.engagement.model.Message;
+import com.engagement.model.dto.MessageAdminDTO;
+import com.engagement.model.dto.MessageClientDTO;
 import com.engagement.model.dto.MessageDTO;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientRepo;
@@ -28,12 +30,23 @@ public class MessageService {
     return messageRepo.findAll();
   }
 
-//  public Message addMessage(MessageDTO dto){
-//    //Admin admin = adminRepo.findByAdminId(dto.);
-//    //Client client  = clientRepo.findByEmail(email);
-//    Message message = new Message(dto.getMessage());
-//    return (Message) messageRepo.save(message);
-//  }
+  public Message getMessageById(int messageId){
+    Message message = messageRepo.findById(messageId);
+    if (message == null){
+      return null;
+    }
+    return messageRepo.findById(messageId);
+  }
+
+  public Message addMessageAdmin(MessageAdminDTO messageAdminDTO){
+    Message message = new Message(0,true,messageAdminDTO.getAdminId(), messageAdminDTO.getClientId(),messageAdminDTO.getMessage(),null,false);
+    return (Message) messageRepo.save(message);
+  }
+  public Message addMessageClient(MessageClientDTO messageClientDTO){
+
+   Message message = new Message(0,false, messageClientDTO.getAdminId(), messageClientDTO.getClientId(),messageClientDTO.getMessage(),null,false);
+    return (Message) messageRepo.save(message);
+  }
 
   public String deleteMessage(int messageId){
     Message message = messageRepo.findById(messageId);
