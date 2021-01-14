@@ -16,7 +16,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     		"/swagger-ui.html",
     		"/v2/api-docs",
     		"/webjars/**",
-    		"/swagger-ui/**"
+    		"/swagger-ui/**",
+				"**"
     };
     
 	/**
@@ -34,7 +35,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
-        
+
     }
     
 }
