@@ -18,6 +18,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.engagement.model.Admin;
@@ -28,9 +29,12 @@ import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientBatchRepo;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.TrainingClient;
+import com.engagement.util.FirebaseUtil;
+import com.google.firebase.auth.FirebaseAuthException;
 
 @ExtendWith(MockitoExtension.class)
 @ContextConfiguration
+@SpringBootTest
 class AdminServiceTest {
 
 	@Mock
@@ -47,7 +51,10 @@ class AdminServiceTest {
 
 	@InjectMocks
 	private AdminService as;
-
+		
+	@Mock
+	private static FirebaseUtil firebaseUtil;
+	
 
 	/**
 	 * @author Brooke Wursten
@@ -151,16 +158,25 @@ class AdminServiceTest {
 	/**
 	 * @author daniel constantinescu
 	 * This unit test if  save properly Admin
+	 * @throws FirebaseAuthException 
 	 */
 	@Test
-	void testSaveSuccess() {
+	void testSaveSuccess() throws FirebaseAuthException {
 		/**
 		 *Set up mock from Admin repo 
 		 */
 		Admin admin1= new Admin(1,"a@b","fstubtest1","lstubtest1");
 		Admin admin2= new Admin(3,"a@b","fstubtest1","lstubtest1");
-
+		Map<String, Object> claims = new HashMap<String, Object>();
+		boolean success;
+		claims.put("role", "admin");
+		
+		
 		Mockito.when(ar.save(admin1)).thenReturn(admin1);
+		Mockito.doNothing().when(firebaseUtil).setCustomClaims(admin1.getEmail());
+		
+		
+		
 		assertTrue( as.save(admin1));
 		
 	

@@ -34,3 +34,6 @@ build/
 /bin/
 /logs/
 /logs/**
+
+### Firebase Credentials File ###
+william-ona-firebase-sa.json

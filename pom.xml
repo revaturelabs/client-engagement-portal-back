@@ -76,28 +76,6 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-resource-server -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-oauth2-resource-server</artifactId>
-			<version>5.4.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-jose -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-oauth2-jose</artifactId>
-			<version>5.4.0</version>
-		</dependency>
-
-
-
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -115,7 +93,12 @@
 			<artifactId>springfox-boot-starter</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-</dependencies>
+		<dependency>
+			<groupId>com.google.firebase</groupId>
+			<artifactId>firebase-admin</artifactId>
+			<version>7.1.0</version>
+		</dependency>
+	</dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
