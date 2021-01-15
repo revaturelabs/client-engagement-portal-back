@@ -3,6 +3,9 @@ package com.engagement.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.engagement.model.dto.Batch;
+import com.engagement.repo.caliber.TrainingClient;
+import com.engagement.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,11 +38,13 @@ import io.swagger.annotations.ApiOperation;
 public class AdminController {
 
 	private AdminService as;
+	private TrainingClient trainingClient;
 	
 	@Autowired
-	public AdminController(AdminService as) {
+	public AdminController(AdminService as , TrainingClient trainingClient) {
 		super();
 		this.as = as;
+		this.trainingClient = trainingClient;
 	}
 	
 	/**
@@ -190,6 +195,18 @@ public class AdminController {
 		  else 
 		 
 			  return new ResponseEntity<>("BatchId not found!",HttpStatus.CONFLICT);
+	  }
+
+	/**
+	 * Finds all information about a batch given batchId and returns it for an admin user
+	 * @param batchId the identifier in Caliber to find the batch
+	 * @return Will return a batch with the matching batchId
+	 * @author Cory Sebastian
+	 */
+	@ApiOperation(value = "Returns all information about a batch by given id to an admin user")
+	  @GetMapping("/batch/{batchId}")
+	  public Batch getBatchById(@PathVariable("batchId") String batchId) {
+		  return trainingClient.getBatchById(batchId);
 	  }
 	
 }
