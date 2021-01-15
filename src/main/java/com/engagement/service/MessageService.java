@@ -5,7 +5,6 @@ import com.engagement.model.Client;
 import com.engagement.model.Message;
 import com.engagement.model.dto.MessageAdminDTO;
 import com.engagement.model.dto.MessageClientDTO;
-import com.engagement.model.dto.MessageDTO;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.MessageRepo;
@@ -39,12 +38,16 @@ public class MessageService {
   }
 
   public Message addMessageAdmin(MessageAdminDTO messageAdminDTO){
-    Message message = new Message(0,true,messageAdminDTO.getAdminId(), messageAdminDTO.getClientId(),messageAdminDTO.getMessage(),null,false);
+    Admin admin = adminRepo.findByAdminId(messageAdminDTO.getAdminId());
+    Client client = clientRepo.findById(messageAdminDTO.getClientId());
+    Message message = new Message(0,true,admin, client,messageAdminDTO.getMessage(),null,false);
     return (Message) messageRepo.save(message);
   }
-  public Message addMessageClient(MessageClientDTO messageClientDTO){
 
-   Message message = new Message(0,false, messageClientDTO.getAdminId(), messageClientDTO.getClientId(),messageClientDTO.getMessage(),null,false);
+  public Message addMessageClient(MessageClientDTO messageClientDTO){
+    Admin admin = adminRepo.findByAdminId(messageClientDTO.getAdminId());
+    Client client = clientRepo.findById(messageClientDTO.getClientId());
+    Message message = new Message(0,false, admin, client,messageClientDTO.getMessage(),null,false);
     return (Message) messageRepo.save(message);
   }
 
