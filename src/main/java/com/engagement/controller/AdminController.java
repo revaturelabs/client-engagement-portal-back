@@ -203,10 +203,23 @@ public class AdminController {
 	 * @return Will return a batch with the matching batchId
 	 * @author Cory Sebastian
 	 */
-	@ApiOperation(value = "Returns all information about a batch by given id to an admin user")
-	  @GetMapping("/batch/{batchId}")
-	  public Batch getBatchById(@PathVariable("batchId") String batchId) {
-		  return trainingClient.getBatchById(batchId);
-	  }
+  	@ApiOperation(value = "Returns all information about a batch by given id to an admin user")
+  	@GetMapping("/batch/{batchId}")
+ 	 public Batch getBatchById(@PathVariable("batchId") String batchId) {
+		return trainingClient.getBatchById(batchId);
+  	 }
+
+	/**
+	 * Returns all the batches and their information for an admin user
+	 * @return A List<Batch> of all the batches
+	 * @author Cory Sebastian
+	 */
+ 	@ApiOperation(value = "Returns all the batches along with their information")
+ 	@GetMapping("/batches")
+ 	public List<Batch> getAllBatches() {
+		return as.getAllBatches();
+ 	}
+
+
 	
 }

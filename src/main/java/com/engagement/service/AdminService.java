@@ -1,11 +1,13 @@
 package com.engagement.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.transaction.Transactional;
 
+import com.engagement.model.dto.Batch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -211,6 +213,20 @@ public class AdminService {
 			
 		return ret;
 					
+	}
+
+	/**
+	 * Used by AdminController to return a list of all the batches and their information
+	 * @return A List<Batch>
+	 * @author Cory Sebastian
+	 */
+	public List<Batch> getAllBatches() {
+		List<BatchName> batchNames = getAllBatchNames();
+		List<Batch> batches = new ArrayList<>();
+		for (BatchName batchName : batchNames) {
+			batches.add(tc.getBatchById(batchName.getBatchId()));
+		}
+		return batches;
 	}
 	
 	
