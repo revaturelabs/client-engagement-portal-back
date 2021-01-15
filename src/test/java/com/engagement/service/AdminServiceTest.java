@@ -34,7 +34,6 @@ import com.google.firebase.auth.FirebaseAuthException;
 
 @ExtendWith(MockitoExtension.class)
 @ContextConfiguration
-@SpringBootTest
 class AdminServiceTest {
 
 	@Mock

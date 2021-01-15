@@ -9,10 +9,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.engagement.model.Client;
 import com.engagement.model.ClientBatch;
@@ -29,16 +28,16 @@ import com.engagement.repo.caliber.GradeClient;
 import com.engagement.repo.caliber.TrainingClient;
 
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
+//@SpringBootTest
 class ClientServiceTest {
 	
-	@MockBean
+	@Mock
 	private GradeClient gc;
-	@MockBean
+	@Mock
 	private TrainingClient tc;
-	@MockBean
+	@Mock
 	private ClientRepo cr;
-	@MockBean
+	@Mock
 	private ClientBatchRepo cbr;
 
 	
@@ -81,8 +80,8 @@ class ClientServiceTest {
 		 * 
 		 */
 		
-		Mockito.when(tc.getBatchById(batch.getBatchId())).thenReturn(batch);
-		Mockito.when(gc.getGradesByBatchId(batch.getBatchId())).thenReturn(grades);
+		Mockito.doReturn(batch).when(tc).getBatchById(batch.getBatchId());
+		Mockito.doReturn(grades).when(gc).getGradesByBatchId(batch.getBatchId());
 		
 		Batch newBatch = cs.getBatchByBatchId(batch.getBatchId());
 		
@@ -136,10 +135,11 @@ class ClientServiceTest {
 		List<ClientBatch> clist = new ArrayList<>();
 		clist.add(clientb);
 		
-		Mockito.when(cr.findByEmail("a@a.com")).thenReturn(client);
-		Mockito.when(cbr.findByClient(client)).thenReturn(clist);
+//		Mockito.when(cr.findByEmail("a@a.com")).thenReturn(client);
+		Mockito.doReturn(client).when(cr).findByEmail("a@a.com");
+		Mockito.doReturn(clist).when(cbr).findByClient(client);
 		
-		Mockito.when(tc.getBatchById("Tr-5000")).thenReturn(batch);
+		Mockito.doReturn(batch).when(tc).getBatchById("Tr-5000");
 		
 		List<BatchOverview> results = cs.getBatchInfoByEmail("a@a.com");
 		
