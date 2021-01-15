@@ -55,17 +55,17 @@ pipeline {
     }
     stage ('Docker Build') {
       steps {
-        sh 'docker build -t tyronev/ce-portal:v1 .'
+        sh 'docker build -t cep-image .'
       }
     }
     stage ('Docker Run') {
       steps {
-        sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
+        sh 'docker run --env-file=/home/jwilson/dataFiles/env -v /home/jwilson/dataFiles:/env -p 9011:9011 --name cep -d cep-image'
       }
     }
     stage ('Docker Log') {
       steps {
-        sh 'nohup docker logs -f cep > /home/ec2-user/.jenkins/workspace/CEP-Back/logs/application.log &';
+        sh 'nohup docker logs -f cep > /home/jwilson/.jenkins/workspace/CEP-Back/logs/application.log &';
       }
     }
     stage ('Docker Check Containers') {

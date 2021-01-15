@@ -1,6 +1,5 @@
 FROM openjdk:8-jdk-alpine
-MAINTAINER experto.com
-VOLUME /tmp
+VOLUME /env
 ADD target/Client-Engagement.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
 EXPOSE 9011
