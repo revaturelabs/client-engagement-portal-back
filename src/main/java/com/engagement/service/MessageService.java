@@ -43,8 +43,14 @@ public class MessageService {
     return (Message) messageRepo.save(message);
   }
   public Message addMessageClient(MessageClientDTO messageClientDTO){
-
-   Message message = new Message(0,false, messageClientDTO.getAdminId(), messageClientDTO.getClientId(),messageClientDTO.getMessage(),null,false);
+	  Admin admin4 = adminRepo.findByAdminId(messageClientDTO.getAdminId());
+	  Client client3 = clientRepo.findById(messageClientDTO.getClientId());
+	  System.out.println("ClientDTO getAdmin: " );
+	  System.out.println("ClientDTO: " +  messageClientDTO.getMessage());
+   Message message = new Message(0, false, admin4, client3,messageClientDTO.getMessage(),null,false);
+   
+   
+  
     return (Message) messageRepo.save(message);
   }
 

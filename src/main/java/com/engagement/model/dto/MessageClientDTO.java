@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageClientDTO {
-  private Admin adminId;
-  private Client clientId;
+  private int adminId;
+  private int clientId;
   private String message;
 }

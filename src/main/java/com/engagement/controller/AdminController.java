@@ -51,7 +51,11 @@ public class AdminController {
 	public List<Admin> findAll() {
 		return as.findAll();
 	}
-
+//	need to add some documentations
+	public Admin findByAdminId (int id) {
+		return as.findByAdminId(id);
+	}
+	
 	/**
 	 * Creates a new Admin object and persists to the DB
 	 * 
