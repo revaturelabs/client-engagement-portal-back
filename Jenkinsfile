@@ -12,18 +12,12 @@ pipeline {
         script {
           try {
             // kill any running instances
-            sh 'kill $(lsof -t -i:$PORT)'
+            sh 'docker stop cep'
           } catch (all) {
             // if it fails that should mean a server wasn't already running
             echo 'No server was already running'
           }
         }
-      }
-    }
-    stage('Install maven dependencies') {
-      steps {
-        //clean install maven
-        sh 'mvn install'
       }
     }
     stage ('Clean & Package') {
