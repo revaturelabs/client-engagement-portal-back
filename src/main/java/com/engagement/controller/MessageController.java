@@ -2,6 +2,7 @@ package com.engagement.controller;
 
 import com.engagement.model.Admin;
 import com.engagement.model.Client;
+
 import com.engagement.model.Message;
 import com.engagement.model.dto.MessageAdminDTO;
 import com.engagement.model.dto.MessageClientDTO;
@@ -41,9 +42,9 @@ public class MessageController {
     return messageService.addMessageAdmin(messageAdminDTO);
   }
 
+
   @PostMapping("/msg/client")
   public Message addMessageClient(@RequestBody MessageClientDTO messageClientDTO){
-	  
     return messageService.addMessageClient(messageClientDTO);
   }
 
