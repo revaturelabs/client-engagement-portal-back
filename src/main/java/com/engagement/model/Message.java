@@ -33,13 +33,13 @@ public class Message {
 
   private boolean isAdminTheSender;
 
-  @OneToOne(cascade = {CascadeType.PERSIST})
+  @OneToOne
   @JoinColumn(name = "admin_id")
-  private Admin admin_id;
+  private Admin adminId;
 
-  @OneToOne(cascade = {CascadeType.PERSIST})
+  @OneToOne
   @JoinColumn(name = "client_id")
-  private Client client_Id;
+  private Client clientId;
 
   private String message;
 
@@ -47,8 +47,18 @@ public class Message {
   private LocalDateTime dateSent;
 
   private boolean readStatus;
+  private String title;
 
 //  @Enumerated(EnumType.STRING)
 //  private haveBatch haveBatch;
-
+  public Message(boolean b, Admin admin_id, Client client_Id, String message, LocalDateTime dataSent, boolean readStatus, String title) {
+	  this.isAdminTheSender = b;
+	  this.adminId = admin_id;
+	  this.clientId = client_Id;
+	  this.message = message;
+	  this.dateSent = dataSent;
+	  this.readStatus = readStatus;
+	  this.title=title;
+	  
+  }
 }
