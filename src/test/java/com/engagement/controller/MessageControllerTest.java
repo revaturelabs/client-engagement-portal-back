@@ -49,8 +49,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @WebMvcTest(MessageController.class)
 
 class MessageControllerTest {
-	@Mock
-	private MessageRepo messageRepo;
 	
 	@Autowired
 	private MockMvc mockMvc;
@@ -67,8 +65,10 @@ class MessageControllerTest {
 
 	}
 	
+	
+	
 	/*
-     * converts a Java object into JSON representation
+     * Method that converts a Java object into JSON representation
      */
     public static String asJsonString(final Object obj) {
         try {
