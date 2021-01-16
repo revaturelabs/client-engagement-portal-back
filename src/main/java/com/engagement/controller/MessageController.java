@@ -54,7 +54,7 @@ public class MessageController {
   }
 
   @GetMapping("/msg/clients/{message}")
-  public Message getClientMessageById (@PathVariable String message) {
+  public Message getClientByMessage (@PathVariable String message) {
 	  return messageService.findByMessage(message);
   }
   
