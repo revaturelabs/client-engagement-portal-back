@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MessageAdminDTO {
-  private Client clientId;
-  private Admin adminId;
+  private int clientId;
+  private int adminId;
   private String message;
 
 

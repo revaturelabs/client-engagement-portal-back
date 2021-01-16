@@ -39,19 +39,16 @@ public class MessageService {
   }
 
   public Message addMessageAdmin(MessageAdminDTO messageAdminDTO){
-    Message message = new Message(0,true,messageAdminDTO.getAdminId(), messageAdminDTO.getClientId(),messageAdminDTO.getMessage(),null,false);
-    return (Message) messageRepo.save(message);
+	  Admin admin = adminRepo.findByAdminId(messageAdminDTO.getAdminId());
+	    Client client = clientRepo.findById(messageAdminDTO.getClientId());
+	    Message message = new Message(0,true,admin, client,messageAdminDTO.getMessage(),null,false,"You get a new message!");
+	    return (Message) messageRepo.save(message);
   }
   public Message addMessageClient(MessageClientDTO messageClientDTO){
-	  Admin admin4 = adminRepo.findByAdminId(messageClientDTO.getAdminId());
-	  Client client3 = clientRepo.findById(messageClientDTO.getClientId());
-	  System.out.println("ClientDTO getAdmin: " );
-	  System.out.println("ClientDTO: " +  messageClientDTO.getMessage());
-   Message message = new Message(0, false, admin4, client3,messageClientDTO.getMessage(),null,false);
-   
-   
-  
-    return (Message) messageRepo.save(message);
+	  Admin admin = adminRepo.findByAdminId(messageClientDTO.getAdminId());
+	    Client client = clientRepo.findById(messageClientDTO.getClientId());
+	    Message message = new Message(0,false, admin, client,messageClientDTO.getMessage(),null,false,"You get a new message!");
+	    return (Message) messageRepo.save(message);
   }
 
   public String deleteMessage(int messageId){
