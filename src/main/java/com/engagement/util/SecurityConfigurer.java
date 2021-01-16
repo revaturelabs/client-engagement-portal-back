@@ -35,6 +35,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+    	
+//    	for h2database
+    	http.headers().frameOptions().sameOrigin();
 
     }
     
