@@ -47,12 +47,25 @@ public class MessageController {
     return messageService.addMessageClient(messageClientDTO);
   }
 
-
+//this part is new, need some tests
   @DeleteMapping("/msg/{messageId}")
   public String deleteMessage(@PathVariable int messageId){
     return messageService.deleteMessage(messageId);
   }
 
-
+  @GetMapping("/msg/clients/{message}")
+  public Message getClientMessageById (@PathVariable String message) {
+	  return messageService.findByMessage(message);
+  }
+  
+  @GetMapping("/msg/client/{clientId}")
+  public List<Message> getClientMessageById (@PathVariable int clientId) {
+	  return messageService.findByClientId(clientId);
+  }
+  
+  @GetMapping("/msg/admin/{adminId}")
+  public List<Message> getAdminMessageById (@PathVariable int adminId) {
+	  return messageService.findByAdminId(adminId);
+  }
 
 }

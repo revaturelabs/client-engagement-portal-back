@@ -5,7 +5,6 @@ import com.engagement.model.Client;
 import com.engagement.model.Message;
 import com.engagement.model.dto.MessageAdminDTO;
 import com.engagement.model.dto.MessageClientDTO;
-import com.engagement.model.dto.MessageDTO;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.MessageRepo;
@@ -35,7 +34,7 @@ public class MessageService {
     if (message == null){
       return null;
     }
-    return messageRepo.findById(messageId);
+    return message;
   }
 
   public Message addMessageAdmin(MessageAdminDTO messageAdminDTO){
@@ -58,6 +57,22 @@ public class MessageService {
     }
     messageRepo.delete(message);
     return ("Message id: " + messageId + " has successfully deleted");
+  }
+  
+  public Message findByMessage (String message) {
+	  return messageRepo.findByMessage(message);
+  }
+  
+//this part is new, need some tests
+  public List<Message> findByClientId(int clientId) {
+	  Client client1 = clientRepo.findById(clientId);
+//	  Client client2 = new Client(1,"client2@Walmart","Walmart","123-456-7890");
+	  return messageRepo.findByclientId(client1);
+  }
+  
+  public List<Message> findByAdminId(int adminId) {
+	  Admin admin1 = adminRepo.findByAdminId(adminId);
+	  return messageRepo.findByadminId(admin1);
   }
 
 }
