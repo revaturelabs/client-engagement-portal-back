@@ -84,10 +84,10 @@ class MessageControllerTest {
 	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(), "Hello from MessageAdminDTO");
 	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(), "Hello from MessageClientDTO");
 	
-	Message mockAdminMessage = new Message(0,true, admin0, client0, messageAdminDTO.getMessage(), null, false);
-	Message mockClientMessage = new Message(0,false, admin0, client0, messageClientDTO.getMessage(), null, false);
+	Message mockAdminMessage = new Message(0,true, admin0, client0, messageAdminDTO.getMessage(), null, false, "title");
+	Message mockClientMessage = new Message(0,false, admin0, client0, messageClientDTO.getMessage(), null, false, "title");
 	
-	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false);
+	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false, "test title");
 	
 	List<Message> messages = new ArrayList<>();
 	

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -46,7 +47,7 @@ class MessageServiceTest {
 	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(), "Hello from MessageAdminDTO");
 	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(), "Hello from MessageClientDTO");
 	
-	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false);
+	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false, "Test title");
 	
 	List<Message> messages = new ArrayList<>();
 	
@@ -57,12 +58,13 @@ class MessageServiceTest {
 	 * @author Takia Ross
 	 */
 	@Test
-	void testAddMessageAdmin() {
+	public void testAddMessageAdmin() {
 		// Create a message
 		Admin admin = adminRepo.findByAdminId(messageAdminDTO.getAdminId());
 		Client client = clientRepo.findById(messageAdminDTO.getClientId());
-		Message mockMessageAdmin = new Message(0, true, admin, client, messageAdminDTO.getMessage(), null, false);
-		Mockito.when(messageRepo.save(mockMessageAdmin)).thenReturn(mockMessageAdmin);
+		Message mockMessageAdmin = new Message(0, true, admin, client, messageAdminDTO.getMessage(), null, false, "title");
+		
+		Mockito.when(messageRepo.save(ArgumentMatchers.any(Message.class))).thenReturn(mockMessageAdmin);
 		messages.add(mockMessageAdmin);
 		
 		// Save Message
@@ -84,8 +86,8 @@ class MessageServiceTest {
 		// Create a message
 		Admin admin = adminRepo.findByAdminId(messageClientDTO.getAdminId());
 		Client client = clientRepo.findById(messageClientDTO.getClientId());
-		Message mockClientMessage = new Message(0, false, admin, client, messageClientDTO.getMessage(), null, false);
-		Mockito.when(messageRepo.save(mockClientMessage)).thenReturn(mockClientMessage);
+		Message mockClientMessage = new Message(0, false, admin, client, messageClientDTO.getMessage(), null, false, "title");
+		Mockito.when(messageRepo.save(ArgumentMatchers.any(Message.class))).thenReturn(mockClientMessage);
 		messages.add(mockClientMessage);
 		
 		// Save Message
@@ -135,6 +137,13 @@ class MessageServiceTest {
 		// if message doesn't exist
 		Mockito.when(messageRepo.findById(1)).thenReturn(null);
 		assertEquals(messageService.deleteMessage(1), "Message NOT found");
+	}
+	
+	@Test
+	void testfindByMessage() {
+		Mockito.when(messageRepo.findByMessage("Test message")).thenReturn(testMessage);
+		Message foundMessage = messageService.findByMessage("Test message");
+		assertEquals(testMessage.getMessage(), foundMessage.getMessage());
 	}
 	
 	
