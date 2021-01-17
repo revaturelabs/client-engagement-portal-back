@@ -84,10 +84,9 @@ class MessageControllerTest {
 	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(), "Hello from MessageAdminDTO");
 	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(), "Hello from MessageClientDTO");
 	
-	Message mockAdminMessage = new Message(0,true, admin0, client0, messageAdminDTO.getMessage(), null, false);
-	Message mockClientMessage = new Message(0,false, admin0, client0, messageClientDTO.getMessage(), null, false);
-	
-	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false);
+	Message mockAdminMessage = new Message(0,true, admin0, client0, messageAdminDTO.getMessage(), null, false, "admin title");
+	Message mockClientMessage = new Message(0,false, admin0, client0, messageClientDTO.getMessage(), null, false, "client title");
+	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false, "test title");
 	
 	List<Message> messages = new ArrayList<>();
 	
@@ -103,12 +102,13 @@ class MessageControllerTest {
 		messages.add(mockClientMessage);
 		Mockito.when(messageService.getMessages()).thenReturn(messages);
 		this.mockMvc.perform(get("/msg"))
-		.andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
-		.andExpect(jsonPath("$", hasSize(2)))
-		.andReturn();
+			.andExpect(status().isOk())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$", hasSize(2)))
+			.andReturn();
 	}
 
+	
 	/**
 	 * Test method for {@link com.engagement.controller.MessageController#getMessageById(int)}.
 	 * @throws Exception 
@@ -122,6 +122,7 @@ class MessageControllerTest {
 			.andExpect(jsonPath("$.message").value("Test message"));
 	}
 
+	
 	/**
 	 * Test method for {@link com.engagement.controller.MessageController#addMessageAdmin(com.engagement.model.dto.MessageAdminDTO)}.
 	 * @throws Exception 
@@ -137,6 +138,7 @@ class MessageControllerTest {
 		.andExpect(jsonPath("$.message").value("Hello from MessageAdminDTO"));
 	}
 
+	
 	/**
 	 * Test method for {@link com.engagement.controller.MessageController#addMessageClient(com.engagement.model.dto.MessageClientDTO)}.
 	 * @throws Exception 
@@ -152,6 +154,7 @@ class MessageControllerTest {
 		.andExpect(jsonPath("$.message").value("Hello from MessageClientDTO"));
 	}
 
+	
 	/**
 	 * Test method for {@link com.engagement.controller.MessageController#deleteMessage(int)}.
 	 * @throws Exception 
@@ -160,6 +163,52 @@ class MessageControllerTest {
 	void testDeleteMessage() throws Exception {
 		Mockito.when(messageService.deleteMessage(0)).thenReturn("Deleted");
 		this.mockMvc.perform(delete("/msg/{messageId}", 0)).andExpect(content().string("Deleted"));
+	}
+	
+	
+	/**
+	 * Test method for {@link com.engagement.controller.MessageController#getClientByMessage(java.lang.String)}.
+	 * @throws Exception 
+	 */
+	@Test
+	void testGetClientByMessage() throws Exception {
+		Mockito.when(messageService.findByMessage("Test message")).thenReturn(testMessage);
+		this.mockMvc.perform(get("/msg/clients/{message}", testMessage.getMessage()))
+			.andExpect(status().isOk())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$.title").value("test title"));
+	}
+
+	
+	/**
+	 * Test method for {@link com.engagement.controller.MessageController#getClientMessageById(int)}.
+	 * @throws Exception 
+	 */
+	@Test
+	void testGetClientMessageById() throws Exception {
+		List<Message> clientMessages = new ArrayList<>();
+		clientMessages.add(mockClientMessage);
+		Mockito.when(messageService.findByClientId(0)).thenReturn(clientMessages);
+		this.mockMvc.perform(get("/msg/client/{clientId}", client0.getClientId()))
+			.andExpect(status().isOk())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$", hasSize(1)));
+	}
+	
+	
+	/**
+	 * Test method for {@link com.engagement.controller.MessageController#getAdminMessageById(int)}.
+	 * @throws Exception 
+	 */
+	@Test
+	void testGetAdminMessageById() throws Exception {
+		List<Message> adminMessages = new ArrayList<>();
+		adminMessages.add(mockAdminMessage);
+		Mockito.when(messageService.findByAdminId(0)).thenReturn(adminMessages);
+		this.mockMvc.perform(get("/msg/admin/{adminId}", admin0.getAdminId()))
+			.andExpect(status().isOk())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$", hasSize(1)));
 	}
 
 }

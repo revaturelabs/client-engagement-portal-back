@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -14,6 +15,8 @@ import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import com.engagement.model.Admin;
 import com.engagement.model.Client;
 import com.engagement.model.Message;
@@ -41,15 +44,13 @@ class MessageServiceTest {
 	private MessageService messageService;
 	
 	Client client0 = new Client(0, "client0@a.net", "walmart", "573-555-3535");
-	Admin admin0= new Admin(0,"admin0@b","firstnameadmin0","lastnameadmin0");
+	Admin admin0 = new Admin(0,"admin0@b","firstnameadmin0","lastnameadmin0");
 	
 	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(), "Hello from MessageAdminDTO");
 	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(), "Hello from MessageClientDTO");
 	
-	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false);
-	
-	List<Message> messages = new ArrayList<>();
-	
+	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false, "Test title");
+	Message testMessage1 = new Message(1, true, admin0, client0, "Test message1", null, false, "Test1 title");
 	
 	/**
 	 * This tests verifies that the messageService.addMessageAdmin method calls the save method.
@@ -57,13 +58,12 @@ class MessageServiceTest {
 	 * @author Takia Ross
 	 */
 	@Test
-	void testAddMessageAdmin() {
+	public void testAddMessageAdmin() {
 		// Create a message
 		Admin admin = adminRepo.findByAdminId(messageAdminDTO.getAdminId());
 		Client client = clientRepo.findById(messageAdminDTO.getClientId());
-		Message mockMessageAdmin = new Message(0, true, admin, client, messageAdminDTO.getMessage(), null, false);
-		Mockito.when(messageRepo.save(mockMessageAdmin)).thenReturn(mockMessageAdmin);
-		messages.add(mockMessageAdmin);
+		Message mockMessageAdmin = new Message(0, true, admin, client, messageAdminDTO.getMessage(), null, false, "title");
+		Mockito.when(messageRepo.save(ArgumentMatchers.any(Message.class))).thenReturn(mockMessageAdmin);
 		
 		// Save Message
 		Message newAdminMessage = messageService.addMessageAdmin(messageAdminDTO);
@@ -84,9 +84,8 @@ class MessageServiceTest {
 		// Create a message
 		Admin admin = adminRepo.findByAdminId(messageClientDTO.getAdminId());
 		Client client = clientRepo.findById(messageClientDTO.getClientId());
-		Message mockClientMessage = new Message(0, false, admin, client, messageClientDTO.getMessage(), null, false);
-		Mockito.when(messageRepo.save(mockClientMessage)).thenReturn(mockClientMessage);
-		messages.add(mockClientMessage);
+		Message mockClientMessage = new Message(0, false, admin, client, messageClientDTO.getMessage(), null, false, "title");
+		Mockito.when(messageRepo.save(ArgumentMatchers.any(Message.class))).thenReturn(mockClientMessage);
 		
 		// Save Message
 		Message newClientMessage = messageService.addMessageClient(messageClientDTO);
@@ -103,8 +102,12 @@ class MessageServiceTest {
 	 */
 	@Test
 	void testGetMessages() {
+		List<Message> messages = new ArrayList<>();
+		messages.add(testMessage);
+		messages.add(testMessage1);
 		Mockito.when(messageRepo.findAll()).thenReturn(messages);
 		assertNotNull(messageService.getMessages());
+		assertTrue(messages.size() == 2);
 		
 	}
 	
@@ -135,6 +138,53 @@ class MessageServiceTest {
 		// if message doesn't exist
 		Mockito.when(messageRepo.findById(1)).thenReturn(null);
 		assertEquals(messageService.deleteMessage(1), "Message NOT found");
+	}
+	
+	
+	/**
+	 * This tests verifies findByMessage method is called.
+	 * 
+	 * @author Takia Ross
+	 */
+	@Test
+	void testFindByMessage() {
+		Mockito.when(messageRepo.findByMessage("Test message")).thenReturn(testMessage);
+		Message foundMessage = messageService.findByMessage("Test message");
+		assertEquals(testMessage.getMessage(), foundMessage.getMessage());
+	}
+	
+	
+	/**
+	 * This tests verifies messageRepo.findByclientId(int) and clientRepo.findById(int) methods are called.
+	 * 
+	 * @author Takia Ross
+	 */
+	@Test
+	public void testFindByClientId() {
+		List<Message> messages = new ArrayList<>();
+		Message mockClientMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, "title");
+		messages.add(mockClientMessage);
+		Mockito.when(clientRepo.findById(0)).thenReturn(client0);
+		Mockito.when(messageRepo.findByclientId(client0)).thenReturn(messages);
+		List<Message> foundMessages = messageService.findByClientId(0);
+		assertTrue(foundMessages.get(0) == mockClientMessage);
+	}
+	
+	
+	/**
+	 * This tests verifies adminRepo.findByAdminId(int) and messageRepo.findByadminId(int) methods are called.
+	 * 
+	 * @author Takia Ross
+	 */
+	@Test
+	public void testFindByAdminId() {
+		List<Message> messages = new ArrayList<>();
+		Message mockAdminMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, "title");
+		messages.add(mockAdminMessage);
+		Mockito.when(adminRepo.findByAdminId(0)).thenReturn(admin0);
+		Mockito.when(messageRepo.findByadminId(admin0)).thenReturn(messages);
+		List<Message> foundMessages = messageService.findByAdminId(0);
+		assertTrue(foundMessages.get(0) == mockAdminMessage);
 	}
 	
 	
