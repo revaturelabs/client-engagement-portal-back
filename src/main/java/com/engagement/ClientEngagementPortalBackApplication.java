@@ -27,7 +27,7 @@ public class ClientEngagementPortalBackApplication {
 	 * Configures Swagger UI to not allow trying out APIs that would change data
 	 * @return new UI configuration 
 	 */
-	@Bean
+	@Bean 
 	public UiConfiguration uiConfig() {
 		final String[] methodsWithTryItOutButton = {}; //add get method if security allows
 		return UiConfigurationBuilder.builder().supportedSubmitMethods(methodsWithTryItOutButton).build();

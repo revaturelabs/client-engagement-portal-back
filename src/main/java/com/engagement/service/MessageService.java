@@ -40,13 +40,13 @@ public class MessageService {
   public Message addMessageAdmin(MessageAdminDTO messageAdminDTO){
 	  Admin admin = adminRepo.findByAdminId(messageAdminDTO.getAdminId());
 	    Client client = clientRepo.findById(messageAdminDTO.getClientId());
-	    Message message = new Message(0,true,admin, client,messageAdminDTO.getMessage(),null,false,"You get a new message!");
+	    Message message = new Message(0,true,admin, client,messageAdminDTO.getMessage(),null,false,messageAdminDTO.getTitle());
 	    return (Message) messageRepo.save(message);
   }
   public Message addMessageClient(MessageClientDTO messageClientDTO){
 	  Admin admin = adminRepo.findByAdminId(messageClientDTO.getAdminId());
 	    Client client = clientRepo.findById(messageClientDTO.getClientId());
-	    Message message = new Message(0,false, admin, client,messageClientDTO.getMessage(),null,false,"You get a new message!");
+	    Message message = new Message(0,false, admin, client,messageClientDTO.getMessage(),null,false,messageClientDTO.getTitle());
 	    return (Message) messageRepo.save(message);
   }
 

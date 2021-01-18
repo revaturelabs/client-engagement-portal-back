@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 public class MessageClientDTO {
   private int adminId;
   private int clientId;
+  private String title;
   private String message;
 }
