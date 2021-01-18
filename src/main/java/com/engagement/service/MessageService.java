@@ -75,16 +75,28 @@ public class MessageService {
 	  return messageRepo.findByadminId(admin1);
   }
 
-public List<Message> findByClientEmail(String clientEmail) {
-	Client client2 = clientRepo.findByEmail(clientEmail);
-	System.out.println("ClientInfo: "+ client2);
-	return messageRepo.findByclientId(client2);
-}
-
-public List<Message> findByAdminEmail(String adminEmail) {
-	Admin admin2 = adminRepo.findByEmail(adminEmail);
-	return messageRepo.findByadminId(admin2);
+	public List<Message> findByClientEmail(String clientEmail) {
+		Client client2 = clientRepo.findByEmail(clientEmail);
+		System.out.println("ClientInfo: "+ client2);
+		return messageRepo.findByclientId(client2);
+	}
 	
-}
+	public List<Message> findByAdminEmail(String adminEmail) {
+		Admin admin2 = adminRepo.findByEmail(adminEmail);
+		return messageRepo.findByadminId(admin2);
+		
+	}
+	
+	public List<Message> findMessageByEmail(String email) {
+		Client client2 = clientRepo.findByEmail(email);
+		if(client2 == null) {
+			Admin admin2 = adminRepo.findByEmail(email);
+			if (admin2 == null) {
+				return null;
+			}
+			return messageRepo.findByadminId(admin2);
+		}
+		return messageRepo.findByclientId(client2);
+	}
 
 }

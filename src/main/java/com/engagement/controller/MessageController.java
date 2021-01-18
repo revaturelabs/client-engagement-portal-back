@@ -78,5 +78,9 @@ public class MessageController {
   public List<Message> getAdminMessageByEmail (@PathVariable String adminEmail) {
 	  return messageService.findByAdminEmail(adminEmail);
   }
-
+  
+  @GetMapping("/message/{email}")
+  public List<Message> getMessageByEmail (@PathVariable String email) {
+	  return messageService.findMessageByEmail(email);
+  }
 }
