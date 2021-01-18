@@ -3,6 +3,7 @@ package com.engagement.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.engagement.model.dto.Batch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -191,5 +192,30 @@ public class AdminController {
 		 
 			  return new ResponseEntity<>("BatchId not found!",HttpStatus.CONFLICT);
 	  }
+
+	/**
+	 * Finds all information about a batch given batchId and returns it for an admin user
+	 * @param batchId the identifier in Caliber to find the batch
+	 * @return Will return a batch with the matching batchId
+	 * @author Cory Sebastian
+	 */
+  	@ApiOperation(value = "Returns all information about a batch by given id to an admin user")
+  	@GetMapping("/batch/{batchId}")
+ 	 public Batch getBatchById(@PathVariable("batchId") String batchId) {
+		return as.getBatch(batchId);
+  	 }
+
+	/**
+	 * Returns all the batches and their information for an admin user
+	 * @return A List<Batch> of all the batches
+	 * @author Cory Sebastian
+	 */
+ 	@ApiOperation(value = "Returns all the batches along with their information")
+ 	@GetMapping("/batches")
+ 	public List<Batch> getAllBatches() {
+		return as.getAllBatches();
+ 	}
+
+
 	
 }

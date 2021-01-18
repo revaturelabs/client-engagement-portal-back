@@ -1,5 +1,6 @@
 package com.engagement.service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -94,6 +95,7 @@ public class ClientService {
 
 			List<Grade> grades = gc.getGradesByBatchId(batchId); // gets all of the grades associated with the batch.
 
+			grades = grades == null ? new ArrayList<>() : grades;
 			/**
 			 * For every grade, check if its traineeId equals any salesForceId of an
 			 * associate of the batch. Once a match is found, add that grade to the list of
@@ -143,21 +145,35 @@ public class ClientService {
 		 * @return List of Batchoverview DTO to show batches mapped to client and brief overview
 		 */
 		public List<BatchOverview> getBatchInfoByEmail(String email) {
-					List<BatchOverview> results = new LinkedList<>();
-					Client client = cr.findByEmail(email);
-					List<ClientBatch> batches = cbr.findByClient(client);
-					Batch batchesapi;
-					
-				
-					
-					for(int i = 0; i < batches.size(); i++)
-					{
-						batchesapi = bc.getBatchById(batches.get(i).getBatchId());
-						results.add(new BatchOverview(batchesapi.getBatchId(), batchesapi.getName(), batchesapi.getSkill()));
-					}
-						
-					return results;
-				}	
-		
-		
+			List<BatchOverview> results = new LinkedList<>();
+			Client client = cr.findByEmail(email);
+			List<ClientBatch> batches = cbr.findByClient(client);
+			Batch batchesapi;
+
+
+
+			for(int i = 0; i < batches.size(); i++)
+			{
+				batchesapi = bc.getBatchById(batches.get(i).getBatchId());
+				results.add(new BatchOverview(batchesapi.getBatchId(), batchesapi.getName(), batchesapi.getSkill()));
+			}
+
+			return results;
+		}
+
+	/**
+	 * Returns full batch information for a client with email email
+	 * @param email the client's email
+	 * @return a list of all the batches and their information mapped the client
+	 * @author Cory Sebastian
+	 */
+		public List<Batch> getAllBatchInfoByEmail(String email) {
+			List<Batch> batchInfo = new ArrayList<>();
+			List<BatchOverview> batchOverviews = getBatchInfoByEmail(email);
+
+			for (BatchOverview batchOverview : batchOverviews) {
+				batchInfo.add(getBatchByBatchId(batchOverview.getBatchId()));
+			}
+			return batchInfo;
+		}
 }

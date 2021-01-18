@@ -124,5 +124,17 @@ public class ClientController {
 	public List<BatchOverview> getBatchOverviewbyClient(@PathVariable String email) {
 		 return cs.getBatchInfoByEmail(email);
 	}
+
+	/**
+	 * Returns full information for all batches mapped to a specific client
+	 * @param email the email of the client we are looking for
+	 * @return a list of Batch objects
+	 * @author Cory Sebastian
+	 */
+	@ApiOperation(value = "Returns a list of batch objects that are mapped to a specific client")
+	@GetMapping("/email/batch/{email:.+}")
+	public List<Batch> getBatchInfoByEmail(@PathVariable String email) {
+		return cs.getAllBatchInfoByEmail(email);
+	}
 }
 
