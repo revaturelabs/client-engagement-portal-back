@@ -2,9 +2,8 @@ package com.engagement.model.dto;
 
 import com.engagement.model.Admin;
 import com.engagement.model.Client;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
 @AllArgsConstructor
@@ -14,4 +13,5 @@ public class MessageClientDTO {
   private int clientId;
   private String title;
   private String message;
+
 }
