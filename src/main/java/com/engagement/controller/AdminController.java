@@ -38,13 +38,11 @@ import io.swagger.annotations.ApiOperation;
 public class AdminController {
 
 	private AdminService as;
-	private TrainingClient trainingClient;
 	
 	@Autowired
-	public AdminController(AdminService as , TrainingClient trainingClient) {
+	public AdminController(AdminService as) {
 		super();
 		this.as = as;
-		this.trainingClient = trainingClient;
 	}
 	
 	/**
@@ -206,7 +204,7 @@ public class AdminController {
   	@ApiOperation(value = "Returns all information about a batch by given id to an admin user")
   	@GetMapping("/batch/{batchId}")
  	 public Batch getBatchById(@PathVariable("batchId") String batchId) {
-		return trainingClient.getBatchById(batchId);
+		return as.getBatch(batchId);
   	 }
 
 	/**

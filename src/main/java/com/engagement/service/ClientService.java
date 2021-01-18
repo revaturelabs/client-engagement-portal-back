@@ -95,6 +95,7 @@ public class ClientService {
 
 			List<Grade> grades = gc.getGradesByBatchId(batchId); // gets all of the grades associated with the batch.
 
+			grades = grades == null ? new ArrayList<>() : grades;
 			/**
 			 * For every grade, check if its traineeId equals any salesForceId of an
 			 * associate of the batch. Once a match is found, add that grade to the list of
@@ -171,7 +172,7 @@ public class ClientService {
 			List<BatchOverview> batchOverviews = getBatchInfoByEmail(email);
 
 			for (BatchOverview batchOverview : batchOverviews) {
-				batchInfo.add(bc.getBatchById(batchOverview.getBatchId()));
+				batchInfo.add(getBatchByBatchId(batchOverview.getBatchId()));
 			}
 			return batchInfo;
 		}

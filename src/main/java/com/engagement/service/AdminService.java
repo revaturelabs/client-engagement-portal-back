@@ -50,8 +50,10 @@ public class AdminService {
 	
 	@Autowired
 	private FirebaseUtil firebaseUtil;
-	
-	
+
+	@Autowired
+	private ClientService cs;
+
 	/**
 	 * Return a list of all admins
 	 * @return
@@ -224,9 +226,13 @@ public class AdminService {
 		List<BatchName> batchNames = getAllBatchNames();
 		List<Batch> batches = new ArrayList<>();
 		for (BatchName batchName : batchNames) {
-			batches.add(tc.getBatchById(batchName.getBatchId()));
+			batches.add(cs.getBatchByBatchId(batchName.getBatchId()));
 		}
 		return batches;
+	}
+
+	public Batch getBatch(String id) {
+		return cs.getBatchByBatchId(id);
 	}
 	
 	

@@ -2,7 +2,6 @@ package com.engagement.controller;
 
 import com.engagement.model.Admin;
 import com.engagement.model.dto.BatchName;
-import com.engagement.repo.caliber.TrainingClient;
 import com.engagement.service.AdminService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
@@ -13,10 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.cloud.openfeign.FeignAutoConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -40,7 +37,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @ExtendWith(MockitoExtension.class)
 @WebMvcTest(AdminController.class)
-@ImportAutoConfiguration(FeignAutoConfiguration.class)
 class AdminControllerTest {
 
 	@Autowired
