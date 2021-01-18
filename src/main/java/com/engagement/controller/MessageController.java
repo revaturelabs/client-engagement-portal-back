@@ -68,5 +68,15 @@ public class MessageController {
   public List<Message> getAdminMessageById (@PathVariable int adminId) {
 	  return messageService.findByAdminId(adminId);
   }
+  
+  @GetMapping("/msg/clientemail/{clientEmail}")
+  public List<Message>  getClientMessageByEmail (@PathVariable String clientEmail) {
+	  return messageService.findByClientEmail(clientEmail);
+  }
+  
+  @GetMapping("/msg/adminemail/{adminEmail}")
+  public List<Message> getAdminMessageByEmail (@PathVariable String adminEmail) {
+	  return messageService.findByAdminEmail(adminEmail);
+  }
 
 }

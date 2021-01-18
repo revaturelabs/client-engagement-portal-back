@@ -82,7 +82,7 @@ class MessageControllerTest {
 	Admin admin0= new Admin(0,"admin0@b","firstnameadmin0","lastnameadmin0");
 	
 	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(),"title","Hello from MessageAdminDTO");
-	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(),"title","Hello from "
+	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(),"title","Hello from MessageClientDTO"
 			+ "");
 	
 	Message mockAdminMessage = new Message(0,true, admin0, client0, messageAdminDTO.getMessage(), null, false, messageAdminDTO.getTitle());
@@ -122,7 +122,7 @@ class MessageControllerTest {
 			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 			.andExpect(jsonPath("$.message").value("Test message"));
 	}
-
+	
 	
 	/**
 	 * Test method for {@link com.engagement.controller.MessageController#addMessageAdmin(com.engagement.model.dto.MessageAdminDTO)}.
@@ -210,6 +210,37 @@ class MessageControllerTest {
 			.andExpect(status().isOk())
 			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 			.andExpect(jsonPath("$", hasSize(1)));
+	}
+	
+	
+	/**
+	 * Test method for {@link com.engagement.controller.MessageController#getClientMessageByEmail(String)}.
+	 * @throws Exception
+	 */
+	@Test
+	void testGetClientMessageByEmail() throws Exception {
+		List<Message> clientMessages = new ArrayList<>();
+		clientMessages.add(mockClientMessage);
+		Mockito.when(messageService.findByClientEmail("client0@a.net")).thenReturn(clientMessages);
+		this.mockMvc.perform(get("/msg/clientemail/{clientEmail}", client0.getEmail()))
+			.andExpect(status().isOk())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON));
+		
+	}
+	
+	
+	/**
+	 * Test method for {@link com.engagement.controller.MessageController#getAdmineMessageByEmail(String)}.
+	 * @throws Exception 
+	 */
+	@Test
+	void testGetAdmineMessageByEmail() throws Exception {
+		List<Message> adminMessages = new ArrayList<>();
+		adminMessages.add(mockAdminMessage);
+		Mockito.when(messageService.findByAdminEmail("admin0@b")).thenReturn(adminMessages);
+		this.mockMvc.perform(get("/msg/adminemail/{adminEmail}", admin0.getEmail()))
+			.andExpect(status().isOk())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON));
 	}
 
 }
