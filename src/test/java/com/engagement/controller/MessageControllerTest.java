@@ -81,11 +81,12 @@ class MessageControllerTest {
 	Client client0 = new Client(0, "client0@a.net", "walmart", "573-555-3535");
 	Admin admin0= new Admin(0,"admin0@b","firstnameadmin0","lastnameadmin0");
 	
-	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(), "Hello from MessageAdminDTO");
-	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(), "Hello from MessageClientDTO");
+	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(),"title","Hello from MessageAdminDTO");
+	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(),"title","Hello from "
+			+ "");
 	
-	Message mockAdminMessage = new Message(0,true, admin0, client0, messageAdminDTO.getMessage(), null, false, "admin title");
-	Message mockClientMessage = new Message(0,false, admin0, client0, messageClientDTO.getMessage(), null, false, "client title");
+	Message mockAdminMessage = new Message(0,true, admin0, client0, messageAdminDTO.getMessage(), null, false, messageAdminDTO.getTitle());
+	Message mockClientMessage = new Message(0,false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false, "test title");
 	
 	List<Message> messages = new ArrayList<>();

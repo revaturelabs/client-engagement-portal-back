@@ -46,8 +46,8 @@ class MessageServiceTest {
 	Client client0 = new Client(0, "client0@a.net", "walmart", "573-555-3535");
 	Admin admin0 = new Admin(0,"admin0@b","firstnameadmin0","lastnameadmin0");
 	
-	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(), "Hello from MessageAdminDTO");
-	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(), "Hello from MessageClientDTO");
+	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(), "title", "Hello from MessageAdminDTO");
+	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(), "title", "Hello from MessageClientDTO");
 	
 	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false, "Test title");
 	Message testMessage1 = new Message(1, true, admin0, client0, "Test message1", null, false, "Test1 title");
@@ -62,7 +62,7 @@ class MessageServiceTest {
 		// Create a message
 		Admin admin = adminRepo.findByAdminId(messageAdminDTO.getAdminId());
 		Client client = clientRepo.findById(messageAdminDTO.getClientId());
-		Message mockMessageAdmin = new Message(0, true, admin, client, messageAdminDTO.getMessage(), null, false, "title");
+		Message mockMessageAdmin = new Message(0, true, admin, client, messageAdminDTO.getMessage(), null, false, messageAdminDTO.getTitle());
 		Mockito.when(messageRepo.save(ArgumentMatchers.any(Message.class))).thenReturn(mockMessageAdmin);
 		
 		// Save Message
@@ -84,7 +84,7 @@ class MessageServiceTest {
 		// Create a message
 		Admin admin = adminRepo.findByAdminId(messageClientDTO.getAdminId());
 		Client client = clientRepo.findById(messageClientDTO.getClientId());
-		Message mockClientMessage = new Message(0, false, admin, client, messageClientDTO.getMessage(), null, false, "title");
+		Message mockClientMessage = new Message(0, false, admin, client, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		Mockito.when(messageRepo.save(ArgumentMatchers.any(Message.class))).thenReturn(mockClientMessage);
 		
 		// Save Message
@@ -162,7 +162,7 @@ class MessageServiceTest {
 	@Test
 	public void testFindByClientId() {
 		List<Message> messages = new ArrayList<>();
-		Message mockClientMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, "title");
+		Message mockClientMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		messages.add(mockClientMessage);
 		Mockito.when(clientRepo.findById(0)).thenReturn(client0);
 		Mockito.when(messageRepo.findByclientId(client0)).thenReturn(messages);
@@ -179,7 +179,7 @@ class MessageServiceTest {
 	@Test
 	public void testFindByAdminId() {
 		List<Message> messages = new ArrayList<>();
-		Message mockAdminMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, "title");
+		Message mockAdminMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		messages.add(mockAdminMessage);
 		Mockito.when(adminRepo.findByAdminId(0)).thenReturn(admin0);
 		Mockito.when(messageRepo.findByadminId(admin0)).thenReturn(messages);
