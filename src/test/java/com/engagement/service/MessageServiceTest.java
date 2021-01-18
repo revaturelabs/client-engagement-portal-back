@@ -204,7 +204,7 @@ class MessageServiceTest {
 	
 	
 	/**
-	 * This tests verifies adminRepo.findByAdminId(int) and messageRepo.findByEmail(String) methods are called.
+	 * This tests verifies messageRepo.findByadminId(int) and adminRepo.findByEmail(String) methods are called.
 	 * @author Tianyuan Deng
 	 */
 	@Test
@@ -216,6 +216,31 @@ class MessageServiceTest {
 		Mockito.when(messageRepo.findByadminId(admin0)).thenReturn(messages);
 		List<Message> foundMessages = messageService.findByAdminEmail("admin0@b");
 		assertTrue(foundMessages.get(0) == mockAdminMessage);
+	}
+	
+	
+	/**
+	 * This tests verifies messageRepo.findByadminId(), messageRepo.findByclientId(), adminRepo.findByEmail() and clientRepo.findByEmailL() methods are called.
+	 * @author Tianyuan Deng
+	 */
+	@Test
+	public void testFindMessageByEmail() {
+		List<Message> messages = new ArrayList<>();
+//		case 1: Find message by clientEmail 
+		Message mockClientMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
+		messages.add(mockClientMessage);
+		Mockito.when(clientRepo.findByEmail("client0@a.net")).thenReturn(client0);
+		Mockito.when(messageRepo.findByclientId(client0)).thenReturn(messages);
+		List<Message> foundMessagesClient = messageService.findByClientEmail("client0@a.net");
+		assertTrue(foundMessagesClient.get(0) == mockClientMessage);
+//		case 2: Find message by adminEmail
+		List<Message> messagesAdmin = new ArrayList<>();
+		Message mockAdminMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
+		messagesAdmin.add(mockAdminMessage);
+		Mockito.when(adminRepo.findByEmail("admin0@b")).thenReturn(admin0);
+		Mockito.when(messageRepo.findByadminId(admin0)).thenReturn(messagesAdmin);
+		List<Message> foundMessagesAdmin = messageService.findByAdminEmail("admin0@b");
+		assertTrue(foundMessagesAdmin.get(0) == mockAdminMessage);
 	}
 	
 	

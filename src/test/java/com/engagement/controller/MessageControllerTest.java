@@ -224,7 +224,8 @@ class MessageControllerTest {
 		Mockito.when(messageService.findByClientEmail("client0@a.net")).thenReturn(clientMessages);
 		this.mockMvc.perform(get("/msg/clientemail/{clientEmail}", client0.getEmail()))
 			.andExpect(status().isOk())
-			.andExpect(content().contentType(MediaType.APPLICATION_JSON));
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$", hasSize(1)));;
 		
 	}
 	
@@ -240,7 +241,31 @@ class MessageControllerTest {
 		Mockito.when(messageService.findByAdminEmail("admin0@b")).thenReturn(adminMessages);
 		this.mockMvc.perform(get("/msg/adminemail/{adminEmail}", admin0.getEmail()))
 			.andExpect(status().isOk())
-			.andExpect(content().contentType(MediaType.APPLICATION_JSON));
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$", hasSize(1)));
 	}
-
-}
+	
+	
+	/**
+	 * Test method for {@link com.engagement.controller.MessageController#getMessageByEmail(String)}.
+	 * @throws Exception
+	 */
+	@Test
+	void testGetMessageByEmail() throws Exception {
+		List<Message> adminMessages = new ArrayList<>();
+		List<Message> clientMessages = new ArrayList<>();
+		adminMessages.add(mockAdminMessage);
+		clientMessages.add(mockClientMessage);
+		Mockito.when(messageService.findMessageByEmail("admin0@b")).thenReturn(clientMessages);
+		this.mockMvc.perform(get("/message/{email}",admin0.getEmail()))
+			.andExpect(status().isOk())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$", hasSize(1)));
+		Mockito.when(messageService.findMessageByEmail("client0@a.net")).thenReturn(clientMessages);
+		this.mockMvc.perform(get("/message/{email}",client0.getEmail()))
+			.andExpect(status().isOk())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$", hasSize(1)));
+		
+	}
+ }

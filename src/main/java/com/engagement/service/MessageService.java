@@ -63,7 +63,6 @@ public class MessageService {
 	  return messageRepo.findByMessage(message);
   }
   
-//this part is new, need some tests
   public List<Message> findByClientId(int clientId) {
 	  Client client1 = clientRepo.findById(clientId);
 //	  Client client2 = new Client(1,"client2@Walmart","Walmart","123-456-7890");
@@ -90,8 +89,16 @@ public class MessageService {
 	public List<Message> findMessageByEmail(String email) {
 		Client client2 = clientRepo.findByEmail(email);
 		if(client2 == null) {
+//			try {
+//				Admin admin2 = adminRepo.findByEmail(email);
+//				return messageRepo.findByadminId(admin2);
+//			} catch (Exception e) {
+//				System.out.println("Email is not exist. " + e.toString());
+//				return null;
+//			}
 			Admin admin2 = adminRepo.findByEmail(email);
 			if (admin2 == null) {
+				System.out.println("Email is not exist. ");
 				return null;
 			}
 			return messageRepo.findByadminId(admin2);
