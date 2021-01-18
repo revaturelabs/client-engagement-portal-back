@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.engagement.model.dto.Batch;
-import com.engagement.repo.caliber.TrainingClient;
-import com.engagement.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
