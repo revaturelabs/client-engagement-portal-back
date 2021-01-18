@@ -78,7 +78,7 @@ class MessageControllerTest {
         }
     }
 	
-	Client client0 = new Client(0, "client0@a.net", "walmart", "573-555-3535");
+	Client client0 = new Client(0, "client0@a", "walmart", "573-555-3535");
 	Admin admin0= new Admin(0,"admin0@b","firstnameadmin0","lastnameadmin0");
 	
 	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(),"title","Hello from MessageAdminDTO");
@@ -221,7 +221,7 @@ class MessageControllerTest {
 	void testGetClientMessageByEmail() throws Exception {
 		List<Message> clientMessages = new ArrayList<>();
 		clientMessages.add(mockClientMessage);
-		Mockito.when(messageService.findByClientEmail("client0@a.net")).thenReturn(clientMessages);
+		Mockito.when(messageService.findByClientEmail("client0@a")).thenReturn(clientMessages);
 		this.mockMvc.perform(get("/msg/clientemail/{clientEmail}", client0.getEmail()))
 			.andExpect(status().isOk())
 			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -261,7 +261,7 @@ class MessageControllerTest {
 			.andExpect(status().isOk())
 			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 			.andExpect(jsonPath("$", hasSize(1)));
-		Mockito.when(messageService.findMessageByEmail("client0@a.net")).thenReturn(clientMessages);
+		Mockito.when(messageService.findMessageByEmail("client0@a")).thenReturn(clientMessages);
 		this.mockMvc.perform(get("/message/{email}",client0.getEmail()))
 			.andExpect(status().isOk())
 			.andExpect(content().contentType(MediaType.APPLICATION_JSON))

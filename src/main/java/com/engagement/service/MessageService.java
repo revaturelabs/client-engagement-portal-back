@@ -89,13 +89,6 @@ public class MessageService {
 	public List<Message> findMessageByEmail(String email) {
 		Client client2 = clientRepo.findByEmail(email);
 		if(client2 == null) {
-//			try {
-//				Admin admin2 = adminRepo.findByEmail(email);
-//				return messageRepo.findByadminId(admin2);
-//			} catch (Exception e) {
-//				System.out.println("Email is not exist. " + e.toString());
-//				return null;
-//			}
 			Admin admin2 = adminRepo.findByEmail(email);
 			if (admin2 == null) {
 				System.out.println("Email is not exist. ");
