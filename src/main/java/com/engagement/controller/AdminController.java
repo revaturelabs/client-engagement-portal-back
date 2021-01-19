@@ -53,7 +53,7 @@ public class AdminController {
 	public List<Admin> findAll() {
 		return as.findAll();
 	}
-	
+
 	/**
 	 * Finds admin objects based on email - for use with front end to get admin details from the database
 	 * 
@@ -65,6 +65,11 @@ public class AdminController {
 		return as.findByEmail(email);
 	}
 
+//	need to add some documentations
+	public Admin findByAdminId (int id) {
+		return as.findByAdminId(id);
+	}
+	
 	/**
 	 * Creates a new Admin object and persists to the DB
 	 * 
@@ -113,7 +118,7 @@ public class AdminController {
 	/**
 	 * Deletes Admin object from the DB
 	 *
-	 * @param admin- the request body should contain a json in the shape of an Admin object
+	 * @param admin - the request body should contain a json in the shape of an Admin object
 	 * @return ResponseEntity containing status code and message.
 	 */
 	@ApiOperation(value = "Deletes an Admin object from the DB.", 
