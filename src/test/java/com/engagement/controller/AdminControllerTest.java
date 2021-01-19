@@ -6,6 +6,7 @@ import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchName;
 import com.engagement.model.dto.EmployeeAssignment;
 import com.engagement.service.AdminService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
@@ -324,6 +325,20 @@ class AdminControllerTest {
 		this.mockMvc.perform(get("/admin/batches").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 		// Uses the mocked Batches to make sure it is received by the AdminService
 		this.mockMvc.perform(get("/admin/batches").accept(MediaType.APPLICATION_JSON)).andExpect(content().json(jsonBatches));
+	}
+
+	@Test
+	public void testGetBatchById() throws Exception {
+		List<AssociateAssignment> associateAssignments  = new ArrayList<>();
+		List<EmployeeAssignment> employeeAssignments = new ArrayList<>();
+		Batch b1 = new Batch("TR-1392", "Test batch 1" , "12/12/1222", "4/4/1222" , "Unit Tests lol", "New Jersey" , "What is this field?" , 70 , 80, employeeAssignments, associateAssignments, 23);
+
+		String jsonBatch = new ObjectMapper().writeValueAsString(b1);
+
+		Mockito.when(as.getBatch("TR-1392")).thenReturn(b1);
+
+		this.mockMvc.perform(get("/admin/batch/TR-1392").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		this.mockMvc.perform(get("/admin/batch/TR-1392").accept(MediaType.APPLICATION_JSON)).andExpect(content().json(jsonBatch));
 	}
 	
 }
