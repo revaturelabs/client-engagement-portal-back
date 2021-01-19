@@ -1,7 +1,10 @@
 package com.engagement.controller;
 
 import com.engagement.model.Admin;
+import com.engagement.model.dto.AssociateAssignment;
+import com.engagement.model.dto.Batch;
 import com.engagement.model.dto.BatchName;
+import com.engagement.model.dto.EmployeeAssignment;
 import com.engagement.service.AdminService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
@@ -299,6 +302,28 @@ class AdminControllerTest {
 		this.mockMvc
 			.perform(put("/admin/unmapBatchFromClient?batchId=ABC&email=a@b").accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().isConflict());
+	}
+
+	@Test
+	void testGetAllBatches() throws Exception {
+		List<AssociateAssignment> associateAssignments  = new ArrayList<>();
+		List<EmployeeAssignment> employeeAssignments = new ArrayList<>();
+
+		List<Batch> batches = new ArrayList<>();
+
+		Batch b1 = new Batch("TR-1392", "Test batch 1" , "12/12/1222", "4/4/1222" , "Unit Tests lol", "New Jersey" , "What is this field?" , 70 , 80, employeeAssignments, associateAssignments, 23);
+		Batch b2 = new Batch("TR-1492", "Test batch 2" , "2/12/1776", "08/30/1776" , "Unit Tests lol", "Atlanta" , "What is this field?" , 70 , 80, employeeAssignments, associateAssignments, 23);
+
+		batches.add(b1);
+		batches.add(b2);
+
+		String jsonBatches = new ObjectMapper().writeValueAsString(batches);
+		Mockito.when(as.getAllBatches()).thenReturn(batches);
+
+		// Make sure caliber is good to go
+		this.mockMvc.perform(get("/admin/batches").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		// Uses the mocked Batches to make sure it is received by the AdminService
+		this.mockMvc.perform(get("/admin/batches").accept(MediaType.APPLICATION_JSON)).andExpect(content().json(jsonBatches));
 	}
 	
 }
