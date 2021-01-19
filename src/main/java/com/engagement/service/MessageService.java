@@ -5,6 +5,7 @@ import com.engagement.model.Client;
 import com.engagement.model.Message;
 import com.engagement.model.dto.MessageAdminDTO;
 import com.engagement.model.dto.MessageClientDTO;
+import com.engagement.model.dto.MessageDTO;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.MessageRepo;
@@ -35,19 +36,6 @@ public class MessageService {
       return null;
     }
     return message;
-  }
-
-  public Message addMessageAdmin(MessageAdminDTO messageAdminDTO){
-	  Admin admin = adminRepo.findByAdminId(messageAdminDTO.getAdminId());
-	    Client client = clientRepo.findById(messageAdminDTO.getClientId());
-	    Message message = new Message(0,true,admin, client,messageAdminDTO.getMessage(),null,false,messageAdminDTO.getTitle());
-	    return (Message) messageRepo.save(message);
-  }
-  public Message addMessageClient(MessageClientDTO messageClientDTO){
-	  Admin admin = adminRepo.findByAdminId(messageClientDTO.getAdminId());
-	    Client client = clientRepo.findById(messageClientDTO.getClientId());
-	    Message message = new Message(0,false, admin, client,messageClientDTO.getMessage(),null,false,messageClientDTO.getTitle());
-	    return (Message) messageRepo.save(message);
   }
 
   public String deleteMessage(int messageId){
@@ -98,5 +86,24 @@ public class MessageService {
 		}
 		return messageRepo.findByclientId(client2);
 	}
+
+	public Message adminAddMessage(MessageAdminDTO messageAdminDTO) {
+		Admin admin = adminRepo.findByEmail(messageAdminDTO.getAdminEmail());
+		Client client = clientRepo.findByEmail(messageAdminDTO.getClientEmail());
+		
+		Message message = new Message(0,true,admin, client,messageAdminDTO.getMessage(),null,false,messageAdminDTO.getTitle());
+		return (Message) messageRepo.save(message);
+	}
+
+	public Message clientAddMessage(MessageClientDTO messageClientDTO) {
+		Admin admin = adminRepo.findByEmail(messageClientDTO.getAdminEmail());
+		Client client = clientRepo.findByEmail(messageClientDTO.getClientEmail());
+		Message message = new Message(0,false,admin, client,messageClientDTO.getMessage(),null,false,messageClientDTO.getTitle());
+		return (Message) messageRepo.save(message);
+	}
+
+	
+
+	
 
 }

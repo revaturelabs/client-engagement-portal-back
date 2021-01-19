@@ -22,6 +22,7 @@ import com.engagement.model.Client;
 import com.engagement.model.Message;
 import com.engagement.model.dto.MessageAdminDTO;
 import com.engagement.model.dto.MessageClientDTO;
+import com.engagement.model.dto.MessageDTO;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.MessageRepo;
@@ -43,30 +44,30 @@ class MessageServiceTest {
 	@InjectMocks
 	private MessageService messageService;
 	
-	Client client0 = new Client(0, "client0@a.net", "walmart", "573-555-3535");
+	Client client0 = new Client(0, "client0@a", "walmart", "573-555-3535");
 	Admin admin0 = new Admin(0,"admin0@b","firstnameadmin0","lastnameadmin0");
 	
-	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(), "title", "Hello from MessageAdminDTO");
-	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(), "title", "Hello from MessageClientDTO");
+	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getEmail(), admin0.getEmail(), "title", "Hello from MessageAdminDTO");
+	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getEmail(), client0.getEmail(), "title", "Hello from MessageClientDTO");
 	
 	Message testMessage = new Message(0, true, admin0, client0, "Test message", null, false, "Test title");
 	Message testMessage1 = new Message(1, true, admin0, client0, "Test message1", null, false, "Test1 title");
 	
 	/**
-	 * This tests verifies that the messageService.addMessageAdmin method calls the save method.
+	 * This tests verifies that the messageService.adminAddMessage() method calls the save method.
 	 * 
 	 * @author Takia Ross
 	 */
 	@Test
-	public void testAddMessageAdmin() {
+	public void testAdminAddMessage() {
 		// Create a message
-		Admin admin = adminRepo.findByAdminId(messageAdminDTO.getAdminId());
-		Client client = clientRepo.findById(messageAdminDTO.getClientId());
+		Admin admin = adminRepo.findByEmail(messageAdminDTO.getAdminEmail());
+		Client client = clientRepo.findByEmail(messageAdminDTO.getClientEmail());
 		Message mockMessageAdmin = new Message(0, true, admin, client, messageAdminDTO.getMessage(), null, false, messageAdminDTO.getTitle());
 		Mockito.when(messageRepo.save(ArgumentMatchers.any(Message.class))).thenReturn(mockMessageAdmin);
 		
 		// Save Message
-		Message newAdminMessage = messageService.addMessageAdmin(messageAdminDTO);
+		Message newAdminMessage = messageService.adminAddMessage(messageAdminDTO);
 		
 		// Verify save
 		assertEquals("Hello from MessageAdminDTO", newAdminMessage.getMessage());
@@ -75,20 +76,20 @@ class MessageServiceTest {
 	
 	
 	/**
-	 * This tests verifies that the messageService.addMessageClient method calls the save method.
+	 * This tests verifies that the messageService.clientAddMessage() method calls the save method.
 	 * 
 	 * @author Takia Ross
 	 */
 	@Test
-	void testAddMessageClient() {
+	void testClientAddMessage() {
 		// Create a message
-		Admin admin = adminRepo.findByAdminId(messageClientDTO.getAdminId());
-		Client client = clientRepo.findById(messageClientDTO.getClientId());
+		Admin admin = adminRepo.findByEmail(messageClientDTO.getAdminEmail());
+		Client client = clientRepo.findByEmail(messageClientDTO.getClientEmail());
 		Message mockClientMessage = new Message(0, false, admin, client, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		Mockito.when(messageRepo.save(ArgumentMatchers.any(Message.class))).thenReturn(mockClientMessage);
 		
 		// Save Message
-		Message newClientMessage = messageService.addMessageClient(messageClientDTO);
+		Message newClientMessage = messageService.clientAddMessage(messageClientDTO);
 		
 		// Verify save
 		assertEquals("Hello from MessageClientDTO", newClientMessage.getMessage());
@@ -172,7 +173,7 @@ class MessageServiceTest {
 	
 	
 	/**
-	 * This tests verifies adminRepo.findByAdminId(int) and messageRepo.findByadminId(int) methods are called.
+	 * This tests verifies adminRepo.findByEmail(int) and messageRepo.findByadminId(int) methods are called.
 	 * 
 	 * @author Takia Ross
 	 */
@@ -196,9 +197,9 @@ class MessageServiceTest {
 		List<Message> messages = new ArrayList<>();
 		Message mockClientMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		messages.add(mockClientMessage);
-		Mockito.when(clientRepo.findByEmail("client0@a.net")).thenReturn(client0);
+		Mockito.when(clientRepo.findByEmail("client0@a")).thenReturn(client0);
 		Mockito.when(messageRepo.findByclientId(client0)).thenReturn(messages);
-		List<Message> foundMessages = messageService.findByClientEmail("client0@a.net");
+		List<Message> foundMessages = messageService.findByClientEmail("client0@a");
 		assertTrue(foundMessages.get(0) == mockClientMessage);
 	}
 	
@@ -229,9 +230,9 @@ class MessageServiceTest {
 //		case 1: Find message by clientEmail 
 		Message mockClientMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		messages.add(mockClientMessage);
-		Mockito.when(clientRepo.findByEmail("client0@a.net")).thenReturn(client0);
+		Mockito.when(clientRepo.findByEmail("client0@a")).thenReturn(client0);
 		Mockito.when(messageRepo.findByclientId(client0)).thenReturn(messages);
-		List<Message> foundMessagesClient = messageService.findByClientEmail("client0@a.net");
+		List<Message> foundMessagesClient = messageService.findByClientEmail("client0@a");
 		assertTrue(foundMessagesClient.get(0) == mockClientMessage);
 //		case 2: Find message by adminEmail
 		List<Message> messagesAdmin = new ArrayList<>();

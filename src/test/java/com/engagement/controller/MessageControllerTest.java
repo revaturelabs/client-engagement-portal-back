@@ -36,6 +36,7 @@ import com.engagement.model.Client;
 import com.engagement.model.Message;
 import com.engagement.model.dto.MessageAdminDTO;
 import com.engagement.model.dto.MessageClientDTO;
+import com.engagement.model.dto.MessageDTO;
 import com.engagement.repo.MessageRepo;
 import com.engagement.service.MessageService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -81,8 +82,8 @@ class MessageControllerTest {
 	Client client0 = new Client(0, "client0@a", "walmart", "573-555-3535");
 	Admin admin0= new Admin(0,"admin0@b","firstnameadmin0","lastnameadmin0");
 	
-	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getClientId(), admin0.getAdminId(),"title","Hello from MessageAdminDTO");
-	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getAdminId(), client0.getClientId(),"title","Hello from MessageClientDTO"
+	MessageAdminDTO messageAdminDTO = new MessageAdminDTO(client0.getEmail(), admin0.getEmail(),"title","Hello from MessageAdminDTO");
+	MessageClientDTO messageClientDTO = new MessageClientDTO(admin0.getEmail(), client0.getEmail(),"title","Hello from MessageClientDTO"
 			+ "");
 	
 	Message mockAdminMessage = new Message(0,true, admin0, client0, messageAdminDTO.getMessage(), null, false, messageAdminDTO.getTitle());
@@ -125,12 +126,12 @@ class MessageControllerTest {
 	
 	
 	/**
-	 * Test method for {@link com.engagement.controller.MessageController#addMessageAdmin(com.engagement.model.dto.MessageAdminDTO)}.
+	 * Test method for {@link com.engagement.controller.MessageController#adminAddMessage(com.engagement.model.dto.MessageDTO)}.
 	 * @throws Exception 
 	 */
 	@Test
 	void testAddMessageAdmin() throws Exception {
-		Mockito.when(messageService.addMessageAdmin(messageAdminDTO)).thenReturn(mockAdminMessage);
+		Mockito.when(messageService.adminAddMessage(messageAdminDTO)).thenReturn(mockAdminMessage);
 		this.mockMvc.perform(post("/msg/admin")
 				.contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(messageAdminDTO)))
@@ -141,12 +142,12 @@ class MessageControllerTest {
 
 	
 	/**
-	 * Test method for {@link com.engagement.controller.MessageController#addMessageClient(com.engagement.model.dto.MessageClientDTO)}.
+	 * Test method for {@link com.engagement.controller.MessageController#clientAddMessage(com.engagement.model.dto.MessageDTO)}.
 	 * @throws Exception 
 	 */
 	@Test
-	void testAddMessageClient() throws Exception {
-		Mockito.when(messageService.addMessageClient(messageClientDTO)).thenReturn(mockClientMessage);
+	void testClientAddMessage() throws Exception {
+		Mockito.when(messageService.clientAddMessage(messageClientDTO)).thenReturn(mockClientMessage);
 		this.mockMvc.perform(post("/msg/client")
 				.contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(messageClientDTO)))
