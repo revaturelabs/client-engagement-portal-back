@@ -60,7 +60,7 @@ pipeline {
     }
     stage ('Docker Log') {
       steps {
-        sh 'nohup docker logs -f cep > /home/jwilson/.jenkins/workspace/CEP-Back/logs/application.log &';
+        sh 'nohup docker logs -f cep > /home/ec2-user/.jenkins/workspace/CEP-Back/logs/application.log &';
       }
     }
     stage ('Docker Check Containers') {
