@@ -6,6 +6,12 @@ pipeline {
     PORT=9011
   } 
     stages {
+
+    stage ('Clean & Package') {
+      steps {
+        sh 'mvn clean package' 
+      }
+    }
   
     stage('Destroy Old Server') {
       steps {
@@ -18,11 +24,6 @@ pipeline {
             echo 'No server was already running'
           }
         }
-      }
-    }
-    stage ('Clean & Package') {
-      steps {
-        sh 'mvn clean package' 
       }
     }
     /*
