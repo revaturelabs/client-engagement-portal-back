@@ -55,7 +55,7 @@ pipeline {
     }
     stage ('Docker Run') {
       steps {
-        sh 'docker run --env-file=/home/jwilson/dataFiles/env -v /home/jwilson/dataFiles:/env -p 9011:9011 --name cep -d cep-image'
+        sh 'docker run --env-file=/home/ec2-user/env -v /home/ec2-user/firebase:/env -p 9011:9011 --name cep -d cep-image'
       }
     }
     stage ('Docker Log') {
