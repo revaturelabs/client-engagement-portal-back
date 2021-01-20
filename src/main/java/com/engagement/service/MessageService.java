@@ -5,7 +5,6 @@ import com.engagement.model.Client;
 import com.engagement.model.Message;
 import com.engagement.model.dto.MessageAdminDTO;
 import com.engagement.model.dto.MessageClientDTO;
-import com.engagement.model.dto.MessageDTO;
 import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.MessageRepo;
@@ -53,7 +52,6 @@ public class MessageService {
   
   public List<Message> findByClientId(int clientId) {
 	  Client client1 = clientRepo.findById(clientId);
-//	  Client client2 = new Client(1,"client2@Walmart","Walmart","123-456-7890");
 	  return messageRepo.findByclientId(client1);
   }
   
@@ -64,7 +62,6 @@ public class MessageService {
 
 	public List<Message> findByClientEmail(String clientEmail) {
 		Client client2 = clientRepo.findByEmail(clientEmail);
-		System.out.println("ClientInfo: "+ client2);
 		return messageRepo.findByclientId(client2);
 	}
 	
@@ -79,7 +76,6 @@ public class MessageService {
 		if(client2 == null) {
 			Admin admin2 = adminRepo.findByEmail(email);
 			if (admin2 == null) {
-				System.out.println("Email is not exist. ");
 				return null;
 			}
 			return messageRepo.findByadminId(admin2);
