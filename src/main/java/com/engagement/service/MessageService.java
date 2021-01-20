@@ -1,5 +1,6 @@
 package com.engagement.service;
 
+import com.engagement.exception.IllegalEmailException;
 import com.engagement.model.Admin;
 import com.engagement.model.Client;
 import com.engagement.model.Message;
@@ -71,12 +72,12 @@ public class MessageService {
 		
 	}
 	
-	public List<Message> findMessageByEmail(String email) {
+	public List<Message> findMessageByEmail(String email) throws IllegalEmailException {
 		Client client2 = clientRepo.findByEmail(email);
 		if(client2 == null) {
 			Admin admin2 = adminRepo.findByEmail(email);
 			if (admin2 == null) {
-				return null;
+				throw new IllegalEmailException("Email does not exist");
 			}
 			return messageRepo.findByadminId(admin2);
 		}
@@ -88,14 +89,14 @@ public class MessageService {
 		Client client = clientRepo.findByEmail(messageAdminDTO.getClientEmail());
 		
 		Message message = new Message(0,true,admin, client,messageAdminDTO.getMessage(),null,false,messageAdminDTO.getTitle());
-		return (Message) messageRepo.save(message);
+		return messageRepo.save(message);
 	}
 
 	public Message clientAddMessage(MessageClientDTO messageClientDTO) {
 		Admin admin = adminRepo.findByEmail(messageClientDTO.getAdminEmail());
 		Client client = clientRepo.findByEmail(messageClientDTO.getClientEmail());
 		Message message = new Message(0,false,admin, client,messageClientDTO.getMessage(),null,false,messageClientDTO.getTitle());
-		return (Message) messageRepo.save(message);
+		return messageRepo.save(message);
 	}
 
 	

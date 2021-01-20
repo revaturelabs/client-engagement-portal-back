@@ -59,7 +59,7 @@ class MessageServiceTest {
 	 * @author Takia Ross
 	 */
 	@Test
-	public void testAdminAddMessage() {
+	void testAdminAddMessage() {
 		// Create a message
 		Admin admin = adminRepo.findByEmail(messageAdminDTO.getAdminEmail());
 		Client client = clientRepo.findByEmail(messageAdminDTO.getClientEmail());
@@ -138,7 +138,7 @@ class MessageServiceTest {
 		assertEquals(messageService.deleteMessage(0), "Message id: " + 0 + " has successfully deleted");
 		// if message doesn't exist
 		Mockito.when(messageRepo.findById(1)).thenReturn(null);
-		assertEquals(messageService.deleteMessage(1), "Message NOT found");
+		assertEquals("Message NOT found", messageService.deleteMessage(1));
 	}
 	
 	
@@ -161,7 +161,7 @@ class MessageServiceTest {
 	 * @author Takia Ross
 	 */
 	@Test
-	public void testFindByClientId() {
+	void testFindByClientId() {
 		List<Message> messages = new ArrayList<>();
 		Message mockClientMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		messages.add(mockClientMessage);
@@ -178,7 +178,7 @@ class MessageServiceTest {
 	 * @author Takia Ross
 	 */
 	@Test
-	public void testFindByAdminId() {
+	void testFindByAdminId() {
 		List<Message> messages = new ArrayList<>();
 		Message mockAdminMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		messages.add(mockAdminMessage);
@@ -209,7 +209,7 @@ class MessageServiceTest {
 	 * @author Tianyuan Deng
 	 */
 	@Test
-	public void testFindByAdminEmail() {
+	void testFindByAdminEmail() {
 		List<Message> messages = new ArrayList<>();
 		Message mockAdminMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		messages.add(mockAdminMessage);
@@ -225,7 +225,7 @@ class MessageServiceTest {
 	 * @author Tianyuan Deng
 	 */
 	@Test
-	public void testFindMessageByEmail() {
+	void testFindMessageByEmail() {
 		List<Message> messages = new ArrayList<>();
 //		case 1: Find message by clientEmail 
 		Message mockClientMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
