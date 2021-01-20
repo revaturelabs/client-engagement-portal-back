@@ -1,6 +1,5 @@
 package com.engagement.controller;
 
-import com.engagement.exception.IllegalEmailException;
 import com.engagement.model.Message;
 import com.engagement.model.dto.MessageAdminDTO;
 import com.engagement.model.dto.MessageClientDTO;
@@ -63,7 +62,7 @@ public class MessageController {
   }
   
   @GetMapping("/message/{email}")
-  public List<Message> getMessageByEmail (@PathVariable String email) throws IllegalEmailException {
+  public List<Message> getMessageByEmail (@PathVariable String email) {
 	  return messageService.findMessageByEmail(email);
   }
   
