@@ -36,7 +36,6 @@ import com.engagement.model.Client;
 import com.engagement.model.Message;
 import com.engagement.model.dto.MessageAdminDTO;
 import com.engagement.model.dto.MessageClientDTO;
-import com.engagement.model.dto.MessageDTO;
 import com.engagement.repo.MessageRepo;
 import com.engagement.service.MessageService;
 import com.fasterxml.jackson.databind.ObjectMapper;
