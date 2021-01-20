@@ -20,9 +20,10 @@ import lombok.NoArgsConstructor;
 *
 */
 
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @Entity
 public class ClientBatch {
 
