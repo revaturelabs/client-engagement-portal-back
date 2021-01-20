@@ -13,11 +13,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Message {
 
-  public enum haveBatch{
-    NOBATCH,
-    BATCHID
-  }
-
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int messageId;
