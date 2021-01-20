@@ -6,29 +6,24 @@ pipeline {
     PORT=9011
   } 
     stages {
+
+    stage ('Clean & Package') {
+      steps {
+        sh 'mvn clean package' 
+      }
+    }
   
     stage('Destroy Old Server') {
       steps {
         script {
           try {
             // kill any running instances
-            sh 'kill $(lsof -t -i:$PORT)'
+            sh 'docker stop cep'
           } catch (all) {
             // if it fails that should mean a server wasn't already running
             echo 'No server was already running'
           }
         }
-      }
-    }
-    stage('Install maven dependencies') {
-      steps {
-        //clean install maven
-        sh 'mvn install'
-      }
-    }
-    stage ('Clean & Package') {
-      steps {
-        sh 'mvn clean package' 
       }
     }
     /*
@@ -55,12 +50,12 @@ pipeline {
     }
     stage ('Docker Build') {
       steps {
-        sh 'docker build -t tyronev/ce-portal:v1 .'
+        sh 'docker build -t cep-image .'
       }
     }
     stage ('Docker Run') {
       steps {
-        sh 'docker run -p 9011:9011 --name cep -it -d tyronev/ce-portal:v1'
+        sh 'docker run --env-file=/home/ec2-user/env -v /home/ec2-user/firebase:/home/ec2-user/firebase -p 9011:9011 --name cep -d cep-image'
       }
     }
     stage ('Docker Log') {
