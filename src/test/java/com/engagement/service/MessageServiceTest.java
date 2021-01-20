@@ -119,7 +119,7 @@ class MessageServiceTest {
 	 */
 	@Test
 	void testGetMessageById() {
-		Mockito.when(messageRepo.findById(0)).thenReturn(testMessage);
+		Mockito.when(messageRepo.findByMessageId(0)).thenReturn(testMessage);
 		Message foundMessage = messageService.getMessageById(0);
 		assertEquals("Test message", foundMessage.getMessage());
 	}
@@ -133,10 +133,10 @@ class MessageServiceTest {
 	@Test
 	void testDeleteMessage() {
 		// if message exists
-		Mockito.when(messageRepo.findById(0)).thenReturn(testMessage);
+		Mockito.when(messageRepo.findByMessageId(0)).thenReturn(testMessage);
 		assertEquals(messageService.deleteMessage(0), "Message id: " + 0 + " has successfully deleted");
 		// if message doesn't exist
-		Mockito.when(messageRepo.findById(1)).thenReturn(null);
+		Mockito.when(messageRepo.findByMessageId(1)).thenReturn(null);
 		assertEquals("Message NOT found", messageService.deleteMessage(1));
 	}
 	
@@ -164,7 +164,7 @@ class MessageServiceTest {
 		List<Message> messages = new ArrayList<>();
 		Message mockClientMessage = new Message(0, false, admin0, client0, messageClientDTO.getMessage(), null, false, messageClientDTO.getTitle());
 		messages.add(mockClientMessage);
-		Mockito.when(clientRepo.findById(0)).thenReturn(client0);
+		Mockito.when(clientRepo.findByClientId(0)).thenReturn(client0);
 		Mockito.when(messageRepo.findByclientId(client0)).thenReturn(messages);
 		List<Message> foundMessages = messageService.findByClientId(0);
 		assertTrue(foundMessages.get(0) == mockClientMessage);

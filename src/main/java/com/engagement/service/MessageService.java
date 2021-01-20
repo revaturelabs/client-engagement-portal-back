@@ -30,7 +30,7 @@ public class MessageService {
   }
 
   public Message getMessageById(int messageId){
-    Message message = messageRepo.findById(messageId);
+    Message message = messageRepo.findByMessageId(messageId);
     if (message == null){
       return null;
     }
@@ -38,7 +38,7 @@ public class MessageService {
   }
 
   public String deleteMessage(int messageId){
-    Message message = messageRepo.findById(messageId);
+    Message message = messageRepo.findByMessageId(messageId);
     if (message == null){
       return "Message NOT found";
     }
@@ -51,7 +51,7 @@ public class MessageService {
   }
   
   public List<Message> findByClientId(int clientId) {
-	  Client client1 = clientRepo.findById(clientId);
+	  Client client1 = clientRepo.findByClientId(clientId);
 	  return messageRepo.findByclientId(client1);
   }
   

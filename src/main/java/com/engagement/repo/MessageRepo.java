@@ -14,9 +14,9 @@ public interface MessageRepo extends JpaRepository <Message, Integer>{
 
   public List<Message> findAll(); //Find all of the messages
 
-  public Message findById(int messageId); //Find message by id
+  public Message findByMessageId(int messageId); //Find message by id
 
-  public Message deleteById(int messageId);
+  public Message deleteByMessageId(int messageId);
 
 //  this part is new, need some tests
   public Message findByMessage (String message);
