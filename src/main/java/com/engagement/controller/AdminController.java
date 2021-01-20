@@ -64,11 +64,6 @@ public class AdminController {
 	public Admin findAdminByEmail(@PathVariable String email) {
 		return as.findByEmail(email);
 	}
-
-//	need to add some documentations
-	public Admin findByAdminId (int id) {
-		return as.findByAdminId(id);
-	}
 	
 	/**
 	 * Creates a new Admin object and persists to the DB
