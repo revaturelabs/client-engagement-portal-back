@@ -11,4 +11,4 @@ VALUES
 INSERT INTO admin
 (email, first_name, last_name)
 VALUES
-('daniel.monteton@gmail.com', 'Daniel', 'Mont-Eton');
+('dancerdan2@msn.com', 'Daniel', 'Mont-Eton');
