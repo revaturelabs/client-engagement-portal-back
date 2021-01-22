@@ -1,11 +1,13 @@
 package com.engagement.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.transaction.Transactional;
 
+import com.engagement.model.dto.Batch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,11 @@ import com.engagement.repo.AdminRepo;
 import com.engagement.repo.ClientBatchRepo;
 import com.engagement.repo.ClientRepo;
 import com.engagement.repo.caliber.TrainingClient;
+import com.engagement.util.FirebaseUtil;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseToken;
+import com.google.firebase.auth.UserRecord;
 
 
 
@@ -41,7 +48,12 @@ public class AdminService {
 	@Autowired 
 	private ClientRepo cr;
 	
-	
+	@Autowired
+	private FirebaseUtil firebaseUtil;
+
+	@Autowired
+	private ClientService cs;
+
 	/**
 	 * Return a list of all admins
 	 * @return
@@ -81,8 +93,16 @@ public class AdminService {
 		
 		try {
 			ar.save(admin);
+//			Map<String, Object> claims = new HashMap<String, Object>();
+//			claims.put("role", "admin");
+//			UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(admin.getEmail());
+//			FirebaseAuth.getInstance().setCustomUserClaims(userRecord.getUid(), claims);
+			firebaseUtil.setCustomClaims(admin.getEmail());
 			return true;
 		} catch (IllegalArgumentException e) {
+			return false;
+		} catch (FirebaseAuthException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -195,6 +215,24 @@ public class AdminService {
 			
 		return ret;
 					
+	}
+
+	/**
+	 * Used by AdminController to return a list of all the batches and their information
+	 * @return A List<Batch>
+	 * @author Cory Sebastian
+	 */
+	public List<Batch> getAllBatches() {
+		List<BatchName> batchNames = getAllBatchNames();
+		List<Batch> batches = new ArrayList<>();
+		for (BatchName batchName : batchNames) {
+			batches.add(cs.getBatchByBatchId(batchName.getBatchId()));
+		}
+		return batches;
+	}
+
+	public Batch getBatch(String id) {
+		return cs.getBatchByBatchId(id);
 	}
 	
 	
